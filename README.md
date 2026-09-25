@@ -71,7 +71,7 @@ presence ("3 here now"), a passport that stamps each of the ten apps you visit, 
 per-visitor lists. Each app turns that into its own loop: Rookie Scout drafts go on a roster that every seed
 re-scores against that day's smart money; Rewind calls score on a leaderboard; Exit Clock hands can be
 watched; Obituaries take candles; Dynasties take fealty; MENAGERIE specimens are collected; the soap has a
-studio audience; the rope takes sides. State lives in Redis (Railway) or Upstash in production, and in one
+studio audience; the rope takes sides. State lives in Convex in production (Redis or Upstash also work), and in one
 shared JSON file across the eleven local dev servers. Every social call is fail-safe: if the store is
 unreachable, pages render exactly as before.
 
@@ -113,11 +113,11 @@ Until an app is seeded it shows a hand-written sample flagged **sample data** in
 
 ## Deploy
 
-- **Vercel:** one project per app. Set the project's *Root Directory* to `apps/<app>` (and `apps/store`);
-  Vercel detects the pnpm workspace and Turborepo. The store needs `NEXT_PUBLIC_APP_URL_TEMPLATE`
-  (default `https://longitude-{id}.vercel.app`); apps need `NEXT_PUBLIC_STORE_URL` and `NANSEN_API_KEY`
-  for refresh-live. Optional `UPSTASH_REDIS_REST_URL` / `_TOKEN` make the store's credit counter live
-  across every deployment.
+- **Vercel:** one project per app, Root Directory `apps/<app>`. `node scripts/vercel-projects.mjs` creates or
+  updates the eleven projects through your logged-in Vercel CLI session, `node scripts/vercel-projects.mjs env KEY VALUE`
+  sets a variable on all of them, and `scripts/deploy-vercel.sh` deploys from the repo root (deploying from an app
+  folder uploads only that folder). Apps need `NEXT_PUBLIC_STORE_URL`, `NEXT_PUBLIC_APP_URL_TEMPLATE`,
+  `CONVEX_URL`, `SNAPSHOT_BASE_URL`, `NANSEN_API_KEY` (for refresh-live), `SEED_TOKEN` and `CRON_SECRET`.
 - **Convex:** `cd packages/social && npx convex dev --once` creates the deployment; put its URL in
   `CONVEX_URL`, set `SNAPSHOT_BASE_URL` to `<site url>/snapshots`, generate a `SEED_TOKEN` and set it both in
   `.env` and on the deployment (`npx convex env set SEED_TOKEN …`). One Convex deployment holds the social store,
