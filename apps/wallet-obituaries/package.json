@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3009",
+    "dev": "next dev -p 4109",
     "build": "next build",
-    "start": "next start -p 3009",
+    "start": "next start -p 4109",
     "typecheck": "tsc --noEmit",
     "seed": "node --env-file-if-exists=../../.env --import tsx seed.ts"
   },

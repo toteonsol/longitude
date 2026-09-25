@@ -42,7 +42,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "rookie-scout",
     name: "Rookie Scout",
-    port: 3001,
+    port: 4101,
     tagline: "Draft the next smart money before the label lands.",
     explainer:
       "These wallets trade like Nansen's proven smart money but don't carry the label yet. Flip a card to see how close each one is.",
@@ -54,7 +54,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "two-faced",
     name: "Two-Faced",
-    port: 3002,
+    port: 4102,
     tagline: "Every wallet wears two masks.",
     explainer:
       "One wallet, two personalities: how it trades tokens on the spot market versus how it bets with leverage on perps. Drag the slider to swap masks.",
@@ -66,7 +66,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "exit-clock",
     name: "Exit Clock",
-    port: 3003,
+    port: 4103,
     tagline: "Every holder is a hand. Every hand is counting down.",
     explainer:
       "Each hand is a smart money wallet holding this token, counting down to when it usually sells. When hands reach zero, the exits begin.",
@@ -78,7 +78,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "odds-vs-flow",
     name: "Odds vs Flow",
-    port: 3004,
+    port: 4104,
     tagline: "The crowd bets. Smart money moves. Who's pulling harder?",
     explainer:
       "The crowd sets odds on prediction markets. Smart money moves real capital on-chain. The rope shows who is pulling harder right now.",
@@ -90,7 +90,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "last-ones-out",
     name: "Last Ones Out",
-    port: 3005,
+    port: 4105,
     tagline: "Smart money left. Someone's still home.",
     explainer:
       "Every lit window is a token that retail still holds while smart money has already left. Watch the lights go out.",
@@ -102,7 +102,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "dynasties",
     name: "Dynasties",
-    port: 3006,
+    port: 4106,
     tagline: "Every wallet has a bloodline.",
     explainer:
       "Wallets have families: the wallet that first funded them and the wallets they fund. Each coat of arms is drawn from the address itself.",
@@ -114,7 +114,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "menagerie",
     name: "MENAGERIE",
-    port: 3007,
+    port: 4107,
     tagline: "A field guide to the species of smart money.",
     explainer:
       "Smart money wallets sorted into species by how they behave. Tap an animal to read its field notes.",
@@ -126,7 +126,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "rewind",
     name: "Rewind",
-    port: 3008,
+    port: 4108,
     tagline: "Go back. Make the call. Press play.",
     explainer:
       "Pick a real date in the past, guess which token smart money was right about, then press play to see what happened next.",
@@ -138,7 +138,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "wallet-obituaries",
     name: "Wallet Obituaries",
-    port: 3009,
+    port: 4109,
     tagline: "In memoriam: the wallets that sold it all.",
     explainer:
       "Today's front page remembers wallets that sold everything. Every headline is a real exit, typeset as it happened.",
@@ -150,7 +150,7 @@ export const APPS: readonly AppMeta[] = [
   {
     id: "as-the-chain-turns",
     name: "As The Chain Turns",
-    port: 3010,
+    port: 4110,
     tagline: "Tune in. The wallets have feelings.",
     explainer:
       "The last 24 hours of smart money trading, told as a daytime soap. The cast is real wallets and the drama is real trades.",

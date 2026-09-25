@@ -1,0 +1,359 @@
+{
+  "app": "rookie-scout",
+  "name": "main",
+  "generatedAt": "2026-09-25T10:22:13.526Z",
+  "credits": 0,
+  "sample": true,
+  "note": "Hand-written sample for development. Run `pnpm --filter @longitude/rookie-scout seed` with NANSEN_API_KEY set to replace with live data.",
+  "data": {
+    "generatedAt": "2026-09-25T10:22:13.527Z",
+    "window": {
+      "from": "2026-06-27",
+      "to": "2026-09-25"
+    },
+    "cohort": {
+      "size": 50,
+      "medians": {
+        "winRate": 62,
+        "pnlUsd": 240000,
+        "trades": 160,
+        "tokens": 30
+      },
+      "veterans": [
+        {
+          "address": "0x1111111111111111111111111111111111111111",
+          "label": "Smart Trader (sample)",
+          "pnlUsd": 2140000,
+          "winRate": 71,
+          "trades": 212,
+          "tokens": 38
+        },
+        {
+          "address": "0x2222222222222222222222222222222222222222",
+          "label": "30D Smart Trader (sample)",
+          "pnlUsd": 1480000,
+          "winRate": 64,
+          "trades": 154,
+          "tokens": 22
+        },
+        {
+          "address": "0x3333333333333333333333333333333333333333",
+          "label": "Smart Trader (sample)",
+          "pnlUsd": 930000,
+          "winRate": 59,
+          "trades": 88,
+          "tokens": 17
+        },
+        {
+          "address": "0x4444444444444444444444444444444444444444",
+          "label": "First Mover (sample)",
+          "pnlUsd": 710000,
+          "winRate": 62,
+          "trades": 301,
+          "tokens": 55
+        },
+        {
+          "address": "0x5555555555555555555555555555555555555555",
+          "label": "Smart Trader (sample)",
+          "pnlUsd": 505000,
+          "winRate": 55,
+          "trades": 67,
+          "tokens": 12
+        }
+      ]
+    },
+    "tokensScouted": [
+      {
+        "symbol": "PEPE",
+        "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+        "chain": "ethereum",
+        "netFlow7dUsd": 3120000
+      },
+      {
+        "symbol": "WIF",
+        "address": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+        "chain": "solana",
+        "netFlow7dUsd": 1870000
+      },
+      {
+        "symbol": "AERO",
+        "address": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
+        "chain": "base",
+        "netFlow7dUsd": 940000
+      },
+      {
+        "symbol": "ENA",
+        "address": "0x57e114b691db790c35207b2e685d4a43181e6061",
+        "chain": "ethereum",
+        "netFlow7dUsd": 610000
+      },
+      {
+        "symbol": "VIRTUAL",
+        "address": "0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b",
+        "chain": "base",
+        "netFlow7dUsd": 380000
+      }
+    ],
+    "prospects": [
+      {
+        "number": 1,
+        "address": "0x4a9c1e0b7d3f52a86c1e9f0b2d7a4c6e8f1b3d5a",
+        "chain": "ethereum",
+        "spottedOn": {
+          "symbol": "PEPE",
+          "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+          "pnlUsd": 412000,
+          "stillHoldingRatio": 0.42
+        },
+        "stats": {
+          "winRate": 66,
+          "pnlUsd": 318000,
+          "trades": 142,
+          "tokens": 27,
+          "roiPct": 61
+        },
+        "topTokens": [
+          "PEPE",
+          "ENA",
+          "MOG",
+          "SPX",
+          "TURBO"
+        ],
+        "similarity": 99,
+        "grade": "A",
+        "verdict": "Draft",
+        "report": [
+          "Wins 66% of exits, above the smart money median of 62%.",
+          "Booked $318K realized over 90 days (+61% ROI). Cohort median $240K.",
+          "142 exits across 27 tokens. Trades less often than the cohort.",
+          "Spotted on $PEPE with $412K PnL, 42% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 2,
+        "address": "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "WIF",
+          "address": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+          "pnlUsd": 265000,
+          "stillHoldingRatio": 0.7
+        },
+        "stats": {
+          "winRate": 61,
+          "pnlUsd": 201000,
+          "trades": 118,
+          "tokens": 33,
+          "roiPct": 48
+        },
+        "topTokens": [
+          "WIF",
+          "BONK",
+          "JUP",
+          "POPCAT",
+          "RAY"
+        ],
+        "similarity": 98,
+        "grade": "A",
+        "verdict": "Draft",
+        "report": [
+          "Wins 61% of exits, below the smart money median of 62%.",
+          "Booked $201K realized over 90 days (+48% ROI). Cohort median $240K.",
+          "118 exits across 33 tokens. Trades less often than the cohort.",
+          "Spotted on $WIF with $265K PnL, 70% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 3,
+        "address": "0x2f8d6b1c3e5a7f9d0b2c4e6a8f1d3b5c7e9a0f2d",
+        "chain": "ethereum",
+        "spottedOn": {
+          "symbol": "ENA",
+          "address": "0x57e114b691db790c35207b2e685d4a43181e6061",
+          "pnlUsd": 155000,
+          "stillHoldingRatio": 0.31
+        },
+        "stats": {
+          "winRate": 54,
+          "pnlUsd": 122000,
+          "trades": 203,
+          "tokens": 41,
+          "roiPct": 22
+        },
+        "topTokens": [
+          "ENA",
+          "PENDLE",
+          "ETHFI",
+          "EIGEN"
+        ],
+        "similarity": 94,
+        "grade": "A",
+        "verdict": "Draft",
+        "report": [
+          "Wins 54% of exits, below the smart money median of 62%.",
+          "Booked $122K realized over 90 days (+22% ROI). Cohort median $240K.",
+          "203 exits across 41 tokens. Active at smart money pace.",
+          "Spotted on $ENA with $155K PnL, 31% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 4,
+        "address": "0xb17e2c4d9a0f6e8b3c5d7a1f9e2b4c6d8a0f3e5b",
+        "chain": "base",
+        "spottedOn": {
+          "symbol": "AERO",
+          "address": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
+          "pnlUsd": 98000,
+          "stillHoldingRatio": 0.88
+        },
+        "stats": {
+          "winRate": 63,
+          "pnlUsd": 74000,
+          "trades": 71,
+          "tokens": 14,
+          "roiPct": 37
+        },
+        "topTokens": [
+          "AERO",
+          "BRETT",
+          "DEGEN"
+        ],
+        "similarity": 91,
+        "grade": "A",
+        "verdict": "Draft",
+        "report": [
+          "Wins 63% of exits, above the smart money median of 62%.",
+          "Booked $74K realized over 90 days (+37% ROI). Cohort median $240K.",
+          "71 exits across 14 tokens. Trades less often than the cohort.",
+          "Spotted on $AERO with $98K PnL, 88% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 5,
+        "address": "0x93c1a7e5d2f4b6c8a0e2d4f6b8a1c3e5d7f9b2a4",
+        "chain": "base",
+        "spottedOn": {
+          "symbol": "VIRTUAL",
+          "address": "0x0b3e328455c4059eeb9e3f84b5543f74e24e7e1b",
+          "pnlUsd": 61000,
+          "stillHoldingRatio": 0.55
+        },
+        "stats": {
+          "winRate": 58,
+          "pnlUsd": 43000,
+          "trades": 52,
+          "tokens": 9,
+          "roiPct": 44
+        },
+        "topTokens": [
+          "VIRTUAL",
+          "AIXBT",
+          "GAME"
+        ],
+        "similarity": 84,
+        "grade": "A",
+        "verdict": "Draft",
+        "report": [
+          "Wins 58% of exits, below the smart money median of 62%.",
+          "Booked $43K realized over 90 days (+44% ROI). Cohort median $240K.",
+          "52 exits across 9 tokens. Trades less often than the cohort.",
+          "Spotted on $VIRTUAL with $61K PnL, 55% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 6,
+        "address": "5RvjP2AGkpnyztB8v4kQzRfBmDcHb7fGHS7qXgvUgqLz",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "WIF",
+          "address": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+          "pnlUsd": 44000,
+          "stillHoldingRatio": 0.12
+        },
+        "stats": {
+          "winRate": 49,
+          "pnlUsd": 21000,
+          "trades": 39,
+          "tokens": 12,
+          "roiPct": 15
+        },
+        "topTokens": [
+          "WIF",
+          "BONK",
+          "MEW"
+        ],
+        "similarity": 77,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 49% of exits, below the smart money median of 62%.",
+          "Booked $21K realized over 90 days (+15% ROI). Cohort median $240K.",
+          "39 exits across 12 tokens. Trades less often than the cohort.",
+          "Spotted on $WIF with $44K PnL, 12% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 7,
+        "address": "0xd3b5f7a9c1e2d4f6b8a0c2e4d6f8a1b3c5e7d9f2",
+        "chain": "base",
+        "spottedOn": {
+          "symbol": "AERO",
+          "address": "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
+          "pnlUsd": 22000,
+          "stillHoldingRatio": 0.6
+        },
+        "stats": {
+          "winRate": 71,
+          "pnlUsd": 9800,
+          "trades": 18,
+          "tokens": 5,
+          "roiPct": 31
+        },
+        "topTokens": [
+          "AERO",
+          "WELL"
+        ],
+        "similarity": 77,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 71% of exits, above the smart money median of 62%.",
+          "Booked $10K realized over 90 days (+31% ROI). Cohort median $240K.",
+          "18 exits across 5 tokens. Trades less often than the cohort.",
+          "Spotted on $AERO with $22K PnL, 60% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 8,
+        "address": "0x7e5a3c1f9b2d4e6a8c0f2b4d6e8a1c3f5b7d9e1a",
+        "chain": "ethereum",
+        "spottedOn": {
+          "symbol": "PEPE",
+          "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+          "pnlUsd": 38000,
+          "stillHoldingRatio": 0.95
+        },
+        "stats": {
+          "winRate": 44,
+          "pnlUsd": 12500,
+          "trades": 26,
+          "tokens": 7,
+          "roiPct": 9
+        },
+        "topTokens": [
+          "PEPE",
+          "SHIB"
+        ],
+        "similarity": 70,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 44% of exits, below the smart money median of 62%.",
+          "Booked $13K realized over 90 days (+9% ROI). Cohort median $240K.",
+          "26 exits across 7 tokens. Trades less often than the cohort.",
+          "Spotted on $PEPE with $38K PnL, 95% of its peak bag still held."
+        ]
+      }
+    ]
+  }
+}

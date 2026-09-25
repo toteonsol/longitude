@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { IBM_Plex_Mono, Inter, Oswald } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
 import "./globals.css";
 
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
-const display = Inter({ subsets: ["latin"], variable: "--font-display", weight: ["600", "700"] });
-const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500"] });
+const display = Oswald({ subsets: ["latin"], variable: "--font-display", weight: ["500", "600", "700"] });
+const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
   title: "Rookie Scout · LONGITUDE",
-  description: "A Nansen-powered app from the LONGITUDE store.",
+  description: "Draft the next smart money before the label lands. Prospect wallets scored against Nansen's smart money cohort.",
 };
 
 export const viewport: Viewport = { themeColor: "#0b3d1f", width: "device-width", initialScale: 1 };

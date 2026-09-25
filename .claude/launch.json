@@ -2,15 +2,15 @@
   "version": "0.0.1",
   "configurations": [
     { "name": "store", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/store", "dev"], "port": 3000 },
-    { "name": "rookie-scout", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/rookie-scout", "dev"], "port": 3001 },
-    { "name": "two-faced", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/two-faced", "dev"], "port": 3002 },
-    { "name": "exit-clock", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/exit-clock", "dev"], "port": 3003 },
-    { "name": "odds-vs-flow", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/odds-vs-flow", "dev"], "port": 3004 },
-    { "name": "last-ones-out", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/last-ones-out", "dev"], "port": 3005 },
-    { "name": "dynasties", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/dynasties", "dev"], "port": 3006 },
-    { "name": "menagerie", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/menagerie", "dev"], "port": 3007 },
-    { "name": "rewind", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/rewind", "dev"], "port": 3008 },
-    { "name": "wallet-obituaries", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/wallet-obituaries", "dev"], "port": 3009 },
-    { "name": "as-the-chain-turns", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/as-the-chain-turns", "dev"], "port": 3010 }
+    { "name": "rookie-scout", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/rookie-scout", "dev"], "port": 4101 },
+    { "name": "two-faced", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/two-faced", "dev"], "port": 4102 },
+    { "name": "exit-clock", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/exit-clock", "dev"], "port": 4103 },
+    { "name": "odds-vs-flow", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/odds-vs-flow", "dev"], "port": 4104 },
+    { "name": "last-ones-out", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/last-ones-out", "dev"], "port": 4105 },
+    { "name": "dynasties", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/dynasties", "dev"], "port": 4106 },
+    { "name": "menagerie", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/menagerie", "dev"], "port": 4107 },
+    { "name": "rewind", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/rewind", "dev"], "port": 4108 },
+    { "name": "wallet-obituaries", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/wallet-obituaries", "dev"], "port": 4109 },
+    { "name": "as-the-chain-turns", "runtimeExecutable": "pnpm", "runtimeArgs": ["--filter", "@longitude/as-the-chain-turns", "dev"], "port": 4110 }
   ]
 }
