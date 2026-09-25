@@ -3,6 +3,7 @@ import { NumberTicker, type Variants, motion, useReducedMotion } from "@longitud
 import { shortAddress } from "@longitude/nansen";
 import type { Obituary as Notice } from "@/lib/data";
 import { chainName, explorer, qty, stamp, usd } from "@/lib/format";
+import { Condolences } from "./Condolences";
 import { Typeset } from "./Typeset";
 
 interface Props {
@@ -71,6 +72,9 @@ export function Obituary({ o, index, lead = false, headlineActive, deckActive = 
             Continued on {ex.name}, tx {shortAddress(o.exit.txHash, 5)} ›
           </a>
         </motion.p>
+        <motion.div className="obit__condolences" variants={para}>
+          <Condolences o={o} />
+        </motion.div>
       </motion.div>
     </article>
   );

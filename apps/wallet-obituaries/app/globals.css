@@ -511,6 +511,116 @@ body {
   font-size: 12.5px;
 }
 
+/* Condolences: a classified-ad tally line under every notice. */
+.condolences {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 12px;
+  margin: 10px 0 0;
+  padding-top: 6px;
+  border-top: 1px solid var(--rule);
+}
+
+.condolences__label {
+  font-family: var(--lg-font-display);
+  font-variant-caps: small-caps;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  color: var(--ink-60);
+}
+
+.condolences__bar {
+  display: inline-flex;
+  min-width: 0;
+}
+
+.condolences__share {
+  margin-left: auto;
+}
+
+/* The kit's reactions and share button, re-inked: hairline dividers, italic small type, boxed tallies. */
+.obit .lg-reactions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.obit .lg-reaction {
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 10px;
+  border: 0;
+  border-left: 1px solid var(--ink-15);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--lg-font);
+  font-style: italic;
+  font-size: 12.5px;
+  line-height: 1;
+  color: var(--ink-80);
+}
+
+.obit .lg-reaction:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.obit .lg-reaction:hover {
+  color: var(--red);
+}
+
+.obit .lg-reaction.is-mine {
+  background: transparent;
+  border-color: var(--ink-15);
+  color: var(--red);
+  font-style: normal;
+}
+
+.obit .lg-reaction.is-mine span[aria-hidden]::before {
+  content: "✓ ";
+}
+
+.obit .lg-reaction b {
+  padding: 2px 4px 1px;
+  border: 1px solid var(--ink-40);
+  border-radius: 1px;
+  font-family: var(--lg-font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.obit .lg-btn--share {
+  gap: 5px;
+  min-height: 40px;
+  padding: 0 2px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--lg-font);
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--red);
+}
+
+.obit .lg-btn--share:hover:not(:disabled) {
+  border-color: transparent;
+  text-decoration: underline;
+}
+
+.obit .lg-btn--share span[aria-hidden] {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+/* Frame chrome the social layer added, on paper. */
+.lg-presence {
+  border-radius: 2px;
+  border-color: var(--ink-40);
+}
+
 /* The rail */
 .rail {
   border-left: 1px solid var(--rule);

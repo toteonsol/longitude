@@ -1,8 +1,9 @@
 "use client";
+import { ShareButton } from "@longitude/kit";
 import { AnimatePresence, NumberTicker, Reveal, Stagger, StaggerItem, Typewriter, fmt, motion, springs, useReducedMotion } from "@longitude/motion";
 import { useState } from "react";
 import type { AsTheChainTurnsData, CastMember, Episode, Scene } from "@/lib/data";
-import { hhmm } from "@/lib/format";
+import { episodeShareText, hhmm } from "@/lib/format";
 import { FeaturedCard } from "./CastCard";
 import { Portrait } from "./Portrait";
 
@@ -170,9 +171,12 @@ export function EndCard({ data, onReplay }: { data: AsTheChainTurnsData; onRepla
         </p>
       </Reveal>
       <Reveal delay={1.3} y={8}>
-        <button type="button" className="tv__btn" onClick={onReplay}>
-          Replay episode
-        </button>
+        <div className="end__actions">
+          <button type="button" className="tv__btn" onClick={onReplay}>
+            Replay episode
+          </button>
+          <ShareButton text={episodeShareText(data.episode)} label="Share this episode" />
+        </div>
       </Reveal>
     </motion.div>
   );

@@ -2,6 +2,7 @@ import { AppFrame, Missing, getApp } from "@longitude/kit";
 import { liveFlags, loadAppData } from "@longitude/kit/server";
 import { EpisodePlayer } from "@/components/EpisodePlayer";
 import { type AsTheChainTurnsData, buildAsTheChainTurns } from "@/lib/data";
+import { episodeShareText } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
 
@@ -15,7 +16,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
     fetchLive: ({ nansen }) => buildAsTheChainTurns(nansen),
   });
   return (
-    <AppFrame app={app} source={source} error={error}>
+    <AppFrame app={app} source={source} error={error} share={data ? { text: episodeShareText(data.episode) } : undefined}>
       {data ? <EpisodePlayer data={data} /> : <Missing app={app} />}
     </AppFrame>
   );
