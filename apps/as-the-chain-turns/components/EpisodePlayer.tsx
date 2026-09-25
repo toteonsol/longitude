@@ -19,6 +19,10 @@ const TITLE_MS = 5200;
 /** About five seconds a scene, a little longer when the caption has more to say. */
 const sceneMs = (s: Scene) => Math.min(8000, Math.max(5000, 1500 + s.caption.length * 27 + 1800));
 
+/** The studio audience's three signs. */
+const AUDIENCE_KINDS = ["gasp", "tears", "applause"];
+const AUDIENCE_GLYPHS: Record<string, string> = { gasp: "GASP", tears: "TEARS", applause: "APPLAUSE" };
+
 const Icon = {
   prev: (
     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -163,6 +167,17 @@ export function EpisodePlayer({ data }: { data: AsTheChainTurnsData }) {
   const coStar = activeScene?.coStar ? castByAddress.get(activeScene.coStar) : undefined;
   const intro = current?.kind === "title" || current?.kind === "previously";
 
+  // Social layer, all fire-and-forget: the player never waits on it and never breaks without it.
+  const me = useIdentity();
+  const announced = useRef(false);
+  useEffect(() => {
+    if (!playing || !me || announced.current) return;
+    announced.current = true;
+    void social.event("custom", `${me.handle} is watching Ep. ${episode.number} "${episode.title}"`);
+  }, [playing, me, episode.number, episode.title]);
+  // The audience reacts to the scene on screen; between scenes, to the episode. Keyed so counts reset per target.
+  const audienceTarget = activeScene ? `scene:${episode.number}:${activeScene.index}` : `episode:${episode.number}`;
+
   return (
     <div className="player" onKeyDown={onKey}>
       <div className="tv" role="region" aria-label="Episode player">
@@ -195,6 +210,13 @@ export function EpisodePlayer({ data }: { data: AsTheChainTurnsData }) {
           <span>LONGITUDE</span>
           <span>CH 4110</span>
         </div>
+      </div>
+
+      <div className="audience" role="group" aria-label="Studio audience">
+        <span className="audience__sign">
+          Studio audience · <b>{activeScene ? `Scene ${activeScene.index}` : "This episode"}</b>
+        </span>
+        <ReactionBar key={audienceTarget} target={audienceTarget} kinds={AUDIENCE_KINDS} glyphs={AUDIENCE_GLYPHS} />
       </div>
 
       <div className="player__controls">

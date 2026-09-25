@@ -1,8 +1,9 @@
 "use client";
+import { ShareButton } from "@longitude/kit";
 import { AnimatePresence, NumberTicker, animate, fmt, motion, springs, useMotionValue, useReducedMotion, useTransform } from "@longitude/motion";
 import { type CSSProperties, useEffect, useMemo } from "react";
 import { HOLD_DAYS, type Tape, dayOffset, pctFrom } from "@/lib/data";
-import { DRAW_SECONDS, type Phase, pickColor } from "./shared";
+import { DRAW_SECONDS, type Phase, STAGGER_SECONDS, pickColor } from "./shared";
 
 const W = 640;
 const H = 300;
@@ -75,10 +76,12 @@ interface Props {
   tape: Tape;
   phase: Phase;
   call: string | null;
+  /** Prefilled share text once there is a verdict; null before. */
+  shareText: string | null;
 }
 
 /** The TV: static until PLAY, then the four price paths draw in, the returns roll, and the verdict lands. */
-export function Playback({ tape, phase, call }: Props) {
+export function Playback({ tape, phase, call, shareText }: Props) {
   const reduce = useReducedMotion();
   const { series, ticks, y, x } = useMemo(() => buildSeries(tape), [tape]);
   const rolling = phase === "playing" || phase === "revealed";
@@ -126,7 +129,7 @@ export function Playback({ tape, phase, call }: Props) {
                 stroke="currentColor"
                 initial={false}
                 animate={{ pathLength: rolling ? 1 : 0 }}
-                transition={rolling ? { duration: draw, delay: reduce ? 0 : i * 0.1, ease: "easeInOut" } : { duration: reduce ? 0 : 0.5, ease: "easeIn" }}
+                transition={rolling ? { duration: draw, delay: reduce ? 0 : i * STAGGER_SECONDS, ease: "easeInOut" } : { duration: reduce ? 0 : 0.5, ease: "easeIn" }}
               />
             ))}
             {series.map((s, i) => (
@@ -136,7 +139,7 @@ export function Playback({ tape, phase, call }: Props) {
                 style={{ color: s.color }}
                 initial={false}
                 animate={{ opacity: rolling ? 1 : 0 }}
-                transition={{ duration: 0.3, delay: rolling ? draw + (reduce ? 0 : i * 0.1) : 0 }}
+                transition={{ duration: 0.3, delay: rolling ? draw + (reduce ? 0 : i * STAGGER_SECONDS) : 0 }}
               >
                 <circle cx={s.end.x} cy={s.end.y} r={4} />
                 <text x={s.end.x + 9} y={s.labelY + 5}>
@@ -188,6 +191,7 @@ export function Playback({ tape, phase, call }: Props) {
                   {called && !hit ? ` Your $${called.symbol} did ${fmt.pctSigned(called.returnPct30d, 1)}.` : null}
                   {hit ? " You called it." : null}
                 </span>
+                {shareText ? <ShareButton text={shareText}>Share the call</ShareButton> : null}
               </motion.div>
             ) : null}
           </AnimatePresence>

@@ -1,9 +1,10 @@
 import type { NansenClient, RowOf } from "@longitude/nansen";
 import { CreditCapExceededError } from "@longitude/nansen";
 
-/** Chains the flow side runs on: where BTC (as WBTC), ETH and SOL have Smart Money coverage. */
-export type Chain = "ethereum" | "solana";
-const CHAINS: readonly Chain[] = ["ethereum", "solana"];
+/** Chains the flow side runs on: where BTC (as WBTC), ETH and SOL have Smart Money coverage; hyperevm joins in DEEP mode for HYPE. */
+export type Chain = "ethereum" | "solana" | "hyperevm";
+const CORE_CHAINS: readonly Chain[] = ["ethereum", "solana"];
+const DEEP_CHAINS: readonly Chain[] = ["ethereum", "solana", "hyperevm"];
 
 /** The crowd's stance on the asset once the question's direction is applied to its YES lean. */
 export type Stance = "bullish" | "bearish" | "split";
@@ -80,10 +81,17 @@ interface Asset {
   chain: Chain;
 }
 
-const ASSETS: readonly Asset[] = [
+const CORE_ASSETS: readonly Asset[] = [
   { symbol: "BTC", name: "Bitcoin", query: "bitcoin", mention: /\b(bitcoin|btc)\b/i, tokens: ["WBTC", "BTC", "CBBTC", "TBTC"], chain: "ethereum" },
   { symbol: "ETH", name: "Ethereum", query: "ethereum", mention: /\b(ethereum|ether|eth)\b/i, tokens: ["ETH", "WETH"], chain: "ethereum" },
   { symbol: "SOL", name: "Solana", query: "solana", mention: /\b(solana|sol)\b/i, tokens: ["SOL", "WSOL"], chain: "solana" },
+];
+
+/** DEEP=1 adds three more majors; each only makes the card when its token shows up on the netflow page. */
+const DEEP_ASSETS: readonly Asset[] = [
+  { symbol: "HYPE", name: "Hyperliquid", query: "hype", mention: /\b(hyperliquid|hype)\b/i, tokens: ["HYPE", "WHYPE"], chain: "hyperevm" },
+  { symbol: "DOGE", name: "Dogecoin", query: "dogecoin", mention: /\b(dogecoin|doge)\b/i, tokens: ["DOGE", "WDOGE"], chain: "solana" },
+  { symbol: "XRP", name: "XRP", query: "xrp", mention: /\bxrp\b/i, tokens: ["XRP", "WXRP"], chain: "ethereum" },
 ];
 
 const num = (v: number | string | null | undefined): number => {
@@ -305,12 +313,12 @@ function tokenOf(row: NetflowRow): TokenFlow {
 }
 
 /** For each asset, the netflow row that stands for it: preferred symbol first, then its home chain, then the bigger flow. */
-function matchTokens(rows: NetflowRow[], into: Map<string, TokenFlow> = new Map()): Map<string, TokenFlow> {
-  for (const asset of ASSETS) {
+function matchTokens(rows: NetflowRow[], assets: readonly Asset[], chains: readonly Chain[], into: Map<string, TokenFlow> = new Map()): Map<string, TokenFlow> {
+  for (const asset of assets) {
     if (into.has(asset.symbol)) continue;
     const best = rows
       .map((r) => ({ r, rank: asset.tokens.indexOf((r.token_symbol ?? "").toUpperCase()) }))
-      .filter((x) => x.rank >= 0 && CHAINS.includes(x.r.chain as Chain))
+      .filter((x) => x.rank >= 0 && chains.includes(x.r.chain as Chain))
       .sort(
         (a, b) =>
           a.rank - b.rank ||
@@ -331,15 +339,22 @@ interface Candidate {
 const volume24h = (c: Candidate): number => num(c.row.volume_24hr);
 
 /**
- * Builds the card. About 8 credits on a normal run (three 1-credit screener queries and one 5-credit
+ * Builds the card. Normal run: about 8 credits (three 1-credit screener queries and one 5-credit
  * netflow), at most 17 when every fallback fires (a second netflow for a missing major, an orderbook
- * per bout). Seed cap: 25.
+ * per bout). DEEP=1 (seed only; read here, never in client code): six assets (adds HYPE, DOGE, XRP,
+ * with hyperevm on the netflow page so HYPE can match) and up to six bouts, about 11 credits (six
+ * screener queries and one netflow), at most 22 with every fallback. Seed cap: 30.
  */
 export async function buildOddsVsFlow(nansen: NansenClient): Promise<OddsVsFlowData> {
+  const deep = process.env.DEEP === "1";
+  const assets: readonly Asset[] = deep ? [...CORE_ASSETS, ...DEEP_ASSETS] : CORE_ASSETS;
+  const chains: readonly Chain[] = deep ? DEEP_CHAINS : CORE_CHAINS;
+  const maxBouts = deep ? 6 : 4;
+
   // 1) The crowd: the most traded open markets that name each asset, kept only when the question is a
   //    directional price call. 1 credit per asset.
   const found: Candidate[] = [];
-  for (const asset of ASSETS) {
+  for (const asset of assets) {
     const res = await nansen.predictionMarket.marketScreener(
       {
         query: asset.query,
@@ -363,34 +378,35 @@ export async function buildOddsVsFlow(nansen: NansenClient): Promise<OddsVsFlowD
   //    the page. 5 credits. If a major is missing (and has a market), one targeted retry by symbol.
   const flows = await nansen.smartMoney.netflow(
     {
-      chains: [...CHAINS],
+      chains: [...chains],
       filters: { include_native_tokens: true, include_stablecoins: false },
       order_by: [{ field: "market_cap_usd", direction: "DESC" }],
       pagination: { page: 1, per_page: 100 },
     },
     { tag: "flow:majors" },
   );
-  const tokens = matchTokens(flows.data ?? []);
-  const missing = ASSETS.filter((a) => !tokens.has(a.symbol) && found.some((c) => c.asset === a));
+  const tokens = matchTokens(flows.data ?? [], assets, chains);
+  const missing = assets.filter((a) => !tokens.has(a.symbol) && found.some((c) => c.asset === a));
   if (missing.length) {
     const retry = await nansen.smartMoney.netflow(
       {
-        chains: [...CHAINS],
+        chains: [...chains],
         filters: { include_native_tokens: true, include_stablecoins: false, token_address: missing.flatMap((a) => [...a.tokens]) },
         pagination: { page: 1, per_page: 20 },
       },
       { tag: "flow:retry" },
     );
-    matchTokens(retry.data ?? [], tokens);
+    matchTokens(retry.data ?? [], assets, chains, tokens);
   }
 
-  // 3) The card: the busiest market per asset, then a fourth bout from what is left, preferring a
-  //    question that runs the other way from its asset's main bout (a "dip to" against an "above").
+  // 3) The card: the busiest market per asset, then the best of what is left until the card is full,
+  //    preferring a question that runs the other way from its asset's main bout (a "dip to" against
+  //    an "above").
   const picks: Candidate[] = [];
   const taken = new Set<string>();
   const mainDirection = new Map<string, 1 | -1>();
-  for (const asset of ASSETS) {
-    if (!tokens.has(asset.symbol)) continue;
+  for (const asset of assets) {
+    if (picks.length >= maxBouts || !tokens.has(asset.symbol)) continue;
     const best = found.filter((c) => c.asset === asset).sort((a, b) => volume24h(b) - volume24h(a))[0];
     if (!best) continue;
     picks.push(best);
@@ -398,10 +414,14 @@ export async function buildOddsVsFlow(nansen: NansenClient): Promise<OddsVsFlowD
     mainDirection.set(asset.symbol, best.direction);
   }
   const otherWay = (c: Candidate): number => Number(mainDirection.get(c.asset.symbol) !== c.direction);
-  const fourth = found
+  const leftovers = found
     .filter((c) => tokens.has(c.asset.symbol) && !taken.has(String(c.row.market_id)))
-    .sort((a, b) => otherWay(b) - otherWay(a) || volume24h(b) - volume24h(a))[0];
-  if (fourth) picks.push(fourth);
+    .sort((a, b) => otherWay(b) - otherWay(a) || volume24h(b) - volume24h(a));
+  for (const c of leftovers) {
+    if (picks.length >= maxBouts) break;
+    picks.push(c);
+    taken.add(String(c.row.market_id));
+  }
 
   // 4) Odds: the screener's prices; the orderbook only when it had none. ≤ 1 credit per bout.
   const bouts: Bout[] = [];

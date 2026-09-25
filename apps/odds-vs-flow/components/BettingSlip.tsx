@@ -1,4 +1,5 @@
 "use client";
+import { ShareButton } from "@longitude/kit";
 import { Grow, fmt } from "@longitude/motion";
 import type { Bout } from "@/lib/data";
 
@@ -55,6 +56,7 @@ export function BettingSlip({ bout: b }: { bout: Bout }) {
   const no = 100 - yes;
   const bars = barcodeOf(m.id);
   const spread = m.bidCents !== null && m.askCents !== null ? `${m.bidCents}¢ / ${m.askCents}¢` : "—";
+  const shareText = `${m.question}: crowd ${yes}% vs smart money ${fmt.usdSigned(b.token.netFlow7dUsd)} net flow this week. Who wins the rope? Odds vs Flow, LONGITUDE, built on @nansen_ai`;
 
   return (
     <div className={`slip slip--${b.crowd.stance}`}>
@@ -63,6 +65,9 @@ export function BettingSlip({ bout: b }: { bout: Bout }) {
         <span className="slip__bout">Bout {String(b.number).padStart(2, "0")}</span>
         <span className="slip__serial">Nº {serialOf(m.id)}</span>
         <span className="slip__keep">Keep this portion · market #{m.id}</span>
+        <span className="slip__share">
+          <ShareButton text={shareText} label="Share bout" />
+        </span>
       </div>
       <div className="slip__tear" aria-hidden="true" />
       <div className="slip__body">

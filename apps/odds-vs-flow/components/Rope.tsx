@@ -2,6 +2,7 @@
 import { motion, useReducedMotion, useSpring, useTime, useTransform } from "@longitude/motion";
 import { useEffect } from "react";
 import type { Relation } from "@/lib/data";
+import { PickSide } from "./PickSide";
 
 /* Stage geometry, in viewBox units. The crowd stands left, smart money right, the knot between. */
 const W = 600;
@@ -31,6 +32,9 @@ interface Props {
   flow: number;
   crowdLabel: string;
   flowLabel: string;
+  /** Polymarket market id: the social target for "pick a side" is `bout:<marketId>`. */
+  marketId: string;
+  question: string;
 }
 
 const clamp = (v: number, lo: number, hi: number): number => Math.min(hi, Math.max(lo, v));
@@ -77,7 +81,7 @@ function Figure({ x, dir, tone }: { x: number; dir: 1 | -1; tone: "crowd" | "sma
  * side heaves on its own rhythm, scaled by its strength. Everything runs on motion values, so the
  * SVG updates without re-rendering. Tap the rope to run the tug again.
  */
-export function Rope({ pull, relation, crowd, flow, crowdLabel, flowLabel }: Props) {
+export function Rope({ pull, relation, crowd, flow, crowdLabel, flowLabel, marketId, question }: Props) {
   const reduce = useReducedMotion();
   const spring = useSpring(0, { stiffness: 64, damping: 8.5, mass: 1.1 });
   useEffect(() => {
@@ -155,6 +159,7 @@ export function Rope({ pull, relation, crowd, flow, crowdLabel, flowLabel }: Pro
           </text>
         </motion.g>
       </svg>
+      <PickSide marketId={marketId} question={question} />
     </div>
   );
 }

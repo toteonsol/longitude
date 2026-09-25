@@ -1,14 +1,15 @@
 "use client";
+import { Leaderboard, social, useIdentity } from "@longitude/kit";
 import { Reveal, Stagger, StaggerItem, useMotionValue, useReducedMotion } from "@longitude/motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { RewindData } from "@/lib/data";
-import { useScore } from "@/lib/score";
+import { claimAward, useScore } from "@/lib/score";
 import { Cassette } from "./Cassette";
 import { Playback } from "./Playback";
 import { Readout } from "./Readout";
 import { TapeWheel } from "./TapeWheel";
 import { Transport } from "./Transport";
-import { PLAY_SECONDS, type Phase, pickColor } from "./shared";
+import { type Phase, pickColor, revealSeconds } from "./shared";
 
 /** The deck: tape wheel → cassette → LOCK → PLAY → verdict. One phase machine; everything else reads it. */
 export function Deck({ data }: { data: RewindData }) {
@@ -23,6 +24,15 @@ export function Deck({ data }: { data: RewindData }) {
   const tvRef = useRef<HTMLElement>(null);
   const tape = tapes[Math.min(index, Math.max(0, tapes.length - 1))];
 
+  // Meridian social layer. Every social.* call resolves null on failure, so the deck never waits on it.
+  const me = useIdentity();
+  const meRef = useRef(me);
+  useEffect(() => {
+    meRef.current = me;
+  }, [me]);
+  /** Bumped once the points have landed, so the board refetches after the write, not before. */
+  const [boardTick, setBoardTick] = useState(0);
+
   const goTo = useCallback(
     (i: number) => {
       const next = Math.max(0, Math.min(tapes.length - 1, i));
@@ -34,15 +44,27 @@ export function Deck({ data }: { data: RewindData }) {
     [index, phase, tapes.length],
   );
 
-  // PLAY: the paths draw for PLAY_SECONDS, then the verdict lands and the score is written.
+  // PLAY: the paths draw (staggered per pick), then the verdict lands and the score is written.
   useEffect(() => {
     if (phase !== "playing" || !tape || !call) return;
     const t = setTimeout(
       () => {
         setPhase("revealed");
-        record(tape.date, call, call === tape.winner);
+        const hit = call === tape.winner;
+        const after = record(tape.date, call, hit);
+        // Points and the feed line go out once per visitor per tape date; replays only touch localStorage.
+        if (claimAward(tape.date)) {
+          const handle = meRef.current?.handle ?? "Someone";
+          void Promise.all([social.score("rewind", hit ? 1 : 0, "sum"), social.score("rewind-streak", after.streak, "max")]).then(() =>
+            setBoardTick((n) => n + 1),
+          );
+          void social.event(
+            "call",
+            `${handle} called $${call} on ${tape.label}: ${hit ? "HIT" : "MISS"} (score ${after.hits}/${after.answered}, streak ${after.streak})`,
+          );
+        }
       },
-      reduce ? 120 : PLAY_SECONDS * 1000,
+      reduce ? 120 : revealSeconds(tape.picks.length) * 1000,
     );
     return () => clearTimeout(t);
   }, [phase, tape, call, reduce, record]);
@@ -67,6 +89,12 @@ export function Deck({ data }: { data: RewindData }) {
   };
   const hitFor = (symbol: string): boolean | null => (phase === "revealed" && call === symbol ? symbol === tape.winner : null);
 
+  const hit = call !== null && call === tape.winner;
+  const shareText =
+    phase === "revealed" && call
+      ? `I called $${call} on Rewind: ${hit ? "HIT" : "MISS"} (${summary.hits}/${summary.answered}, streak ${summary.streak}). Can you beat the tape? LONGITUDE, built on @nansen_ai`
+      : null;
+
   return (
     <div className="rewind" data-phase={phase}>
       <div className="vhs-scan" aria-hidden="true" />
@@ -79,6 +107,9 @@ export function Deck({ data }: { data: RewindData }) {
         </div>
         <TapeWheel tapes={tapes} index={index} phase={phase} pos={pos} onIndex={goTo} />
         <Readout tape={tape} tapes={tapes} index={index} phase={phase} call={call} summary={summary} ready={ready} pos={pos} onReset={reset} />
+        <div className="deck__board">
+          <Leaderboard board="rewind" title="Top callers" unit="hits" limit={5} refreshKey={`${summary.answered}:${boardTick}`} />
+        </div>
         <Stagger key={tape.date} className="rack" gap={0.05}>
           {tape.picks.map((p, i) => (
             <StaggerItem key={`${p.chain}:${p.address}`} y={10}>
@@ -108,7 +139,7 @@ export function Deck({ data }: { data: RewindData }) {
         <div className="deck__vents" aria-hidden="true" />
       </Reveal>
       <section className="tv" ref={tvRef} aria-label="Playback">
-        <Playback tape={tape} phase={phase} call={call} />
+        <Playback tape={tape} phase={phase} call={call} shareText={shareText} />
       </section>
     </div>
   );

@@ -610,10 +610,10 @@ body {
   pointer-events: none;
 }
 
+/* Sized by head count (--cast-n) so a deep-run cast of ten still fits on one row of the screen. */
 .minicast__item {
-  width: clamp(40px, 9.5cqw, 76px);
-  min-width: 40px;
-  min-height: 40px;
+  width: min(clamp(40px, 9.5cqw, 76px), max(28px, calc((96cqw - (var(--cast-n, 6) - 1) * 1.6cqw) / var(--cast-n, 6))));
+  min-height: 28px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -671,6 +671,145 @@ body {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   opacity: 0.85;
+}
+
+/* ------------------------------------------------------------------ Studio audience (Meridian social) */
+.audience {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 16px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #3a232c, #1c1116 70%);
+  box-shadow:
+    0 10px 30px rgba(42, 26, 34, 0.25),
+    0 0 0 1px rgba(245, 197, 24, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.audience__sign {
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 214, 224, 0.7);
+  white-space: nowrap;
+}
+
+.audience__sign b {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Reactions as applause signs: gold letters on plum, lit when they are yours. */
+.lg-reactions {
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lg-reaction {
+  min-height: 40px;
+  padding: 0 14px;
+  gap: 8px;
+  border: 1.5px solid rgba(245, 197, 24, 0.55);
+  border-radius: 8px;
+  background: rgba(42, 26, 34, 0.92);
+  color: var(--gold);
+  font-family: var(--lg-font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px rgba(245, 197, 24, 0.35);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.45),
+    0 2px 0 rgba(0, 0, 0, 0.35);
+  transition:
+    border-color 0.15s ease,
+    text-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.lg-reaction:hover {
+  border-color: var(--gold);
+  text-shadow: 0 0 12px rgba(245, 197, 24, 0.8);
+  transform: translateY(-1px);
+}
+
+.lg-reaction b {
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.lg-reaction.is-mine {
+  background: linear-gradient(180deg, #fff1b8, #f5c518 55%, #d9a70f);
+  color: var(--plum);
+  border-color: #fff3c4;
+  text-shadow: none;
+  box-shadow:
+    0 0 0 1px rgba(245, 197, 24, 0.6),
+    0 0 22px rgba(245, 197, 24, 0.75);
+  animation: sign-flicker 0.9s ease-out 1;
+}
+
+.lg-reaction.is-mine b {
+  background: rgba(42, 26, 34, 0.16);
+  color: var(--plum);
+}
+
+@keyframes sign-flicker {
+  0% {
+    filter: brightness(1.6);
+  }
+  10% {
+    filter: brightness(0.75);
+  }
+  20% {
+    filter: brightness(1.5);
+  }
+  35%,
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* Share buttons (header and end card): gold on plum. */
+.lg-btn--share {
+  background: var(--plum);
+  color: var(--gold);
+  border-color: rgba(245, 197, 24, 0.6);
+  font-weight: 600;
+}
+
+.lg-btn--share:hover:not(:disabled) {
+  background: #3a232c;
+  border-color: var(--gold);
+}
+
+.end__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.end .lg-btn--share {
+  min-height: 40px;
+  padding: 0 18px;
+  font-size: clamp(12px, 2.4cqw, 16px);
+  border-width: 1.5px;
+  box-shadow: 0 0 18px rgba(245, 197, 24, 0.35);
 }
 
 /* ------------------------------------------------------------------ Controls */
@@ -1149,9 +1288,18 @@ body {
   }
 }
 
+@media (max-width: 420px) {
+  .lg-reaction {
+    padding: 0 10px;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .title__bokeh span,
-  .tv__paused {
+  .tv__paused,
+  .lg-reaction.is-mine {
     animation: none;
   }
   .castcard,

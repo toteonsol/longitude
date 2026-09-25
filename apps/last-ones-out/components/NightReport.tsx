@@ -1,8 +1,10 @@
 "use client";
+import { ShareButton } from "@longitude/kit";
 import { NumberTicker, Reveal, fmt } from "@longitude/motion";
 import type { LastOnesOutData } from "@/lib/data";
+import { shareText } from "@/lib/share";
 
-/** Four numbers for the whole city, above the skyline. */
+/** Four numbers for the whole city, above the skyline, and the line to share. */
 export function NightReport({ data }: { data: LastOnesOutData }) {
   const n = data.buildings.length;
   return (
@@ -30,6 +32,10 @@ export function NightReport({ data }: { data: LastOnesOutData }) {
           {data.window.from} → {data.window.to}
         </b>
         <span>{data.chains.join(" · ")}</span>
+      </div>
+      <div className="report__share">
+        <ShareButton text={shareText(data)} />
+        <span className="report__sharecap">tonight's skyline</span>
       </div>
     </Reveal>
   );

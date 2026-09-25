@@ -5,8 +5,10 @@ import { CreditCapExceededError, lastDays } from "@longitude/nansen";
 export const CHAINS = ["ethereum", "solana", "base"] as const;
 export type Chain = (typeof CHAINS)[number];
 
-/** Buildings in the skyline: the week's biggest smart money exits. */
+/** Buildings in the skyline: the week's biggest smart money exits. Client code may read this; it never changes. */
 export const BUILDINGS = 12;
+/** DEEP=1 seed runs build this many instead. Read only inside `buildLastOnesOut`, never by client code. */
+const DEEP_BUILDINGS = 24;
 /** Anything smaller than this is a shed, not a building. */
 export const MIN_MARKET_CAP_USD = 5_000_000;
 /** The OHLCV endpoint takes at most 10 addresses per batch call. */
@@ -124,11 +126,16 @@ export function captionFor(b: Pick<Building, "lit" | "darkness" | "retailNetFlow
 }
 
 /** Scores, ranks and captions a set of inputs into the finished snapshot. Pure: the seed and the sample share it. */
-export function assemble(inputs: BuildingInput[], window: { from: string; to: string }, generatedAt = new Date().toISOString()): LastOnesOutData {
+export function assemble(
+  inputs: BuildingInput[],
+  window: { from: string; to: string },
+  generatedAt = new Date().toISOString(),
+  count = BUILDINGS,
+): LastOnesOutData {
   const sorted = inputs
     .filter((b) => b.smartNetFlow7dUsd < 0)
     .sort((a, b) => a.smartNetFlow7dUsd - b.smartNetFlow7dUsd)
-    .slice(0, BUILDINGS);
+    .slice(0, count);
   const maxExit = Math.max(1, ...sorted.map((b) => Math.abs(b.smartNetFlow7dUsd)));
   const maxSmartWallets = Math.max(1, ...sorted.map((b) => b.smartWalletCount));
 
@@ -188,11 +195,15 @@ function pctChange(candles: { close?: number }[]): number {
 }
 
 /**
- * Builds the skyline. About 32 credits on a full run (cap 40):
- * 5 (netflow) + 12 × (1 flow intelligence + 1 token information) + 1 OHLCV batch per chain (3, or 4 if one chain has more than 10 tokens).
+ * Builds the skyline. Credits on a full run (seed.ts caps it at 80):
+ *   default, 12 buildings: about 32 = 5 (netflow) + 12 × (1 flow intelligence + 1 token information) + 1 OHLCV batch per chain (3, or 4 if one chain holds more than 10 tokens)
+ *   DEEP=1, 24 buildings:  about 56 = 5 + 24 × 2 + 3 (up to 5 OHLCV batches of 10 addresses when a chain holds more than 10)
+ * The snapshot carries whichever count was built; the skyline, register and window planner follow `buildings.length`.
  */
 export async function buildLastOnesOut(nansen: NansenClient): Promise<LastOnesOutData> {
   const range = lastDays(7);
+  // Seed-time switch only. BUILDINGS itself never changes, so client code that reads it stays at 12.
+  const count = process.env.DEEP === "1" ? DEEP_BUILDINGS : BUILDINGS;
 
   // 1) The week's biggest smart money exits: netflow ascending by 7d flow, mid caps and up. 5 credits.
   //    A few spare rows (same 5 credits) cover the client-side guard below.
@@ -200,14 +211,14 @@ export async function buildLastOnesOut(nansen: NansenClient): Promise<LastOnesOu
     chains: [...CHAINS],
     filters: { include_stablecoins: false, include_native_tokens: false, market_cap_usd: { min: MIN_MARKET_CAP_USD } },
     order_by: [{ field: "net_flow_7d_usd", direction: "ASC" }],
-    pagination: { page: 1, per_page: BUILDINGS + 4 },
+    pagination: { page: 1, per_page: count + 4 },
   });
   const exits = (netflow.data ?? [])
     .filter(
       (r: NetflowRow) =>
         isChain(r.chain) && num(r.net_flow_7d_usd) < 0 && (r.market_cap_usd === undefined || num(r.market_cap_usd) >= MIN_MARKET_CAP_USD),
     )
-    .slice(0, BUILDINGS);
+    .slice(0, count);
 
   // 2) Per building: who is still home (flow intelligence, 7d) and the nameplate (token information, 1d). 2 credits each.
   const inputs: BuildingInput[] = [];
@@ -255,5 +266,5 @@ export async function buildLastOnesOut(nansen: NansenClient): Promise<LastOnesOu
     }
   }
 
-  return assemble(inputs, range);
+  return assemble(inputs, range, undefined, count);
 }

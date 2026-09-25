@@ -473,9 +473,13 @@ body {
 }
 
 .slip__keep {
-  grid-column: 1 / -1;
+  grid-column: 1;
   font-size: 10px;
   letter-spacing: 0.14em;
+}
+
+.slip__share {
+  justify-self: end;
 }
 
 /* Perforation with punched notches on both edges */
@@ -833,5 +837,222 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .slip {
     transition: none;
+  }
+}
+
+/* ---------- Meridian social layer, restyled for the ticket-and-river world ---------- */
+
+/* Every kit button becomes a ticket-counter button: ink rule, hard shadow, mono caps */
+.lg-btn {
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease,
+    color 0.12s ease;
+}
+
+.lg-btn:hover:not(:disabled) {
+  border-color: var(--ink);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.lg-btn:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.lg-btn--ghost {
+  background: transparent;
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.lg-btn--share:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.lg-btn--share span[aria-hidden] {
+  font-size: 13px;
+}
+
+/* The share button on the ticket stub is a small counter stamp */
+.slip .lg-btn--share {
+  min-height: 40px;
+  padding: 6px 9px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  background: transparent;
+  box-shadow: 1.5px 1.5px 0 var(--ink);
+}
+
+.slip .lg-btn--share:hover:not(:disabled) {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--paper);
+}
+
+/* Pick-a-side buttons */
+.lg-reactions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lg-reaction {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  cursor: pointer;
+  font-family: var(--lg-font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease,
+    color 0.12s ease;
+}
+
+.lg-reaction:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.lg-reaction:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.lg-reaction:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.lg-reaction b {
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lg-reaction.is-mine {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.picks__btn--crowd.is-mine {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.picks__btn--smart.is-mine {
+  background: var(--river);
+  border-color: var(--river);
+}
+
+/* Tallies under each team, buttons on the knot's centre line */
+.picks {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "crowd buttons smart";
+  align-items: center;
+  gap: 10px 12px;
+  margin-top: 2px;
+}
+
+.picks__tally {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.picks__tally b {
+  font-family: var(--lg-font-display);
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.picks__tally small {
+  font-family: var(--lg-font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.picks__tally--crowd {
+  grid-area: crowd;
+}
+
+.picks__tally--crowd b {
+  color: var(--red);
+}
+
+.picks__tally--smart {
+  grid-area: smart;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.picks__tally--smart b {
+  color: var(--river);
+}
+
+.picks__buttons {
+  grid-area: buttons;
+  justify-self: center;
+}
+
+.picks__label {
+  font-family: var(--lg-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+/* Presence dot in team colours */
+.lg-presence__dot {
+  background: var(--river);
+  box-shadow: 0 0 0 3px rgba(28, 79, 140, 0.25);
+}
+
+@media (max-width: 900px) {
+  .picks {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "crowd smart"
+      "buttons buttons";
+  }
+}
+
+@media (max-width: 400px) {
+  .picks__label {
+    display: none;
   }
 }

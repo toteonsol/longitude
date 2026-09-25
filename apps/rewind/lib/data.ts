@@ -7,12 +7,16 @@ export type Chain = (typeof CHAINS)[number];
 
 /** Where the tapes are recorded: days before today. Tape 1 is the most recent. */
 export const TAPE_OFFSETS = [30, 60, 90, 120, 150] as const;
+/** DEEP=1 seed: eight tapes, back to 240 days. */
+export const DEEP_TAPE_OFFSETS = [30, 60, 90, 120, 150, 180, 210, 240] as const;
 /** The screener window: the week of smart money buying that ends on the tape's date. */
 export const WEEK_DAYS = 7;
 /** The reveal: what the price did over the 30 days after the date. */
 export const HOLD_DAYS = 30;
 const PICKS_PER_TAPE = 4;
-const SCREENER_ROWS = 6;
+const DEEP_PICKS_PER_TAPE = 5;
+/** Screener rows fetched per tape: the picks plus two spares for rows without candles. Same 5 credits either way. */
+const screenerRows = (picks: number) => picks + 2;
 
 export interface PathPoint {
   /** UTC day, YYYY-MM-DD. */
@@ -112,15 +116,22 @@ async function pricePath(
 }
 
 /**
- * Five tapes, one per past date. Per tape: the historical screener as it stood that week (5 credits),
- * then one ohlcv call per pick for the 30 days that followed (1 credit each).
- * 5 × (5 + 4) = 45 credits on a clean run, at most 55 if rows without candles are swapped for spares. Cap 60.
+ * One tape per past date. Per tape: the historical screener as it stood that week (5 credits), then one
+ * ohlcv call per pick for the 30 days that followed (1 credit each).
+ *
+ * Normal seed: 5 tapes × 4 picks = 5 × (5 + 4) = 45 credits on a clean run, at most 55 if rows without
+ * candles are swapped for spares.
+ * DEEP=1 seed (process.env.DEEP, read here and only here): 8 tapes × 5 picks = 8 × (5 + 5) = 80 credits,
+ * at most 96 with spares. seed.ts caps the run at 100.
  */
 export async function buildRewind(nansen: NansenClient): Promise<RewindData> {
+  const deep = process.env.DEEP === "1";
+  const offsets: readonly number[] = deep ? DEEP_TAPE_OFFSETS : TAPE_OFFSETS;
+  const picksPerTape = deep ? DEEP_PICKS_PER_TAPE : PICKS_PER_TAPE;
   const today = new Date();
   const tapes: Tape[] = [];
 
-  for (const daysAgo of TAPE_OFFSETS) {
+  for (const daysAgo of offsets) {
     const date = shiftDays(today, -daysAgo);
     const to = shiftDays(today, -daysAgo + HOLD_DAYS);
 
@@ -134,7 +145,7 @@ export async function buildRewind(nansen: NansenClient): Promise<RewindData> {
         trader_type: "sm",
         exclude_sectors: ["Stablecoin"],
         order_by: [{ field: "netflow", direction: "DESC" }],
-        pagination: { page: 1, per_page: SCREENER_ROWS },
+        pagination: { page: 1, per_page: screenerRows(picksPerTape) },
       },
       { tag: `tape:${date}` },
     );
@@ -146,7 +157,7 @@ export async function buildRewind(nansen: NansenClient): Promise<RewindData> {
     const picks: Pick[] = [];
     const seen = new Set<string>();
     for (const row of rows) {
-      if (picks.length >= PICKS_PER_TAPE) break;
+      if (picks.length >= picksPerTape) break;
       const symbol = row.token_symbol.toUpperCase();
       if (seen.has(symbol) || !isChain(row.chain)) continue;
       const path = await pricePath(nansen, { symbol, address: row.token_address, chain: row.chain }, date, to);

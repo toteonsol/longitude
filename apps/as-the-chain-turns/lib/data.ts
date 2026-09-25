@@ -661,14 +661,17 @@ function sceneTitle(t: Trade, used: Set<string>): string {
   return variants[start] as string;
 }
 
+interface SceneLimits {
+  min: number;
+  target: number;
+  max: number;
+}
+
 /**
- * 8–12 trades: one per cast member, the setup half of every chosen reversal (the audience needs the
- * "before"), then the most dramatic trades to fill up to ten.
+ * One trade per cast member, the setup half of every chosen reversal (the audience needs the
+ * "before"), then the most dramatic trades to fill up to `target`, never past `max`.
  */
-function selectScenes(cast: Member[]): Trade[] {
-  const MIN = 8;
-  const TARGET = 10;
-  const MAX = 12;
+function selectScenes(cast: Member[], { min: MIN, target: TARGET, max: MAX }: SceneLimits): Trade[] {
   const all = cast.flatMap((m) => m.trades);
   const byDrama = [...all].sort((a, b) => b.drama - a.drama || a.at - b.at);
   const chosen = new Set<Trade>();
@@ -771,10 +774,16 @@ function episodeTitle(t: Trade): string {
 const PREMIERE = Date.UTC(2026, 0, 5);
 
 /* ------------------------------------------------------------------------------------------------
- * Builder. 5 credits for the tape + 1 per cast member = 11 on a full run (cap 20).
+ * Builder. 5 credits for the tape + 1 per cast member: 11 on a normal run (cast of 6, 8–12 scenes).
+ * With DEEP=1 in the environment the seed shoots a double episode: a cast of 10 and up to 16 scenes,
+ * about 15 credits. seed.ts caps the run at 25 either way.
  * ---------------------------------------------------------------------------------------------- */
 
 export async function buildAsTheChainTurns(nansen: NansenClient): Promise<AsTheChainTurnsData> {
+  const deep = process.env.DEEP === "1";
+  const castSize = deep ? 10 : 6;
+  const limits: SceneLimits = deep ? { min: 8, target: 14, max: 16 } : { min: 8, target: 10, max: 12 };
+
   // 1) The day's tape: the 100 most recent smart money DEX trades. 5 credits.
   const res = await nansen.smartMoney.dexTrades({
     chains: [...CHAINS],
@@ -790,8 +799,8 @@ export async function buildAsTheChainTurns(nansen: NansenClient): Promise<AsTheC
   const tape = inDay.length >= 24 ? inDay : trades;
   const window = { from: new Date(Math.min(...tape.map((t) => t.at))).toISOString(), to: new Date(newest).toISOString() };
 
-  // 2) The cast: the six most active and valuable wallets.
-  const cast = groupMembers(tape).slice(0, 6);
+  // 2) The cast: the most active and valuable wallets (six, or ten in a deep run).
+  const cast = groupMembers(tape).slice(0, castSize);
   nameCast(cast);
   annotate(cast);
 
@@ -845,7 +854,7 @@ export async function buildAsTheChainTurns(nansen: NansenClient): Promise<AsTheC
   });
 
   // 4) Tonight's scenes, in air order.
-  const picked = selectScenes(cast);
+  const picked = selectScenes(cast, limits);
   const usedTitles = new Set<string>();
   const scenes: Scene[] = picked.map((t, i) => {
     const m = byAddress.get(t.wallet) ?? cast.find((c) => c.key === t.walletKey);

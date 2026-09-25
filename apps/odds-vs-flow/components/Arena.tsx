@@ -77,7 +77,16 @@ function BoutRow({ bout: b }: { bout: Bout }) {
           <h3 className="bout__asset">{b.asset.name}</h3>
           <span className={`stamp stamp--${b.relation}`}>{RELATION_STAMP[b.relation]}</span>
         </header>
-        <Rope pull={b.pull} relation={b.relation} crowd={b.crowd.conviction} flow={b.flow.strength} crowdLabel={crowdLabel} flowLabel={flowLabel} />
+        <Rope
+          pull={b.pull}
+          relation={b.relation}
+          crowd={b.crowd.conviction}
+          flow={b.flow.strength}
+          crowdLabel={crowdLabel}
+          flowLabel={flowLabel}
+          marketId={b.market.id}
+          question={b.market.question}
+        />
         <p className="bout__verdict">{b.verdict}</p>
       </div>
       <div className="bout__river">

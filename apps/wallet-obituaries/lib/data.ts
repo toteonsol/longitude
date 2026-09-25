@@ -8,10 +8,17 @@ export type Chain = (typeof CHAINS)[number];
 
 /** Notices on a front page. */
 export const OBITUARIES = 8;
+/** A DEEP seed (DEEP=1) casts a double edition. */
+export const DEEP_OBITUARIES = 16;
 /** Smallest sale that earns a notice, USD. The tape is sorted by value, so this only matters on a quiet day. */
 export const MIN_EXIT_USD = 2_500;
 /** Days of history behind the "lifetime" numbers. */
 export const LIFETIME_DAYS = 180;
+/** Balances are read for this many candidates so the cleanest exits lead the page. */
+export const SHORTLIST = 12;
+export const DEEP_SHORTLIST = 24;
+/** A wallet that still holds more than this share of the sale's value only stepped back. */
+export const PARTIAL_RATIO = 0.5;
 
 export interface Edition {
   /** YYYY-MM-DD (UTC) the page was set. */
@@ -101,11 +108,13 @@ const num = (v: number | string | null | undefined): number => {
   const n = Number(v ?? 0);
   return Number.isFinite(n) ? n : 0;
 };
-/** Fractions (0.62) and percents (62) both arrive from the API; normalise to percent. */
+/** Win rates arrive as fractions (0.62) but cannot exceed 1, so a value above 1 is already a percent. */
 const pct = (v: number | null | undefined): number => {
   const n = num(v);
   return Math.abs(n) <= 1 ? n * 100 : n;
 };
+/** ROI fields are fractions (2.09 = 209%), so they are always scaled. */
+const roi = (v: number | null | undefined): number => num(v) * 100;
 
 /* ------------------------------------------------------------------------------------------------
  * What counts as an exit
@@ -224,10 +233,17 @@ interface Vars {
   sym: string;
   into: string;
   value: string;
+  /** What the wallet still holds of the token, formatted; "" when nothing remains. */
+  kept: string;
   when: string;
   trades: number;
   tokens: number;
   exits: number;
+}
+
+/** True when the wallet kept more than half the sale's value: it stepped back rather than retired. */
+export function isPartialExit(exit: Exit): boolean {
+  return exit.stillHoldsUsd > exit.valueUsd * PARTIAL_RATIO;
 }
 
 const HEADLINES: Array<(v: Vars) => string> = [
@@ -244,11 +260,19 @@ const HEADLINES: Array<(v: Vars) => string> = [
   (v) => `${v.name} Retires From $${v.sym}; ${v.chain} Loses ${article(v.label)} ${v.label}`,
 ];
 
+/** For wallets that only stepped back: the headline says so. */
+const PARTIAL_HEADLINES: Array<(v: Vars) => string> = [
+  (v) => `${v.name} Steps Back From $${v.sym}, Selling ${v.value} of a Larger Position`,
+  (v) => `${v.name} Trims $${v.sym} by ${v.value} and Keeps ${v.kept} on the Books`,
+  (v) => `A Partial Retirement: ${v.name} Sells ${v.value} of Its $${v.sym}`,
+  (v) => `$${v.sym} Loses ${v.value} of ${v.name}'s Affection; ${v.kept} Remains`,
+];
+
 const CLOSERS: Array<(v: Vars) => string> = [
   () => "The Smart Money desk notes that the address remains open; retirement, in this trade, is seldom permanent.",
   () => "Remembrances may be left on the block explorer. The wallet's next position has not been announced.",
   (v) => `Colleagues on ${v.chain} are reminded that the wallet still answers to its address, and may yet trade again.`,
-  (v) => `The position is at rest in ${v.into}. The wallet is not.`,
+  (v) => `${v.kept ? "Part of the position" : "The position"} is at rest in ${v.into}. The wallet is not.`,
 ];
 
 function estatePhrase(survivedBy: Holding[], estateUsd: number): string {
@@ -268,6 +292,7 @@ export function composeObituary(facts: ObituaryFacts, index: number): Obituary {
   const { exit, lifetime, survivedBy } = facts;
   const estateUsd = survivedBy.reduce((s, h) => s + h.valueUsd, 0);
   const hasRecord = lifetime.known && lifetime.trades > 0;
+  const partial = isPartialExit(exit);
   const v: Vars = {
     name: shortAddress(facts.address, 4),
     label: facts.label,
@@ -275,14 +300,19 @@ export function composeObituary(facts: ObituaryFacts, index: number): Obituary {
     sym: exit.symbol,
     into: exit.into,
     value: usd(exit.valueUsd),
+    kept: exit.stillHoldsUsd > 0 ? usd(exit.stillHoldsUsd) : "",
     when: whenPhrase(exit.at),
     trades: hasRecord ? lifetime.trades : 0,
     tokens: hasRecord ? lifetime.tokens : 0,
     exits: exit.exitsToday,
   };
-  const headline = (HEADLINES[index % HEADLINES.length] ?? HEADLINES[0]!)(v);
+  const headline = partial
+    ? (PARTIAL_HEADLINES[index % PARTIAL_HEADLINES.length] ?? PARTIAL_HEADLINES[0]!)(v)
+    : (HEADLINES[index % HEADLINES.length] ?? HEADLINES[0]!)(v);
 
-  const sale = `Sold ${qty(exit.amount)} ${v.sym} on ${v.chain} for ${v.value} ${v.when}, taking payment in ${v.into}.`;
+  const sale = partial
+    ? `Sold ${qty(exit.amount)} ${v.sym} on ${v.chain} for ${v.value} ${v.when}, taking payment in ${v.into}, and kept ${v.kept} of the position.`
+    : `Sold ${qty(exit.amount)} ${v.sym} on ${v.chain} for ${v.value} ${v.when}, taking payment in ${v.into}.`;
   const estate = estatePhrase(survivedBy, estateUsd);
   const record = !hasRecord
     ? `Nansen's profiler holds no six-month record for the wallet, which leaves ${estate}.`
@@ -294,15 +324,17 @@ export function composeObituary(facts: ObituaryFacts, index: number): Obituary {
   // 1. The lede: when, who, what, and what became of the position. It opens with a word, not an
   //    address, so the drop cap is a capital letter.
   const opening = v.when.charAt(0).toUpperCase() + v.when.slice(1);
-  let lede =
-    `${opening}, ${v.name}, ${article(v.chain)} ${v.chain} wallet carried on Nansen's books as “${v.label}”, closed the book on $${v.sym}. ` +
-    `It sold ${qty(exit.amount)} tokens in a single transaction for ${v.value}, taking payment in ${v.into}.`;
+  const who = `${opening}, ${v.name}, ${article(v.chain)} ${v.chain} wallet carried on Nansen's books as “${v.label}”`;
+  let lede = partial
+    ? `${who}, stepped back from $${v.sym}. It sold ${qty(exit.amount)} tokens in a single transaction for ${v.value}, taking payment in ${v.into}, ` +
+      `and holds ${v.kept} of $${v.sym} still, with no plan for it announced.`
+    : `${who}, closed the book on $${v.sym}. It sold ${qty(exit.amount)} tokens in a single transaction for ${v.value}, taking payment in ${v.into}.`;
   if (exit.exitsToday > 1) {
     lede += ` The sale was the largest of ${numWord(exit.exitsToday)} exits the wallet made that day, ${usd(exit.soldTodayUsd)} in all.`;
   }
-  if (exit.stillHoldsUsd > 0) {
-    lede += ` A remainder of ${usd(exit.stillHoldsUsd)} in $${v.sym} stays on the books, which those who know the wallet describe as sentimental.`;
-  } else if (survivedBy.length) {
+  if (!partial && exit.stillHoldsUsd > 0) {
+    lede += ` A remainder of ${v.kept} in $${v.sym} stays on the books, which those who know the wallet describe as sentimental.`;
+  } else if (!partial && survivedBy.length) {
     lede += ` Nothing of the position remains among its principal holdings.`;
   }
 
@@ -346,14 +378,14 @@ const UNKNOWN_LIFETIME: Lifetime = { pnlUsd: 0, roiPct: 0, winRate: 0, tokens: 0
 function lifetimeFrom(s: PnlSummary): Lifetime {
   return {
     pnlUsd: num(s.realized_pnl_usd),
-    roiPct: pct(s.realized_pnl_percent),
+    roiPct: roi(s.realized_pnl_percent),
     winRate: pct(s.win_rate),
     tokens: num(s.traded_token_count),
     trades: num(s.traded_times),
     topTokens: (s.top5_tokens ?? [])
       .filter((t) => Boolean(t.token_symbol))
       .slice(0, 5)
-      .map((t) => ({ symbol: t.token_symbol, pnlUsd: num(t.realized_pnl), roiPct: pct(t.realized_roi) })),
+      .map((t) => ({ symbol: t.token_symbol, pnlUsd: num(t.realized_pnl), roiPct: roi(t.realized_roi) })),
     known: true,
   };
 }
@@ -372,10 +404,16 @@ function fatal(err: unknown): boolean {
 }
 
 /**
- * Builds the day's front page. 5 credits for the tape (10 if a quiet day needs a second page) plus
- * 2 per wallet for eight wallets: 21 credits on a normal run, 26 at most. Cap 30.
+ * Builds the day's front page. 5 credits for the tape (10 if a quiet day needs a second page), one
+ * per shortlisted wallet for its holdings (up to 12, so that clean exits outrank trims), then one per
+ * chosen wallet for its six-month record: 25 credits on a normal run, 29 at most.
+ *
+ * DEEP=1 (seed only, read here and nowhere in client code) casts a double edition: both tape pages,
+ * a shortlist of 24 and 16 notices, about 5 + 5 + 24 + 16 = 50 credits. seed.ts caps the run at 70.
  */
 export async function buildWalletObituaries(nansen: NansenClient): Promise<WalletObituariesData> {
+  const deep = process.env.DEEP === "1";
+  const notices = deep ? DEEP_OBITUARIES : OBITUARIES;
   const now = new Date();
   const window = lastDays(LIFETIME_DAYS, now);
 
@@ -387,23 +425,20 @@ export async function buildWalletObituaries(nansen: NansenClient): Promise<Walle
   const first = await nansen.smartMoney.dexTrades({ ...request, pagination: { page: 1, per_page: 100 } }, { tag: "tape:1" });
   let rows: TradeRow[] = first.data ?? [];
   let candidates = collectExits(rows);
-  if (candidates.length < OBITUARIES && first.pagination?.is_last_page !== true) {
+  let pages = 1;
+  if (deep || (candidates.length < notices && first.pagination?.is_last_page !== true)) {
     const second = await nansen.smartMoney.dexTrades({ ...request, pagination: { page: 2, per_page: 100 } }, { tag: "tape:2" });
     rows = rows.concat(second.data ?? []);
     candidates = collectExits(rows);
+    pages = 2;
   }
-  const chosen = pickDistinct(candidates, OBITUARIES);
 
-  // 2) Per wallet: the six-month record (1 credit) and what survives it (1 credit).
-  const obituaries: Obituary[] = [];
-  for (const [index, c] of chosen.entries()) {
+  // 2) What survives each shortlisted wallet (1 credit each). A wallet that kept most of the token
+  //    only stepped back, so clean exits outrank trims before the page is cast.
+  const shortlist = pickDistinct(candidates, deep ? DEEP_SHORTLIST : Math.min(SHORTLIST, 29 - 5 * pages - OBITUARIES));
+  const surveyed: Array<{ c: ExitCandidate; exit: Exit; survivedBy: Holding[] }> = [];
+  for (const c of shortlist) {
     const tag = `obit:${shortAddress(c.address, 4)}`;
-    let lifetime = UNKNOWN_LIFETIME;
-    try {
-      lifetime = lifetimeFrom(await nansen.profiler.pnlSummary({ wallet_address: c.address, chain: c.chain, date: window }, { tag }));
-    } catch (err) {
-      if (fatal(err)) throw err;
-    }
     let survivedBy: Holding[] = [];
     try {
       const balance = await nansen.profiler.currentBalance(
@@ -428,6 +463,22 @@ export async function buildWalletObituaries(nansen: NansenClient): Promise<Walle
       soldTodayUsd: c.soldUsd,
       stillHoldsUsd: survivedBy.find((h) => h.symbol.toUpperCase() === sym.toUpperCase())?.valueUsd ?? 0,
     };
+    surveyed.push({ c, exit, survivedBy });
+  }
+  surveyed.sort((a, b) => Number(isPartialExit(a.exit)) - Number(isPartialExit(b.exit)) || b.exit.valueUsd - a.exit.valueUsd);
+  const chosen = surveyed.slice(0, notices);
+
+  // 3) The six-month record for each chosen wallet (1 credit each), then the copy desk.
+  const obituaries: Obituary[] = [];
+  for (const [index, { c, exit, survivedBy }] of chosen.entries()) {
+    let lifetime = UNKNOWN_LIFETIME;
+    try {
+      lifetime = lifetimeFrom(
+        await nansen.profiler.pnlSummary({ wallet_address: c.address, chain: c.chain, date: window }, { tag: `obit:${shortAddress(c.address, 4)}` }),
+      );
+    } catch (err) {
+      if (fatal(err)) throw err;
+    }
     obituaries.push(composeObituary({ address: c.address, label: c.label, chain: c.chain, exit, lifetime, survivedBy }, index));
   }
 

@@ -1,5 +1,5 @@
 "use client";
-import { type MouseEvent, useCallback, useMemo, useRef, useState } from "react";
+import { type MouseEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { LastOnesOutData } from "@/lib/data";
 import { buildingKey, planBuilding } from "@/lib/windows";
 import { Building } from "./Building";
@@ -7,6 +7,9 @@ import { BuildingPanel } from "./BuildingPanel";
 import { Ledger, type SkylineItem } from "./Ledger";
 import { NightReport } from "./NightReport";
 import { FarSkyline, Sky } from "./Sky";
+
+/** Grace period after the pointer leaves a building, long enough to reach the panel and its poll. */
+const HOVER_GRACE_MS = 450;
 
 /**
  * The world: a night report, the skyline (stars, moon, buildings, water), the numbers panel, the register.
@@ -17,6 +20,7 @@ export function CityNight({ data }: { data: LastOnesOutData }) {
   const [pinned, setPinned] = useState<string | null>(null);
   const [take, setTake] = useState(0);
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const leaveTimer = useRef<number | null>(null);
 
   const items = useMemo<SkylineItem[]>(
     () => data.buildings.map((b, i) => ({ key: buildingKey(b), building: b, plan: planBuilding(b, i) })),
@@ -25,7 +29,26 @@ export function CityNight({ data }: { data: LastOnesOutData }) {
   const shownKey = hover ?? pinned;
   const shown = shownKey ? (items.find((it) => it.key === shownKey) ?? null) : null;
 
-  const onHover = useCallback((key: string | null) => setHover(key), []);
+  const hold = useCallback(() => {
+    if (leaveTimer.current !== null) {
+      window.clearTimeout(leaveTimer.current);
+      leaveTimer.current = null;
+    }
+  }, []);
+  const onHover = useCallback(
+    (key: string | null) => {
+      hold();
+      if (key) setHover(key);
+      else
+        leaveTimer.current = window.setTimeout(() => {
+          leaveTimer.current = null;
+          setHover(null);
+        }, HOVER_GRACE_MS);
+    },
+    [hold],
+  );
+  useEffect(() => hold, [hold]);
+
   const onTap = useCallback((key: string) => setPinned((p) => (p === key ? null : key)), []);
   const onSelect = useCallback((key: string) => {
     setPinned(key);
@@ -69,7 +92,14 @@ export function CityNight({ data }: { data: LastOnesOutData }) {
           </div>
         </div>
 
-        <BuildingPanel building={shown?.building ?? null} plan={shown?.plan ?? null} pinned={pinned !== null && shownKey === pinned} onClose={() => setPinned(null)} />
+        <BuildingPanel
+          building={shown?.building ?? null}
+          plan={shown?.plan ?? null}
+          pinned={pinned !== null && shownKey === pinned}
+          onClose={() => setPinned(null)}
+          onHold={hold}
+          onRelease={() => onHover(null)}
+        />
       </section>
 
       <Ledger items={items} selectedKey={shownKey} onSelect={onSelect} />

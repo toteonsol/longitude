@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { Grade, RookieScoutData } from "@/lib/data";
 import { ProspectCard } from "./ProspectCard";
 import { Roster, useRoster } from "./Roster";
+import { ScoutSearch } from "./ScoutSearch";
 import { useIdentity } from "@longitude/kit";
 
 const GRADES: Array<Grade | "all"> = ["all", "A", "B", "C"];
@@ -69,6 +70,8 @@ export function DraftBoard({ data }: { data: RookieScoutData }) {
           </div>
         </div>
       </Reveal>
+
+      <ScoutSearch />
 
       <Roster items={roster.items} release={(id) => void roster.release(id)} drafted={data.drafted} />
 

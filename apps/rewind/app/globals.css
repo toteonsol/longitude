@@ -310,14 +310,23 @@ body {
   list-style: none;
 }
 
+/* One tick per tape, however many the snapshot holds: each takes an equal share of the width */
+.wheel__ticks li {
+  display: flex;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 .wheel__ticks button {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
+  width: 100%;
   min-height: 40px;
-  min-width: 44px;
-  padding: 4px 6px 0;
+  min-width: 0;
+  padding: 4px 0 0;
   border: 0;
   background: none;
   cursor: pointer;
@@ -465,6 +474,11 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
+}
+
+/* An odd last cassette (five picks on a DEEP seed) takes the whole shelf instead of sitting alone */
+.rack > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 .cassette__tilt {
@@ -968,7 +982,7 @@ body {
 
 .legend {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 8px;
   margin: 0;
   padding: 0;
@@ -1065,6 +1079,10 @@ body {
   .key__glyph {
     font-size: 16px;
   }
+  .wheel__ticks button {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
   .readout__counter {
     font-size: 32px;
   }
@@ -1093,6 +1111,122 @@ body {
   }
   .verdict__text {
     font-size: 11px;
+  }
+}
+
+/* Social layer: the board is a second VFD window under the readout, the share key sits on the set */
+.deck__board .lg-board {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 14px 8px;
+  border-radius: 8px;
+  border: 1px solid #1f2a2e;
+  background: #030607;
+  box-shadow:
+    inset 0 0 24px rgba(43, 224, 255, 0.08),
+    inset 0 2px 8px rgba(0, 0, 0, 0.9);
+  font-family: var(--lg-font-display);
+  color: var(--vfd);
+  text-shadow: 0 0 6px rgba(43, 224, 255, 0.5);
+}
+
+.deck__board .lg-board::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0 1px, transparent 1px 2px);
+  pointer-events: none;
+}
+
+.deck__board .lg-board__head {
+  margin-bottom: 4px;
+  font-family: var(--lg-font-display);
+  font-size: 17px;
+  letter-spacing: 0.12em;
+  opacity: 1;
+}
+
+.deck__board .lg-board__me {
+  color: #dff9ff;
+}
+
+.deck__board .lg-board__list {
+  gap: 0;
+}
+
+.deck__board .lg-board__list li {
+  grid-template-columns: 30px 1fr auto;
+  gap: 8px;
+  padding: 3px 0;
+  border-top: 1px dashed var(--vfd-dim);
+  font-family: var(--lg-font-display);
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.deck__board .lg-board__list li.is-me {
+  color: #dff9ff;
+  text-shadow: 0 0 10px var(--cyan), -1px 0 var(--magenta);
+}
+
+.deck__board .lg-board__list li.lg-muted {
+  display: block;
+  padding-top: 6px;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(191, 241, 255, 0.55);
+}
+
+.deck__board .lg-board__rank {
+  font-family: var(--lg-font-display);
+  opacity: 0.7;
+}
+
+.deck__board .lg-board__rank::before {
+  content: "#";
+}
+
+.deck__board .lg-board__handle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.deck__board .lg-board__score {
+  font-family: var(--lg-font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+.lg-btn--share {
+  border-color: rgba(43, 224, 255, 0.45);
+  color: var(--cyan);
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lg-btn--share:hover:not(:disabled) {
+  border-color: var(--cyan);
+  box-shadow: 0 0 10px rgba(43, 224, 255, 0.35);
+}
+
+.verdict {
+  flex-wrap: wrap;
+}
+
+.verdict .lg-btn--share {
+  margin-left: auto;
+  min-height: 40px;
+  background: rgba(5, 8, 10, 0.85);
+}
+
+@media (max-width: 960px) {
+  /* On a single column the board goes below the transport so the cassettes stay within reach */
+  .deck__board {
+    order: 10;
   }
 }
 

@@ -3,12 +3,17 @@ import { AnimatePresence, Grow, fmt, motion } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import type { Building } from "@/lib/data";
 import type { BuildingPlan } from "@/lib/windows";
+import { HoldingPoll } from "./HoldingPoll";
 
 interface Props {
   building: Building | null;
   plan: BuildingPlan | null;
   pinned: boolean;
   onClose: () => void;
+  /** Pointer is over the panel: keep the previewed building up. */
+  onHold?: () => void;
+  /** Pointer left the panel: let the preview clear. */
+  onRelease?: () => void;
 }
 
 const pop = {
@@ -19,12 +24,12 @@ const pop = {
 };
 
 /** The numbers behind a building. Hover previews, tap pins. */
-export function BuildingPanel({ building: b, plan, pinned, onClose }: Props) {
+export function BuildingPanel({ building: b, plan, pinned, onClose, onHold, onRelease }: Props) {
   return (
     <aside className={`panel${b ? " is-open" : ""}`} aria-live="polite">
       <AnimatePresence mode="wait" initial={false}>
         {b && plan ? (
-          <motion.div key={`${b.chain}:${b.address}`} className="panel__card" {...pop}>
+          <motion.div key={`${b.chain}:${b.address}`} className="panel__card" onPointerEnter={onHold} onPointerLeave={onRelease} {...pop}>
             <header className="panel__head">
               <div>
                 <span className="panel__rank">Exit #{b.rank} this week</span>
@@ -37,7 +42,9 @@ export function BuildingPanel({ building: b, plan, pinned, onClose }: Props) {
                 <button type="button" className="panel__close" onClick={onClose} aria-label="Unpin this building">
                   ×
                 </button>
-              ) : null}
+              ) : (
+                <span className="panel__pin">tap to pin</span>
+              )}
             </header>
 
             <dl className="panel__stats">
@@ -83,12 +90,17 @@ export function BuildingPanel({ building: b, plan, pinned, onClose }: Props) {
             </div>
 
             <p className="panel__caption">{b.caption}</p>
+
+            <div className="panel__poll">
+              <HoldingPoll building={b} />
+            </div>
+
             <span className="panel__addr lg-addr" title={b.address}>
               {shortAddress(b.address, 6)}
             </span>
           </motion.div>
         ) : (
-          <motion.div key="empty" className="panel__card panel__card--empty" {...pop}>
+          <motion.div key="empty" className="panel__card panel__card--empty" onPointerEnter={onHold} onPointerLeave={onRelease} {...pop}>
             <p>
               <b>Hover or tap a building.</b>
             </p>

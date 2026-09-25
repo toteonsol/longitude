@@ -33,7 +33,7 @@ interface MiniCastProps {
 /** The row of headshots along the bottom of the screen. The actor in the scene is lit; the others dim. */
 export function MiniCast({ cast, activeAddress, visible, onPick }: MiniCastProps) {
   return (
-    <div className={`minicast${visible ? "" : " minicast--hidden"}`} aria-hidden={!visible}>
+    <div className={`minicast${visible ? "" : " minicast--hidden"}`} aria-hidden={!visible} style={{ "--cast-n": cast.length } as CSSProperties}>
       {cast.map((m) => {
         const active = m.address === activeAddress;
         return (

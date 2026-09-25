@@ -110,6 +110,7 @@ type PerpSummary = ResponseOf<"/api/v1/profiler/perp-pnl-summary">["data"];
 type Positions = ResponseOf<"/api/v1/profiler/perp-positions">["data"];
 
 const CAST_SIZE = 8;
+const DEEP_CAST_SIZE = 16;
 const LOOKBACK_HOURS = 168;
 const POSITIONS_SHOWN = 5;
 
@@ -336,10 +337,13 @@ const hasSpotActivity = (s: SpotSummary | undefined): boolean => Boolean(s) && (
 
 /**
  * Builds the cast. Credits: 5 (perp feed) + 8 × (1 perp summary + 1 spot summary + 1 positions) = 29,
- * plus 1 per wallet that needs the base retry, so at most 37. Cap 40.
+ * plus 1 per wallet that needs the base retry, so at most 37.
+ * DEEP seed (`DEEP=1` in the seed's environment, read here and nowhere in client code): 16 wallets,
+ * 5 + 16 × 3 = 53 credits, at most 69 with retries. seed.ts caps the run at 80 either way.
  */
 export async function buildTwoFaced(nansen: NansenClient): Promise<TwoFacedData> {
   const window90 = lastDays(90);
+  const castSize = process.env.DEEP === "1" ? DEEP_CAST_SIZE : CAST_SIZE;
 
   // 1) The cast: a week of smart money perp trades on Hyperliquid, grouped by trader. 5 credits.
   const feed = await nansen.smartMoney.perpTrades({
@@ -360,7 +364,7 @@ export async function buildTwoFaced(nansen: NansenClient): Promise<TwoFacedData>
   }
   const cast = [...groups.values()]
     .sort((a, b) => b.rows.length - a.rows.length || volumeOf(b.rows) - volumeOf(a.rows))
-    .slice(0, CAST_SIZE);
+    .slice(0, castSize);
 
   // 2) Both faces per wallet. 1 + 1 (+ 1 if ethereum is empty) + 1 credits each.
   const raws: RawWallet[] = [];
