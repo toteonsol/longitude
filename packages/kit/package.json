@@ -13,7 +13,8 @@
     "./og": "./src/og.tsx",
     "./styles.css": "./src/styles/base.css",
     "./pro-server": "./src/pro/server.ts",
-    "./pro": "./src/pro/client.tsx"
+    "./pro": "./src/pro/client.tsx",
+    "./cron": "./src/cron.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

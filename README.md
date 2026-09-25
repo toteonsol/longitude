@@ -40,8 +40,8 @@ timestamp, endpoint and credits; the store shows the running total.
 
 **Snapshots first, live on demand.** Each app's seed script writes `snapshots/main.json`. Pages render the
 snapshot instantly; the **Refresh live** button re-runs the same builder against Nansen. If the live call
-fails, the snapshot stays up. A GitHub Actions cron re-seeds every six hours and pushes the JSON to Convex,
-where the apps fetch it, so refreshed data never needs a redeploy.
+fails, the snapshot stays up. A Vercel cron re-seeds every six hours and pushes the JSON to Convex, where
+the apps fetch it, so refreshed data never needs a redeploy.
 
 **Same engine, ten feels.** `packages/motion` holds springs, reveals, staggers, number tickers, flips,
 typewriters, marquees and a tilt. Each world picks a spring and a skin.
@@ -103,8 +103,9 @@ Until an app is seeded it shows a hand-written sample flagged **sample data** in
   `CONVEX_URL`, set `SNAPSHOT_BASE_URL` to `<site url>/snapshots`, generate a `SEED_TOKEN` and set it both in
   `.env` and on the deployment (`npx convex env set SEED_TOKEN …`). One Convex deployment holds the social store,
   the snapshots and the call log for every app.
-- **Cron:** `.github/workflows/seed.yml` re-seeds every six hours on GitHub Actions and pushes the JSON to
-  Convex. Repository secrets: `NANSEN_API_KEY`, `CONVEX_URL`, `SEED_TOKEN`. No server runs between seeds.
+- **Cron:** the store's `vercel.json` schedules `/api/cron/seed` every six hours; it calls each app's own
+  `/api/cron/seed` (protected by `CRON_SECRET`), which re-runs the builder against Nansen and pushes the
+  snapshot to Convex. No server runs between seeds. (`.github/workflows/seed.yml` is an optional equivalent.)
 
 ## How this maps to the Meridian judging
 
