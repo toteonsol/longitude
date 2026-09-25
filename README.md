@@ -124,7 +124,7 @@ Until an app is seeded it shows a hand-written sample flagged **sample data** in
   the snapshots and the call log for every app.
 - **Cron:** the store's `vercel.json` schedules `/api/cron/seed` every twelve hours; it calls each app's own
   `/api/cron/seed` (protected by `CRON_SECRET`), which re-runs the builder against Nansen and pushes the
-  snapshot to Convex. No server runs between seeds. (`.github/workflows/seed.yml` is an optional equivalent.)
+  snapshot to Convex. No server runs between seeds.
 
 ## How this maps to the Meridian judging
 
