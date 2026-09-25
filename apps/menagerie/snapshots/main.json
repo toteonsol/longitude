@@ -1,31 +1,31 @@
 {
   "app": "menagerie",
   "name": "main",
-  "generatedAt": "2026-09-25T11:05:39.685Z",
-  "credits": 5,
+  "generatedAt": "2026-09-25T11:30:44.144Z",
+  "credits": 45,
   "sample": false,
   "data": {
-    "generatedAt": "2026-09-25T11:05:39.685Z",
+    "generatedAt": "2026-09-25T11:30:44.144Z",
     "window": {
       "from": "2026-08-26",
       "to": "2026-09-25"
     },
     "herd": {
-      "size": 40,
+      "size": 60,
       "medians": {
-        "winRate": 47.98,
-        "pnlUsd": 1136836.36,
-        "trades": 1403.5,
+        "winRate": 48,
+        "pnlUsd": 898210.68,
+        "trades": 1378.5,
         "tokens": 23.5,
-        "avgRoi": 107.92,
-        "heldTokens": 13
+        "avgRoi": 101.22,
+        "heldTokens": 13.5
       },
       "cuts": {
-        "whalePnlUsd": 3550440.08,
-        "busyTrades": 3070,
-        "stillTrades": 706,
-        "manyTokens": 44,
-        "manyHeldTokens": 19.25
+        "whalePnlUsd": 3002671.35,
+        "busyTrades": 3115.25,
+        "stillTrades": 309.75,
+        "manyTokens": 45.5,
+        "manyHeldTokens": 20
       }
     },
     "species": [
@@ -35,7 +35,7 @@
         "latin": "Balaenoptera lucri",
         "rule": "Total 30-day PnL in the top tenth of the herd.",
         "description": "Rarely seen and impossible to miss. Moves slowly through the deep end of the leaderboard and displaces more than the rest of the plain together.",
-        "cutoff": "This season: $3.55M or more."
+        "cutoff": "This season: $3.00M or more."
       },
       {
         "id": "hyena",
@@ -43,7 +43,7 @@
         "latin": "Crocuta opportuna",
         "rule": "Wins at least ten points less often than the herd's median win rate, yet earns more than the median wallet.",
         "description": "Laughs at its own win rate. Loses often and small, then walks off with the whole carcass.",
-        "cutoff": "This season: win rate of 38% or less, PnL above $1.14M."
+        "cutoff": "This season: win rate of 38% or less, PnL above $898K."
       },
       {
         "id": "fox",
@@ -51,7 +51,7 @@
         "latin": "Vulpes calculans",
         "rule": "Wins at least ten points more often than the herd's median win rate, on no more than the median number of trades.",
         "description": "Small, quick and precise. Hunts seldom and rarely misses; distrusts any trade it has not watched for a week.",
-        "cutoff": "This season: win rate of 58% or more, 1,404 trades or fewer."
+        "cutoff": "This season: win rate of 58% or more, 1,379 trades or fewer."
       },
       {
         "id": "tortoise",
@@ -59,7 +59,7 @@
         "latin": "Testudo patiens",
         "rule": "Fewer trades than three-quarters of the herd, with an average trade ROI above the herd's median.",
         "description": "Slow by choice. A handful of trades a month, each carried to the end; outlives faster things by not hurrying.",
-        "cutoff": "This season: 706 trades or fewer, average ROI above +108%."
+        "cutoff": "This season: 310 trades or fewer, average ROI above +101%."
       },
       {
         "id": "hummingbird",
@@ -67,7 +67,7 @@
         "latin": "Colibri insatiabilis",
         "rule": "In the busiest quarter of the herd by trades, or above-median trades spread across one of the widest quarter of token lists.",
         "description": "Never still. Sips from a hundred tokens a day and burns most of what it takes on the flying.",
-        "cutoff": "This season: 3,070 trades or more, or 1,404+ trades across 44+ tokens."
+        "cutoff": "This season: 3,115 trades or more, or 1,379+ trades across 46+ tokens."
       },
       {
         "id": "elephant",
@@ -75,7 +75,7 @@
         "latin": "Loxodonta memor",
         "rule": "Holds more tokens right now than three-quarters of the herd.",
         "description": "Keeps everything. A long memory and a longer list of holdings; moves the ground when it moves at all.",
-        "cutoff": "This season: 19 tokens held or more."
+        "cutoff": "This season: 20 tokens held or more."
       },
       {
         "id": "meerkat",
@@ -94,13 +94,13 @@
         "label": "Smart Money",
         "species": "whale",
         "stats": {
-          "winRate": 62.22222222222222,
-          "pnlUsd": 6896960.3855366055,
-          "trades": 3145,
+          "winRate": 64.44444444444444,
+          "pnlUsd": 7005577.936632739,
+          "trades": 3143,
           "tokens": 38,
-          "avgRoi": 193.6622430789402,
+          "avgRoi": 193.66224307894015,
           "heldTokens": 25,
-          "unrealizedPnlUsd": 6624369.219536399,
+          "unrealizedPnlUsd": 6732986.770632533,
           "openTrades": 25
         },
         "topTokens": [
@@ -111,10 +111,17 @@
           "HEV"
         ],
         "notes": [
-          "Displaces $6.90M in thirty days, 6.1× the herd's median take; the largest body in this stretch of water.",
-          "Wins 62 of every 100 exits where the herd manages 48.",
-          "Carries $6.62M of unrealized gains on its back, not yet cashed."
-        ]
+          "Displaces $7.01M in thirty days, 7.8× the herd's median take; the largest body in this stretch of water.",
+          "Wins 64 of every 100 exits where the herd manages 48.",
+          "Carries $6.73M of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $248K realized these last thirty days, 53% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 247968.132954586,
+          "winRate": 53.246753246753244,
+          "trades": 3490,
+          "tokens": 77
+        }
       },
       {
         "number": 2,
@@ -123,14 +130,14 @@
         "label": "Smart Money",
         "species": "whale",
         "stats": {
-          "winRate": 38.70967741935484,
-          "pnlUsd": 4785343.068493793,
-          "trades": 8544,
+          "winRate": 39.02439024390244,
+          "pnlUsd": 4841441.5902437745,
+          "trades": 8536,
           "tokens": 105,
-          "avgRoi": 366.2629145175321,
-          "heldTokens": 78,
-          "unrealizedPnlUsd": 3201984.429409474,
-          "openTrades": 78
+          "avgRoi": 366.26291451753207,
+          "heldTokens": 77,
+          "unrealizedPnlUsd": 3258082.9511594553,
+          "openTrades": 77
         },
         "topTokens": [
           "STONK",
@@ -140,10 +147,17 @@
           "CTO"
         ],
         "notes": [
-          "Displaces $4.79M in thirty days, 4.2× the herd's median take; the largest body in this stretch of water.",
+          "Displaces $4.84M in thirty days, 5.4× the herd's median take; the largest body in this stretch of water.",
           "Wins 39 of every 100 exits against a herd median of 48.",
-          "Carries $3.20M of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $3.26M of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $1.57M realized these last thirty days, 34% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 1573788.261525755,
+          "winRate": 33.78378378378378,
+          "trades": 9663,
+          "tokens": 222
+        }
       },
       {
         "number": 3,
@@ -153,12 +167,12 @@
         "species": "whale",
         "stats": {
           "winRate": 55.55555555555556,
-          "pnlUsd": 4459720.0832744185,
-          "trades": 952,
+          "pnlUsd": 4528083.654830963,
+          "trades": 954,
           "tokens": 14,
-          "avgRoi": 155.2850524742248,
+          "avgRoi": 155.28505247422484,
           "heldTokens": 15,
-          "unrealizedPnlUsd": 4286925.268856808,
+          "unrealizedPnlUsd": 4355288.8404133525,
           "openTrades": 15
         },
         "topTokens": [
@@ -169,10 +183,17 @@
           "STONKCAT"
         ],
         "notes": [
-          "Displaces $4.46M in thirty days, 3.9× the herd's median take; the largest body in this stretch of water.",
-          "Trades 952 times a month, near the herd's own rhythm of 1,404.",
-          "Carries $4.29M of unrealized gains on its back, not yet cashed."
-        ]
+          "Displaces $4.53M in thirty days, 5.0× the herd's median take; the largest body in this stretch of water.",
+          "Average trade returns +155%, against a herd norm of +101%.",
+          "Carries $4.36M of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $155K realized these last thirty days, 41% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 155462.18541097385,
+          "winRate": 41.17647058823529,
+          "trades": 1088,
+          "tokens": 34
+        }
       },
       {
         "number": 4,
@@ -182,12 +203,12 @@
         "species": "whale",
         "stats": {
           "winRate": 50,
-          "pnlUsd": 3677741.666543608,
-          "trades": 2564,
+          "pnlUsd": 3728873.7526495075,
+          "trades": 2572,
           "tokens": 50,
-          "avgRoi": 131.2407970179808,
+          "avgRoi": 131.24079701798075,
           "heldTokens": 18,
-          "unrealizedPnlUsd": 3117011.2793334452,
+          "unrealizedPnlUsd": 3168143.365439345,
           "openTrades": 18
         },
         "topTokens": [
@@ -198,25 +219,101 @@
           "TACZ"
         ],
         "notes": [
-          "Displaces $3.68M in thirty days, 3.2× the herd's median take; the largest body in this stretch of water.",
+          "Displaces $3.73M in thirty days, 4.2× the herd's median take; the largest body in this stretch of water.",
           "Has tasted 50 different tokens this month.",
-          "Carries $3.12M of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $3.17M of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $521K realized these last thirty days, 47% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 521342.60764215223,
+          "winRate": 46.51162790697674,
+          "trades": 2802,
+          "tokens": 86
+        }
       },
       {
         "number": 5,
+        "address": "EnaatNfHKJHifA6VsiZBm1dKKwY8z2aaqW8BhDYwvYJm",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "whale",
+        "stats": {
+          "winRate": 66.66666666666666,
+          "pnlUsd": 3677172.0873636156,
+          "trades": 18,
+          "tokens": 3,
+          "avgRoi": 30.16942858563359,
+          "heldTokens": 2,
+          "unrealizedPnlUsd": 892050.7432502917,
+          "openTrades": 2
+        },
+        "topTokens": [
+          "PUMP",
+          "STONK"
+        ],
+        "notes": [
+          "Displaces $3.68M in thirty days, 4.1× the herd's median take; the largest body in this stretch of water.",
+          "Wins 67 of every 100 exits where the herd manages 48.",
+          "2 positions still open as of this entry.",
+          "Fresh tracks: $3.23M realized these last thirty days, 60% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 3231313.5233640987,
+          "winRate": 60,
+          "trades": 35,
+          "tokens": 5
+        }
+      },
+      {
+        "number": 6,
+        "address": "Bmi9zf27MNN5pjCtyv2Y15TDQoYgcbcmPTxvEoQ6UwWs",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "whale",
+        "stats": {
+          "winRate": 48.333333333333336,
+          "pnlUsd": 3566954.015382463,
+          "trades": 8638,
+          "tokens": 78,
+          "avgRoi": 962.5775130938551,
+          "heldTokens": 78,
+          "unrealizedPnlUsd": 1913891.89205513,
+          "openTrades": 78
+        },
+        "topTokens": [
+          "STONK",
+          "KNOTS",
+          "BUTT",
+          "PURR",
+          "OTC"
+        ],
+        "notes": [
+          "Displaces $3.57M in thirty days, 4.0× the herd's median take; the largest body in this stretch of water.",
+          "Moves 8,638 times a month, in the busiest quarter of the plain.",
+          "Carries $1.91M of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $1.63M realized these last thirty days, 40% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 1625249.1765593751,
+          "winRate": 40.27149321266968,
+          "trades": 11319,
+          "tokens": 221
+        }
+      },
+      {
+        "number": 7,
         "address": "ARW9NzhpuBVYaYBZo6fW1P1U6LTNwUY6jfi7XC37Sa97",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hyena",
         "stats": {
           "winRate": 36.666666666666664,
-          "pnlUsd": 2633267.6666293247,
-          "trades": 1692,
+          "pnlUsd": 2635165.8004444633,
+          "trades": 1693,
           "tokens": 28,
           "avgRoi": 6074.007229045776,
           "heldTokens": 9,
-          "unrealizedPnlUsd": 38226.79644085085,
+          "unrealizedPnlUsd": 40124.93025598959,
           "openTrades": 9
         },
         "topTokens": [
@@ -227,25 +324,32 @@
           "ETH"
         ],
         "notes": [
-          "Wins only 37% of its exits and still carries off $2.63M; the misses are small and the meals are not.",
-          "Average trade returns +6074%, against a herd norm of +108%.",
-          "9 positions still open as of this entry."
-        ]
+          "Wins only 37% of its exits and still carries off $2.64M; the misses are small and the meals are not.",
+          "Average trade returns +6074%, against a herd norm of +101%.",
+          "9 positions still open as of this entry.",
+          "Fresh tracks: $2.59M realized these last thirty days, 35% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 2585572.567078599,
+          "winRate": 35.064935064935064,
+          "trades": 3244,
+          "tokens": 77
+        }
       },
       {
-        "number": 6,
+        "number": 8,
         "address": "DesUnuG57F6Wq7bEZWCYMXTHa5HAtdbjiKUvfoZph88P",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hyena",
         "stats": {
           "winRate": 30,
-          "pnlUsd": 1366758.6853352007,
+          "pnlUsd": 1380697.1554327158,
           "trades": 544,
           "tokens": 9,
           "avgRoi": 669.2246801105148,
           "heldTokens": 7,
-          "unrealizedPnlUsd": 784758.7191232509,
+          "unrealizedPnlUsd": 798697.189220766,
           "openTrades": 7
         },
         "topTokens": [
@@ -256,25 +360,32 @@
           "MSFTX"
         ],
         "notes": [
-          "Wins only 30% of its exits and still carries off $1.37M; the misses are small and the meals are not.",
-          "Just 544 trades this month; among the stillest creatures here.",
-          "Carries $785K of unrealized gains on its back, not yet cashed."
-        ]
+          "Wins only 30% of its exits and still carries off $1.38M; the misses are small and the meals are not.",
+          "Average trade returns +669%, against a herd norm of +101%.",
+          "Carries $799K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $582K realized these last thirty days, 27% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 581999.9662119499,
+          "winRate": 27.27272727272727,
+          "trades": 545,
+          "tokens": 11
+        }
       },
       {
-        "number": 7,
+        "number": 9,
         "address": "Ev1AaPu4c6L1QEXZiLv9DkNBa3ZigddiXYFTk9tN2DoK",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hyena",
         "stats": {
           "winRate": 36.11111111111111,
-          "pnlUsd": 1196582.941753779,
-          "trades": 4178,
+          "pnlUsd": 1220843.8372038058,
+          "trades": 4183,
           "tokens": 24,
-          "avgRoi": 26.77291901582034,
+          "avgRoi": 26.772919015820356,
           "heldTokens": 20,
-          "unrealizedPnlUsd": 28265.26997426041,
+          "unrealizedPnlUsd": 52526.1654242869,
           "openTrades": 20
         },
         "topTokens": [
@@ -285,51 +396,68 @@
           "PENGU"
         ],
         "notes": [
-          "Wins only 36% of its exits and still carries off $1.20M; the misses are small and the meals are not.",
-          "Moves 4,178 times a month, in the busiest quarter of the plain.",
-          "Keeps 20 tokens in its den at present."
-        ]
+          "Wins only 36% of its exits and still carries off $1.22M; the misses are small and the meals are not.",
+          "Moves 4,183 times a month, in the busiest quarter of the plain.",
+          "Keeps 20 tokens in its den at present.",
+          "Fresh tracks: $1.16M realized these last thirty days, 42% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 1164465.5067041677,
+          "winRate": 42.10526315789473,
+          "trades": 6232,
+          "tokens": 57
+        }
       },
       {
-        "number": 8,
-        "address": "EnaatNfHKJHifA6VsiZBm1dKKwY8z2aaqW8BhDYwvYJm",
+        "number": 10,
+        "address": "24L6uekgvsQRgT41DZRhahEAAVnkseTT7x4qyigC3HvH",
         "chain": "solana",
         "label": "Smart Money",
-        "species": "fox",
+        "species": "hyena",
         "stats": {
-          "winRate": 66.66666666666666,
-          "pnlUsd": 3520991.672901044,
-          "trades": 18,
-          "tokens": 3,
-          "avgRoi": 30.169428585633582,
-          "heldTokens": 2,
-          "unrealizedPnlUsd": 735870.3287877203,
-          "openTrades": 2
+          "winRate": 34.61538461538461,
+          "pnlUsd": 1115990.2430216987,
+          "trades": 907,
+          "tokens": 51,
+          "avgRoi": 223.86808543571672,
+          "heldTokens": 15,
+          "unrealizedPnlUsd": 777736.203893911,
+          "openTrades": 15
         },
         "topTokens": [
-          "PUMP",
-          "STONK"
+          "STONK",
+          "BATON",
+          "SOLCAT",
+          "MUFASA",
+          "BOB"
         ],
         "notes": [
-          "Pounces 18 times in thirty days and lands 67% of them; it does not waste a strike.",
-          "Takes $3.52M in a month, 3.1× the median wallet.",
-          "2 positions still open as of this entry."
-        ]
+          "Wins only 35% of its exits and still carries off $1.12M; the misses are small and the meals are not.",
+          "Average trade returns +224%, against a herd norm of +101%.",
+          "Carries $778K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $353K realized these last thirty days, 28% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 352621.1750441074,
+          "winRate": 27.67857142857143,
+          "trades": 1361,
+          "tokens": 112
+        }
       },
       {
-        "number": 9,
+        "number": 11,
         "address": "0x46a83dc1a264bff133db887023d2884167094837",
         "chain": "ethereum",
         "label": "Smart Money",
         "species": "fox",
         "stats": {
           "winRate": 75,
-          "pnlUsd": 2877116.3770060516,
+          "pnlUsd": 2878749.691955944,
           "trades": 15,
           "tokens": 4,
           "avgRoi": 59.87455114150373,
           "heldTokens": 5,
-          "unrealizedPnlUsd": 47226.15429965823,
+          "unrealizedPnlUsd": 48859.469249550784,
           "openTrades": 3
         },
         "topTokens": [
@@ -340,24 +468,31 @@
         ],
         "notes": [
           "Pounces 15 times in thirty days and lands 75% of them; it does not waste a strike.",
-          "Takes $2.88M in a month, 2.5× the median wallet.",
-          "3 positions still open as of this entry."
-        ]
+          "Takes $2.88M in a month, 3.2× the median wallet.",
+          "3 positions still open as of this entry.",
+          "Fresh tracks: $5.00M realized these last thirty days, 89% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 4996090.921389487,
+          "winRate": 88.88888888888889,
+          "trades": 28,
+          "tokens": 9
+        }
       },
       {
-        "number": 10,
+        "number": 12,
         "address": "CMQgBRmmWBRitNDCCpj8ZTTwYMnhyRk5gTBfAHqW5Q9",
         "chain": "solana",
         "label": "Smart Money",
         "species": "fox",
         "stats": {
           "winRate": 62.5,
-          "pnlUsd": 2248185.7648099912,
+          "pnlUsd": 2283263.852975728,
           "trades": 394,
           "tokens": 13,
           "avgRoi": 102.71798615123629,
           "heldTokens": 8,
-          "unrealizedPnlUsd": 1703559.7734596897,
+          "unrealizedPnlUsd": 1738637.8616254267,
           "openTrades": 8
         },
         "topTokens": [
@@ -369,24 +504,31 @@
         ],
         "notes": [
           "Pounces 394 times in thirty days and lands 63% of them; it does not waste a strike.",
-          "Nothing in its numbers stands out from the herd, which is itself a kind of camouflage.",
-          "Carries $1.70M of unrealized gains on its back, not yet cashed."
-        ]
+          "Takes $2.28M in a month, 2.5× the median wallet.",
+          "Carries $1.74M of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $545K realized these last thirty days, 59% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 544625.9913503015,
+          "winRate": 59.25925925925925,
+          "trades": 957,
+          "tokens": 27
+        }
       },
       {
-        "number": 11,
+        "number": 13,
         "address": "EVqxB3F6iUBeWsTpBFQqWwxpqUS8s4NrzgxBvQ2VRbTq",
         "chain": "solana",
         "label": "Smart Money",
         "species": "fox",
         "stats": {
           "winRate": 59.375,
-          "pnlUsd": 1176884.869124617,
-          "trades": 1150,
+          "pnlUsd": 1232188.4213492582,
+          "trades": 1152,
           "tokens": 27,
           "avgRoi": 114.54279382654691,
           "heldTokens": 12,
-          "unrealizedPnlUsd": 1101391.1640632753,
+          "unrealizedPnlUsd": 1156694.7162879165,
           "openTrades": 12
         },
         "topTokens": [
@@ -397,25 +539,32 @@
           "COUGH"
         ],
         "notes": [
-          "Pounces 1,150 times in thirty days and lands 59% of them; it does not waste a strike.",
+          "Pounces 1,152 times in thirty days and lands 59% of them; it does not waste a strike.",
           "Nothing in its numbers stands out from the herd, which is itself a kind of camouflage.",
-          "Carries $1.10M of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $1.16M of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $76K realized these last thirty days, 34% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 75771.98910287218,
+          "winRate": 34.285714285714285,
+          "trades": 1501,
+          "tokens": 70
+        }
       },
       {
-        "number": 12,
+        "number": 14,
         "address": "FvHqdX97tKNQP4Fk4UQnhDJutRjaL8R6h1SctJbq9Ti9",
         "chain": "solana",
         "label": "Smart Money",
         "species": "fox",
         "stats": {
           "winRate": 71.42857142857143,
-          "pnlUsd": 1164917.087010299,
+          "pnlUsd": 1169563.4286180232,
           "trades": 63,
           "tokens": 6,
-          "avgRoi": 21.597515731834456,
+          "avgRoi": 21.59751573183446,
           "heldTokens": 3,
-          "unrealizedPnlUsd": 979798.6762635827,
+          "unrealizedPnlUsd": 984445.0178713069,
           "openTrades": 3
         },
         "topTokens": [
@@ -428,23 +577,30 @@
         "notes": [
           "Pounces 63 times in thirty days and lands 71% of them; it does not waste a strike.",
           "Average trade returns just +22%; it earns by volume, not by margin.",
-          "Carries $980K of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $984K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $185K realized these last thirty days, 63% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 185118.4107467164,
+          "winRate": 62.5,
+          "trades": 64,
+          "tokens": 8
+        }
       },
       {
-        "number": 13,
+        "number": 15,
         "address": "ED37WFTv4UVa9fmQETkTW9U7Y3NbBiHAweahMXnPR8rP",
         "chain": "solana",
         "label": "Smart Money",
         "species": "fox",
         "stats": {
           "winRate": 85.71428571428571,
-          "pnlUsd": 1064257.6297673576,
+          "pnlUsd": 1077324.6816533864,
           "trades": 430,
           "tokens": 7,
           "avgRoi": 262.0561570636561,
           "heldTokens": 3,
-          "unrealizedPnlUsd": 757490.787391233,
+          "unrealizedPnlUsd": 770557.8392772621,
           "openTrades": 3
         },
         "topTokens": [
@@ -456,24 +612,63 @@
         ],
         "notes": [
           "Pounces 430 times in thirty days and lands 86% of them; it does not waste a strike.",
-          "Average trade returns +262%, against a herd norm of +108%.",
-          "Carries $757K of unrealized gains on its back, not yet cashed."
-        ]
+          "Average trade returns +262%, against a herd norm of +101%.",
+          "Carries $771K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $307K realized these last thirty days, 70% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 306766.8423761245,
+          "winRate": 70,
+          "trades": 437,
+          "tokens": 10
+        }
       },
       {
-        "number": 14,
+        "number": 16,
+        "address": "0xfa2dca328d8cc3b47dd0f9bce6933ca4531e08fb",
+        "chain": "ethereum",
+        "label": "Smart Money",
+        "species": "fox",
+        "stats": {
+          "winRate": 100,
+          "pnlUsd": 873658.5861524352,
+          "trades": 20,
+          "tokens": 1,
+          "avgRoi": 11.517211353667022,
+          "heldTokens": 1,
+          "unrealizedPnlUsd": 637958.4619155846,
+          "openTrades": 1
+        },
+        "topTokens": [
+          "ENA"
+        ],
+        "notes": [
+          "Pounces 20 times in thirty days and lands 100% of them; it does not waste a strike.",
+          "Average trade returns just +12%; it earns by volume, not by margin.",
+          "Carries $638K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $236K realized these last thirty days, 100% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 235700.1242368505,
+          "winRate": 100,
+          "trades": 20,
+          "tokens": 1
+        }
+      },
+      {
+        "number": 17,
         "address": "9T546uDgKfBjDENngY4fehrkfrfAQ17Ua7UdyzGHuU3z",
         "chain": "solana",
         "label": "Smart Money",
         "species": "fox",
         "stats": {
           "winRate": 63.63636363636363,
-          "pnlUsd": 830904.0732135795,
+          "pnlUsd": 872316.2942664621,
           "trades": 810,
           "tokens": 10,
-          "avgRoi": 64.48678011855297,
+          "avgRoi": 64.48678011855296,
           "heldTokens": 6,
-          "unrealizedPnlUsd": 405587.30275617185,
+          "unrealizedPnlUsd": 446999.52380905446,
           "openTrades": 6
         },
         "topTokens": [
@@ -486,71 +681,302 @@
         "notes": [
           "Pounces 810 times in thirty days and lands 64% of them; it does not waste a strike.",
           "Nothing in its numbers stands out from the herd, which is itself a kind of camouflage.",
-          "Carries $406K of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $447K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $425K realized these last thirty days, 47% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 424589.46582010837,
+          "winRate": 46.666666666666664,
+          "trades": 905,
+          "tokens": 15
+        }
       },
       {
-        "number": 15,
+        "number": 18,
         "address": "4zTQe6QiUWqAD8czsGpXdm8hMHNnh38DF19KS5mXKBa3",
         "chain": "solana",
         "label": "Smart Money",
         "species": "fox",
         "stats": {
           "winRate": 100,
-          "pnlUsd": 816875.2125063974,
+          "pnlUsd": 858217.5602264513,
           "trades": 18,
           "tokens": 0,
           "avgRoi": 0,
           "heldTokens": 1,
-          "unrealizedPnlUsd": 816875.2125063974,
+          "unrealizedPnlUsd": 858217.5602264513,
           "openTrades": 1
         },
         "topTokens": [],
         "notes": [
           "Pounces 18 times in thirty days and lands 100% of them; it does not waste a strike.",
           "Average trade returns just 0%; it earns by volume, not by margin.",
-          "Carries $817K of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $858K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: nothing realized these last thirty days across 23 trades."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 0,
+          "winRate": 100,
+          "trades": 23,
+          "tokens": 3
+        }
       },
       {
-        "number": 16,
-        "address": "0xfa2dca328d8cc3b47dd0f9bce6933ca4531e08fb",
+        "number": 19,
+        "address": "meyfnYG11jbzSYowujSVU7f8AS5dHBKakWqnqqgqPE1",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "fox",
+        "stats": {
+          "winRate": 75,
+          "pnlUsd": 634004.7941461615,
+          "trades": 100,
+          "tokens": 4,
+          "avgRoi": 24.93550227417023,
+          "heldTokens": 2,
+          "unrealizedPnlUsd": 497197.7928710606,
+          "openTrades": 2
+        },
+        "topTokens": [
+          "ZCAT",
+          "ZEC",
+          "TRUMP",
+          "BP"
+        ],
+        "notes": [
+          "Pounces 100 times in thirty days and lands 75% of them; it does not waste a strike.",
+          "Average trade returns just +25%; it earns by volume, not by margin.",
+          "Carries $497K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $137K realized these last thirty days, 80% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 136807.00127510086,
+          "winRate": 80,
+          "trades": 129,
+          "tokens": 5
+        }
+      },
+      {
+        "number": 20,
+        "address": "8JKZAwiTJvkWL1ggjx787t5tcCgvahk4RYruoz4xnhXt",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "fox",
+        "stats": {
+          "winRate": 100,
+          "pnlUsd": 631570.2156081268,
+          "trades": 114,
+          "tokens": 4,
+          "avgRoi": 31.84186052086051,
+          "heldTokens": 3,
+          "unrealizedPnlUsd": 175255.77002316937,
+          "openTrades": 3
+        },
+        "topTokens": [
+          "ZEC",
+          "PUMP",
+          "USELESS",
+          "STONK"
+        ],
+        "notes": [
+          "Pounces 114 times in thirty days and lands 100% of them; it does not waste a strike.",
+          "Average trade returns just +32%; it earns by volume, not by margin.",
+          "Carries $175K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $456K realized these last thirty days, 100% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 456314.4455849574,
+          "winRate": 100,
+          "trades": 114,
+          "tokens": 5
+        }
+      },
+      {
+        "number": 21,
+        "address": "0x63a1eb0e380d990cf92057672956fc04a3366ff9",
         "chain": "ethereum",
         "label": "Smart Money",
         "species": "fox",
         "stats": {
           "winRate": 100,
-          "pnlUsd": 784465.5315868808,
-          "trades": 20,
-          "tokens": 1,
-          "avgRoi": 11.517211353667022,
+          "pnlUsd": 583962.2194199917,
+          "trades": 312,
+          "tokens": 2,
+          "avgRoi": 4.382834799742314,
           "heldTokens": 1,
-          "unrealizedPnlUsd": 548765.4073500303,
+          "unrealizedPnlUsd": 498636.62348378595,
           "openTrades": 1
         },
         "topTokens": [
-          "ENA"
+          "ETH",
+          "WBTC"
         ],
         "notes": [
-          "Pounces 20 times in thirty days and lands 100% of them; it does not waste a strike.",
-          "Average trade returns just +12%; it earns by volume, not by margin.",
-          "Carries $549K of unrealized gains on its back, not yet cashed."
-        ]
+          "Pounces 312 times in thirty days and lands 100% of them; it does not waste a strike.",
+          "Average trade returns just +4%; it earns by volume, not by margin.",
+          "Carries $499K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $85K realized these last thirty days, 100% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 85325.59593620579,
+          "winRate": 100,
+          "trades": 312,
+          "tokens": 2
+        }
       },
       {
-        "number": 17,
+        "number": 22,
+        "address": "33HzZ3FD6yGBY86Ndasyjv67T8Eo86RbjMv15s5g3jpp",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "fox",
+        "stats": {
+          "winRate": 80,
+          "pnlUsd": 550566.1856619867,
+          "trades": 815,
+          "tokens": 2,
+          "avgRoi": 620.2358960014984,
+          "heldTokens": 4,
+          "unrealizedPnlUsd": 27086.535696930994,
+          "openTrades": 4
+        },
+        "topTokens": [
+          "STONK",
+          "ANTHRP"
+        ],
+        "notes": [
+          "Pounces 815 times in thirty days and lands 80% of them; it does not waste a strike.",
+          "Average trade returns +620%, against a herd norm of +101%.",
+          "4 positions still open as of this entry.",
+          "Fresh tracks: $523K realized these last thirty days, 80% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 523479.6499650557,
+          "winRate": 80,
+          "trades": 815,
+          "tokens": 5
+        }
+      },
+      {
+        "number": 23,
+        "address": "DhQXXoUkanZNNKt2UpZZGTbpqMCvxCGRdGqg5WaHAYEe",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "fox",
+        "stats": {
+          "winRate": 70,
+          "pnlUsd": 549021.2810740332,
+          "trades": 203,
+          "tokens": 9,
+          "avgRoi": 391.09284781257975,
+          "heldTokens": 5,
+          "unrealizedPnlUsd": 965.4323110527218,
+          "openTrades": 5
+        },
+        "topTokens": [
+          "STONK",
+          "GP",
+          "ZCAT",
+          "PAID",
+          "ZEC"
+        ],
+        "notes": [
+          "Pounces 203 times in thirty days and lands 70% of them; it does not waste a strike.",
+          "Average trade returns +391%, against a herd norm of +101%.",
+          "5 positions still open as of this entry.",
+          "Fresh tracks: $560K realized these last thirty days, 82% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 560401.1047545128,
+          "winRate": 81.81818181818183,
+          "trades": 205,
+          "tokens": 11
+        }
+      },
+      {
+        "number": 24,
+        "address": "CRCLhwcP1HiWb4p7BL72rBk1WY8HFYPPVeXt7HApu8Qc",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "fox",
+        "stats": {
+          "winRate": 75,
+          "pnlUsd": 541921.8885526002,
+          "trades": 124,
+          "tokens": 4,
+          "avgRoi": 643.9436048926294,
+          "heldTokens": 2,
+          "unrealizedPnlUsd": 221416.01284290172,
+          "openTrades": 2
+        },
+        "topTokens": [
+          "STONK",
+          "NOSIS",
+          "CARDS",
+          "CRED"
+        ],
+        "notes": [
+          "Pounces 124 times in thirty days and lands 75% of them; it does not waste a strike.",
+          "Average trade returns +644%, against a herd norm of +101%.",
+          "Carries $221K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $276K realized these last thirty days, 43% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 276110.56238871894,
+          "winRate": 42.857142857142854,
+          "trades": 303,
+          "tokens": 14
+        }
+      },
+      {
+        "number": 25,
+        "address": "0xba66d0c5781e29d4d25a3fb7139a01737f1102d9",
+        "chain": "base",
+        "label": "Smart Money",
+        "species": "fox",
+        "stats": {
+          "winRate": 80,
+          "pnlUsd": 527656.0559537378,
+          "trades": 11,
+          "tokens": 4,
+          "avgRoi": 160.53120080268192,
+          "heldTokens": 2,
+          "unrealizedPnlUsd": 455529.4656206412,
+          "openTrades": 2
+        },
+        "topTokens": [
+          "TIBBIR",
+          "DOT",
+          "ETH",
+          "SERV"
+        ],
+        "notes": [
+          "Pounces 11 times in thirty days and lands 80% of them; it does not waste a strike.",
+          "Average trade returns +161%, against a herd norm of +101%.",
+          "Carries $456K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $80K realized these last thirty days, 75% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 80262.01363933571,
+          "winRate": 75,
+          "trades": 9,
+          "tokens": 4
+        }
+      },
+      {
+        "number": 26,
         "address": "Gz3jNBsWMHNydXFRrJj3wzSCi22pLvL5TYpzwkGBKu6i",
         "chain": "solana",
         "label": "Smart Money",
         "species": "tortoise",
         "stats": {
           "winRate": 40,
-          "pnlUsd": 1851665.8703911044,
+          "pnlUsd": 1851656.41773339,
           "trades": 303,
           "tokens": 8,
-          "avgRoi": 631.6933330043653,
+          "avgRoi": 631.6933330043654,
           "heldTokens": 3,
-          "unrealizedPnlUsd": -11713.639769259433,
+          "unrealizedPnlUsd": -11723.092426974112,
           "openTrades": 3
         },
         "topTokens": [
@@ -562,53 +988,31 @@
         ],
         "notes": [
           "Only 303 trades all month, each returning +632% on average; it gets where it is going.",
-          "Its 40% win rate sits near the herd's median of 48%.",
-          "3 positions still open as of this entry."
-        ]
-      },
-      {
-        "number": 18,
-        "address": "Bmi9zf27MNN5pjCtyv2Y15TDQoYgcbcmPTxvEoQ6UwWs",
-        "chain": "solana",
-        "label": "Smart Money",
-        "species": "hummingbird",
-        "stats": {
-          "winRate": 45.45454545454545,
-          "pnlUsd": 3536295.46397929,
-          "trades": 8635,
-          "tokens": 78,
-          "avgRoi": 962.5775130938551,
-          "heldTokens": 79,
-          "unrealizedPnlUsd": 1883233.3406519566,
-          "openTrades": 79
-        },
-        "topTokens": [
-          "STONK",
-          "KNOTS",
-          "BUTT",
-          "PURR",
-          "OTC"
+          "Wins 40 of every 100 exits against a herd median of 48.",
+          "3 positions still open as of this entry.",
+          "Fresh tracks: $1.87M realized these last thirty days, 47% of its exits in profit."
         ],
-        "notes": [
-          "8,635 trades across 78 tokens in thirty days, about 288 a day; it is never still.",
-          "Takes $3.54M in a month, 3.1× the median wallet.",
-          "Carries $1.88M of unrealized gains on its back, not yet cashed."
-        ]
+        "recentForm": {
+          "realizedPnlUsd": 1866187.0046882469,
+          "winRate": 46.666666666666664,
+          "trades": 821,
+          "tokens": 15
+        }
       },
       {
-        "number": 19,
+        "number": 27,
         "address": "AE7vMq4Eswh4HAngK7WADtrk9nCQ9oj1tN1MZKhKasEv",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hummingbird",
         "stats": {
           "winRate": 57.14285714285714,
-          "pnlUsd": 1630389.2921121158,
+          "pnlUsd": 1640310.878307363,
           "trades": 3935,
           "tokens": 7,
-          "avgRoi": 21.953921600924858,
+          "avgRoi": 21.953921600924847,
           "heldTokens": 5,
-          "unrealizedPnlUsd": 335222.6907945186,
+          "unrealizedPnlUsd": 345144.27698976593,
           "openTrades": 5
         },
         "topTokens": [
@@ -621,23 +1025,30 @@
         "notes": [
           "3,935 trades across 7 tokens in thirty days, about 131 a day; it is never still.",
           "Wins 57 of every 100 exits where the herd manages 48.",
-          "5 positions still open as of this entry."
-        ]
+          "5 positions still open as of this entry.",
+          "Fresh tracks: $1.30M realized these last thirty days, 36% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 1295129.2492388417,
+          "winRate": 36.36363636363637,
+          "trades": 3941,
+          "tokens": 11
+        }
       },
       {
-        "number": 20,
+        "number": 28,
         "address": "2M2vLX34LXMg24dMEnjWHvRXS1tshpEDRWzmXgV8ENNZ",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hummingbird",
         "stats": {
           "winRate": 62.5,
-          "pnlUsd": 1518826.761095994,
-          "trades": 14672,
+          "pnlUsd": 1615832.1380604634,
+          "trades": 14697,
           "tokens": 7,
-          "avgRoi": 0.48010101774154673,
+          "avgRoi": 0.5179767361045355,
           "heldTokens": 4,
-          "unrealizedPnlUsd": 1518748.6834823175,
+          "unrealizedPnlUsd": 1615747.889577882,
           "openTrades": 4
         },
         "topTokens": [
@@ -648,26 +1059,33 @@
           "PUMP"
         ],
         "notes": [
-          "14,672 trades across 7 tokens in thirty days, about 489 a day; it is never still.",
+          "14,697 trades across 7 tokens in thirty days, about 490 a day; it is never still.",
           "Wins 63 of every 100 exits where the herd manages 48.",
-          "Carries $1.52M of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $1.62M of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $241 realized these last thirty days, 61% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 240.61673894537648,
+          "winRate": 61.111111111111114,
+          "trades": 14906,
+          "tokens": 18
+        }
       },
       {
-        "number": 21,
+        "number": 29,
         "address": "9qrMdRWbLctLWCm18sK5N7f78qWnMkG6SaZKeDaDKtqh",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hummingbird",
         "stats": {
-          "winRate": 59.25925925925925,
-          "pnlUsd": 1106644.6866167788,
-          "trades": 3259,
+          "winRate": 57.692307692307686,
+          "pnlUsd": 1098885.621627259,
+          "trades": 3260,
           "tokens": 19,
-          "avgRoi": 146.07128850610368,
-          "heldTokens": 18,
-          "unrealizedPnlUsd": 574041.1798785945,
-          "openTrades": 17
+          "avgRoi": 146.0712885061037,
+          "heldTokens": 17,
+          "unrealizedPnlUsd": 566282.1148890748,
+          "openTrades": 16
         },
         "topTokens": [
           "GP",
@@ -677,26 +1095,33 @@
           "VBUCKS"
         ],
         "notes": [
-          "3,259 trades across 19 tokens in thirty days, about 109 a day; it is never still.",
-          "Wins 59 of every 100 exits where the herd manages 48.",
-          "Carries $574K of unrealized gains on its back, not yet cashed."
-        ]
+          "3,260 trades across 19 tokens in thirty days, about 109 a day; it is never still.",
+          "Wins 58 of every 100 exits where the herd manages 48.",
+          "Carries $566K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $536K realized these last thirty days, 58% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 536302.0855631963,
+          "winRate": 57.89473684210527,
+          "trades": 3364,
+          "tokens": 38
+        }
       },
       {
-        "number": 22,
+        "number": 30,
         "address": "4yMQPYwEVcJKScnqjvmdXJ5JXLxCQcxoMGLk4zPnQjEX",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hummingbird",
         "stats": {
-          "winRate": 44.537815126050425,
-          "pnlUsd": 994515.0331010335,
-          "trades": 9862,
-          "tokens": 118,
-          "avgRoi": 99.57896008692347,
-          "heldTokens": 58,
-          "unrealizedPnlUsd": 484589.97033232846,
-          "openTrades": 58
+          "winRate": 44.91525423728814,
+          "pnlUsd": 990918.6125469456,
+          "trades": 9864,
+          "tokens": 117,
+          "avgRoi": 99.72822775735986,
+          "heldTokens": 57,
+          "unrealizedPnlUsd": 480725.9369853262,
+          "openTrades": 57
         },
         "topTokens": [
           "ZCAT",
@@ -706,25 +1131,32 @@
           "LOOP"
         ],
         "notes": [
-          "9,862 trades across 118 tokens in thirty days, about 329 a day; it is never still.",
+          "9,864 trades across 117 tokens in thirty days, about 329 a day; it is never still.",
           "Its 45% win rate sits near the herd's median of 48%.",
-          "Carries $485K of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $481K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $445K realized these last thirty days, 34% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 445243.85489100614,
+          "winRate": 34.463276836158194,
+          "trades": 10213,
+          "tokens": 177
+        }
       },
       {
-        "number": 23,
+        "number": 31,
         "address": "AH39BneW9UeWxQysUcwogQrYFdPvJuRVZ5w4ccq9SKfL",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hummingbird",
         "stats": {
           "winRate": 47.69230769230769,
-          "pnlUsd": 939102.8202160184,
+          "pnlUsd": 979095.5796067123,
           "trades": 3057,
           "tokens": 61,
-          "avgRoi": 57.264262805904465,
+          "avgRoi": 57.264262805904444,
           "heldTokens": 18,
-          "unrealizedPnlUsd": 733446.9834884456,
+          "unrealizedPnlUsd": 773439.7428791397,
           "openTrades": 18
         },
         "topTokens": [
@@ -737,24 +1169,31 @@
         "notes": [
           "3,057 trades across 61 tokens in thirty days, about 102 a day; it is never still.",
           "Its 48% win rate sits near the herd's median of 48%.",
-          "Carries $733K of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $773K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $155K realized these last thirty days, 43% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 154590.25975497888,
+          "winRate": 43.01075268817204,
+          "trades": 3182,
+          "tokens": 93
+        }
       },
       {
-        "number": 24,
+        "number": 32,
         "address": "GdSmhYHGFjb1QRDJ3dtpbA9TYNJaqEJsZHuUxpksEKNN",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hummingbird",
         "stats": {
-          "winRate": 39.436619718309856,
-          "pnlUsd": 911523.6985810826,
-          "trades": 3109,
-          "tokens": 70,
-          "avgRoi": 50.86699950819076,
-          "heldTokens": 34,
-          "unrealizedPnlUsd": 738441.5159128129,
-          "openTrades": 34
+          "winRate": 38.57142857142858,
+          "pnlUsd": 922762.771743525,
+          "trades": 3106,
+          "tokens": 69,
+          "avgRoi": 50.88776855575892,
+          "heldTokens": 33,
+          "unrealizedPnlUsd": 749863.8424443367,
+          "openTrades": 33
         },
         "topTokens": [
           "STONK",
@@ -764,25 +1203,68 @@
           "FEELSGOOD"
         ],
         "notes": [
-          "3,109 trades across 70 tokens in thirty days, about 104 a day; it is never still.",
+          "3,106 trades across 69 tokens in thirty days, about 104 a day; it is never still.",
           "Wins 39 of every 100 exits against a herd median of 48.",
-          "Carries $738K of unrealized gains on its back, not yet cashed."
-        ]
+          "Carries $750K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $150K realized these last thirty days, 35% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 150117.64784483743,
+          "winRate": 34.69387755102041,
+          "trades": 3246,
+          "tokens": 98
+        }
       },
       {
-        "number": 25,
+        "number": 33,
+        "address": "GvQy1MRaMGQW3tx46Af8d5U9TAmnmYHt9aXy3TGrtR5T",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 43.93939393939394,
+          "pnlUsd": 858352.849208329,
+          "trades": 1381,
+          "tokens": 57,
+          "avgRoi": 88.46202195491095,
+          "heldTokens": 29,
+          "unrealizedPnlUsd": 730407.8380789516,
+          "openTrades": 29
+        },
+        "topTokens": [
+          "ZCAT",
+          "STONK",
+          "LIT",
+          "GP",
+          "WNEAR"
+        ],
+        "notes": [
+          "1,381 trades across 57 tokens in thirty days, about 46 a day; it is never still.",
+          "Its 44% win rate sits near the herd's median of 48%.",
+          "Carries $730K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $127K realized these last thirty days, 41% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 126821.02619026855,
+          "winRate": 41.02564102564102,
+          "trades": 1460,
+          "tokens": 78
+        }
+      },
+      {
+        "number": 34,
         "address": "q1x4ZBM4suUaMB8BjsHpVH5dwyUtEnRY8QB8kzvCQ9z",
         "chain": "solana",
         "label": "Smart Money",
         "species": "hummingbird",
         "stats": {
           "winRate": 40,
-          "pnlUsd": 812105.5623224154,
+          "pnlUsd": 815823.6317826931,
           "trades": 2376,
           "tokens": 90,
-          "avgRoi": 170.24746831101265,
+          "avgRoi": 170.24746831101248,
           "heldTokens": 17,
-          "unrealizedPnlUsd": 208535.4297715952,
+          "unrealizedPnlUsd": 212253.49923187317,
           "openTrades": 17
         },
         "topTokens": [
@@ -794,24 +1276,31 @@
         ],
         "notes": [
           "2,376 trades across 90 tokens in thirty days, about 79 a day; it is never still.",
-          "Average trade returns +170%, against a herd norm of +108%.",
-          "Carries $209K of unrealized gains on its back, not yet cashed."
-        ]
+          "Wins 40 of every 100 exits against a herd median of 48.",
+          "Carries $212K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $590K realized these last thirty days, 32% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 589840.2527257429,
+          "winRate": 31.736526946107784,
+          "trades": 2954,
+          "tokens": 167
+        }
       },
       {
-        "number": 26,
+        "number": 35,
         "address": "0x6fc072c0dcc630f23b29f7c42a5c7c739584ebf5",
         "chain": "ethereum",
         "label": "Smart Money",
         "species": "hummingbird",
         "stats": {
           "winRate": 100,
-          "pnlUsd": 787462.9651393825,
+          "pnlUsd": 787481.1359319411,
           "trades": 4701,
           "tokens": 1,
           "avgRoi": 6.183841917940736,
           "heldTokens": 1,
-          "unrealizedPnlUsd": 24.184817594500757,
+          "unrealizedPnlUsd": 42.355610152950376,
           "openTrades": 1
         },
         "topTokens": [
@@ -820,23 +1309,326 @@
         "notes": [
           "4,701 trades across 1 tokens in thirty days, about 157 a day; it is never still.",
           "Wins 100 of every 100 exits where the herd manages 48.",
-          "1 position still open as of this entry."
+          "1 position still open as of this entry.",
+          "Fresh tracks: $826K realized these last thirty days, 100% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 825732.677739926,
+          "winRate": 100,
+          "trades": 4742,
+          "tokens": 1
+        }
+      },
+      {
+        "number": 36,
+        "address": "BXLEfLN8bHsQCn81rFZebcavP1JSory1XbSDoeYQxJPc",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 48.31460674157304,
+          "pnlUsd": 785588.9862040869,
+          "trades": 2378,
+          "tokens": 88,
+          "avgRoi": 28.559104269550694,
+          "heldTokens": 28,
+          "unrealizedPnlUsd": 698263.9758635659,
+          "openTrades": 28
+        },
+        "topTokens": [
+          "COPCAT",
+          "ZCAT",
+          "🌱 FAMILIARS",
+          "METH",
+          "PURR"
+        ],
+        "notes": [
+          "2,378 trades across 88 tokens in thirty days, about 79 a day; it is never still.",
+          "Average trade returns just +29%; it earns by volume, not by margin.",
+          "Carries $698K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $65K realized these last thirty days, 41% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 64685.50479702479,
+          "winRate": 40.97222222222222,
+          "trades": 2621,
+          "tokens": 144
+        }
+      },
+      {
+        "number": 37,
+        "address": "2GtmuqG31LuuWQmKzeK72YjH5iALPkJycuQaEQGsFzLw",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 68.57142857142857,
+          "pnlUsd": 782004.6748779408,
+          "trades": 3983,
+          "tokens": 32,
+          "avgRoi": 41.00462389966878,
+          "heldTokens": 13,
+          "unrealizedPnlUsd": 438757.83947323763,
+          "openTrades": 13
+        },
+        "topTokens": [
+          "STONK",
+          "CATE",
+          "CTO",
+          "ZOE",
+          "BATON"
+        ],
+        "notes": [
+          "3,983 trades across 32 tokens in thirty days, about 133 a day; it is never still.",
+          "Wins 69 of every 100 exits where the herd manages 48.",
+          "Carries $439K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $326K realized these last thirty days, 62% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 326211.1815626936,
+          "winRate": 62.06896551724138,
+          "trades": 4199,
+          "tokens": 58
+        }
+      },
+      {
+        "number": 38,
+        "address": "F5MYbjEATQFD6rxwdS2zXzEHBGuUhSGvJkUhLFAcr4hv",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 45.07042253521127,
+          "pnlUsd": 759735.2644282031,
+          "trades": 2937,
+          "tokens": 70,
+          "avgRoi": 66.45270864319737,
+          "heldTokens": 17,
+          "unrealizedPnlUsd": -152344.9828458809,
+          "openTrades": 17
+        },
+        "topTokens": [
+          "ALLINU",
+          "EMBER",
+          "PAID",
+          "OTC",
+          "SLAWTH"
+        ],
+        "notes": [
+          "2,937 trades across 70 tokens in thirty days, about 98 a day; it is never still.",
+          "Its 45% win rate sits near the herd's median of 48%.",
+          "Nurses $152K of open losses and has not let go.",
+          "Fresh tracks: $890K realized these last thirty days, 34% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 889802.315690155,
+          "winRate": 33.89830508474576,
+          "trades": 3338,
+          "tokens": 118
+        }
+      },
+      {
+        "number": 39,
+        "address": "9djgawmgpGrzt7DQoJ6tA2YW4gQyt3yH19uVZ3e2T3JJ",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 44.57831325301205,
+          "pnlUsd": 681471.1757168425,
+          "trades": 1588,
+          "tokens": 83,
+          "avgRoi": 70.82666008419423,
+          "heldTokens": 24,
+          "unrealizedPnlUsd": 495564.6183322302,
+          "openTrades": 24
+        },
+        "topTokens": [
+          "STONK",
+          "STONK10",
+          "AGI",
+          "BRRR",
+          "NINJACAT"
+        ],
+        "notes": [
+          "1,588 trades across 83 tokens in thirty days, about 53 a day; it is never still.",
+          "Its 45% win rate sits near the herd's median of 48%.",
+          "Carries $496K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $178K realized these last thirty days, 39% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 178093.22779643434,
+          "winRate": 39.25233644859813,
+          "trades": 1897,
+          "tokens": 107
+        }
+      },
+      {
+        "number": 40,
+        "address": "uDYvqwgSxNDMKGPaMJ7JqyadEg1EhxkuCx9hbLSanHA",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 48.484848484848484,
+          "pnlUsd": 581254.759157636,
+          "trades": 9337,
+          "tokens": 30,
+          "avgRoi": 94.11365730369027,
+          "heldTokens": 16,
+          "unrealizedPnlUsd": 267362.2066255974,
+          "openTrades": 16
+        },
+        "topTokens": [
+          "GP",
+          "CRACKER",
+          "JEANPHIL",
+          "XBT",
+          "LOOM"
+        ],
+        "notes": [
+          "9,337 trades across 30 tokens in thirty days, about 311 a day; it is never still.",
+          "Its 48% win rate sits near the herd's median of 48%.",
+          "Carries $267K of unrealized gains on its back, not yet cashed.",
+          "Fresh tracks: $316K realized these last thirty days, 51% of its exits in profit."
+        ],
+        "recentForm": {
+          "realizedPnlUsd": 316034.5980867541,
+          "winRate": 50.81967213114754,
+          "trades": 9710,
+          "tokens": 61
+        }
+      },
+      {
+        "number": 41,
+        "address": "H6PEtpaDddtPEQjvGwEq5y7nF7WpNsTNy73m5h97oTye",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 46.93877551020408,
+          "pnlUsd": 568569.231220002,
+          "trades": 3660,
+          "tokens": 143,
+          "avgRoi": 118.88327650103898,
+          "heldTokens": 42,
+          "unrealizedPnlUsd": 2669.1014438069183,
+          "openTrades": 42
+        },
+        "topTokens": [
+          "STONK",
+          "PURR",
+          "BTC",
+          "JEANPHIL",
+          "ALLINU"
+        ],
+        "notes": [
+          "3,660 trades across 143 tokens in thirty days, about 122 a day; it is never still.",
+          "Its 47% win rate sits near the herd's median of 48%.",
+          "Keeps 42 tokens in its den at present."
         ]
       },
       {
-        "number": 27,
+        "number": 42,
+        "address": "CnEy6EVjK6bGMC9wxChibpkUQGNYPHWHttD2LAHJLggB",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 45.28301886792453,
+          "pnlUsd": 568071.8973115529,
+          "trades": 3905,
+          "tokens": 40,
+          "avgRoi": 136.75116999370448,
+          "heldTokens": 27,
+          "unrealizedPnlUsd": 407618.64408766653,
+          "openTrades": 27
+        },
+        "topTokens": [
+          "GP",
+          "WOW",
+          "XBT",
+          "GNOME",
+          "CATE"
+        ],
+        "notes": [
+          "3,905 trades across 40 tokens in thirty days, about 130 a day; it is never still.",
+          "Its 45% win rate sits near the herd's median of 48%.",
+          "Carries $408K of unrealized gains on its back, not yet cashed."
+        ]
+      },
+      {
+        "number": 43,
+        "address": "2BmeGa7xPecbKu5z3B95A8kEVqVUqJmTQD9ti3aundjK",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 40,
+          "pnlUsd": 548225.9777637334,
+          "trades": 5413,
+          "tokens": 114,
+          "avgRoi": 120.66558112655348,
+          "heldTokens": 55,
+          "unrealizedPnlUsd": 88601.14265702652,
+          "openTrades": 55
+        },
+        "topTokens": [
+          "ZCAT",
+          "EMBER",
+          "STONK",
+          "SLAWTH",
+          "EMBERCAT"
+        ],
+        "notes": [
+          "5,413 trades across 114 tokens in thirty days, about 180 a day; it is never still.",
+          "Wins 40 of every 100 exits against a herd median of 48.",
+          "Keeps 55 tokens in its den at present."
+        ]
+      },
+      {
+        "number": 44,
+        "address": "7UBjMaYsE3tKcanfgGrtso6aHAMhVNSVHkkX5j3t7f5y",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "hummingbird",
+        "stats": {
+          "winRate": 43.29896907216495,
+          "pnlUsd": 522014.95974013244,
+          "trades": 5228,
+          "tokens": 77,
+          "avgRoi": 204.6949864644699,
+          "heldTokens": 54,
+          "unrealizedPnlUsd": 87948.80928968554,
+          "openTrades": 54
+        },
+        "topTokens": [
+          "STONK",
+          "RAYCAT",
+          "POKEMON",
+          "LOOM",
+          "BITCAT"
+        ],
+        "notes": [
+          "5,228 trades across 77 tokens in thirty days, about 174 a day; it is never still.",
+          "Average trade returns +205%, against a herd norm of +101%.",
+          "Keeps 54 tokens in its den at present."
+        ]
+      },
+      {
+        "number": 45,
         "address": "49MHZz9c1mE1ePTcLxBWPjf7KKzt3Ntd25JnspKvV8vL",
         "chain": "solana",
         "label": "Smart Money",
         "species": "elephant",
         "stats": {
-          "winRate": 48.275862068965516,
-          "pnlUsd": 1751942.7672035599,
+          "winRate": 44.827586206896555,
+          "pnlUsd": 1775506.9055529183,
           "trades": 2048,
           "tokens": 23,
-          "avgRoi": 113.11255119918258,
+          "avgRoi": 113.11255119918262,
           "heldTokens": 21,
-          "unrealizedPnlUsd": 1588151.9572553867,
+          "unrealizedPnlUsd": 1611716.0956047452,
           "openTrades": 21
         },
         "topTokens": [
@@ -848,82 +1640,53 @@
         ],
         "notes": [
           "Holds 21 tokens at this writing, more than three of every four wallets on the plain; it drops nothing and forgets less.",
-          "Trades 2,048 times a month, near the herd's own rhythm of 1,404.",
-          "Carries $1.59M of unrealized gains on its back, not yet cashed."
+          "Trades 2,048 times a month, near the herd's own rhythm of 1,379.",
+          "Carries $1.61M of unrealized gains on its back, not yet cashed."
         ]
       },
       {
-        "number": 28,
+        "number": 46,
         "address": "2UknaPAYpAEP6mbxHRy9mcBgZCHPLWVijQsPBFGJ7Fea",
         "chain": "solana",
         "label": "Smart Money",
         "species": "elephant",
         "stats": {
-          "winRate": 52,
-          "pnlUsd": 992824.1951147704,
-          "trades": 1378,
-          "tokens": 44,
-          "avgRoi": 263.49695293237517,
-          "heldTokens": 21,
-          "unrealizedPnlUsd": 756640.0283171181,
-          "openTrades": 21
+          "winRate": 51.02040816326531,
+          "pnlUsd": 1006217.4384528686,
+          "trades": 1376,
+          "tokens": 43,
+          "avgRoi": 266.85068336368056,
+          "heldTokens": 20,
+          "unrealizedPnlUsd": 770651.0615230903,
+          "openTrades": 20
         },
         "topTokens": [
           "STONK",
           "BTC",
           "METH",
           "XBT",
-          "WIWI"
+          "BITCORN"
         ],
         "notes": [
-          "Holds 21 tokens at this writing, more than three of every four wallets on the plain; it drops nothing and forgets less.",
-          "Average trade returns +263%, against a herd norm of +108%.",
-          "Carries $757K of unrealized gains on its back, not yet cashed."
+          "Holds 20 tokens at this writing, more than three of every four wallets on the plain; it drops nothing and forgets less.",
+          "Average trade returns +267%, against a herd norm of +101%.",
+          "Carries $771K of unrealized gains on its back, not yet cashed."
         ]
       },
       {
-        "number": 29,
-        "address": "GvQy1MRaMGQW3tx46Af8d5U9TAmnmYHt9aXy3TGrtR5T",
-        "chain": "solana",
-        "label": "Smart Money",
-        "species": "elephant",
-        "stats": {
-          "winRate": 43.93939393939394,
-          "pnlUsd": 832033.8900819358,
-          "trades": 1379,
-          "tokens": 57,
-          "avgRoi": 88.46202195491102,
-          "heldTokens": 29,
-          "unrealizedPnlUsd": 704088.8789525583,
-          "openTrades": 29
-        },
-        "topTokens": [
-          "ZCAT",
-          "STONK",
-          "LIT",
-          "GP",
-          "WNEAR"
-        ],
-        "notes": [
-          "Holds 29 tokens at this writing, more than three of every four wallets on the plain; it drops nothing and forgets less.",
-          "Has tasted 57 different tokens this month.",
-          "Carries $704K of unrealized gains on its back, not yet cashed."
-        ]
-      },
-      {
-        "number": 30,
+        "number": 47,
         "address": "AgSELf8jkJYUfEpLNfUxpj3qf21tbLFdHsqvkHWjuYPC",
         "chain": "solana",
         "label": "Smart Money",
         "species": "elephant",
         "stats": {
           "winRate": 41.66666666666667,
-          "pnlUsd": 823551.0968067448,
-          "trades": 2899,
+          "pnlUsd": 830053.2125053515,
+          "trades": 2903,
           "tokens": 33,
-          "avgRoi": 145.02133579481065,
+          "avgRoi": 145.0213357948106,
           "heldTokens": 23,
-          "unrealizedPnlUsd": 414384.033420269,
+          "unrealizedPnlUsd": 420886.1491188759,
           "openTrades": 23
         },
         "topTokens": [
@@ -935,24 +1698,53 @@
         ],
         "notes": [
           "Holds 23 tokens at this writing, more than three of every four wallets on the plain; it drops nothing and forgets less.",
-          "Trades 2,899 times a month, near the herd's own rhythm of 1,404.",
-          "Carries $414K of unrealized gains on its back, not yet cashed."
+          "Trades 2,903 times a month, near the herd's own rhythm of 1,379.",
+          "Carries $421K of unrealized gains on its back, not yet cashed."
         ]
       },
       {
-        "number": 31,
+        "number": 48,
+        "address": "JCLRmm7Go8jsUQp9XBKBm4qJtyeJQFYGdunQq6HgJdeU",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "elephant",
+        "stats": {
+          "winRate": 34.21052631578947,
+          "pnlUsd": 604802.1072812045,
+          "trades": 1000,
+          "tokens": 36,
+          "avgRoi": 166.33674378333941,
+          "heldTokens": 20,
+          "unrealizedPnlUsd": 256529.62855467742,
+          "openTrades": 20
+        },
+        "topTokens": [
+          "STONK",
+          "EMBER",
+          "BTC",
+          "BUTT",
+          "ALLINU"
+        ],
+        "notes": [
+          "Holds 20 tokens at this writing, more than three of every four wallets on the plain; it drops nothing and forgets less.",
+          "Wins 34 of every 100 exits against a herd median of 48.",
+          "Carries $257K of unrealized gains on its back, not yet cashed."
+        ]
+      },
+      {
+        "number": 49,
         "address": "EC2f5DnHzuNRit1ExqghSifDbp1wgrzktsRRZCtU92MJ",
         "chain": "solana",
         "label": "Smart Money",
         "species": "meerkat",
         "stats": {
-          "winRate": 47.5,
-          "pnlUsd": 2901044.930927004,
-          "trades": 1773,
+          "winRate": 45,
+          "pnlUsd": 2939973.2722353865,
+          "trades": 1774,
           "tokens": 37,
-          "avgRoi": 126.92300114750678,
+          "avgRoi": 125.70919959739119,
           "heldTokens": 19,
-          "unrealizedPnlUsd": 1621240.9891833907,
+          "unrealizedPnlUsd": 1663912.9477940248,
           "openTrades": 19
         },
         "topTokens": [
@@ -963,25 +1755,25 @@
           "ROCK"
         ],
         "notes": [
-          "$2.90M in thirty days at a 48% clip; small, upright, and forever scanning the horizon.",
-          "Trades 1,773 times a month, near the herd's own rhythm of 1,404.",
-          "Carries $1.62M of unrealized gains on its back, not yet cashed."
+          "$2.94M in thirty days at a 45% clip; small, upright, and forever scanning the horizon.",
+          "Trades 1,774 times a month, near the herd's own rhythm of 1,379.",
+          "Carries $1.66M of unrealized gains on its back, not yet cashed."
         ]
       },
       {
-        "number": 32,
+        "number": 50,
         "address": "3hHvAzxMs6cMYU638oeg6cGp1C1tqRF1VPWnDEZddEhL",
         "chain": "solana",
         "label": "Smart Money",
         "species": "meerkat",
         "stats": {
           "winRate": 38.46153846153847,
-          "pnlUsd": 1356811.9805091952,
-          "trades": 1995,
+          "pnlUsd": 1376933.8258533974,
+          "trades": 1997,
           "tokens": 39,
-          "avgRoi": 37.0521028726363,
+          "avgRoi": 36.97045457971103,
           "heldTokens": 17,
-          "unrealizedPnlUsd": 1215215.499969323,
+          "unrealizedPnlUsd": 1235249.94141944,
           "openTrades": 17
         },
         "topTokens": [
@@ -992,25 +1784,25 @@
           "ZEC"
         ],
         "notes": [
-          "$1.36M in thirty days at a 38% clip; small, upright, and forever scanning the horizon.",
+          "$1.38M in thirty days at a 38% clip; small, upright, and forever scanning the horizon.",
           "Average trade returns just +37%; it earns by volume, not by margin.",
-          "Carries $1.22M of unrealized gains on its back, not yet cashed."
+          "Carries $1.24M of unrealized gains on its back, not yet cashed."
         ]
       },
       {
-        "number": 33,
+        "number": 51,
         "address": "CAcPyBM3t7NhrFDAVxToqoBoM8zumrXf8NPsj7Pn9pa9",
         "chain": "solana",
         "label": "Smart Money",
         "species": "meerkat",
         "stats": {
           "winRate": 50,
-          "pnlUsd": 1274380.8438620865,
-          "trades": 838,
+          "pnlUsd": 1283259.968870882,
+          "trades": 839,
           "tokens": 18,
-          "avgRoi": 668.3882468394372,
+          "avgRoi": 668.3882468394373,
           "heldTokens": 12,
-          "unrealizedPnlUsd": 557676.4197903958,
+          "unrealizedPnlUsd": 566555.544799191,
           "openTrades": 12
         },
         "topTokens": [
@@ -1021,26 +1813,26 @@
           "WXMR"
         ],
         "notes": [
-          "$1.27M in thirty days at a 50% clip; small, upright, and forever scanning the horizon.",
-          "Average trade returns +668%, against a herd norm of +108%.",
-          "Carries $558K of unrealized gains on its back, not yet cashed."
+          "$1.28M in thirty days at a 50% clip; small, upright, and forever scanning the horizon.",
+          "Average trade returns +668%, against a herd norm of +101%.",
+          "Carries $567K of unrealized gains on its back, not yet cashed."
         ]
       },
       {
-        "number": 34,
+        "number": 52,
         "address": "Dw3LY8NnG3BB1EEXCNJwAKtVoEE7faEYiygYNHfFPNb1",
         "chain": "solana",
         "label": "Smart Money",
         "species": "meerkat",
         "stats": {
           "winRate": 52,
-          "pnlUsd": 1108755.6383432294,
-          "trades": 2230,
+          "pnlUsd": 1109154.0126911136,
+          "trades": 2237,
           "tokens": 24,
-          "avgRoi": 204.18912703986967,
-          "heldTokens": 19,
-          "unrealizedPnlUsd": 531205.2170864497,
-          "openTrades": 19
+          "avgRoi": 202.17376273493494,
+          "heldTokens": 18,
+          "unrealizedPnlUsd": 497323.94725786865,
+          "openTrades": 18
         },
         "topTokens": [
           "ZCAT",
@@ -1051,53 +1843,24 @@
         ],
         "notes": [
           "$1.11M in thirty days at a 52% clip; small, upright, and forever scanning the horizon.",
-          "Average trade returns +204%, against a herd norm of +108%.",
-          "Carries $531K of unrealized gains on its back, not yet cashed."
+          "Average trade returns +202%, against a herd norm of +101%.",
+          "Carries $497K of unrealized gains on its back, not yet cashed."
         ]
       },
       {
-        "number": 35,
-        "address": "24L6uekgvsQRgT41DZRhahEAAVnkseTT7x4qyigC3HvH",
-        "chain": "solana",
-        "label": "Smart Money",
-        "species": "meerkat",
-        "stats": {
-          "winRate": 32.69230769230769,
-          "pnlUsd": 1103709.3544521504,
-          "trades": 907,
-          "tokens": 51,
-          "avgRoi": 223.86808543571672,
-          "heldTokens": 15,
-          "unrealizedPnlUsd": 765455.3153243627,
-          "openTrades": 15
-        },
-        "topTokens": [
-          "STONK",
-          "BATON",
-          "SOLCAT",
-          "MUFASA",
-          "BOB"
-        ],
-        "notes": [
-          "$1.10M in thirty days at a 33% clip; small, upright, and forever scanning the horizon.",
-          "Average trade returns +224%, against a herd norm of +108%.",
-          "Carries $765K of unrealized gains on its back, not yet cashed."
-        ]
-      },
-      {
-        "number": 36,
+        "number": 53,
         "address": "HCJGNnycM1UbMQMTDp9r3YHY5VbcFcsDRgmMJPookmwZ",
         "chain": "solana",
         "label": "Smart Money",
         "species": "meerkat",
         "stats": {
           "winRate": 42.10526315789473,
-          "pnlUsd": 1040671.8408680405,
+          "pnlUsd": 1065234.9118212792,
           "trades": 101,
           "tokens": 14,
-          "avgRoi": 94.05780236084217,
+          "avgRoi": 94.05780236084219,
           "heldTokens": 10,
-          "unrealizedPnlUsd": 747582.9014499416,
+          "unrealizedPnlUsd": 772145.9724031803,
           "openTrades": 10
         },
         "topTokens": [
@@ -1108,25 +1871,25 @@
           "PERPSPAD"
         ],
         "notes": [
-          "$1.04M in thirty days at a 42% clip; small, upright, and forever scanning the horizon.",
+          "$1.07M in thirty days at a 42% clip; small, upright, and forever scanning the horizon.",
           "Just 101 trades this month; among the stillest creatures here.",
-          "Carries $748K of unrealized gains on its back, not yet cashed."
+          "Carries $772K of unrealized gains on its back, not yet cashed."
         ]
       },
       {
-        "number": 37,
+        "number": 54,
         "address": "EZcv4WSEmX7WopTJc2bfrdaYovpKcxk81s9zXiQ3Zm9i",
         "chain": "solana",
         "label": "Smart Money",
         "species": "meerkat",
         "stats": {
           "winRate": 38.70967741935484,
-          "pnlUsd": 927206.1810419674,
+          "pnlUsd": 928767.016413817,
           "trades": 1195,
           "tokens": 26,
-          "avgRoi": 54.25613592889671,
+          "avgRoi": 54.256135928896676,
           "heldTokens": 12,
-          "unrealizedPnlUsd": 254.8885627833729,
+          "unrealizedPnlUsd": 1815.723934633228,
           "openTrades": 12
         },
         "topTokens": [
@@ -1137,25 +1900,25 @@
           "ANSEM"
         ],
         "notes": [
-          "$927K in thirty days at a 39% clip; small, upright, and forever scanning the horizon.",
-          "Trades 1,195 times a month, near the herd's own rhythm of 1,404.",
+          "$929K in thirty days at a 39% clip; small, upright, and forever scanning the horizon.",
+          "Trades 1,195 times a month, near the herd's own rhythm of 1,379.",
           "12 positions still open as of this entry."
         ]
       },
       {
-        "number": 38,
+        "number": 55,
         "address": "AksCZhKHpHwtnfJKWRi3fKjWv5YyuCDxoK1Ygr3aRz99",
         "chain": "solana",
         "label": "Smart Money",
         "species": "meerkat",
         "stats": {
-          "winRate": 47.368421052631575,
-          "pnlUsd": 868680.013529999,
-          "trades": 1428,
+          "winRate": 42.10526315789473,
+          "pnlUsd": 873279.607107556,
+          "trades": 1431,
           "tokens": 18,
-          "avgRoi": 55.622304235691935,
+          "avgRoi": 55.62230423569192,
           "heldTokens": 12,
-          "unrealizedPnlUsd": 768394.72191391,
+          "unrealizedPnlUsd": 772994.315491467,
           "openTrades": 12
         },
         "topTokens": [
@@ -1166,54 +1929,25 @@
           "XBTC"
         ],
         "notes": [
-          "$869K in thirty days at a 47% clip; small, upright, and forever scanning the horizon.",
-          "Trades 1,428 times a month, near the herd's own rhythm of 1,404.",
-          "Carries $768K of unrealized gains on its back, not yet cashed."
+          "$873K in thirty days at a 42% clip; small, upright, and forever scanning the horizon.",
+          "Trades 1,431 times a month, near the herd's own rhythm of 1,379.",
+          "Carries $773K of unrealized gains on its back, not yet cashed."
         ]
       },
       {
-        "number": 39,
-        "address": "FRJB1ZuDJ1RtPGs5gWSxE87kKV53sKEdGfgTReVzcSoH",
-        "chain": "solana",
-        "label": "Smart Money",
-        "species": "meerkat",
-        "stats": {
-          "winRate": 28.888888888888886,
-          "pnlUsd": 784959.1003647395,
-          "trades": 1110,
-          "tokens": 44,
-          "avgRoi": 240.53374786141913,
-          "heldTokens": 14,
-          "unrealizedPnlUsd": 46650.49348628585,
-          "openTrades": 14
-        },
-        "topTokens": [
-          "ZCAT",
-          "PURR",
-          "TACZ",
-          "ZEC",
-          "STONK"
-        ],
-        "notes": [
-          "$785K in thirty days at a 29% clip; small, upright, and forever scanning the horizon.",
-          "Average trade returns +241%, against a herd norm of +108%.",
-          "14 positions still open as of this entry."
-        ]
-      },
-      {
-        "number": 40,
+        "number": 56,
         "address": "2QmqCe1sX4cxJv1yZP8FxNJjmo2jQVJePLdYXxkBhpgA",
         "chain": "solana",
         "label": "Smart Money",
         "species": "meerkat",
         "stats": {
           "winRate": 42.857142857142854,
-          "pnlUsd": 778056.0219846042,
-          "trades": 760,
+          "pnlUsd": 806246.8509061311,
+          "trades": 761,
           "tokens": 20,
-          "avgRoi": 36.853189312264085,
+          "avgRoi": 36.85318931226409,
           "heldTokens": 8,
-          "unrealizedPnlUsd": 6127.632091347786,
+          "unrealizedPnlUsd": 34318.46101287477,
           "openTrades": 8
         },
         "topTokens": [
@@ -1224,9 +1958,125 @@
           "CRIME"
         ],
         "notes": [
-          "$778K in thirty days at a 43% clip; small, upright, and forever scanning the horizon.",
+          "$806K in thirty days at a 43% clip; small, upright, and forever scanning the horizon.",
           "Average trade returns just +37%; it earns by volume, not by margin.",
           "8 positions still open as of this entry."
+        ]
+      },
+      {
+        "number": 57,
+        "address": "FRJB1ZuDJ1RtPGs5gWSxE87kKV53sKEdGfgTReVzcSoH",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "meerkat",
+        "stats": {
+          "winRate": 28.888888888888886,
+          "pnlUsd": 786263.8512186429,
+          "trades": 1110,
+          "tokens": 44,
+          "avgRoi": 240.53374786141907,
+          "heldTokens": 14,
+          "unrealizedPnlUsd": 47955.24434018892,
+          "openTrades": 14
+        },
+        "topTokens": [
+          "ZCAT",
+          "PURR",
+          "TACZ",
+          "ZEC",
+          "STONK"
+        ],
+        "notes": [
+          "$786K in thirty days at a 29% clip; small, upright, and forever scanning the horizon.",
+          "Average trade returns +241%, against a herd norm of +101%.",
+          "14 positions still open as of this entry."
+        ]
+      },
+      {
+        "number": 58,
+        "address": "L5aYRXToe6VKsHe8S8W2rt3KdujMv6HppBCdbfBtofg",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "meerkat",
+        "stats": {
+          "winRate": 38.88888888888889,
+          "pnlUsd": 663884.9983887859,
+          "trades": 225,
+          "tokens": 16,
+          "avgRoi": 34.127715108958014,
+          "heldTokens": 14,
+          "unrealizedPnlUsd": 85615.79182671243,
+          "openTrades": 14
+        },
+        "topTokens": [
+          "STONK",
+          "EMBER",
+          "CLOUD",
+          "AGI",
+          "CODEC"
+        ],
+        "notes": [
+          "$664K in thirty days at a 39% clip; small, upright, and forever scanning the horizon.",
+          "Just 225 trades this month; among the stillest creatures here.",
+          "14 positions still open as of this entry."
+        ]
+      },
+      {
+        "number": 59,
+        "address": "HNhjfuDnmS9PG18WgjAtLnkDUJBirdGxRPbVVaWSfBzm",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "meerkat",
+        "stats": {
+          "winRate": 31.57894736842105,
+          "pnlUsd": 621197.4127714776,
+          "trades": 132,
+          "tokens": 12,
+          "avgRoi": 34.66694887804293,
+          "heldTokens": 11,
+          "unrealizedPnlUsd": 93952.91155022614,
+          "openTrades": 11
+        },
+        "topTokens": [
+          "STONK",
+          "EMBER",
+          "USELESS",
+          "MET",
+          "MUCHWOW"
+        ],
+        "notes": [
+          "$621K in thirty days at a 32% clip; small, upright, and forever scanning the horizon.",
+          "Just 132 trades this month; among the stillest creatures here.",
+          "11 positions still open as of this entry."
+        ]
+      },
+      {
+        "number": 60,
+        "address": "5XUNoSihvRq8Crj2FbPfB5bvBHhfWoxwy8ZTH7djSroE",
+        "chain": "solana",
+        "label": "Smart Money",
+        "species": "meerkat",
+        "stats": {
+          "winRate": 35.714285714285715,
+          "pnlUsd": 558014.0380567496,
+          "trades": 282,
+          "tokens": 14,
+          "avgRoi": 32.28845835676236,
+          "heldTokens": 4,
+          "unrealizedPnlUsd": 81985.43512934668,
+          "openTrades": 4
+        },
+        "topTokens": [
+          "STONK",
+          "USELESS",
+          "ZCAT",
+          "OPENAI",
+          "BP"
+        ],
+        "notes": [
+          "$558K in thirty days at a 36% clip; small, upright, and forever scanning the horizon.",
+          "Just 282 trades this month; among the stillest creatures here.",
+          "4 positions still open as of this entry."
         ]
       }
     ]

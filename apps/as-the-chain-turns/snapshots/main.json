@@ -1,74 +1,36 @@
 {
   "app": "as-the-chain-turns",
   "name": "main",
-  "generatedAt": "2026-09-25T11:25:05.676Z",
-  "credits": 0,
+  "generatedAt": "2026-09-25T11:29:08.088Z",
+  "credits": 15,
   "sample": false,
   "data": {
-    "generatedAt": "2026-09-25T11:25:05.676Z",
+    "generatedAt": "2026-09-25T11:29:08.088Z",
     "window": {
-      "from": "2026-09-25T10:09:01.000Z",
-      "to": "2026-09-25T11:01:06.000Z"
+      "from": "2026-09-25T10:51:45.000Z",
+      "to": "2026-09-25T11:28:11.000Z"
     },
     "episode": {
       "number": 264,
-      "title": "Two Wallets, One $BP",
-      "synopsis": "The Archduke of Solana buys $1K of $BP while The Reverend of Solana sells over breakfast, and The Viscount of Solana walks away from 1.2M GP. 6 wallets, 7 tokens and $39K on the move in 1 hour, and nobody has heard from The Admiral of Solana.",
+      "title": "Two Wallets, One $CATE",
+      "synopsis": "The Madame of Solana follows The Widow of Solana into $CATE with $15K over breakfast, and The Viscount of Solana walks away from 1.2M GP. 10 wallets, 8 tokens and $71K on the move in 1 hour, and nobody has heard from The Governess of Solana.",
       "airDate": "2026-09-25",
       "previously": [
         {
-          "wallet": "ASv4ktNwZ8uBbUj94ACnr7Nj1sTtcYnEUZgWxkMsakA7",
-          "text": "The Archduke of Solana and The Reverend of Solana disagreed about $BP."
-        },
-        {
-          "wallet": "Dw3LY8NnG3BB1EEXCNJwAKtVoEE7faEYiygYNHfFPNb1",
-          "text": "The Viscount of Solana and The Reverend of Solana both gave up on $GLDX."
-        },
-        {
           "wallet": "Dw3LY8NnG3BB1EEXCNJwAKtVoEE7faEYiygYNHfFPNb1",
           "text": "The Viscount of Solana sold $24K of $GP."
+        },
+        {
+          "wallet": "3faU48ZVCcNQFr9tefuHWWKbaLDDn4GxCCxgQgYvgVbA",
+          "text": "The Widow of Solana and The Madame of Solana both wanted $CATE."
+        },
+        {
+          "wallet": "JA47Laz5akjxq1ZTkdG6fnyC7mUAk4npJyh6Nkp1PUm9",
+          "text": "The Madame of Solana and The Widow of Solana both wanted $CATE."
         }
       ]
     },
     "cast": [
-      {
-        "address": "GWXFHoxUHuQNkpUg2PJJS9hqTiS1gHHtPayBEJJbsE5o",
-        "label": "Smart Money",
-        "chain": "solana",
-        "character": {
-          "name": "The Dowager of Solana",
-          "role": "Sold $7K into everyone's hopes. Up $110K this month.",
-          "archetype": "The Villain",
-          "pronoun": "she",
-          "hue": 130
-        },
-        "stats": {
-          "trades": 12,
-          "buys": 1,
-          "sells": 11,
-          "swaps": 0,
-          "volumeUsd": 6913,
-          "biggestTradeUsd": 1751,
-          "tokens": [
-            "🌱 GO",
-            "⚠️ OG",
-            "⚠️ GOCAT",
-            "🌱 OKLESGO"
-          ],
-          "pnl30dUsd": 110239,
-          "roi30dPct": 31,
-          "winRate30dPct": 39.1,
-          "trades30d": 3538,
-          "tokens30d": 197,
-          "topTokens": [
-            "EMBER",
-            "ALLINU",
-            "🌱 GO",
-            "BUTT",
-            "BATON"
-          ]
-        }
-      },
       {
         "address": "Dw3LY8NnG3BB1EEXCNJwAKtVoEE7faEYiygYNHfFPNb1",
         "label": "Smart Money",
@@ -85,8 +47,8 @@
           "buys": 0,
           "sells": 5,
           "swaps": 0,
-          "volumeUsd": 53903,
-          "biggestTradeUsd": 24212,
+          "volumeUsd": 54439,
+          "biggestTradeUsd": 23868,
           "tokens": [
             "GP",
             "ZCAT",
@@ -94,10 +56,10 @@
             "KNOTS",
             "PURR"
           ],
-          "pnl30dUsd": 569338,
+          "pnl30dUsd": 603618,
           "roi30dPct": 1.9,
           "winRate30dPct": 46.7,
-          "trades30d": 2238,
+          "trades30d": 2245,
           "tokens30d": 30,
           "topTokens": [
             "ZCAT",
@@ -109,149 +71,326 @@
         }
       },
       {
-        "address": "ASv4ktNwZ8uBbUj94ACnr7Nj1sTtcYnEUZgWxkMsakA7",
-        "label": "YGIG Token Deployer",
+        "address": "2GtmuqG31LuuWQmKzeK72YjH5iALPkJycuQaEQGsFzLw",
+        "label": "High Balance",
         "chain": "solana",
         "character": {
-          "name": "The Archduke of Solana",
-          "role": "Trades the same $BP as The Reverend of Solana. A coincidence, allegedly.",
+          "name": "The Countess of Solana",
+          "role": "Trades the same $CATE as The Madame of Solana. A coincidence, allegedly.",
           "archetype": "The Twin",
-          "pronoun": "he",
-          "hue": 170
-        },
-        "stats": {
-          "trades": 6,
-          "buys": 1,
-          "sells": 4,
-          "swaps": 1,
-          "volumeUsd": 3254,
-          "biggestTradeUsd": 1208,
-          "tokens": [
-            "BP",
-            "🌱 DORA"
-          ],
-          "pnl30dUsd": 185118,
-          "roi30dPct": 40.9,
-          "winRate30dPct": 47.9,
-          "trades30d": 5472,
-          "tokens30d": 194,
-          "topTokens": [
-            "EMBER",
-            "CHILLHOUSE",
-            "EMBERCAT",
-            "🌱 GOON",
-            "⚠️ TULIP"
-          ]
-        }
-      },
-      {
-        "address": "Fp3kBUYfnz7Z4cuTCBy6MTcy9kQt4K3wuzuKmpe2AgB",
-        "label": "Smart Money",
-        "chain": "solana",
-        "character": {
-          "name": "The Marchioness of Solana",
-          "role": "Only buys. 7 purchases today, zero regrets. So far.",
-          "archetype": "The Ingenue",
           "pronoun": "she",
-          "hue": 96
+          "hue": 358
         },
         "stats": {
           "trades": 7,
-          "buys": 7,
-          "sells": 0,
+          "buys": 2,
+          "sells": 5,
           "swaps": 0,
-          "volumeUsd": 855,
-          "biggestTradeUsd": 179,
+          "volumeUsd": 8590,
+          "biggestTradeUsd": 5339,
           "tokens": [
-            "⚠️ BOOBY",
-            "🌱 UPTOBER"
+            "KORI",
+            "🌱 GOYIM",
+            "ETAC",
+            "CATE"
           ],
-          "pnl30dUsd": 70240,
-          "roi30dPct": 2.6,
-          "winRate30dPct": 37.5,
-          "trades30d": 698,
-          "tokens30d": 56,
+          "pnl30dUsd": 326211,
+          "roi30dPct": 35.4,
+          "winRate30dPct": 62.1,
+          "trades30d": 4199,
+          "tokens30d": 58,
           "topTokens": [
-            "OTC",
-            "🌱 FAMILIARS",
-            "🌱 BRAIN",
-            "🌱 DAP",
-            "⚠️ ONEPAGE"
+            "STONK",
+            "CATE",
+            "CTO",
+            "ZOE",
+            "BATON"
           ]
         }
       },
       {
-        "address": "DAEdBmTPEKM6xkwfzC3d411QUe6coKpkND6UURa4CvHC",
-        "label": "Test Token Deployer",
+        "address": "JA47Laz5akjxq1ZTkdG6fnyC7mUAk4npJyh6Nkp1PUm9",
+        "label": "Smart Money",
         "chain": "solana",
         "character": {
-          "name": "The Reverend of Solana",
-          "role": "Bought and sold $🌱 BEPE within 2 minutes. Remembers nothing.",
-          "archetype": "The Amnesiac",
-          "pronoun": "he",
-          "hue": 283
+          "name": "The Madame of Solana",
+          "role": "3 rotations before the credits roll. Always has a plan.",
+          "archetype": "The Schemer",
+          "pronoun": "she",
+          "hue": 34
         },
         "stats": {
-          "trades": 5,
+          "trades": 4,
           "buys": 1,
-          "sells": 4,
-          "swaps": 0,
-          "volumeUsd": 2171,
-          "biggestTradeUsd": 930,
+          "sells": 0,
+          "swaps": 3,
+          "volumeUsd": 20699,
+          "biggestTradeUsd": 14985,
           "tokens": [
-            "POKE",
-            "🌱 BEPE",
-            "GLDX",
-            "BP"
+            "CATE",
+            "ZEC",
+            "ZCAT",
+            "GLDX"
           ],
-          "pnl30dUsd": 304381,
-          "roi30dPct": 1.7,
-          "winRate30dPct": 48.1,
-          "trades30d": 2547,
-          "tokens30d": 77,
+          "pnl30dUsd": 79282,
+          "roi30dPct": 1.1,
+          "winRate30dPct": 50,
+          "trades30d": 2439,
+          "tokens30d": 24,
           "topTokens": [
-            "ANSEM",
-            "PURR",
-            "USEFUL",
-            "MANLET",
-            "DRIP"
+            "STONK",
+            "KNOTS",
+            "USELESS",
+            "ZCAT",
+            "GP"
           ]
         }
       },
       {
-        "address": "8fenZTDtD27NgQoApjRVTPnZyTEgdjuxkWcQZiPVRS4E",
-        "label": "turnupdylan.sol",
+        "address": "AsrSVKcADWAFKHFAmJZ38W3opcC7mkm6zQGx1R62Woec",
+        "label": "Smart Money",
         "chain": "solana",
         "character": {
           "name": "The Admiral of Solana",
-          "role": "Down $22K this month. Still selling. Wears black.",
-          "archetype": "The Widow",
+          "role": "Only buys. 6 purchases today, zero regrets. So far.",
+          "archetype": "The Ingenue",
           "pronoun": "he",
-          "hue": 64
+          "hue": 317
         },
         "stats": {
-          "trades": 3,
-          "buys": 0,
-          "sells": 3,
+          "trades": 6,
+          "buys": 6,
+          "sells": 0,
           "swaps": 0,
-          "volumeUsd": 4886,
-          "biggestTradeUsd": 3969,
+          "volumeUsd": 3765,
+          "biggestTradeUsd": 1195,
           "tokens": [
-            "OP",
-            "🌱 HYPERCAT",
-            "XHYPE"
+            "🎒",
+            "CREEK"
           ],
-          "pnl30dUsd": -21550,
-          "roi30dPct": -9.9,
-          "winRate30dPct": 44,
-          "trades30d": 642,
-          "tokens30d": 50,
+          "pnl30dUsd": 78930,
+          "roi30dPct": 53.2,
+          "winRate30dPct": 43.4,
+          "trades30d": 951,
+          "tokens30d": 76,
           "topTokens": [
-            "KET",
-            "PURPS",
-            "ICPX",
-            "WOC",
-            "KNIGHT"
+            "STONK",
+            "RAYCAT",
+            "LOOM",
+            "KIRKSLOP",
+            "CTO"
+          ]
+        }
+      },
+      {
+        "address": "GWXFHoxUHuQNkpUg2PJJS9hqTiS1gHHtPayBEJJbsE5o",
+        "label": "Smart Money",
+        "chain": "solana",
+        "character": {
+          "name": "The Dowager of Solana",
+          "role": "Sold $3K into everyone's hopes. Up $110K this month.",
+          "archetype": "The Villain",
+          "pronoun": "she",
+          "hue": 130
+        },
+        "stats": {
+          "trades": 6,
+          "buys": 0,
+          "sells": 6,
+          "swaps": 0,
+          "volumeUsd": 2889,
+          "biggestTradeUsd": 484,
+          "tokens": [
+            "🌱 GO"
+          ],
+          "pnl30dUsd": 110239,
+          "roi30dPct": 31,
+          "winRate30dPct": 39.1,
+          "trades30d": 3538,
+          "tokens30d": 197,
+          "topTokens": [
+            "EMBER",
+            "ALLINU",
+            "🌱 GO",
+            "BUTT",
+            "BATON"
+          ]
+        }
+      },
+      {
+        "address": "4zFEFU8gtZ2uQVn3pkWLaD829a7gdxTsexGY89KePW3j",
+        "label": "Smart Money",
+        "chain": "solana",
+        "character": {
+          "name": "The Heiress of Solana",
+          "role": "4 trades, 3 tokens, no history in this town.",
+          "archetype": "The Newcomer",
+          "pronoun": "she",
+          "hue": 147
+        },
+        "stats": {
+          "trades": 4,
+          "buys": 4,
+          "sells": 0,
+          "swaps": 0,
+          "volumeUsd": 1991,
+          "biggestTradeUsd": 797,
+          "tokens": [
+            "MONEROCHAN",
+            "⚠️ FRIES",
+            "UBER"
+          ],
+          "pnl30dUsd": 116836,
+          "roi30dPct": 25.5,
+          "winRate30dPct": 53.1,
+          "trades30d": 8368,
+          "tokens30d": 294,
+          "topTokens": [
+            "MANLET",
+            "BUTTHOLE",
+            "CATE",
+            "⚠️ AIRDROP",
+            "⚠️ JOLLYBOT"
+          ]
+        }
+      },
+      {
+        "address": "2M2vLX34LXMg24dMEnjWHvRXS1tshpEDRWzmXgV8ENNZ",
+        "label": "Token Millionaire",
+        "chain": "solana",
+        "character": {
+          "name": "The Duchess of Solana",
+          "role": "11 trades, 2 tokens, no history in this town.",
+          "archetype": "The Newcomer",
+          "pronoun": "she",
+          "hue": 16
+        },
+        "stats": {
+          "trades": 11,
+          "buys": 11,
+          "sells": 0,
+          "swaps": 0,
+          "volumeUsd": 13,
+          "biggestTradeUsd": 1,
+          "tokens": [
+            "⚠️ AICATE",
+            "PATE"
+          ],
+          "pnl30dUsd": 241,
+          "roi30dPct": 1.4,
+          "winRate30dPct": 61.1,
+          "trades30d": 14906,
+          "tokens30d": 18,
+          "topTokens": [
+            "CATE",
+            "MOONCAT",
+            "⚠️ COMMOTITTIES",
+            "TRK",
+            "PATE"
+          ]
+        }
+      },
+      {
+        "address": "3HEfkkmaAyfn4tn3pXhk6ZXkapArNki52kJ6F5oYbDWq",
+        "label": "Smart Money",
+        "chain": "solana",
+        "character": {
+          "name": "The Reverend of Solana",
+          "role": "2 trades, 1 token, no history in this town.",
+          "archetype": "The Newcomer",
+          "pronoun": "he",
+          "hue": 115
+        },
+        "stats": {
+          "trades": 2,
+          "buys": 2,
+          "sells": 0,
+          "swaps": 0,
+          "volumeUsd": 13426,
+          "biggestTradeUsd": 9055,
+          "tokens": [
+            "🌱 MASK"
+          ],
+          "pnl30dUsd": 345372,
+          "roi30dPct": 4.8,
+          "winRate30dPct": 56,
+          "trades30d": 1690,
+          "tokens30d": 25,
+          "topTokens": [
+            "ZCAT",
+            "NEARKAT",
+            "BTC",
+            "ZDOG",
+            "⚠️ BITCAT"
+          ]
+        }
+      },
+      {
+        "address": "6wTVWXQPCmmAJra4wFMoy6kae5s2FguHyhcXyhTGmgTt",
+        "label": "nomeme Token Deployer",
+        "chain": "solana",
+        "character": {
+          "name": "The Governess of Solana",
+          "role": "2 trades, 1 token, no history in this town.",
+          "archetype": "The Newcomer",
+          "pronoun": "she",
+          "hue": 12
+        },
+        "stats": {
+          "trades": 2,
+          "buys": 2,
+          "sells": 0,
+          "swaps": 0,
+          "volumeUsd": 9880,
+          "biggestTradeUsd": 6310,
+          "tokens": [
+            "SOL"
+          ],
+          "pnl30dUsd": -1767,
+          "roi30dPct": -4.1,
+          "winRate30dPct": 40,
+          "trades30d": 19,
+          "tokens30d": 5,
+          "topTokens": [
+            "PUMP",
+            "BERT",
+            "CUPSEY",
+            "HOUSE"
+          ]
+        }
+      },
+      {
+        "address": "3faU48ZVCcNQFr9tefuHWWKbaLDDn4GxCCxgQgYvgVbA",
+        "label": "Smart Money",
+        "chain": "solana",
+        "character": {
+          "name": "The Widow of Solana",
+          "role": "2 trades, 1 token, no history in this town.",
+          "archetype": "The Newcomer",
+          "pronoun": "she",
+          "hue": 253
+        },
+        "stats": {
+          "trades": 2,
+          "buys": 0,
+          "sells": 0,
+          "swaps": 2,
+          "volumeUsd": 7665,
+          "biggestTradeUsd": 7611,
+          "tokens": [
+            "CATE",
+            "STONK",
+            "ZEC"
+          ],
+          "pnl30dUsd": -4054,
+          "roi30dPct": -9.4,
+          "winRate30dPct": 57.1,
+          "trades30d": 35,
+          "tokens30d": 7,
+          "topTokens": [
+            "SPX",
+            "NEET",
+            "ZCAT"
           ]
         }
       }
@@ -259,241 +398,62 @@
     "scenes": [
       {
         "index": 1,
-        "title": "A Small Indulgence",
-        "at": "2026-09-25T10:16:50.000Z",
-        "wallet": "DAEdBmTPEKM6xkwfzC3d411QUe6coKpkND6UURa4CvHC",
-        "action": "buy",
-        "symbol": "🌱 BEPE",
-        "valueUsd": 358,
-        "caption": "The Reverend of Solana was told to wait. He bought $358 of $🌱 BEPE instead.",
+        "title": "Letting Go",
+        "at": "2026-09-25T10:52:41.000Z",
+        "wallet": "GWXFHoxUHuQNkpUg2PJJS9hqTiS1gHHtPayBEJJbsE5o",
+        "action": "sell",
+        "symbol": "🌱 GO",
+        "valueUsd": 484,
+        "caption": "$484 of $🌱 GO, sold over breakfast. The Dowager of Solana left without a word.",
         "zoom": "slow",
-        "kind": "buy",
+        "kind": "sell",
         "chain": "solana",
-        "txHash": "62hNzUyMs63f9e84LXtEovJmrkoeGGdFziZ9RGA451bXPdbaTRkHgdqz52dP8bqbrZBrx3evjtvJSp5T9XWaCMSf",
-        "amount": 34606769.338915,
+        "txHash": "66fquWWXnnFEF9ycoGAdj3EtpgxsQ3eKk8McYPWWjkHWQi83A6TbTY34rW2wYyGo5FyvjEdZP4NbK4X48orbzXhJ",
+        "amount": 47484.766162,
         "pair": {
           "sold": {
-            "symbol": "SOL",
-            "amount": 3
+            "symbol": "🌱 GO",
+            "amount": 47484.766162
           },
           "bought": {
-            "symbol": "🌱 BEPE",
-            "amount": 34606769.338915
+            "symbol": "USDC",
+            "amount": 489.215749
           }
         }
       },
       {
         "index": 2,
-        "title": "What Was Promised",
-        "at": "2026-09-25T10:18:23.000Z",
-        "wallet": "DAEdBmTPEKM6xkwfzC3d411QUe6coKpkND6UURa4CvHC",
-        "action": "sell",
-        "symbol": "🌱 BEPE",
-        "valueUsd": 404,
-        "caption": "The Reverend of Solana bought $🌱 BEPE 2 minutes ago. Now $404 of it is gone, over breakfast. Nobody is surprised.",
-        "zoom": "dramatic",
-        "kind": "reversal",
+        "title": "Against Advice",
+        "at": "2026-09-25T10:52:45.000Z",
+        "wallet": "3HEfkkmaAyfn4tn3pXhk6ZXkapArNki52kJ6F5oYbDWq",
+        "action": "buy",
+        "symbol": "🌱 MASK",
+        "valueUsd": 9055,
+        "caption": "The Reverend of Solana picked up 1.1M 🌱 MASK over breakfast. $9K. A small indulgence, he calls it.",
+        "zoom": "slow",
+        "kind": "buy",
         "chain": "solana",
-        "txHash": "41TWedo6rSYzNtHcRhnv9Af2LbnJ1EhXQ4mNmMNVjN2Z5GTdaLgquaozid8Rd5mCR2JhiNebg6KhsQzH2PcHPHRB",
-        "amount": 35310557.306388,
+        "txHash": "4q7F8fKkChGB8KEtX5vyuY9qron3SyHim222TVRF5pzBSBwVaKstDHfuh172HshBmQAwSMS6j3QwnPhzwgwCgj95",
+        "amount": 1106303.605775,
         "pair": {
           "sold": {
-            "symbol": "🌱 BEPE",
-            "amount": 35310557.306388
+            "symbol": "SOL",
+            "amount": 75
           },
           "bought": {
-            "symbol": "SOL",
-            "amount": 3.386613246
+            "symbol": "🌱 MASK",
+            "amount": 1106303.605775
           }
         }
       },
       {
         "index": 3,
-        "title": "One of Them Is Wrong",
-        "at": "2026-09-25T10:29:30.000Z",
-        "wallet": "ASv4ktNwZ8uBbUj94ACnr7Nj1sTtcYnEUZgWxkMsakA7",
-        "action": "buy",
-        "symbol": "BP",
-        "valueUsd": 1208,
-        "caption": "The Reverend of Solana sold $BP. The Archduke of Solana bought $1K of it over breakfast. Somebody knows something.",
-        "zoom": "dramatic",
-        "kind": "shared",
-        "chain": "solana",
-        "txHash": "R4oQqT2LiSVwH15xqr7yKa5JKYVpsHys7HEYRbEprutxQXk9igdAtTNF4xbRoEStGAP2EjwNbuuAGVfRPMuDL1u",
-        "amount": 945.310758188,
-        "pair": {
-          "sold": {
-            "symbol": "SOL",
-            "amount": 10.126582279
-          },
-          "bought": {
-            "symbol": "BP",
-            "amount": 945.310758188
-          }
-        },
-        "coStar": "DAEdBmTPEKM6xkwfzC3d411QUe6coKpkND6UURa4CvHC"
-      },
-      {
-        "index": 4,
-        "title": "Opposite Doors",
-        "at": "2026-09-25T10:35:40.000Z",
-        "wallet": "DAEdBmTPEKM6xkwfzC3d411QUe6coKpkND6UURa4CvHC",
-        "action": "sell",
-        "symbol": "BP",
-        "valueUsd": 144,
-        "caption": "Same token as The Archduke of Solana, opposite door. The Reverend of Solana sold $144 of $BP over breakfast.",
-        "zoom": "dramatic",
-        "kind": "shared",
-        "chain": "solana",
-        "txHash": "cP65z8JB4Rf99YiUKmS2BMxEEcD4gGemFPTWKtYUWaSJR23sW15UGoLUesD9ahwVPML2ZGY9xSst7q3qcAMci6H",
-        "amount": 110.260006244,
-        "pair": {
-          "sold": {
-            "symbol": "BP",
-            "amount": 110.260006244
-          },
-          "bought": {
-            "symbol": "SOL",
-            "amount": 1.186464442
-          }
-        },
-        "coStar": "ASv4ktNwZ8uBbUj94ACnr7Nj1sTtcYnEUZgWxkMsakA7"
-      },
-      {
-        "index": 5,
-        "title": "Old Flames",
-        "at": "2026-09-25T10:35:47.000Z",
-        "wallet": "DAEdBmTPEKM6xkwfzC3d411QUe6coKpkND6UURa4CvHC",
-        "action": "sell",
-        "symbol": "GLDX",
-        "valueUsd": 336,
-        "caption": "The Reverend of Solana sold $336 of $GLDX over breakfast. The Viscount of Solana hadn't heard yet.",
-        "zoom": "dramatic",
-        "kind": "shared",
-        "chain": "solana",
-        "txHash": "3bsX79Zbrg3jyDFUDAX9kHKwBypYj1EzJ5y8SomVGQA1uoQBT2vZ4fSYEXGSgw69EGgXK9zYWmUHrbTjsCeraBoP",
-        "amount": 0.84556687,
-        "pair": {
-          "sold": {
-            "symbol": "GLDX",
-            "amount": 0.84556687
-          },
-          "bought": {
-            "symbol": "SOL",
-            "amount": 2.806633136
-          }
-        },
-        "coStar": "Dw3LY8NnG3BB1EEXCNJwAKtVoEE7faEYiygYNHfFPNb1"
-      },
-      {
-        "index": 6,
-        "title": "The Temptation",
-        "at": "2026-09-25T10:42:10.000Z",
-        "wallet": "Fp3kBUYfnz7Z4cuTCBy6MTcy9kQt4K3wuzuKmpe2AgB",
-        "action": "buy",
-        "symbol": "⚠️ BOOBY",
-        "valueUsd": 179,
-        "caption": "The Marchioness of Solana picked up 21.1M ⚠️ BOOBY over breakfast. $179. A small indulgence, she calls it.",
-        "zoom": "slow",
-        "kind": "buy",
-        "chain": "solana",
-        "txHash": "4MhSuTBL9SgY3VmnSB2F2gfHg95QxQSsF8LWoomwJmoKKjapxKRz24zhJ11u3wpLetriRFMNJMqcygEQTuyfCfoj",
-        "amount": 21076309.170859,
-        "pair": {
-          "sold": {
-            "symbol": "SOL",
-            "amount": 1.5
-          },
-          "bought": {
-            "symbol": "⚠️ BOOBY",
-            "amount": 21076309.170859
-          }
-        }
-      },
-      {
-        "index": 7,
-        "title": "Not a Word",
-        "at": "2026-09-25T10:44:17.000Z",
-        "wallet": "8fenZTDtD27NgQoApjRVTPnZyTEgdjuxkWcQZiPVRS4E",
-        "action": "sell",
-        "symbol": "OP",
-        "valueUsd": 3969,
-        "caption": "$4K of $OP, sold over breakfast. The Admiral of Solana left without a word.",
-        "zoom": "slow",
-        "kind": "sell",
-        "chain": "solana",
-        "txHash": "2RzKfhT4cCyKNkx88VRc4PhAEW492ZBBRppvzuex9XVMLghnWVHmk93rFSgPpBwcetjjCP9ZNaNSeKcrcFZxo2w3",
-        "amount": 1974685.966846,
-        "pair": {
-          "sold": {
-            "symbol": "OP",
-            "amount": 1974685.966846
-          },
-          "bought": {
-            "symbol": "SOL",
-            "amount": 30.034843235
-          }
-        }
-      },
-      {
-        "index": 8,
-        "title": "The Departure",
-        "at": "2026-09-25T10:50:43.000Z",
-        "wallet": "GWXFHoxUHuQNkpUg2PJJS9hqTiS1gHHtPayBEJJbsE5o",
-        "action": "sell",
-        "symbol": "🌱 GO",
-        "valueUsd": 1751,
-        "caption": "The Dowager of Solana let go of 185K 🌱 GO over breakfast. $2K. She says she's fine.",
-        "zoom": "slow",
-        "kind": "sell",
-        "chain": "solana",
-        "txHash": "8vVdjX2qtNGTatZxmfiQ3TWmmVU78Ys3Bfhd5NdhWNcUVAaZgi1qaW2rKt4QtBcJSpBDgFFF7QN2WHw5kDtiKjY",
-        "amount": 185215.04042,
-        "pair": {
-          "sold": {
-            "symbol": "🌱 GO",
-            "amount": 185215.04042
-          },
-          "bought": {
-            "symbol": "USDC",
-            "amount": 1954.238391
-          }
-        }
-      },
-      {
-        "index": 9,
-        "title": "This Town Is Too Small",
-        "at": "2026-09-25T10:54:21.000Z",
-        "wallet": "Dw3LY8NnG3BB1EEXCNJwAKtVoEE7faEYiygYNHfFPNb1",
-        "action": "sell",
-        "symbol": "GLDX",
-        "valueUsd": 6095,
-        "caption": "The Reverend of Solana sold. Then The Viscount of Solana sold: $6K of $GLDX, over breakfast. The exits are getting crowded.",
-        "zoom": "dramatic",
-        "kind": "shared",
-        "chain": "solana",
-        "txHash": "hmrpEA8J7Pmkakq5kBGLKKMwMnPBb6B7V7zeu5DktyCTPLNMY7Vh3ts9quqQtA8vraEKRvoRarCAtjJ6qDdJkPV",
-        "amount": 15.36073046,
-        "pair": {
-          "sold": {
-            "symbol": "GLDX",
-            "amount": 15.36073046
-          },
-          "bought": {
-            "symbol": "USDC",
-            "amount": 6033.891894
-          }
-        },
-        "coStar": "DAEdBmTPEKM6xkwfzC3d411QUe6coKpkND6UURa4CvHC"
-      },
-      {
-        "index": 10,
         "title": "Nothing Left to Say",
         "at": "2026-09-25T10:54:41.000Z",
         "wallet": "Dw3LY8NnG3BB1EEXCNJwAKtVoEE7faEYiygYNHfFPNb1",
         "action": "sell",
         "symbol": "GP",
-        "valueUsd": 24212,
+        "valueUsd": 23868,
         "caption": "He sold everything. Every. Last. GP. $24K worth, gone over breakfast.",
         "zoom": "dramatic",
         "kind": "big-sell",
@@ -508,6 +468,288 @@
           "bought": {
             "symbol": "USDC",
             "amount": 24383.304298
+          }
+        }
+      },
+      {
+        "index": 4,
+        "title": "This Town Is Too Small",
+        "at": "2026-09-25T10:56:18.000Z",
+        "wallet": "3faU48ZVCcNQFr9tefuHWWKbaLDDn4GxCCxgQgYvgVbA",
+        "action": "swap",
+        "symbol": "CATE",
+        "valueUsd": 7611,
+        "caption": "The Widow of Solana went in on $CATE over breakfast. $8K. The Madame of Solana was watching.",
+        "zoom": "dramatic",
+        "kind": "shared",
+        "chain": "solana",
+        "txHash": "4nAkhFoJqrMfz8g4MTPw9rMXD5MAo6jy8EGNfxZwWW6Tg6Pg2zQuyVYqRLRMgrDdSEYfCKQCL13ifmTFQcygwUcv",
+        "amount": 69010.374164,
+        "pair": {
+          "sold": {
+            "symbol": "STONK",
+            "amount": 23000
+          },
+          "bought": {
+            "symbol": "CATE",
+            "amount": 69010.374164
+          }
+        },
+        "coStar": "JA47Laz5akjxq1ZTkdG6fnyC7mUAk4npJyh6Nkp1PUm9"
+      },
+      {
+        "index": 5,
+        "title": "Old Flames",
+        "at": "2026-09-25T10:58:42.000Z",
+        "wallet": "JA47Laz5akjxq1ZTkdG6fnyC7mUAk4npJyh6Nkp1PUm9",
+        "action": "swap",
+        "symbol": "CATE",
+        "valueUsd": 1801,
+        "caption": "The Madame of Solana touched $CATE too. $2K. The same token as The Widow of Solana. On the same day. Everyone saw.",
+        "zoom": "dramatic",
+        "kind": "shared",
+        "chain": "solana",
+        "txHash": "3qBXxNFbDNuHXM6YtsqcSy8tL77yftEnSQarBD77ovtR7HvnZS7rJmiM5jCvgcAHWQND4ULzvd2jXZkCXKZt546n",
+        "amount": 16314.310459,
+        "pair": {
+          "sold": {
+            "symbol": "ZCAT",
+            "amount": 25000
+          },
+          "bought": {
+            "symbol": "CATE",
+            "amount": 16314.310459
+          }
+        },
+        "coStar": "3faU48ZVCcNQFr9tefuHWWKbaLDDn4GxCCxgQgYvgVbA"
+      },
+      {
+        "index": 6,
+        "title": "Two Wallets, One Token",
+        "at": "2026-09-25T10:59:14.000Z",
+        "wallet": "JA47Laz5akjxq1ZTkdG6fnyC7mUAk4npJyh6Nkp1PUm9",
+        "action": "buy",
+        "symbol": "CATE",
+        "valueUsd": 14985,
+        "caption": "First The Widow of Solana, now The Madame of Solana: $15K into $CATE. This town is too small for two wallets.",
+        "zoom": "dramatic",
+        "kind": "shared",
+        "chain": "solana",
+        "txHash": "55x4pfAyZdwe6KhnkKjr4mtB8JTDTfK28DfoQoDfxqaB8ttvnhPxnwNdEpeTa2yn1R4hF4ciGiELxRUKnztWe61Y",
+        "amount": 138937.544623,
+        "pair": {
+          "sold": {
+            "symbol": "USDC",
+            "amount": 15000
+          },
+          "bought": {
+            "symbol": "CATE",
+            "amount": 138937.544623
+          }
+        },
+        "coStar": "3faU48ZVCcNQFr9tefuHWWKbaLDDn4GxCCxgQgYvgVbA"
+      },
+      {
+        "index": 7,
+        "title": "One of Them Is Wrong",
+        "at": "2026-09-25T11:02:19.000Z",
+        "wallet": "2GtmuqG31LuuWQmKzeK72YjH5iALPkJycuQaEQGsFzLw",
+        "action": "sell",
+        "symbol": "CATE",
+        "valueUsd": 488,
+        "caption": "The Countess of Solana sold $488 of $CATE before lunch. The Madame of Solana is still in. One of them is wrong.",
+        "zoom": "dramatic",
+        "kind": "shared",
+        "chain": "solana",
+        "txHash": "2Gi9ac2BeYbuQNbTrJZ15G9tvKaZiTGnEt8YGK3TiC85puMUuD6mzT4Hho2xFTeXb3N34hAdBUrNzDtkdA28P3ge",
+        "amount": 4569.548528,
+        "pair": {
+          "sold": {
+            "symbol": "CATE",
+            "amount": 4569.548528
+          },
+          "bought": {
+            "symbol": "USDC",
+            "amount": 499.957719
+          }
+        },
+        "coStar": "JA47Laz5akjxq1ZTkdG6fnyC7mUAk4npJyh6Nkp1PUm9"
+      },
+      {
+        "index": 8,
+        "title": "The Temptation",
+        "at": "2026-09-25T11:03:13.000Z",
+        "wallet": "4zFEFU8gtZ2uQVn3pkWLaD829a7gdxTsexGY89KePW3j",
+        "action": "buy",
+        "symbol": "MONEROCHAN",
+        "valueUsd": 797,
+        "caption": "The Heiress of Solana picked up 2.6M MONEROCHAN before lunch. $797. A small indulgence, she calls it.",
+        "zoom": "slow",
+        "kind": "buy",
+        "chain": "solana",
+        "txHash": "4xHiGFGkwUy87WT1UcJ4unjetMbStgL22fyiH3ib2yTcoPNHVnLjCoHFqEmmdVVnzAP2EZofzK7PguaHAcoYkb3e",
+        "amount": 2595473.83703,
+        "pair": {
+          "sold": {
+            "symbol": "USDC",
+            "amount": 797.660001
+          },
+          "bought": {
+            "symbol": "MONEROCHAN",
+            "amount": 2595473.83703
+          }
+        }
+      },
+      {
+        "index": 9,
+        "title": "A Small Indulgence",
+        "at": "2026-09-25T11:03:16.000Z",
+        "wallet": "2M2vLX34LXMg24dMEnjWHvRXS1tshpEDRWzmXgV8ENNZ",
+        "action": "buy",
+        "symbol": "⚠️ AICATE",
+        "valueUsd": 1,
+        "caption": "The Duchess of Solana was told to wait. She bought $1 of $⚠️ AICATE instead.",
+        "zoom": "slow",
+        "kind": "buy",
+        "chain": "solana",
+        "txHash": "2xB8yfJvDjj6TfBRbGGjuMMxC55sYRQRquuiPDEaVtSdp8hRKBAq6EqCTT5Yd1MX3TSqnLqn5qqnBukhCNGT81ha",
+        "amount": 18197.73196,
+        "pair": {
+          "sold": {
+            "symbol": "SOL",
+            "amount": 0.01
+          },
+          "bought": {
+            "symbol": "⚠️ AICATE",
+            "amount": 18197.73196
+          }
+        }
+      },
+      {
+        "index": 10,
+        "title": "Two Wallets, One Token",
+        "at": "2026-09-25T11:07:43.000Z",
+        "wallet": "JA47Laz5akjxq1ZTkdG6fnyC7mUAk4npJyh6Nkp1PUm9",
+        "action": "swap",
+        "symbol": "CATE",
+        "valueUsd": 2178,
+        "caption": "The Madame of Solana touched $CATE too. $2K. The same token as The Widow of Solana. On the same day. Everyone saw.",
+        "zoom": "dramatic",
+        "kind": "shared",
+        "chain": "solana",
+        "txHash": "3Dzeuc77wEBHJ2gJtCENCwBAkaSvWZBQE95XeRQcRDTxps46hxk8JpvtfiX7sM8dZsakgPY9AsV83ut7mwogsX6f",
+        "amount": 19611.18957,
+        "pair": {
+          "sold": {
+            "symbol": "ZEC",
+            "amount": 1.35163575
+          },
+          "bought": {
+            "symbol": "CATE",
+            "amount": 19611.18957
+          }
+        },
+        "coStar": "3faU48ZVCcNQFr9tefuHWWKbaLDDn4GxCCxgQgYvgVbA"
+      },
+      {
+        "index": 11,
+        "title": "This Town Is Too Small",
+        "at": "2026-09-25T11:07:53.000Z",
+        "wallet": "JA47Laz5akjxq1ZTkdG6fnyC7mUAk4npJyh6Nkp1PUm9",
+        "action": "swap",
+        "symbol": "CATE",
+        "valueUsd": 1734,
+        "caption": "First The Widow of Solana, now The Madame of Solana: $2K into $CATE. This town is too small for two wallets.",
+        "zoom": "dramatic",
+        "kind": "shared",
+        "chain": "solana",
+        "txHash": "3nifC4DeGBFKYo3f8oSXbLbLi7AEKpLHVLRh3M8v9mQ91mvZweaXZSeEB6yW4m9ih5QGXjP1nZoryx5BhXvZYPZq",
+        "amount": 15642.276285,
+        "pair": {
+          "sold": {
+            "symbol": "GLDX",
+            "amount": 4.379059
+          },
+          "bought": {
+            "symbol": "CATE",
+            "amount": 15642.276285
+          }
+        },
+        "coStar": "3faU48ZVCcNQFr9tefuHWWKbaLDDn4GxCCxgQgYvgVbA"
+      },
+      {
+        "index": 12,
+        "title": "Opposite Doors",
+        "at": "2026-09-25T11:08:33.000Z",
+        "wallet": "2GtmuqG31LuuWQmKzeK72YjH5iALPkJycuQaEQGsFzLw",
+        "action": "sell",
+        "symbol": "CATE",
+        "valueUsd": 484,
+        "caption": "The Countess of Solana sold $484 of $CATE before lunch. The Madame of Solana is still in. One of them is wrong.",
+        "zoom": "dramatic",
+        "kind": "shared",
+        "chain": "solana",
+        "txHash": "4DxagGy4CfVXUc9zQVnEQqwaVbaBTnZKfNZWt3YVie1muBS21EGkVpWsQAMMEarA7QSGZBgSXiWtWt9Diuo5vEe7",
+        "amount": 4528.165187,
+        "pair": {
+          "sold": {
+            "symbol": "CATE",
+            "amount": 4528.165187
+          },
+          "bought": {
+            "symbol": "USDC",
+            "amount": 500.667194
+          }
+        },
+        "coStar": "JA47Laz5akjxq1ZTkdG6fnyC7mUAk4npJyh6Nkp1PUm9"
+      },
+      {
+        "index": 13,
+        "title": "The Temptation",
+        "at": "2026-09-25T11:10:17.000Z",
+        "wallet": "6wTVWXQPCmmAJra4wFMoy6kae5s2FguHyhcXyhTGmgTt",
+        "action": "buy",
+        "symbol": "SOL",
+        "valueUsd": 6310,
+        "caption": "The Governess of Solana was told to wait. She bought $6K of $SOL instead.",
+        "zoom": "slow",
+        "kind": "buy",
+        "chain": "solana",
+        "txHash": "47vrmLLsqptD4hQAXFBuE34FQ7vcGzbJVfnu3UXtH4cKBHxtKBMc6cVajdkH1ny1uRfoPCTALMMQpyTj3XYgwPhY",
+        "amount": 51.82111,
+        "pair": {
+          "sold": {
+            "symbol": "USDC",
+            "amount": 6316.038374
+          },
+          "bought": {
+            "symbol": "SOL",
+            "amount": 51.82111
+          }
+        }
+      },
+      {
+        "index": 14,
+        "title": "A Small Indulgence",
+        "at": "2026-09-25T11:12:16.000Z",
+        "wallet": "AsrSVKcADWAFKHFAmJZ38W3opcC7mkm6zQGx1R62Woec",
+        "action": "buy",
+        "symbol": "🎒",
+        "valueUsd": 1195,
+        "caption": "The Admiral of Solana picked up 268K 🎒 before lunch. $1K. A small indulgence, he calls it.",
+        "zoom": "slow",
+        "kind": "buy",
+        "chain": "solana",
+        "txHash": "Zvng46SixzbqSPWLWJo1iCZZZYhxCWqktRCCzD12xQHdvhz2GdeTNeEA7QHcfHdof6is9Dm5nEfkRCZ91i1N4p7",
+        "amount": 267738.071407,
+        "pair": {
+          "sold": {
+            "symbol": "SOL",
+            "amount": 9.9
+          },
+          "bought": {
+            "symbol": "🎒",
+            "amount": 267738.071407
           }
         }
       }

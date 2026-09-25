@@ -1,79 +1,79 @@
 {
   "as-the-chain-turns": {
-    "generatedAt": "2026-09-25T11:25:05.676Z",
-    "credits": 0,
+    "generatedAt": "2026-09-25T11:29:08.088Z",
+    "credits": 15,
     "sample": false,
     "snapshots": [
       "main"
     ]
   },
   "dynasties": {
-    "generatedAt": "2026-09-25T11:10:57.816Z",
-    "credits": 17,
+    "generatedAt": "2026-09-25T11:29:30.464Z",
+    "credits": 29,
     "sample": false,
     "snapshots": [
       "main"
     ]
   },
   "exit-clock": {
-    "generatedAt": "2026-09-25T10:57:10.931Z",
-    "credits": 26,
-    "sample": false,
-    "snapshots": [
-      "main"
-    ]
-  },
-  "last-ones-out": {
-    "generatedAt": "2026-09-25T10:55:37.812Z",
-    "credits": 32,
-    "sample": false,
-    "snapshots": [
-      "main"
-    ]
-  },
-  "menagerie": {
-    "generatedAt": "2026-09-25T11:05:39.685Z",
-    "credits": 5,
-    "sample": false,
-    "snapshots": [
-      "main"
-    ]
-  },
-  "odds-vs-flow": {
-    "generatedAt": "2026-09-25T10:57:01.173Z",
-    "credits": 8,
-    "sample": false,
-    "snapshots": [
-      "main"
-    ]
-  },
-  "rewind": {
-    "generatedAt": "2026-09-25T10:57:31.018Z",
+    "generatedAt": "2026-09-25T11:30:53.410Z",
     "credits": 45,
     "sample": false,
     "snapshots": [
       "main"
     ]
   },
+  "last-ones-out": {
+    "generatedAt": "2026-09-25T11:30:11.505Z",
+    "credits": 57,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "menagerie": {
+    "generatedAt": "2026-09-25T11:30:44.144Z",
+    "credits": 45,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "odds-vs-flow": {
+    "generatedAt": "2026-09-25T11:32:01.172Z",
+    "credits": 11,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "rewind": {
+    "generatedAt": "2026-09-25T11:31:34.715Z",
+    "credits": 80,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
   "rookie-scout": {
-    "generatedAt": "2026-09-25T11:05:57.705Z",
-    "credits": 47,
+    "generatedAt": "2026-09-25T11:32:05.936Z",
+    "credits": 74,
     "sample": false,
     "snapshots": [
       "main"
     ]
   },
   "two-faced": {
-    "generatedAt": "2026-09-25T10:58:32.368Z",
-    "credits": 34,
+    "generatedAt": "2026-09-25T11:32:35.143Z",
+    "credits": 42,
     "sample": false,
     "snapshots": [
       "main"
     ]
   },
   "wallet-obituaries": {
-    "generatedAt": "2026-09-25T11:09:02.589Z",
-    "credits": 2,
+    "generatedAt": "2026-09-25T11:33:07.565Z",
+    "credits": 50,
     "sample": false,
     "snapshots": [
       "main"
