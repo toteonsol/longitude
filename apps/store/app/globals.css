@@ -283,3 +283,117 @@ body {
   grid-column: 1 / -1;
   border-color: color-mix(in oklab, var(--world-ink) 14%, transparent);
 }
+
+.store__search {
+  grid-column: 1 / -1;
+}
+
+.search {
+  position: relative;
+  max-width: 640px;
+}
+
+.search__label {
+  display: block;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.search__row {
+  position: relative;
+}
+
+.search__input {
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--world-ink) 18%, transparent);
+  background: color-mix(in oklab, var(--world-surface) 70%, transparent);
+  color: var(--world-ink);
+  font: inherit;
+  font-size: 15px;
+}
+
+.search__input:focus {
+  outline: none;
+  border-color: var(--world-accent);
+}
+
+.search__spin {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in oklab, var(--world-ink) 30%, transparent);
+  border-top-color: var(--world-accent);
+  opacity: 0;
+}
+
+.search__spin.is-on {
+  opacity: 1;
+  animation: search-spin 0.8s linear infinite;
+}
+
+@keyframes search-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.search__results {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  margin-top: 6px;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--world-ink) 16%, transparent);
+  background: color-mix(in oklab, var(--world-bg) 92%, var(--world-surface));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  display: grid;
+  gap: 2px;
+}
+
+.search__hit {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 10px;
+  align-items: baseline;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.search__hit small {
+  grid-column: 1 / -1;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.search__hit--wallet {
+  border: 1px solid var(--world-accent);
+  background: color-mix(in oklab, var(--world-accent) 14%, transparent);
+}
+
+.search__hit--wallet:hover {
+  background: color-mix(in oklab, var(--world-accent) 26%, transparent);
+}
+
+.search__foot {
+  padding: 4px 10px;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}

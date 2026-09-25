@@ -2,6 +2,7 @@
 import { type AppMeta, FeedTicker, Passport, appUrl, useIdentity, usePresence, withIdentity } from "@longitude/kit";
 import { AnimatePresence, NumberTicker, motion, useAnimationFrame, useReducedMotion } from "@longitude/motion";
 import { type CSSProperties, useMemo, useRef, useState } from "react";
+import { SearchBox } from "./SearchBox";
 
 const R = 300;
 const VIEW = 720;
@@ -252,6 +253,10 @@ export function Globe({ apps, credits, status }: GlobeProps) {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
+
+      <div className="store__search">
+        <SearchBox />
       </div>
 
       <div className="store__social">
