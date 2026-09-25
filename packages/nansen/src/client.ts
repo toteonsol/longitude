@@ -34,6 +34,8 @@ export interface NansenClientOptions {
   ttlMs?: number;
   /** Serve an expired cache entry when the API fails after retries. Default true. */
   staleIfError?: boolean;
+  /** Treat every call as fresh: skip cache reads but still write, so other clients sharing the cache benefit. */
+  fresh?: boolean;
   /** A logger, a list of sinks, or `false` to disable logging. */
   logger?: CallLogger | LogSink[] | false;
   /** Also print one line per call to stderr. */
@@ -110,6 +112,7 @@ export class NansenClient {
   private readonly retries: number;
   private readonly timeoutMs: number;
   private readonly staleIfError: boolean;
+  private readonly freshDefault: boolean;
   private readonly limiter: Limiter;
   private readonly fetchImpl: typeof fetch;
 
@@ -121,6 +124,7 @@ export class NansenClient {
     this.cache = opts.cache === false ? new NoCache() : (opts.cache ?? defaultCache());
     this.ttlMs = opts.ttlMs ?? DEFAULT_TTL_MS;
     this.staleIfError = opts.staleIfError ?? true;
+    this.freshDefault = opts.fresh ?? false;
     this.retries = opts.retries ?? DEFAULT_RETRIES;
     this.timeoutMs = opts.timeoutMs ?? DEFAULT_TIMEOUT_MS;
     this.limiter = opts.limiter ?? limiterForPlan(opts.plan ?? (process.env.NANSEN_PLAN === "pro" ? "pro" : "free"));
@@ -200,7 +204,7 @@ export class NansenClient {
 
     if (useCache) {
       cached = await this.cache.get(key).catch(() => undefined);
-      if (cached && !opts.fresh && cached.expiresAt > Date.now()) {
+      if (cached && !(opts.fresh ?? this.freshDefault) && cached.expiresAt > Date.now()) {
         this.log.record({ endpoint: path, credits: 0, estimated: 0, ms: 0, status: null, ok: true, cached: true, tag: opts.tag });
         return cached.value;
       }

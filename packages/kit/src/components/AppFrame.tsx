@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { AppMeta } from "../apps";
 import type { DataSource } from "../load";
+import { ProRefresh } from "../pro/client";
 import { Passport, PresenceBadge, ShareButton, SocialBoot } from "../social/client";
 import { storeUrl } from "../urls";
 import { DataBadge } from "./DataBadge";
@@ -45,6 +46,7 @@ export function AppFrame({ app, source, error, noLive, controls, share, children
           {controls}
           <DataBadge source={source} error={error} />
           <RefreshLive source={source} disabled={noLive} />
+          {noLive ? null : <ProRefresh appName={app.name} />}
           <ShareButton text={shareText} url={share?.url} />
         </div>
       </header>

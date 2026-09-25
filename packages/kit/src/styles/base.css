@@ -514,3 +514,32 @@ pre {
 .lg-board__score {
   font-family: var(--lg-font-mono);
 }
+
+/* Pro refresh (x402) */
+.lg-pro {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lg-btn--pro {
+  border-color: color-mix(in oklab, var(--lg-accent2) 70%, transparent);
+  background: color-mix(in oklab, var(--lg-accent2) 14%, var(--lg-surface));
+}
+
+.lg-btn--pro.is-paid {
+  border-color: var(--lg-accent2);
+  color: var(--lg-accent2);
+}
+
+.lg-pro__note {
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  max-width: 260px;
+  opacity: 0.8;
+}
+
+.lg-pro__note.is-error {
+  color: #ff7b7b;
+  opacity: 1;
+}

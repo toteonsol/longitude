@@ -11,7 +11,9 @@
     "./social": "./src/social/client.tsx",
     "./social-server": "./src/social/server.ts",
     "./og": "./src/og.tsx",
-    "./styles.css": "./src/styles/base.css"
+    "./styles.css": "./src/styles/base.css",
+    "./pro-server": "./src/pro/server.ts",
+    "./pro": "./src/pro/client.tsx"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
@@ -19,7 +21,12 @@
   "dependencies": {
     "@longitude/motion": "workspace:*",
     "@longitude/nansen": "workspace:*",
-    "@longitude/social": "workspace:*"
+    "@longitude/social": "workspace:*",
+    "@x402/core": "^2.27.0",
+    "@x402/evm": "^2.27.0",
+    "@x402/fetch": "^2.27.0",
+    "@x402/next": "^2.27.0",
+    "viem": "^2.56.9"
   },
   "peerDependencies": {
     "next": "^16.0.0",
