@@ -24,3 +24,4 @@ data/nansen-calls.jsonl
 *.log
 .vercel
 coverage/
+data/social.json

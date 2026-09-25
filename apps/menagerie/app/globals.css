@@ -1262,6 +1262,9 @@ body {
   .legend__name {
     font-size: 20px;
   }
+  .legend__latin {
+    font-size: 12px;
+  }
 
   .notes {
     top: auto;

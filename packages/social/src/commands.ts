@@ -32,6 +32,15 @@ export interface Commands {
   sismember(key: string, member: string): Promise<boolean>;
 }
 
+export interface MemoryDump {
+  strings: [string, { v: string; exp?: number }][];
+  hashes: [string, [string, string][]][];
+  lists: [string, string[]][];
+  zsets: [string, [string, number][]][];
+  sets: [string, string[]][];
+  expiries: [string, number][];
+}
+
 /** In-process implementation for development and tests. */
 export class MemoryCommands implements Commands {
   private strings = new Map<string, { v: string; exp?: number }>();
@@ -40,6 +49,28 @@ export class MemoryCommands implements Commands {
   private zsets = new Map<string, Map<string, number>>();
   private sets = new Map<string, Set<string>>();
   private expiries = new Map<string, number>();
+
+  dump(): MemoryDump {
+    return {
+      strings: [...this.strings],
+      hashes: [...this.hashes].map(([k, v]) => [k, [...v]]),
+      lists: [...this.lists],
+      zsets: [...this.zsets].map(([k, v]) => [k, [...v]]),
+      sets: [...this.sets].map(([k, v]) => [k, [...v]]),
+      expiries: [...this.expiries],
+    };
+  }
+
+  static fromDump(d: MemoryDump): MemoryCommands {
+    const m = new MemoryCommands();
+    m.strings = new Map(d.strings ?? []);
+    m.hashes = new Map((d.hashes ?? []).map(([k, v]) => [k, new Map(v)]));
+    m.lists = new Map(d.lists ?? []);
+    m.zsets = new Map((d.zsets ?? []).map(([k, v]) => [k, new Map(v)]));
+    m.sets = new Map((d.sets ?? []).map(([k, v]) => [k, new Set(v)]));
+    m.expiries = new Map(d.expiries ?? []);
+    return m;
+  }
 
   private alive(key: string): boolean {
     const exp = this.expiries.get(key);

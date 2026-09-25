@@ -88,7 +88,10 @@ export function armsOf(address: string): Arms {
   const first = metalFirst ? metal : colour;
   const second = metalFirst ? colour : metal;
   // Rule of tincture: the charge sits mostly on the first tincture, so it takes the other kind.
-  const chargeTincture = first.kind === "metal" ? colour : metal;
+  // Half the shields are counterchanged (the charge in the second tincture); the rest take a third.
+  const counterchanged = ((h >>> 12) & 1) === 1;
+  const thirds = (first.kind === "metal" ? COLOURS : METALS).filter((t) => t.name !== second.name);
+  const chargeTincture = counterchanged ? second : (thirds[(h >>> 13) % thirds.length] ?? second);
   const cap = partition.charAt(0).toUpperCase() + partition.slice(1);
   const chargeWord = chargeTincture.name === second.name ? "counterchanged" : chargeTincture.name;
   const blazon = `${cap} ${first.name} and ${second.name}, ${CHARGE_BLAZON[charge]} ${chargeWord}${bordure ? `, within a bordure ${second.kind === "metal" ? colour.name : metal.name}` : ""}`;

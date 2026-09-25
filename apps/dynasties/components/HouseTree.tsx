@@ -130,7 +130,7 @@ export function HouseTree({ house, total }: Props) {
         const end: Pt = { x: M.cx, y: M.y };
         out.push({
           id: `cord-${i}-${j}`,
-          d: Math.abs(prev.x - end.x) < 1 ? line(prev, end) : curve(prev, end),
+          d: Math.abs(prev.x - end.x) < 2 ? line({ x: end.x, y: prev.y }, end) : curve(prev, end),
           delay: 0.5 + i * 0.09 + j * 0.1,
           kind: "cord",
         });

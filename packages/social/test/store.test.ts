@@ -92,3 +92,22 @@ describe("SocialStore", () => {
     expect(await s.items("bad id", "roster")).toEqual([]);
   });
 });
+
+describe("FileCommands", () => {
+  it("persists across instances and shares state between them", async () => {
+    const { FileCommands } = await import("../src/file");
+    const { mkdtemp, rm } = await import("node:fs/promises");
+    const { tmpdir } = await import("node:os");
+    const { join } = await import("node:path");
+    const dir = await mkdtemp(join(tmpdir(), "social-"));
+    const file = join(dir, "social.json");
+    const a = new SocialStore(new FileCommands(file));
+    const b = new SocialStore(new FileCommands(file));
+    await a.stamp(me.id, "rewind");
+    await b.stamp(me.id, "dynasties");
+    expect(await a.passport(me.id)).toEqual(["dynasties", "rewind"]);
+    await a.publish({ app: "rewind", type: "score", actor: me, text: "hi" });
+    expect((await b.feed(5)).length).toBe(1);
+    await rm(dir, { recursive: true, force: true });
+  });
+});
