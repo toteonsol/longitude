@@ -46,6 +46,21 @@ the apps.
 **Same engine, ten feels.** `packages/motion` holds springs, reveals, staggers, number tickers, flips,
 typewriters, marquees and a tilt. Each world picks a spring and a skin.
 
+**The Meridian layer: social without a login.** `packages/social` plus the kit give every app an anonymous
+identity (a handle like "Quiet Fox 42", carried between apps in the link), a global activity feed, live
+presence ("3 here now"), a passport that stamps each of the ten apps you visit, leaderboards, reactions and
+per-visitor lists. Each app turns that into its own loop: Rookie Scout drafts go on a roster that every seed
+re-scores against that day's smart money; Rewind calls score on a leaderboard; Exit Clock hands can be
+watched; Obituaries take candles; Dynasties take fealty; MENAGERIE specimens are collected; the soap has a
+studio audience; the rope takes sides. State lives in Redis (Railway) or Upstash in production, and in one
+shared JSON file across the eleven local dev servers. Every social call is fail-safe: if the store is
+unreachable, pages render exactly as before.
+
+**Revenue on the same rail as the data.** Nansen sells API calls over x402. So does LONGITUDE: the free
+**Refresh live** button serves a five-minute cache, while **Pro refresh** charges a few cents of USDC on Base
+over x402 (public facilitators, no keys) and forces a fresh Nansen pull. Set `X402_PAY_TO` to turn it on;
+judges never need a wallet.
+
 ## Run it
 
 ```bash
@@ -86,6 +101,17 @@ Until an app is seeded it shows a hand-written sample flagged **sample data** in
   across every deployment.
 - **Railway cron:** `railway.json` runs `pnpm seed:all --publish` every six hours. Give it
   `NANSEN_API_KEY`, `GITHUB_TOKEN` and `GITHUB_REPO=owner/name` so it can push refreshed snapshots.
+
+## How this maps to the Meridian judging
+
+- **Data integration:** every app's `lib/data.ts` derives something new from Nansen: a similarity score
+  against the smart money cohort, exit clocks from FIFO-paired trades, species from behaviour percentiles,
+  a tug-of-war between prediction-market odds and net flow, obituaries from the day's largest exits.
+- **Creativity:** ten worlds, one signature interaction each, and a social layer that makes them a place
+  people return to rather than dashboards.
+- **Functionality:** snapshot first, live on demand, snapshot again if live fails. No page can crash on a
+  Nansen or social outage.
+- **Documentation:** this file, `docs/APP-PLAYBOOK.md` (how every app is built) and `docs/DEMO.md`.
 
 ## Honest notes
 
