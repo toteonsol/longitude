@@ -822,7 +822,26 @@ body {
     padding: 28px 14px 36px;
   }
   .house__stats {
-    gap: 10px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px 6px;
+    width: 100%;
+  }
+  .house__stats div {
+    min-width: 0;
+  }
+  .house__stats b {
+    font-size: 17px;
+  }
+  .house__stats span {
+    letter-spacing: 0.1em;
+  }
+  .house__line {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .house__dot {
+    display: none;
   }
   .scroll {
     width: 260px;

@@ -22,6 +22,8 @@ const OVERSHOOT = 0.3;
 
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
 const rad = (deg: number) => (deg * Math.PI) / 180;
+/** Round SVG coordinates so server and client markup match exactly (Math.sin differs by an ulp across engines). */
+const r2 = (n: number) => Math.round(n * 100) / 100;
 
 /** Two reels behind glass and a jog wheel. Drag left to rewind further back; the reels follow the wheel. */
 export function TapeWheel({ tapes, index, phase, pos, onIndex }: Props) {
@@ -161,12 +163,12 @@ function Reel({ cx, cy, rotate, pack }: { cx: number; cy: number; rotate: Motion
         <motion.g style={{ scale: pack, transformBox: "fill-box", transformOrigin: "center" }}>
           <circle r={42} className="reels__pack" />
           {[30, 150, 270].map((a) => (
-            <circle key={a} cx={34 * Math.cos(rad(a))} cy={34 * Math.sin(rad(a))} r={3} className="reels__notch" />
+            <circle key={a} cx={r2(34 * Math.cos(rad(a)))} cy={r2(34 * Math.sin(rad(a)))} r={3} className="reels__notch" />
           ))}
         </motion.g>
         <circle r={17} className="reels__hub" />
         {[0, 120, 240].map((a) => (
-          <line key={a} x1={0} y1={0} x2={14 * Math.cos(rad(a))} y2={14 * Math.sin(rad(a))} className="reels__spoke" />
+          <line key={a} x1={0} y1={0} x2={r2(14 * Math.cos(rad(a)))} y2={r2(14 * Math.sin(rad(a)))} className="reels__spoke" />
         ))}
         <circle r={5} className="reels__hole" />
       </motion.g>

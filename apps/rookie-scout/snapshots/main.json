@@ -1,11 +1,11 @@
 {
   "app": "rookie-scout",
   "name": "main",
-  "generatedAt": "2026-09-25T10:38:41.630Z",
-  "credits": 0,
+  "generatedAt": "2026-09-25T11:05:57.705Z",
+  "credits": 47,
   "sample": false,
   "data": {
-    "generatedAt": "2026-09-25T10:38:41.629Z",
+    "generatedAt": "2026-09-25T11:05:57.704Z",
     "window": {
       "from": "2026-06-27",
       "to": "2026-09-25"
@@ -13,50 +13,50 @@
     "cohort": {
       "size": 50,
       "medians": {
-        "winRate": 47.530364372469634,
-        "pnlUsd": 1017934.5739962067,
-        "trades": 1402,
+        "winRate": 47.59615384615385,
+        "pnlUsd": 1017593.4369845369,
+        "trades": 1403.5,
         "tokens": 24
       },
       "veterans": [
         {
           "address": "4ugDhHJ8XDXAeABmrNmGffFaLbJb9BkPyiFGVSV9ocwo",
           "label": "Smart Money",
-          "pnlUsd": 6825716.576181236,
+          "pnlUsd": 6896960.3855366055,
           "winRate": 62.22222222222222,
-          "trades": 3144,
+          "trades": 3145,
           "tokens": 38
         },
         {
           "address": "GZetT3iRmhuzuT1gkSk69MXMe8hRJZJGz1PPdKW1J2vq",
           "label": "Smart Money",
-          "pnlUsd": 4688515.111790411,
-          "winRate": 37.903225806451616,
-          "trades": 8543,
+          "pnlUsd": 4785343.068493793,
+          "winRate": 38.70967741935484,
+          "trades": 8544,
           "tokens": 105
         },
         {
           "address": "zV18RQeme9fDZUbCGf7skSWNz6Vphs5j3PQUHjHdcgi",
           "label": "Smart Money",
-          "pnlUsd": 4412756.431045116,
+          "pnlUsd": 4459720.0832744185,
           "winRate": 55.55555555555556,
-          "trades": 951,
+          "trades": 952,
           "tokens": 14
         },
         {
           "address": "4UrFSCrGxgoCtCUBAEZq7ZmPK3Pczkxx7PwYnkBMi1KR",
           "label": "Smart Money",
-          "pnlUsd": 3642953.4454036495,
+          "pnlUsd": 3677741.666543608,
           "winRate": 50,
-          "trades": 2553,
+          "trades": 2564,
           "tokens": 50
         },
         {
           "address": "Bmi9zf27MNN5pjCtyv2Y15TDQoYgcbcmPTxvEoQ6UwWs",
           "label": "Smart Money",
-          "pnlUsd": 3505505.496953581,
-          "winRate": 47.107438016528924,
-          "trades": 8623,
+          "pnlUsd": 3536295.46397929,
+          "winRate": 45.45454545454545,
+          "trades": 8635,
           "tokens": 78
         }
       ]
@@ -66,13 +66,13 @@
         "symbol": "BP",
         "address": "BPxxfRCXkUVhig4HS1Lh7kZqV6SPJhzfEk4x6fVBjPCy",
         "chain": "solana",
-        "netFlow7dUsd": 742580.1861697936
+        "netFlow7dUsd": 742544.0082074356
       },
       {
         "symbol": "NOCK",
         "address": "0x9b5e262cf9bb04869ab40b19af91d2dc85761722",
         "chain": "base",
-        "netFlow7dUsd": 379194.5141718527
+        "netFlow7dUsd": 379194.51417185273
       },
       {
         "symbol": "ANSEM",
@@ -173,7 +173,7 @@
           "pnlUsd": 778482.2958190959,
           "trades": 8,
           "tokens": 2,
-          "roiPct": 5.7632206895610585
+          "roiPct": 576.3220689561058
         },
         "topTokens": [
           "BP"
@@ -183,7 +183,7 @@
         "verdict": "Watch",
         "report": [
           "Wins 50% of exits, above the smart money median of 48%.",
-          "Booked $778K realized over 90 days (+6% ROI). Cohort median $1.02M.",
+          "Booked $778K realized over 90 days (+576% ROI). Cohort median $1.02M.",
           "8 exits across 2 tokens. Trades less often than the cohort.",
           "Spotted on $BP with $778K PnL, 0% of its peak bag still held."
         ]
@@ -195,7 +195,7 @@
         "spottedOn": {
           "symbol": "ANSEM",
           "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 470580.6341251093,
+          "pnlUsd": 473611.87227136875,
           "stillHoldingRatio": 0.8160381334354051
         },
         "stats": {
@@ -219,7 +219,7 @@
           "Wins 36% of exits, below the smart money median of 48%.",
           "Booked $9K realized over 90 days (+2% ROI). Cohort median $1.02M.",
           "1155 exits across 108 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $471K PnL, 82% of its peak bag still held."
+          "Spotted on $ANSEM with $474K PnL, 82% of its peak bag still held."
         ]
       },
       {
@@ -229,15 +229,15 @@
         "spottedOn": {
           "symbol": "ANSEM",
           "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 1366762.740080284,
+          "pnlUsd": 1377584.1086854278,
           "stillHoldingRatio": 0.9649405118711509
         },
         "stats": {
           "winRate": 25.217391304347824,
-          "pnlUsd": 109302.72123468833,
+          "pnlUsd": 109302.72123468842,
           "trades": 1140,
           "tokens": 115,
-          "roiPct": 7.1230500812633615
+          "roiPct": 7.123050081263367
         },
         "topTokens": [
           "ANSEM",
@@ -252,7 +252,7 @@
           "Wins 25% of exits, below the smart money median of 48%.",
           "Booked $109K realized over 90 days (+7% ROI). Cohort median $1.02M.",
           "1140 exits across 115 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $1.37M PnL, 96% of its peak bag still held."
+          "Spotted on $ANSEM with $1.38M PnL, 96% of its peak bag still held."
         ]
       },
       {
@@ -262,7 +262,7 @@
         "spottedOn": {
           "symbol": "NOCK",
           "address": "0x9b5e262cf9bb04869ab40b19af91d2dc85761722",
-          "pnlUsd": 237044.66784738217,
+          "pnlUsd": 237044.66784738214,
           "stillHoldingRatio": 0
         },
         "stats": {
@@ -270,7 +270,7 @@
           "pnlUsd": 237446.27894483108,
           "trades": 251,
           "tokens": 2,
-          "roiPct": 1.156875425080533
+          "roiPct": 115.68754250805331
         },
         "topTokens": [
           "NOCK",
@@ -281,7 +281,7 @@
         "verdict": "Watch",
         "report": [
           "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $237K realized over 90 days (+1% ROI). Cohort median $1.02M.",
+          "Booked $237K realized over 90 days (+116% ROI). Cohort median $1.02M.",
           "251 exits across 2 tokens. Trades less often than the cohort.",
           "Spotted on $NOCK with $237K PnL, 0% of its peak bag still held."
         ]
@@ -293,7 +293,7 @@
         "spottedOn": {
           "symbol": "BP",
           "address": "BPxxfRCXkUVhig4HS1Lh7kZqV6SPJhzfEk4x6fVBjPCy",
-          "pnlUsd": 619419.4375692451,
+          "pnlUsd": 631012.3530468737,
           "stillHoldingRatio": 0.6388889997110136
         },
         "stats": {
@@ -301,7 +301,7 @@
           "pnlUsd": 222819.6846035967,
           "trades": 275,
           "tokens": 5,
-          "roiPct": 1.5046488854742497
+          "roiPct": 150.46488854742498
         },
         "topTokens": [
           "BP",
@@ -312,9 +312,9 @@
         "verdict": "Watch",
         "report": [
           "Wins 40% of exits, below the smart money median of 48%.",
-          "Booked $223K realized over 90 days (+2% ROI). Cohort median $1.02M.",
+          "Booked $223K realized over 90 days (+150% ROI). Cohort median $1.02M.",
           "275 exits across 5 tokens. Trades less often than the cohort.",
-          "Spotted on $BP with $619K PnL, 64% of its peak bag still held."
+          "Spotted on $BP with $631K PnL, 64% of its peak bag still held."
         ]
       },
       {
@@ -324,7 +324,7 @@
         "spottedOn": {
           "symbol": "CBBTC",
           "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
-          "pnlUsd": 219616.66713648036,
+          "pnlUsd": 221355.99591250034,
           "stillHoldingRatio": 0.9500549075703512
         },
         "stats": {
@@ -348,7 +348,7 @@
           "Wins 50% of exits, above the smart money median of 48%.",
           "Booked $29K realized over 90 days (+10% ROI). Cohort median $1.02M.",
           "109 exits across 10 tokens. Trades less often than the cohort.",
-          "Spotted on $CBBTC with $220K PnL, 95% of its peak bag still held."
+          "Spotted on $CBBTC with $221K PnL, 95% of its peak bag still held."
         ]
       },
       {
@@ -366,7 +366,7 @@
           "pnlUsd": 94381.7484717413,
           "trades": 45,
           "tokens": 2,
-          "roiPct": 3.2438600242516045
+          "roiPct": 324.38600242516026
         },
         "topTokens": [
           "BNKR",
@@ -377,7 +377,7 @@
         "verdict": "Pass",
         "report": [
           "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $94K realized over 90 days (+3% ROI). Cohort median $1.02M.",
+          "Booked $94K realized over 90 days (+324% ROI). Cohort median $1.02M.",
           "45 exits across 2 tokens. Trades less often than the cohort.",
           "Spotted on $BNKR with $209K PnL, 64% of its peak bag still held."
         ]
@@ -389,7 +389,7 @@
         "spottedOn": {
           "symbol": "BP",
           "address": "BPxxfRCXkUVhig4HS1Lh7kZqV6SPJhzfEk4x6fVBjPCy",
-          "pnlUsd": 287014.1659054187,
+          "pnlUsd": 292054.5618184529,
           "stillHoldingRatio": 0.6433488343067486
         },
         "stats": {
@@ -397,7 +397,7 @@
           "pnlUsd": 95459.21900204195,
           "trades": 4,
           "tokens": 2,
-          "roiPct": 2.647982577083642
+          "roiPct": 264.7982577083642
         },
         "topTokens": [
           "BP"
@@ -407,9 +407,9 @@
         "verdict": "Pass",
         "report": [
           "Wins 50% of exits, above the smart money median of 48%.",
-          "Booked $95K realized over 90 days (+3% ROI). Cohort median $1.02M.",
+          "Booked $95K realized over 90 days (+265% ROI). Cohort median $1.02M.",
           "4 exits across 2 tokens. Trades less often than the cohort.",
-          "Spotted on $BP with $287K PnL, 64% of its peak bag still held."
+          "Spotted on $BP with $292K PnL, 64% of its peak bag still held."
         ]
       },
       {
@@ -427,7 +427,7 @@
           "pnlUsd": 29014.45100578128,
           "trades": 3,
           "tokens": 1,
-          "roiPct": 3.7772851153964817
+          "roiPct": 377.7285115396482
         },
         "topTokens": [
           "BNKR"
@@ -437,7 +437,7 @@
         "verdict": "Pass",
         "report": [
           "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $29K realized over 90 days (+4% ROI). Cohort median $1.02M.",
+          "Booked $29K realized over 90 days (+378% ROI). Cohort median $1.02M.",
           "3 exits across 1 tokens. Trades less often than the cohort.",
           "Spotted on $BNKR with $231K PnL, 87% of its peak bag still held."
         ]

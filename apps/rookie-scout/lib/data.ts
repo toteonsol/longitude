@@ -205,7 +205,8 @@ export async function buildRookieScout(nansen: NansenClient): Promise<RookieScou
       pnlUsd: num(summary.realized_pnl_usd),
       trades: num(summary.traded_times),
       tokens: num(summary.traded_token_count),
-      roiPct: pct(summary.realized_pnl_percent),
+      // realized_pnl_percent is documented as a fraction ("not multiplied by 100"), and can exceed 1.
+      roiPct: num(summary.realized_pnl_percent) * 100,
     };
     const score = similarity(stats, medians);
     const g = grade(score);
