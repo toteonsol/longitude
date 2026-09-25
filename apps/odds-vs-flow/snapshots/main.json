@@ -1,0 +1,188 @@
+{
+  "app": "odds-vs-flow",
+  "name": "main",
+  "generatedAt": "2026-09-25T10:57:01.173Z",
+  "credits": 8,
+  "sample": false,
+  "data": {
+    "generatedAt": "2026-09-25T10:57:01.172Z",
+    "bouts": [
+      {
+        "id": "btc-4689189",
+        "number": 1,
+        "asset": {
+          "symbol": "BTC",
+          "name": "Bitcoin"
+        },
+        "market": {
+          "id": "4689189",
+          "question": "Will the price of Bitcoin be above $82,000 on September 25?",
+          "slug": "bitcoin-above-82k-on-september-25-2026",
+          "yesPct": 99,
+          "bidCents": 99,
+          "askCents": 99,
+          "volumeUsd": 249722.406825,
+          "volume24hUsd": 181976.54583600003,
+          "liquidityUsd": 51005.37414,
+          "traders24h": 190,
+          "endsAt": "2026-09-25T16:00:00",
+          "direction": 1
+        },
+        "token": {
+          "symbol": "WBTC",
+          "chain": "ethereum",
+          "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "netFlow1hUsd": 0,
+          "netFlow24hUsd": 0,
+          "netFlow7dUsd": -288204.48468929704,
+          "netFlow30dUsd": -148903.22204719647,
+          "traderCount": 9,
+          "marketCapUsd": 9835387449.86372
+        },
+        "crowd": {
+          "conviction": 0.98,
+          "stance": "bullish"
+        },
+        "flow": {
+          "strength": 0.292,
+          "stance": "selling"
+        },
+        "relation": "contested",
+        "pull": -0.688,
+        "verdict": "The crowd has the rope: YES trades at 99¢ (the crowd leans up on Bitcoin) while smart money is selling $288K this week."
+      },
+      {
+        "id": "eth-4761842",
+        "number": 2,
+        "asset": {
+          "symbol": "ETH",
+          "name": "Ethereum"
+        },
+        "market": {
+          "id": "4761842",
+          "question": "Will Ethereum dip to $2,600 in September?",
+          "slug": "will-ethereum-dip-to-2600-in-september-2026-from-september-20",
+          "yesPct": 48,
+          "bidCents": 47,
+          "askCents": 48,
+          "volumeUsd": 137271.362081,
+          "volume24hUsd": 82703.837384,
+          "liquidityUsd": 46651.5963,
+          "traders24h": 54,
+          "endsAt": "2026-10-01T04:00:00",
+          "direction": -1
+        },
+        "token": {
+          "symbol": "WETH",
+          "chain": "ethereum",
+          "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "netFlow1hUsd": 0,
+          "netFlow24hUsd": -124.5894898045469,
+          "netFlow7dUsd": -8075.034143261248,
+          "netFlow30dUsd": -46643.977925680854,
+          "traderCount": 25,
+          "marketCapUsd": 5644287097.42387
+        },
+        "crowd": {
+          "conviction": 0.04,
+          "stance": "split"
+        },
+        "flow": {
+          "strength": 0,
+          "stance": "flat"
+        },
+        "relation": "unopposed",
+        "pull": -0.04,
+        "verdict": "The crowd is at a coin flip on Ethereum; smart money's $8K of sitting still goes unopposed."
+      },
+      {
+        "id": "sol-4052469",
+        "number": 3,
+        "asset": {
+          "symbol": "SOL",
+          "name": "Solana"
+        },
+        "market": {
+          "id": "4052469",
+          "question": "Will Solana reach $150 in September?",
+          "slug": "will-solana-reach-150-in-september-2026",
+          "yesPct": 2,
+          "bidCents": 1,
+          "askCents": 3,
+          "volumeUsd": 60299.499356,
+          "volume24hUsd": 14068.085674,
+          "liquidityUsd": 30323.10217,
+          "traders24h": 16,
+          "endsAt": "2026-10-01T04:00:00",
+          "direction": 1
+        },
+        "token": {
+          "symbol": "SOL",
+          "chain": "solana",
+          "address": "So11111111111111111111111111111111111111112",
+          "netFlow1hUsd": 4739.456317807704,
+          "netFlow24hUsd": -51354.547958635565,
+          "netFlow7dUsd": 547737.7264487142,
+          "netFlow30dUsd": 6605722.745254989,
+          "traderCount": 519,
+          "marketCapUsd": 1473503420.33401
+        },
+        "crowd": {
+          "conviction": 0.96,
+          "stance": "bearish"
+        },
+        "flow": {
+          "strength": 0.348,
+          "stance": "buying"
+        },
+        "relation": "contested",
+        "pull": -0.612,
+        "verdict": "The crowd has the rope: YES trades at 2¢ (the crowd leans down on Solana) while smart money is buying $548K this week."
+      },
+      {
+        "id": "btc-4052431",
+        "number": 4,
+        "asset": {
+          "symbol": "BTC",
+          "name": "Bitcoin"
+        },
+        "market": {
+          "id": "4052431",
+          "question": "Will Bitcoin dip to $65,000 in September?",
+          "slug": "will-bitcoin-dip-to-65k-in-september-2026",
+          "yesPct": 1,
+          "bidCents": 0,
+          "askCents": 0,
+          "volumeUsd": 750671.9300990001,
+          "volume24hUsd": 60208.731760999995,
+          "liquidityUsd": 149621.16052,
+          "traders24h": 335,
+          "endsAt": "2026-10-01T04:00:00",
+          "direction": -1
+        },
+        "token": {
+          "symbol": "WBTC",
+          "chain": "ethereum",
+          "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "netFlow1hUsd": 0,
+          "netFlow24hUsd": 0,
+          "netFlow7dUsd": -288204.48468929704,
+          "netFlow30dUsd": -148903.22204719647,
+          "traderCount": 9,
+          "marketCapUsd": 9835387449.86372
+        },
+        "crowd": {
+          "conviction": 0.98,
+          "stance": "bullish"
+        },
+        "flow": {
+          "strength": 0.292,
+          "stance": "selling"
+        },
+        "relation": "contested",
+        "pull": -0.688,
+        "verdict": "The crowd has the rope: YES trades at 1¢ (the crowd leans up on Bitcoin) while smart money is selling $288K this week."
+      }
+    ]
+  }
+}

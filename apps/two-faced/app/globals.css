@@ -5,6 +5,758 @@
   --lg-accent: #b3122e;
   --lg-accent2: #f5f0e6;
   --lg-font: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --lg-font-display: var(--font-display), var(--lg-font);
-  --lg-font-mono: var(--font-mono), ui-monospace, monospace;
+  --lg-font-display: var(--font-display), "Bodoni 72", Didot, "Times New Roman", serif;
+  --lg-font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --ivory: #f5f0e6;
+  --ivory-deep: #e8e0cc;
+  --bone: #cdc3ae;
+  --charcoal: #14141a;
+  --charcoal-2: #1b1b22;
+  --soot: #2a2a35;
+  --ash: #8d8d9a;
+  --crimson: #b3122e;
+  --crimson-bright: #d8294a;
+  --day-ink: #1a1a20;
+  --night-ink: #f5f0e6;
+}
+
+/* The house: charcoal curtain folds, a crimson spot on the ceiling */
+body {
+  background-color: var(--lg-bg);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 44px),
+    radial-gradient(1000px 480px at 50% -12%, rgba(179, 18, 46, 0.26), transparent 65%);
+  background-attachment: fixed;
+}
+
+.lg-frame__header {
+  background: rgba(20, 20, 26, 0.72);
+}
+
+.lg-frame__title {
+  font-family: var(--lg-font-display);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.tf {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ---------- The cast ---------- */
+
+.cast {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+  overflow-x: auto;
+  padding: 6px 2px 10px;
+  scrollbar-width: thin;
+}
+
+.cast__item {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.cast__seat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 118px;
+  min-height: 40px;
+  padding: 10px 6px 8px;
+  border: 1px solid rgba(245, 240, 230, 0.12);
+  border-radius: 14px;
+  background: rgba(245, 240, 230, 0.03);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cast__seat:hover {
+  border-color: rgba(245, 240, 230, 0.3);
+}
+
+.cast__seat.is-on {
+  border-color: var(--crimson);
+  background: rgba(179, 18, 46, 0.12);
+  box-shadow:
+    0 0 0 1px var(--crimson) inset,
+    0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.cast__seat:focus-visible {
+  outline: 2px solid var(--ivory);
+  outline-offset: 2px;
+}
+
+.cast__mask {
+  display: block;
+  width: 58px;
+  height: 70px;
+}
+
+.cast__mask svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45));
+}
+
+.cast__addr {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.cast__pair {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--lg-font-display);
+  font-style: italic;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.cast__meter {
+  display: block;
+  width: 64px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(245, 240, 230, 0.14);
+  overflow: hidden;
+}
+
+.cast__meter-fill {
+  display: block;
+  height: 100%;
+  background: var(--crimson-bright);
+}
+
+/* ---------- The bill ---------- */
+
+.bill {
+  text-align: center;
+  min-height: 118px;
+}
+
+.bill__who {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+  margin: 0 0 8px;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.bill__rank,
+.bill__duality {
+  color: var(--crimson-bright);
+}
+
+.bill__verdict {
+  margin: 0;
+  min-height: 1.1em;
+  font-family: var(--lg-font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(28px, 4.6vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.bill__feed {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--lg-muted);
+}
+
+/* ---------- The stage ---------- */
+
+.stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(245, 240, 230, 0.08);
+}
+
+/* the curtain rod */
+.stage::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 6px;
+  background: var(--crimson);
+  z-index: 3;
+}
+
+.stage__center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 36px 18px 26px;
+  background: linear-gradient(90deg, var(--ivory) 0 50%, var(--charcoal-2) 50% 100%);
+  overflow: hidden;
+}
+
+.stage__seam {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--crimson) 30% 70%, transparent);
+  opacity: 0.8;
+}
+
+/* the follow spot: rides the dial from the day side to the night side */
+.stage__light {
+  position: absolute;
+  top: -12%;
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(216, 41, 74, 0.32), rgba(216, 41, 74, 0) 62%);
+  transform: translateX(-50%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.stage__maskbox {
+  position: relative;
+  width: min(74%, 290px);
+  aspect-ratio: 200 / 240;
+}
+
+.stage__mask {
+  position: absolute;
+  inset: 0;
+}
+
+.stage__mask svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 26px 32px rgba(0, 0, 0, 0.45));
+}
+
+.stage__hint {
+  margin: 0;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+/* vitals: two pills stacked, crossfading */
+.vitals {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  height: 66px;
+}
+
+.vitals__row {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  padding: 8px 6px;
+  border-radius: 12px;
+}
+
+.vitals__row--spot {
+  background: var(--ivory);
+  color: var(--day-ink);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+}
+
+.vitals__row--perp {
+  background: var(--charcoal);
+  color: var(--night-ink);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(245, 240, 230, 0.1);
+}
+
+.vitals__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.vitals__cell b {
+  font-family: var(--lg-font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.vitals__cell small {
+  font-family: var(--lg-font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* the dial */
+.dial {
+  width: 100%;
+  max-width: 360px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.dial__end {
+  min-height: 40px;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.dial__end--spot {
+  color: var(--day-ink);
+}
+
+.dial__end--perp {
+  color: var(--night-ink);
+}
+
+.dial__end:hover {
+  color: var(--crimson-bright);
+}
+
+.dial__end--spot:hover {
+  color: var(--crimson);
+}
+
+.dial__end:focus-visible {
+  outline: 2px solid var(--crimson-bright);
+}
+
+.dial__track {
+  position: relative;
+  height: 48px;
+}
+
+.dial__rail {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  top: 50%;
+  height: 8px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ivory-deep), var(--bone) 40%, var(--soot) 60%, var(--charcoal));
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.dial__input {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: grab;
+  background: transparent;
+  touch-action: pan-y;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.dial__input:active {
+  cursor: grabbing;
+}
+
+.dial__input::-webkit-slider-thumb {
+  width: 44px;
+  height: 44px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.dial__input::-moz-range-thumb {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+}
+
+.dial__input::-moz-range-track {
+  background: transparent;
+}
+
+.dial__knob {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-left: -22px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--crimson-bright), var(--crimson) 70%);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.45),
+    0 0 0 2px rgba(245, 240, 230, 0.9);
+  pointer-events: none;
+}
+
+.dial__input:focus-visible + .dial__knob {
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.45),
+    0 0 0 2px var(--ivory),
+    0 0 0 5px var(--crimson-bright);
+}
+
+.dial__glyph {
+  width: 26px;
+  height: 31px;
+}
+
+/* ---------- The panels ---------- */
+
+.panel {
+  position: relative;
+  min-width: 0;
+  padding: clamp(20px, 3vw, 32px) clamp(18px, 2.6vw, 28px);
+}
+
+.panel--spot {
+  background-color: var(--ivory);
+  background-image: radial-gradient(rgba(26, 26, 32, 0.05) 0.6px, transparent 0.6px);
+  background-size: 6px 6px;
+  color: var(--day-ink);
+}
+
+.panel--perp {
+  background-color: var(--charcoal-2);
+  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.028) 0 1px, transparent 1px 28px);
+  color: var(--night-ink);
+}
+
+.panel__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.panel--spot .panel__shade {
+  background: var(--charcoal);
+}
+
+.panel--perp .panel__shade {
+  background: var(--ivory);
+}
+
+.panel__body {
+  position: relative;
+}
+
+.panel__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.panel__kicker {
+  margin: 0;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.panel__word {
+  margin: 0;
+  font-family: var(--lg-font-display);
+  font-weight: 600;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.panel--perp .panel__word {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.panel__maskname {
+  margin: 6px 0 0;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--crimson);
+}
+
+.panel--perp .panel__maskname {
+  color: var(--crimson-bright);
+}
+
+.panel__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 14px;
+  margin: 0;
+  padding: 12px 0 0;
+  border-top: 1px solid color-mix(in oklab, currentColor 18%, transparent);
+}
+
+.panel__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.panel__stat dt {
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.panel__stat dd {
+  margin: 0;
+  font-family: var(--lg-font-display);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 600;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.panel__roi {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.panel__sub {
+  margin: 0 0 6px;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.panel__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  gap: 6px;
+  align-items: baseline;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: color-mix(in oklab, currentColor 10%, transparent);
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+}
+
+.chip em {
+  font-style: normal;
+  opacity: 0.75;
+}
+
+.chip--neg em {
+  color: var(--crimson);
+  opacity: 1;
+}
+
+.panel--perp .chip--neg em {
+  color: var(--crimson-bright);
+}
+
+.positions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.pos {
+  display: grid;
+  grid-template-columns: auto auto auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+  border-top: 1px solid color-mix(in oklab, currentColor 14%, transparent);
+  font-size: 13px;
+}
+
+.pos__coin {
+  font-family: var(--lg-font-display);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.pos__side {
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pos__side--long {
+  background: var(--ivory);
+  color: var(--charcoal);
+}
+
+.pos__side--short {
+  background: var(--crimson);
+  color: var(--ivory);
+}
+
+.pos__lev,
+.pos__size,
+.pos__pnl {
+  font-family: var(--lg-font-mono);
+  font-size: 12px;
+}
+
+.pos__lev {
+  opacity: 0.8;
+}
+
+.pos__size {
+  text-align: right;
+  opacity: 0.8;
+}
+
+.pos__pnl {
+  font-weight: 600;
+}
+
+.pos__pnl.is-neg {
+  color: var(--crimson-bright);
+}
+
+.panel__flat {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.panel__note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+.tf__feedline {
+  margin: 0;
+  text-align: center;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  color: var(--lg-muted);
+}
+
+/* ---------- Smaller houses ---------- */
+
+@media (max-width: 900px) {
+  .stage {
+    grid-template-columns: 1fr;
+  }
+  .stage__center {
+    order: -1;
+    padding: 30px 16px 22px;
+  }
+  .panel__word {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+}
+
+@media (max-width: 640px) {
+  .cast {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    overflow: visible;
+    padding: 4px 0 6px;
+  }
+  .cast__item {
+    min-width: 0;
+  }
+  .cast__seat {
+    width: 100%;
+    padding: 8px 4px 6px;
+  }
+  .cast__mask {
+    width: 46px;
+    height: 56px;
+  }
+  .cast__pair {
+    display: none;
+  }
+  .cast__meter {
+    width: 70%;
+  }
+  .bill__verdict {
+    font-size: clamp(26px, 8vw, 36px);
+  }
+  .stage {
+    border-radius: 16px;
+  }
+  .vitals,
+  .dial {
+    max-width: 100%;
+  }
+  .panel {
+    padding: 20px 16px;
+  }
 }

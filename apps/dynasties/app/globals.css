@@ -4,7 +4,840 @@
   --lg-ink: #f1e7c9;
   --lg-accent: #c9a227;
   --lg-accent2: #f1e7c9;
-  --lg-font: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --lg-font-display: var(--font-display), var(--lg-font);
-  --lg-font-mono: var(--font-mono), ui-monospace, monospace;
+  --lg-font: var(--font-body), "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --lg-font-display: var(--font-display), "Cinzel", Georgia, serif;
+  --lg-font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --navy: #0d1b3d;
+  --navy-deep: #081231;
+  --navy-cloth: #142a5c;
+  --gold: #c9a227;
+  --gold-bright: #e6c65a;
+  --gold-dim: rgba(201, 162, 39, 0.38);
+  --parchment: #f1e7c9;
+  --parchment-ink: #1b1a2b;
+  --thread: rgba(241, 231, 201, 0.16);
+  --trunk-x: 10px;
+}
+
+/* The hall: navy cloth, a woven grain, a lamp of gold above. */
+body {
+  font-size: 18px;
+  line-height: 1.45;
+  background-color: var(--lg-bg);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.022) 0 2px, transparent 2px 7px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.09) 0 2px, transparent 2px 7px),
+    radial-gradient(1200px 700px at 50% -20%, rgba(201, 162, 39, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 50% 110%, rgba(8, 18, 49, 0.9), transparent 70%);
+  background-attachment: fixed;
+}
+
+.lg-frame__header {
+  background: rgba(8, 18, 49, 0.72);
+  border-bottom-color: rgba(201, 162, 39, 0.28);
+}
+
+.lg-frame__title {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--gold-bright);
+}
+
+.lg-explainer__toggle {
+  font-size: 15px;
+}
+
+.lg-explainer__panel p {
+  font-size: clamp(17px, 1.7vw, 20px);
+}
+
+.lg-frame__footer {
+  border-top-color: rgba(201, 162, 39, 0.22);
+}
+
+/* Ornaments */
+.rule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--gold);
+  margin: 14px 0;
+}
+
+.rule__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.rule__line:last-child {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.rule__gem {
+  font-family: var(--lg-font-display);
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.coronet {
+  width: 56px;
+  height: auto;
+  color: var(--gold-bright);
+  margin-bottom: -6px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
+}
+
+/* The realm: page head, houses, roll of arms */
+.realm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.realm__head {
+  text-align: center;
+  padding: 10px 0 6px;
+}
+
+.realm__eyebrow {
+  margin: 0 0 8px;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.realm__title {
+  margin: 0;
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: clamp(34px, 6vw, 64px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: var(--parchment);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 0 30px rgba(201, 162, 39, 0.25);
+}
+
+.realm__rule {
+  max-width: 420px;
+  margin: 16px auto;
+}
+
+.realm__lede {
+  max-width: 62ch;
+  margin: 0 auto;
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 21px);
+  color: var(--parchment);
+  opacity: 0.9;
+}
+
+.realm__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 720px;
+  margin: 26px auto 0;
+}
+
+.realm__stats div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 6px;
+  border-top: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+}
+
+.realm__stats dd {
+  margin: 0;
+  font-family: var(--lg-font-display);
+  font-size: clamp(26px, 3.4vw, 38px);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--gold-bright);
+}
+
+.realm__stats dt {
+  margin-top: 6px;
+  font-variant: small-caps;
+  letter-spacing: 0.16em;
+  font-size: 15px;
+  opacity: 0.75;
+}
+
+.realm__houses {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  margin-top: 30px;
+}
+
+/* One house: a tapestry that unfurls */
+.house {
+  position: relative;
+}
+
+.house__cloth {
+  position: relative;
+  padding: 36px clamp(16px, 3vw, 40px) 46px;
+  border: 1px solid rgba(201, 162, 39, 0.6);
+  color: var(--parchment);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 4px),
+    radial-gradient(120% 70% at 50% 0%, rgba(201, 162, 39, 0.12), transparent 55%),
+    linear-gradient(180deg, #17336a 0%, #102450 55%, #0c1a3f 100%);
+  box-shadow:
+    0 0 0 5px var(--lg-bg),
+    0 0 0 6px rgba(201, 162, 39, 0.35),
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 0 90px rgba(0, 0, 0, 0.3);
+}
+
+/* Once unfurled the clip goes so scrolls, shadows and the fringe can hang past the edge. */
+.house[data-unfurled="true"] .house__cloth {
+  clip-path: none !important;
+}
+
+.house__cloth::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: -15px;
+  height: 14px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 2px, transparent 2px 6px);
+  mask-image: linear-gradient(180deg, #000, transparent);
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.house[data-unfurled="true"] .house__cloth::after {
+  opacity: 0.75;
+}
+
+.house__corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--gold);
+  opacity: 0.8;
+}
+
+.house__corner--tl {
+  top: 8px;
+  left: 8px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.house__corner--tr {
+  top: 8px;
+  right: 8px;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.house__corner--bl {
+  bottom: 8px;
+  left: 8px;
+  border-right: 0;
+  border-top: 0;
+}
+
+.house__corner--br {
+  bottom: 8px;
+  right: 8px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.house__head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tree__founder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+
+.tree__eyebrow {
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+  font-size: 14px;
+  color: var(--gold-bright);
+  opacity: 0.85;
+}
+
+.house__patriarch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.house__patriarch .node__crest {
+  color: var(--gold-bright);
+}
+
+.house__titles {
+  margin-top: 8px;
+}
+
+.house__eyebrow {
+  margin: 0;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.house__name {
+  margin: 6px 0 2px;
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 4vw, 40px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--parchment);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+.house__motto {
+  margin: 0;
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--gold-bright);
+}
+
+.house__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px clamp(16px, 3vw, 40px);
+  margin-top: 16px;
+}
+
+.house__stats div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.house__stats b {
+  font-family: var(--lg-font-display);
+  font-weight: 600;
+  font-size: clamp(19px, 2.2vw, 24px);
+  line-height: 1;
+  color: var(--parchment);
+}
+
+.house__stats b.is-neg,
+.roll__pnl.is-neg {
+  color: #e28a7a;
+}
+
+.house__stats span {
+  margin-top: 5px;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.house__line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-variant: small-caps;
+  letter-spacing: 0.12em;
+  font-size: 15px;
+  opacity: 0.72;
+}
+
+.house__dot {
+  color: var(--gold);
+}
+
+/* The tree */
+.tree {
+  position: relative;
+}
+
+.tree__lines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+  filter: drop-shadow(0 0 3px rgba(201, 162, 39, 0.45));
+}
+
+.tree__line {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.tree__line--trunk {
+  stroke-width: 2;
+}
+
+.tree__line--vine {
+  stroke-width: 1.6;
+}
+
+.tree__line--cord {
+  stroke-width: 1.4;
+}
+
+.tree__branches {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--branches, 1), minmax(0, 1fr));
+  gap: 0 18px;
+  margin-top: 58px;
+}
+
+.tree__empty {
+  margin-top: 28px;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.branch__head {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ribbon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  padding: 7px 24px 6px;
+  background: linear-gradient(180deg, #e9cb62, #b8901e);
+  color: var(--parchment-ink);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 50%, 100% 100%, 0 100%, 9px 50%);
+  text-align: center;
+}
+
+.ribbon__title {
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ribbon__sub {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.branch__members {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  width: 100%;
+}
+
+.branch__members > li {
+  min-width: 0;
+}
+
+.branch__members > li > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node__meta {
+  display: none;
+}
+
+/* A crest you can hover or tap */
+.node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 4px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+}
+
+.node__btn:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+.node__crest {
+  display: block;
+  color: var(--gold);
+  line-height: 0;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45));
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.node__btn:hover .node__crest,
+.node.is-open .node__crest {
+  transform: translateY(-3px) scale(1.06);
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 8px rgba(230, 198, 90, 0.5));
+}
+
+.node__caption {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: rgba(12, 26, 63, 0.9);
+  color: var(--parchment);
+  opacity: 0.85;
+}
+
+.node.is-open {
+  z-index: 6;
+}
+
+.crest {
+  display: block;
+}
+
+/* The scroll that unrolls beneath a crest */
+.scroll {
+  position: absolute;
+  top: calc(100% + 8px);
+  z-index: 10;
+  width: 280px;
+  max-width: calc(100vw - 32px);
+  padding: 12px 15px 13px;
+  border: 1px solid #b89a4a;
+  background: linear-gradient(180deg, #f7efd8, #ecdfbd);
+  color: var(--parchment-ink);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+  transform-origin: top center;
+  text-align: left;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.scroll::before,
+.scroll::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #dcc98f, #b89a4a);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.scroll::before {
+  top: -5px;
+}
+
+.scroll::after {
+  bottom: -5px;
+}
+
+.scroll[data-align="center"] {
+  left: 50%;
+  margin-left: -140px;
+}
+
+.scroll[data-align="start"] {
+  left: -6px;
+}
+
+.scroll[data-align="end"] {
+  right: -6px;
+}
+
+.scroll__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(27, 26, 43, 0.22);
+}
+
+.scroll__role {
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6b4e11;
+}
+
+.scroll__relation {
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  font-size: 15px;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.scroll__facts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+}
+
+.scroll__facts div {
+  display: contents;
+}
+
+.scroll__facts dt {
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+}
+
+.scroll__facts dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.scroll__arms dd {
+  font-style: italic;
+}
+
+.scroll__link,
+.scroll__chain {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b4e11;
+}
+
+.scroll__link:hover {
+  color: #3d2b06;
+}
+
+/* Roll of arms */
+.roll {
+  margin-top: 60px;
+}
+
+.roll__list {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 6px 28px;
+}
+
+.roll__list li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--thread);
+  color: var(--gold);
+}
+
+.roll__text {
+  min-width: 0;
+  color: var(--parchment);
+}
+
+.roll__text b {
+  display: block;
+  font-family: var(--lg-font-display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.roll__text span {
+  display: block;
+  font-style: italic;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.roll__pnl {
+  font-family: var(--lg-font-mono);
+  font-size: 12px;
+  color: var(--gold-bright);
+}
+
+.roll__note {
+  max-width: 70ch;
+  margin: 20px auto 0;
+  text-align: center;
+  font-style: italic;
+  font-size: 16px;
+  opacity: 0.72;
+}
+
+/* Stacked tree: a vertical line down the left, every bloodline in turn */
+.tree[data-layout="stacked"] .tree__branches {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 28px;
+  margin-top: 44px;
+}
+
+.tree[data-layout="stacked"] .branch {
+  align-items: flex-start;
+}
+
+.tree[data-layout="stacked"] .branch__head {
+  justify-content: flex-start;
+}
+
+.tree[data-layout="stacked"] .ribbon {
+  align-items: flex-start;
+  padding: 6px 22px 5px 18px;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 50%, 100% 100%, 0 100%);
+  text-align: left;
+}
+
+.tree[data-layout="stacked"] .branch__members {
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.tree[data-layout="stacked"] .branch__members > li > div {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.tree[data-layout="stacked"] .node__caption {
+  display: none;
+}
+
+.tree[data-layout="stacked"] .node__meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.node__meta b {
+  font-weight: 600;
+  color: var(--parchment);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.node__meta span {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+.tree[data-layout="stacked"] .scroll[data-align="start"],
+.tree[data-layout="stacked"] .scroll[data-align="center"] {
+  left: 0;
+  margin-left: 0;
+}
+
+@media (max-width: 720px) {
+  body {
+    background-attachment: scroll;
+  }
+  .realm__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .realm__houses {
+    gap: 34px;
+    margin-top: 22px;
+  }
+  .house__cloth {
+    padding: 28px 14px 36px;
+  }
+  .house__stats {
+    gap: 10px 20px;
+  }
+  .scroll {
+    width: 260px;
+  }
+  .scroll[data-align="center"] {
+    margin-left: -130px;
+  }
+  .roll__list {
+    gap: 2px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .node__crest,
+  .house__cloth::after {
+    transition: none;
+  }
 }

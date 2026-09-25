@@ -1,0 +1,716 @@
+{
+  "app": "two-faced",
+  "name": "main",
+  "generatedAt": "2026-09-25T10:58:32.368Z",
+  "credits": 34,
+  "sample": false,
+  "data": {
+    "generatedAt": "2026-09-25T10:58:32.367Z",
+    "window": {
+      "from": "2026-06-27",
+      "to": "2026-09-25"
+    },
+    "feed": {
+      "lookbackHours": 168,
+      "trades": 100,
+      "traders": 8
+    },
+    "wallets": [
+      {
+        "address": "0xb40da15b8cc492fff87d9b1e06bb45769d7e75d9",
+        "label": "Uses \"RABBYWALLET\" HL Referral Code",
+        "activity": {
+          "trades7d": 1,
+          "volume7dUsd": 21008.055555555555,
+          "lastTradeAt": "2026-09-25T10:55:16.212000Z",
+          "favoriteCoin": "PUMP",
+          "longShare": 1
+        },
+        "spot": {
+          "chain": "ethereum",
+          "winRate": 28.57142857142857,
+          "pnlUsd": -719.9739998323641,
+          "roiPct": -94.1911734593855,
+          "trades": 8,
+          "tokens": 7,
+          "topTokens": [
+            {
+              "symbol": "DRV",
+              "pnlUsd": 17.20449961962403
+            },
+            {
+              "symbol": "GUA",
+              "pnlUsd": 0.023749638826467967
+            },
+            {
+              "symbol": "TRAC",
+              "pnlUsd": -4.471715481808492
+            },
+            {
+              "symbol": "EIGEN",
+              "pnlUsd": -56.85376899175883
+            },
+            {
+              "symbol": "DOGE",
+              "pnlUsd": -675.8750951310869
+            }
+          ]
+        },
+        "perp": {
+          "winRate": 71.10413319702059,
+          "pnlUsd": 1255649.493462,
+          "roiPct": 3.521623325089293,
+          "trades": 2330,
+          "closedTrades": 13694,
+          "coins": 29,
+          "feesUsd": 26493.983476,
+          "unrealizedPnlUsd": 0,
+          "accountValueUsd": 899183.866666,
+          "maxLeverage": 0,
+          "topCoins": [
+            {
+              "symbol": "HYPE",
+              "pnlUsd": 659892.42554
+            },
+            {
+              "symbol": "ZEC",
+              "pnlUsd": 274256.8958
+            },
+            {
+              "symbol": "LIT",
+              "pnlUsd": 166591.790924
+            },
+            {
+              "symbol": "BTC",
+              "pnlUsd": 105224.974761
+            },
+            {
+              "symbol": "xyz:NVDA",
+              "pnlUsd": 43962.365392
+            }
+          ],
+          "openPositions": []
+        },
+        "faces": {
+          "spot": {
+            "mouth": -0.7238548339980169,
+            "brow": -0.6357142857142858,
+            "eyes": 0.318080836479775,
+            "heat": 0.56,
+            "tear": true
+          },
+          "perp": {
+            "mouth": 0.9220826639404118,
+            "brow": 0.3411856412206562,
+            "eyes": 1,
+            "heat": 0.0063299472378121405,
+            "tear": false
+          }
+        },
+        "temperament": {
+          "spot": "Mourner",
+          "perp": "Berserker"
+        },
+        "duality": 66,
+        "verdict": "Mourner by day, berserker by night. Two people share this address.",
+        "notes": {
+          "spot": "Wins 29% of 8 exits across 7 tokens on ethereum; -$720 realized (-94% ROI).",
+          "perp": "2330 perp trades on 29 coins, 71% win rate, +$1.26M realized, $26K burned in fees. Flat right now."
+        },
+        "rank": 1
+      },
+      {
+        "address": "0x472c90153afff6b5d06e2cf0a0e6e4f91b2abf4b",
+        "label": "Uses \"BOY\" HL Referral Code",
+        "activity": {
+          "trades7d": 3,
+          "volume7dUsd": 674.9443933333334,
+          "lastTradeAt": "2026-09-25T10:55:11.755000Z",
+          "favoriteCoin": "AERO",
+          "longShare": 0
+        },
+        "spot": {
+          "chain": "ethereum",
+          "winRate": 0,
+          "pnlUsd": 0,
+          "roiPct": 0,
+          "trades": 0,
+          "tokens": 0,
+          "topTokens": []
+        },
+        "perp": {
+          "winRate": 36.967989253301006,
+          "pnlUsd": -85349.15136100001,
+          "roiPct": -2.618017832497145,
+          "trades": 59328,
+          "closedTrades": 30521,
+          "coins": 82,
+          "feesUsd": 3719.84036,
+          "unrealizedPnlUsd": 0,
+          "accountValueUsd": 669327.776231,
+          "maxLeverage": 0,
+          "topCoins": [
+            {
+              "symbol": "XPL",
+              "pnlUsd": 11390.606496
+            },
+            {
+              "symbol": "TRUMP",
+              "pnlUsd": 10024.031172
+            },
+            {
+              "symbol": "KAITO",
+              "pnlUsd": 9633.497211
+            },
+            {
+              "symbol": "PUMP",
+              "pnlUsd": 8104.793177
+            },
+            {
+              "symbol": "LDO",
+              "pnlUsd": 4626.157575
+            }
+          ],
+          "openPositions": []
+        },
+        "faces": {
+          "spot": {
+            "mouth": 0.05,
+            "brow": 0.3,
+            "eyes": 0.18,
+            "heat": 0,
+            "tear": false
+          },
+          "perp": {
+            "mouth": -0.6715739062368606,
+            "brow": -0.2389920792107279,
+            "eyes": 1,
+            "heat": 0.3130751400594468,
+            "tear": true
+          }
+        },
+        "temperament": {
+          "spot": "Ghost",
+          "perp": "Berserker"
+        },
+        "duality": 40,
+        "verdict": "Never seen in daylight. Berserker after dark.",
+        "notes": {
+          "spot": "No spot record on ethereum or base in the last 90 days.",
+          "perp": "59328 perp trades on 82 coins, 37% win rate, -$85K realized, $4K burned in fees. Flat right now."
+        },
+        "rank": 2
+      },
+      {
+        "address": "0x2b0dcaf7df98a2db387567a17efcf61139b6733c",
+        "label": "HL Perps Whale",
+        "activity": {
+          "trades7d": 6,
+          "volume7dUsd": 1396.47188,
+          "lastTradeAt": "2026-09-25T10:53:01.531000Z",
+          "favoriteCoin": "SUI",
+          "longShare": 1
+        },
+        "spot": {
+          "chain": "ethereum",
+          "winRate": 0,
+          "pnlUsd": 0,
+          "roiPct": 0,
+          "trades": 0,
+          "tokens": 0,
+          "topTokens": []
+        },
+        "perp": {
+          "winRate": 99.82336613676507,
+          "pnlUsd": 106549.852493,
+          "roiPct": 11.550488114419363,
+          "trades": 21196,
+          "closedTrades": 7926,
+          "coins": 39,
+          "feesUsd": 739.684319,
+          "unrealizedPnlUsd": 0,
+          "accountValueUsd": 183690.697659,
+          "maxLeverage": 0,
+          "topCoins": [
+            {
+              "symbol": "UNI",
+              "pnlUsd": 13619.308937
+            },
+            {
+              "symbol": "NEAR",
+              "pnlUsd": 11621.051522
+            },
+            {
+              "symbol": "ZEC",
+              "pnlUsd": 11565.127966
+            },
+            {
+              "symbol": "USELESS",
+              "pnlUsd": 9175.089272
+            },
+            {
+              "symbol": "kBONK",
+              "pnlUsd": 7285.879784
+            }
+          ],
+          "openPositions": []
+        },
+        "faces": {
+          "spot": {
+            "mouth": 0.05,
+            "brow": 0.3,
+            "eyes": 0.18,
+            "heat": 0,
+            "tear": false
+          },
+          "perp": {
+            "mouth": 0.9189630773976034,
+            "brow": 0.8269183640828841,
+            "eyes": 1,
+            "heat": 0.0020826429179203083,
+            "tear": false
+          }
+        },
+        "temperament": {
+          "spot": "Ghost",
+          "perp": "Berserker"
+        },
+        "duality": 36,
+        "verdict": "Never seen in daylight. Berserker after dark.",
+        "notes": {
+          "spot": "No spot record on ethereum or base in the last 90 days.",
+          "perp": "21196 perp trades on 39 coins, 100% win rate, +$107K realized, $740 burned in fees. Flat right now."
+        },
+        "rank": 3
+      },
+      {
+        "address": "0x4d49a0d59711abf2d2d870f9dc88905239b0010c",
+        "label": "Uses \"MMREFCSI\" HL Referral Code",
+        "activity": {
+          "trades7d": 1,
+          "volume7dUsd": 1005.5334,
+          "lastTradeAt": "2026-09-25T10:55:22.849000Z",
+          "favoriteCoin": "xyz:SKHX",
+          "longShare": 1
+        },
+        "spot": {
+          "chain": "ethereum",
+          "winRate": 0,
+          "pnlUsd": 0,
+          "roiPct": 0,
+          "trades": 0,
+          "tokens": 0,
+          "topTokens": []
+        },
+        "perp": {
+          "winRate": 95.90643274853801,
+          "pnlUsd": 53870.237351,
+          "roiPct": 7.849987710304575,
+          "trades": 847,
+          "closedTrades": 342,
+          "coins": 13,
+          "feesUsd": 47.844286000000004,
+          "unrealizedPnlUsd": 0,
+          "accountValueUsd": 0,
+          "maxLeverage": 0,
+          "topCoins": [
+            {
+              "symbol": "xyz:INTC",
+              "pnlUsd": 29002.61114
+            },
+            {
+              "symbol": "xyz:SKHX",
+              "pnlUsd": 8765.385886
+            },
+            {
+              "symbol": "xyz:GOOGL",
+              "pnlUsd": 8288.600899
+            },
+            {
+              "symbol": "xyz:SMSN",
+              "pnlUsd": 4215.028466
+            },
+            {
+              "symbol": "xyz:SNDK",
+              "pnlUsd": 2628.047964
+            }
+          ],
+          "openPositions": []
+        },
+        "faces": {
+          "spot": {
+            "mouth": 0.05,
+            "brow": 0.3,
+            "eyes": 0.18,
+            "heat": 0,
+            "tear": false
+          },
+          "perp": {
+            "mouth": 0.8942797459024823,
+            "brow": 0.7646631427225316,
+            "eyes": 1,
+            "heat": 0.00026644185186114756,
+            "tear": false
+          }
+        },
+        "temperament": {
+          "spot": "Ghost",
+          "perp": "Berserker"
+        },
+        "duality": 35,
+        "verdict": "Never seen in daylight. Berserker after dark.",
+        "notes": {
+          "spot": "No spot record on ethereum or base in the last 90 days.",
+          "perp": "847 perp trades on 13 coins, 96% win rate, +$54K realized, $48 burned in fees. Flat right now."
+        },
+        "rank": 4
+      },
+      {
+        "address": "0xe4c0f75521c93a8c8a14e3770ca891c9a10ed02d",
+        "label": "Uses \"TRAD\" HL Referral Code",
+        "activity": {
+          "trades7d": 40,
+          "volume7dUsd": 79024.6541952941,
+          "lastTradeAt": "2026-09-25T10:58:02.202000Z",
+          "favoriteCoin": "XPL",
+          "longShare": 1
+        },
+        "spot": {
+          "chain": "ethereum",
+          "winRate": 0,
+          "pnlUsd": 0,
+          "roiPct": 0,
+          "trades": 0,
+          "tokens": 0,
+          "topTokens": []
+        },
+        "perp": {
+          "winRate": 71.19686800894854,
+          "pnlUsd": 171959.44425299997,
+          "roiPct": 3.407949111562742,
+          "trades": 6462,
+          "closedTrades": 3576,
+          "coins": 26,
+          "feesUsd": 2782.7806489999994,
+          "unrealizedPnlUsd": 0,
+          "accountValueUsd": 174480.378334,
+          "maxLeverage": 0,
+          "topCoins": [
+            {
+              "symbol": "PUMP",
+              "pnlUsd": 66194.416312
+            },
+            {
+              "symbol": "BTC",
+              "pnlUsd": 21415.646887
+            },
+            {
+              "symbol": "HYPE",
+              "pnlUsd": 20038.037212
+            },
+            {
+              "symbol": "VVV",
+              "pnlUsd": 15745.817113
+            },
+            {
+              "symbol": "ZEC",
+              "pnlUsd": 10921.429798
+            }
+          ],
+          "openPositions": []
+        },
+        "faces": {
+          "spot": {
+            "mouth": 0.05,
+            "brow": 0.3,
+            "eyes": 0.18,
+            "heat": 0,
+            "tear": false
+          },
+          "perp": {
+            "mouth": 0.8602230733813891,
+            "brow": 0.34518974698989735,
+            "eyes": 1,
+            "heat": 0.0048548318955469955,
+            "tear": false
+          }
+        },
+        "temperament": {
+          "spot": "Ghost",
+          "perp": "Berserker"
+        },
+        "duality": 29,
+        "verdict": "Never seen in daylight. Berserker after dark.",
+        "notes": {
+          "spot": "No spot record on ethereum or base in the last 90 days.",
+          "perp": "6462 perp trades on 26 coins, 71% win rate, +$172K realized, $3K burned in fees. Flat right now."
+        },
+        "rank": 5
+      },
+      {
+        "address": "0xd6e56265890b76413d1d527eb9b75e334c0c5b42",
+        "label": "HL Perps Whale",
+        "activity": {
+          "trades7d": 1,
+          "volume7dUsd": 17011.3888,
+          "lastTradeAt": "2026-09-25T10:50:36.867000Z",
+          "favoriteCoin": "HYPE",
+          "longShare": 1
+        },
+        "spot": {
+          "chain": "ethereum",
+          "winRate": 0,
+          "pnlUsd": 0,
+          "roiPct": 0,
+          "trades": 0,
+          "tokens": 0,
+          "topTokens": []
+        },
+        "perp": {
+          "winRate": 51.64892688885011,
+          "pnlUsd": 1126413.461639,
+          "roiPct": 2.0928063971298103,
+          "trades": 19220,
+          "closedTrades": 11462,
+          "coins": 29,
+          "feesUsd": 11307.094201000002,
+          "unrealizedPnlUsd": 0,
+          "accountValueUsd": 7010376.107805,
+          "maxLeverage": 0,
+          "topCoins": [
+            {
+              "symbol": "HYPE",
+              "pnlUsd": 966921.647779
+            },
+            {
+              "symbol": "IP",
+              "pnlUsd": 146287.867068
+            },
+            {
+              "symbol": "XAI",
+              "pnlUsd": 47273.16344
+            },
+            {
+              "symbol": "LAYER",
+              "pnlUsd": 8439.60384
+            },
+            {
+              "symbol": "SEI",
+              "pnlUsd": 0
+            }
+          ],
+          "openPositions": []
+        },
+        "faces": {
+          "spot": {
+            "mouth": 0.05,
+            "brow": 0.3,
+            "eyes": 0.18,
+            "heat": 0,
+            "tear": false
+          },
+          "perp": {
+            "mouth": 0.5329785377770022,
+            "brow": 0.022463045624180583,
+            "eyes": 1,
+            "heat": 0.003011441513992781,
+            "tear": false
+          }
+        },
+        "temperament": {
+          "spot": "Ghost",
+          "perp": "Berserker"
+        },
+        "duality": 25,
+        "verdict": "Never seen in daylight. Berserker after dark.",
+        "notes": {
+          "spot": "No spot record on ethereum or base in the last 90 days.",
+          "perp": "19220 perp trades on 29 coins, 52% win rate, +$1.13M realized, $11K burned in fees. Flat right now."
+        },
+        "rank": 6
+      },
+      {
+        "address": "0xe09726ff25f5001f37b15049f54116cb83d7d0fe",
+        "label": "Token Millionaire",
+        "activity": {
+          "trades7d": 39,
+          "volume7dUsd": 46426.186797,
+          "lastTradeAt": "2026-09-25T10:52:26.269000Z",
+          "favoriteCoin": "TIA",
+          "longShare": 1
+        },
+        "spot": {
+          "chain": "ethereum",
+          "winRate": 75,
+          "pnlUsd": -74357.87270717828,
+          "roiPct": -7.716129489023153,
+          "trades": 409,
+          "tokens": 4,
+          "topTokens": [
+            {
+              "symbol": "ENA",
+              "pnlUsd": 35662.10978736558
+            },
+            {
+              "symbol": "AI",
+              "pnlUsd": 2162.493390335943
+            },
+            {
+              "symbol": "ETH",
+              "pnlUsd": 0.014929220640869274
+            },
+            {
+              "symbol": "FLUID",
+              "pnlUsd": -112182.49081410044
+            }
+          ]
+        },
+        "perp": {
+          "winRate": 84.09571048038946,
+          "pnlUsd": 6327383.2242829995,
+          "roiPct": 7.861935437322829,
+          "trades": 27875,
+          "closedTrades": 21774,
+          "coins": 27,
+          "feesUsd": 33159.572923,
+          "unrealizedPnlUsd": 0,
+          "accountValueUsd": 1038127.49696,
+          "maxLeverage": 0,
+          "topCoins": [
+            {
+              "symbol": "LIT",
+              "pnlUsd": 1339348.453162
+            },
+            {
+              "symbol": "ENA",
+              "pnlUsd": 850571.481706
+            },
+            {
+              "symbol": "ETH",
+              "pnlUsd": 718610.520118
+            },
+            {
+              "symbol": "ZEC",
+              "pnlUsd": 629961.469485
+            },
+            {
+              "symbol": "HYPE",
+              "pnlUsd": 552937.159859
+            }
+          ],
+          "openPositions": []
+        },
+        "faces": {
+          "spot": {
+            "mouth": 0.3658389201648783,
+            "brow": 0.525,
+            "eyes": 0.8709279522399118,
+            "heat": 0.36,
+            "tear": true
+          },
+          "perp": {
+            "mouth": 1,
+            "brow": 0.5656415185501644,
+            "eyes": 1,
+            "heat": 0.0015721936737958942,
+            "tear": false
+          }
+        },
+        "temperament": {
+          "spot": "Tourist",
+          "perp": "Berserker"
+        },
+        "duality": 22,
+        "verdict": "Tourist by day, berserker by night.",
+        "notes": {
+          "spot": "Wins 75% of 409 exits across 4 tokens on ethereum; -$74K realized (-8% ROI).",
+          "perp": "27875 perp trades on 27 coins, 84% win rate, +$6.33M realized, $33K burned in fees. Flat right now."
+        },
+        "rank": 7
+      },
+      {
+        "address": "0x46926d8fad4a36047a73ed7be1cec963c77fef87",
+        "label": "Uses \"ZERIONAPP\" HL Referral Code",
+        "activity": {
+          "trades7d": 9,
+          "volume7dUsd": 260107.00321824045,
+          "lastTradeAt": "2026-09-25T10:55:13.664000Z",
+          "favoriteCoin": "NIL",
+          "longShare": 1
+        },
+        "spot": {
+          "chain": "ethereum",
+          "winRate": 100,
+          "pnlUsd": 28.153405767737752,
+          "roiPct": 3.1616470561982997,
+          "trades": 6,
+          "tokens": 1,
+          "topTokens": [
+            {
+              "symbol": "ETH",
+              "pnlUsd": 28.153405767737752
+            }
+          ]
+        },
+        "perp": {
+          "winRate": 92.35827962646323,
+          "pnlUsd": 449811.600913,
+          "roiPct": 2.9839291739339706,
+          "trades": 648,
+          "closedTrades": 7603,
+          "coins": 4,
+          "feesUsd": 19420.474570000002,
+          "unrealizedPnlUsd": 0,
+          "accountValueUsd": 0,
+          "maxLeverage": 0,
+          "topCoins": [
+            {
+              "symbol": "NIL",
+              "pnlUsd": 265573.125665
+            },
+            {
+              "symbol": "XPL",
+              "pnlUsd": 136333.315005
+            },
+            {
+              "symbol": "NEAR",
+              "pnlUsd": 90139.618843
+            },
+            {
+              "symbol": "VVV",
+              "pnlUsd": -42234.4586
+            }
+          ],
+          "openPositions": []
+        },
+        "faces": {
+          "spot": {
+            "mouth": 0.7354402090112893,
+            "brow": 1,
+            "eyes": 0.28169934667141894,
+            "heat": 0.06,
+            "tear": false
+          },
+          "perp": {
+            "mouth": 0.9710859681219313,
+            "brow": 0.6843839841728323,
+            "eyes": 1,
+            "heat": 0.01295240576093292,
+            "tear": false
+          }
+        },
+        "temperament": {
+          "spot": "Saint",
+          "perp": "Berserker"
+        },
+        "duality": 20,
+        "verdict": "Saint by day, berserker by night. Same face in every light.",
+        "notes": {
+          "spot": "Wins 100% of 6 exits across 1 tokens on ethereum; +$28 realized (+3% ROI).",
+          "perp": "648 perp trades on 4 coins, 92% win rate, +$450K realized, $19K burned in fees. Flat right now."
+        },
+        "rank": 8
+      }
+    ]
+  }
+}

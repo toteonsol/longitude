@@ -4,7 +4,673 @@
   --lg-ink: #241f1a;
   --lg-accent: #8b0000;
   --lg-accent2: #241f1a;
-  --lg-font: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --lg-font-display: var(--font-display), var(--lg-font);
-  --lg-font-mono: var(--font-mono), ui-monospace, monospace;
+  --lg-font: var(--font-body), "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --lg-font-display: var(--font-display), "Playfair Display", Georgia, serif;
+  --lg-font-mono: var(--font-mono), "Courier Prime", "Courier New", monospace;
+  --lg-radius: 2px;
+  --lg-max: 1240px;
+  --font-nameplate: var(--font-masthead), "UnifrakturCook", "Old English Text MT", serif;
+  --ink: #241f1a;
+  --ink-80: rgba(36, 31, 26, 0.8);
+  --ink-60: rgba(36, 31, 26, 0.62);
+  --ink-40: rgba(36, 31, 26, 0.4);
+  --ink-15: rgba(36, 31, 26, 0.15);
+  --rule: rgba(36, 31, 26, 0.55);
+  --red: #8b0000;
+  --paper: #e9dcc3;
+  --paper-light: #f2e8d2;
+}
+
+/* Sepia newsprint: a warm sheet, foxed at the corners, with a little grain. */
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(1200px 700px at 50% -10%, rgba(255, 250, 236, 0.6), transparent 70%),
+    radial-gradient(800px 600px at 100% 100%, rgba(120, 88, 40, 0.16), transparent 60%),
+    radial-gradient(800px 600px at 0% 100%, rgba(120, 88, 40, 0.14), transparent 60%),
+    url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.24 0 0 0 0 0.17 0 0 0 0 0.08 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  color: var(--ink);
+}
+
+/* Shared chrome, re-inked for paper. */
+.lg-frame__header {
+  background: transparent;
+  border-bottom: 1px solid var(--rule);
+  backdrop-filter: none;
+}
+
+.lg-frame__title {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.lg-frame__footer {
+  border-top: 1px solid var(--rule);
+}
+
+.lg-explainer__toggle,
+.lg-btn,
+.lg-badge {
+  border-radius: 2px;
+  border-color: var(--ink-40);
+  background: var(--paper-light);
+}
+
+.lg-explainer__q {
+  background: var(--red);
+  color: var(--paper-light);
+}
+
+.lg-badge--sample {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.lg-explainer__panel p {
+  font-style: italic;
+}
+
+/* The sheet */
+.paper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.paper__empty {
+  max-width: 60ch;
+  margin: 40px auto;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Masthead */
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--rule);
+  padding-bottom: 10px;
+}
+
+.masthead__ears {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+
+.masthead__name {
+  margin: 16px 0 10px;
+  font-family: var(--font-nameplate);
+  font-weight: 700;
+  font-size: clamp(38px, 9vw, 92px);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.masthead__dateline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.08em;
+}
+
+.masthead__date {
+  font-weight: 700;
+}
+
+.masthead__section {
+  margin: 12px 0 0;
+  font-family: var(--lg-font-display);
+  font-size: 13px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.masthead__section span {
+  color: var(--red);
+  letter-spacing: 0;
+}
+
+/* The compositor's line */
+.paper__compositor {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -8px;
+  min-height: 40px;
+}
+
+.paper__setall,
+.paper__set {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 12px;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.paper__setall {
+  border: 1px solid var(--ink-40);
+  border-radius: 2px;
+  background: var(--paper-light);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.paper__setall:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.paper__set {
+  color: var(--ink-60);
+}
+
+/* Lead + rail */
+.paper__top {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+  gap: 0 32px;
+  align-items: start;
+}
+
+/* The column section: real CSS columns, hairline rules between them. */
+.paper__columns {
+  column-count: 3;
+  column-gap: 32px;
+  column-rule: 1px solid var(--rule);
+  border-top: 3px double var(--rule);
+  padding-top: 18px;
+}
+
+/* Body text may run from one column into the next, as newsprint does; heads and boxes stay whole. */
+.paper__columns .obit {
+  margin-bottom: 26px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink-15);
+}
+
+.paper__columns .obit__kicker,
+.paper__columns .obit__headline,
+.paper__columns .obit__deck,
+.paper__columns .obit__byline {
+  break-after: avoid;
+  break-inside: avoid;
+}
+
+.paper__columns .notice,
+.paper__columns .survived,
+.paper__columns .obit__continued,
+.obit__text p {
+  break-inside: avoid;
+}
+
+.paper__end {
+  margin: 4px 0 0;
+  padding: 12px 0 4px;
+  border-top: 3px double var(--rule);
+  text-align: center;
+  font-family: var(--lg-font-display);
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ink-60);
+}
+
+.paper__end span {
+  color: var(--red);
+  font-style: normal;
+}
+
+/* A notice */
+.obit {
+  scroll-margin-top: 16px;
+}
+
+.obit__kicker {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0;
+  padding-top: 6px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--lg-font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+
+.obit__kicker span:first-child {
+  color: var(--red);
+}
+
+.obit__headline {
+  margin: 6px 0 8px;
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: clamp(21px, 1.9vw, 27px);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+
+.obit__deck {
+  margin: 0 0 8px;
+  font-style: italic;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-80);
+}
+
+.obit__byline {
+  margin: 0 0 10px;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+
+.obit__text p {
+  margin: 0 0 0.9em;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Drop cap on the lede. */
+.obit__text p:first-child::first-letter {
+  float: left;
+  padding: 0.1em 0.12em 0 0;
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: 3.4em;
+  line-height: 0.78;
+}
+
+.obit__continued {
+  margin: 0;
+  font-style: italic;
+  font-size: 13px;
+  text-align: right;
+}
+
+.obit__continued a {
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.obit__continued a:hover {
+  border-bottom-color: currentColor;
+}
+
+/* The lead: bigger, centered, and its body runs in two columns. */
+.obit--lead .obit__kicker {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.obit--lead .obit__headline {
+  margin: 10px 0 14px;
+  font-weight: 900;
+  font-size: clamp(30px, 4.4vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+.obit--lead > .obit__deck {
+  max-width: 64ch;
+  margin: 0 auto 10px;
+  font-size: clamp(15.5px, 1.5vw, 19px);
+  line-height: 1.45;
+  text-align: center;
+}
+
+.obit--lead .obit__byline {
+  text-align: center;
+}
+
+.obit--lead .obit__text {
+  column-count: 2;
+  column-gap: 28px;
+  column-rule: 1px solid var(--ink-15);
+}
+
+.obit--lead .obit__text p:first-child::first-letter {
+  font-size: 4.2em;
+}
+
+/* Type that sets itself: the ghost holds the measure, the live text types over it. */
+.typeset {
+  position: relative;
+}
+
+.typeset__ghost {
+  color: transparent;
+  user-select: none;
+}
+
+.typeset__live {
+  position: absolute;
+  inset: 0;
+}
+
+.typeset__live > span[aria-hidden] {
+  position: absolute;
+  margin-left: 2px;
+  color: var(--red);
+  font-family: var(--lg-font-mono);
+  font-size: 0.7em;
+  animation: caret-blink 0.9s steps(2, start) infinite;
+}
+
+@keyframes caret-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Notice of exit: a classified box */
+.notice {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px 14px;
+  margin: 0 0 14px;
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.notice > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.notice dt {
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+
+.notice dd {
+  margin: 0;
+  font-family: var(--lg-font-display);
+  font-size: 15px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.notice dd small {
+  font-family: var(--lg-font);
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-60);
+}
+
+.notice dd a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ink-40);
+}
+
+.paper__columns .notice {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.paper__columns .notice dd {
+  font-size: 14px;
+}
+
+/* Survived by */
+.survived {
+  margin: 4px 0 10px;
+  padding: 8px 10px 9px;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.survived--none {
+  font-style: italic;
+  font-size: 13.5px;
+  text-align: center;
+}
+
+.survived__title {
+  margin: 0 0 6px;
+  font-family: var(--lg-font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.survived__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13.5px;
+}
+
+.survived__list li,
+.survived__estate {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 2px 0;
+}
+
+.survived__leader {
+  flex: 1;
+  min-width: 12px;
+  border-bottom: 1px dotted var(--ink-40);
+  transform: translateY(-4px);
+}
+
+.survived__val {
+  font-family: var(--lg-font-mono);
+  font-size: 12.5px;
+}
+
+.survived__estate {
+  margin: 6px 0 0;
+  padding-top: 6px;
+  border-top: 1px solid var(--ink-15);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.survived__estate b {
+  font-family: var(--lg-font-mono);
+  font-style: normal;
+  font-size: 12.5px;
+}
+
+/* The rail */
+.rail {
+  border-left: 1px solid var(--rule);
+  padding-left: 24px;
+}
+
+.rail__title {
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--lg-font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.rail__ledger {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+.rail__ledger div {
+  display: flex;
+  flex-direction: column;
+}
+
+.rail__ledger dt {
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-60);
+}
+
+.rail__ledger dd {
+  margin: 0;
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.rail__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rail__list li {
+  border-top: 1px dotted var(--ink-40);
+}
+
+.rail__list a {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: baseline;
+  min-height: 40px;
+  padding: 8px 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rail__list a:hover .rail__sym {
+  color: var(--red);
+}
+
+.rail__sym {
+  font-family: var(--lg-font-display);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.rail__who {
+  overflow: hidden;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  color: var(--ink-60);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rail__val {
+  font-family: var(--lg-font-mono);
+  font-size: 12px;
+}
+
+.rail__foot {
+  margin: 10px 0 0;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-60);
+}
+
+/* Narrower sheets */
+@media (max-width: 1000px) {
+  .paper__top {
+    grid-template-columns: 1fr;
+  }
+  .rail {
+    margin-top: 14px;
+    padding: 12px 0 0;
+    border-left: 0;
+    border-top: 3px double var(--rule);
+  }
+  .paper__columns {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    background-attachment: scroll;
+  }
+  .paper__columns {
+    column-count: 1;
+  }
+  .obit--lead .obit__text {
+    column-count: 1;
+  }
+  .masthead__ears {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+  .masthead__dateline {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .notice {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .obit__text p {
+    text-align: left;
+  }
+  .paper__compositor {
+    justify-content: center;
+  }
+}
+
+/* Proper newsprint: everything set, no chrome. */
+@media print {
+  .lg-frame__header,
+  .lg-frame__footer,
+  .lg-explainer,
+  .paper__compositor {
+    display: none;
+  }
+  .typeset__ghost {
+    color: inherit;
+  }
+  .typeset__live {
+    display: none;
+  }
+  .obit__body,
+  .obit__body *,
+  .rail,
+  .rail * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

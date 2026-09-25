@@ -1,16 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { Caveat, Courier_Prime, Crimson_Pro } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
 import "./globals.css";
 
-const body = Inter({ subsets: ["latin"], variable: "--font-body" });
-const display = Inter({ subsets: ["latin"], variable: "--font-display", weight: ["600", "700"] });
-const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500"] });
+/** A naturalist's hand for headings, a humanist serif for the notes, a typewriter for addresses and figures. */
+const body = Crimson_Pro({ subsets: ["latin"], variable: "--font-body", style: ["normal", "italic"] });
+const display = Caveat({ subsets: ["latin"], variable: "--font-display" });
+const mono = Courier_Prime({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "MENAGERIE · LONGITUDE",
-  description: "A Nansen-powered app from the LONGITUDE store.",
+  description: "A field guide to the species of smart money. Nansen's smart money wallets sorted into species by how they behave.",
 };
 
 export const viewport: Viewport = { themeColor: "#efe6cf", width: "device-width", initialScale: 1 };

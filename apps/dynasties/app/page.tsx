@@ -1,5 +1,6 @@
 import { AppFrame, Missing, getApp } from "@longitude/kit";
 import { liveFlags, loadAppData } from "@longitude/kit/server";
+import { Realm } from "@/components/Realm";
 import { type DynastiesData, buildDynasties } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
@@ -15,7 +16,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
   });
   return (
     <AppFrame app={app} source={source} error={error}>
-      {data ? <pre>{JSON.stringify(data, null, 2).slice(0, 2000)}</pre> : <Missing app={app} />}
+      {data ? <Realm data={data} /> : <Missing app={app} />}
     </AppFrame>
   );
 }

@@ -4,7 +4,749 @@
   --lg-ink: #f2efe6;
   --lg-accent: #b08d57;
   --lg-accent2: #e8e4d8;
+  --lg-radius: 3px;
   --lg-font: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --lg-font-display: var(--font-display), var(--lg-font);
-  --lg-font-mono: var(--font-mono), ui-monospace, monospace;
+  --lg-font-display: var(--font-display), Impact, "Arial Black", sans-serif;
+  --lg-font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --concrete-0: #2a2a28;
+  --concrete-1: #33332f;
+  --concrete-2: #3f3f3b;
+  --concrete-3: #4c4c47;
+  --concrete-4: #5d5d57;
+  --concrete-5: #8a8a82;
+  --brass: #b08d57;
+  --brass-hi: #e2c07f;
+  --brass-lo: #7a5c2e;
+  --brass-ink: #241d12;
+  --brass-glow: rgba(226, 192, 127, 0.55);
+  --ink-dim: rgba(242, 239, 230, 0.62);
+  --ink-faint: rgba(242, 239, 230, 0.32);
+  --line: rgba(242, 239, 230, 0.12);
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+  --noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/></svg>");
+}
+
+/* Board-formed concrete: grain, horizontal pour seams, vertical panel joints, a cold light from above. */
+body {
+  background-color: var(--lg-bg);
+  background-image:
+    var(--noise),
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.26) 0 1px, rgba(255, 255, 255, 0.045) 1px 2px, transparent 2px 112px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 320px),
+    linear-gradient(180deg, #46463f 0%, #3b3b38 32%, #33332f 100%);
+  background-attachment: fixed, scroll, scroll, fixed;
+}
+
+.lg-frame__header {
+  background: rgba(30, 30, 28, 0.72);
+  border-bottom-color: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.lg-frame__title {
+  font-family: var(--lg-font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lg-frame__footer {
+  border-top-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Layout */
+.clock {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.clock__tabs,
+.clock__stats {
+  grid-column: 1 / -1;
+}
+
+.clock__dial {
+  position: sticky;
+  top: 14px;
+}
+
+/* Concrete slabs with brass bolts in the corners */
+.panel {
+  position: relative;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  background:
+    var(--noise),
+    linear-gradient(180deg, #4b4b46 0%, #42423d 55%, #3c3c38 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+    var(--shadow);
+}
+
+.panel::before,
+.panel::after,
+.panel__bolts::before,
+.panel__bolts::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background:
+    linear-gradient(45deg, transparent 44%, rgba(0, 0, 0, 0.6) 44% 56%, transparent 56%),
+    radial-gradient(circle at 35% 35%, #f1e1bd, var(--brass) 55%, var(--brass-lo) 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.panel::before {
+  top: 6px;
+  left: 6px;
+}
+
+.panel::after {
+  top: 6px;
+  right: 6px;
+}
+
+.panel__bolts::before {
+  bottom: 6px;
+  left: 6px;
+}
+
+.panel__bolts::after {
+  bottom: 6px;
+  right: 6px;
+}
+
+/* Token keys */
+.tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  position: relative;
+  flex: 1 1 180px;
+  min-height: 64px;
+  padding: 10px 14px 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "sym flow"
+    "meta meta";
+  gap: 4px 10px;
+  align-items: baseline;
+  text-align: left;
+  cursor: pointer;
+  color: var(--lg-ink);
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  border-radius: 2px;
+  background: linear-gradient(180deg, #57574f, #45453f);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 6px 14px rgba(0, 0, 0, 0.32);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.tab:hover {
+  transform: translateY(-1px);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--brass-hi);
+  outline-offset: 2px;
+}
+
+.tab.is-on {
+  background: linear-gradient(180deg, #383834, #31312d);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(226, 192, 127, 0.22);
+  transform: translateY(1px);
+}
+
+.tab__brass {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brass-lo), var(--brass-hi), var(--brass-lo));
+  box-shadow: 0 0 10px var(--brass-glow);
+}
+
+.tab__sym {
+  grid-area: sym;
+  font-family: var(--lg-font-display);
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab.is-on .tab__sym {
+  color: var(--brass-hi);
+}
+
+.tab__flow {
+  grid-area: flow;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--brass-hi);
+  white-space: nowrap;
+}
+
+.tab__meta {
+  grid-area: meta;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* Stat strip */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stat {
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.stat__k {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.stat__v {
+  display: block;
+  font-family: var(--lg-font-mono);
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat__v em {
+  font-style: normal;
+  color: var(--brass-hi);
+}
+
+.stat--next .stat__v {
+  color: var(--brass-hi);
+  text-shadow: 0 0 12px var(--brass-glow);
+}
+
+.stat__sub {
+  display: block;
+  margin-top: 7px;
+  font-family: var(--lg-font-mono);
+  font-size: 10.5px;
+  color: var(--ink-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The dial */
+.dial__svg {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.45));
+}
+
+.dial__hand {
+  transform-origin: 200px 200px;
+  transition: transform 1100ms cubic-bezier(0.2, 0.9, 0.25, 1), opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.dial__hand-body {
+  transform-origin: 200px 200px;
+}
+
+.dial__hand-fill {
+  fill: url(#hand-steel);
+  stroke: #1b1b19;
+  stroke-width: 0.6;
+  transition: stroke 0.15s ease, stroke-width 0.15s ease;
+}
+
+.dial__hand--overdue .dial__hand-fill {
+  fill: url(#hand-brass);
+  stroke: #4a3517;
+}
+
+.dial__hand--overdue .dial__hand-body {
+  animation:
+    hand-vibrate 0.14s linear infinite,
+    hand-glow 1.8s ease-in-out infinite;
+}
+
+.dial__hand--active .dial__hand-fill {
+  stroke: #fbf7ea;
+  stroke-width: 1.4;
+}
+
+.dial__hand--active .dial__hand-body {
+  filter: drop-shadow(0 0 5px rgba(242, 239, 230, 0.8));
+}
+
+.dial__hand--active.dial__hand--overdue .dial__hand-body {
+  animation: hand-vibrate 0.14s linear infinite;
+  filter: drop-shadow(0 0 6px var(--brass-glow)) drop-shadow(0 0 14px var(--brass-glow));
+}
+
+.dial__hand--dim {
+  opacity: 0.35;
+}
+
+.dial__sec {
+  transform-origin: 200px 268px;
+  transition: transform 260ms cubic-bezier(0.3, 1.7, 0.5, 1);
+}
+
+.dial__tick {
+  stroke: rgba(242, 239, 230, 0.42);
+  stroke-width: 1.1;
+  stroke-linecap: square;
+}
+
+.dial__tick--major {
+  stroke: var(--brass-hi);
+  stroke-width: 2.2;
+}
+
+.dial__label {
+  fill: var(--lg-ink);
+  font-family: var(--lg-font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.dial__caps {
+  fill: var(--brass-hi);
+  font-family: var(--lg-font-mono);
+  font-size: 7.5px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+}
+
+.dial__caps--tiny {
+  font-size: 5.5px;
+  letter-spacing: 0.24em;
+}
+
+.dial__wedge {
+  fill: url(#hatch);
+  stroke: var(--brass);
+  stroke-width: 0.8;
+}
+
+.dial__wedge-label {
+  fill: var(--brass-hi);
+  font-family: var(--lg-font-mono);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+}
+
+/* Brass plate under the dial */
+.dial__plate {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "sym time"
+    "meta meta"
+    "hint hint";
+  gap: 4px 12px;
+  align-items: baseline;
+  min-height: 84px;
+  margin: 14px 0 0;
+  padding: 10px 14px 11px;
+  color: var(--brass-ink);
+  border: 1px solid #5c4420;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #dcbb7a 0%, #b8925a 55%, #97723f 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 rgba(0, 0, 0, 0.25), 0 8px 18px rgba(0, 0, 0, 0.35);
+  font-family: var(--lg-font-mono);
+  font-size: 12px;
+}
+
+.dial__plate-sym {
+  grid-area: sym;
+  font-family: var(--lg-font-display);
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.dial__plate-time {
+  grid-area: time;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.dial__plate-time b {
+  font-size: 16px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.dial__plate-meta {
+  grid-area: meta;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: #3a2d17;
+}
+
+.dial__plate-meta.lg-addr {
+  grid-area: sym;
+  align-self: end;
+  font-size: 11px;
+}
+
+.dial__plate-meta em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.dial__plate-hint {
+  grid-area: hint;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4d3d22;
+}
+
+.dial__plate.is-overdue {
+  background: linear-gradient(180deg, #f0d59a 0%, #c9a05e 55%, #a37c43 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 22px var(--brass-glow), 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.dial__plate.is-imminent {
+  background: linear-gradient(180deg, #ece6d4 0%, #cfc6ad 55%, #b0a78c 100%);
+}
+
+.dial__legend {
+  margin: 10px 0 0;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+/* Ledger */
+.ledger__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 10px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ledger__title {
+  margin: 0;
+  font-family: var(--lg-font-display);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ledger__title span {
+  margin-left: 8px;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: none;
+  color: var(--ink-dim);
+}
+
+.ledger__now {
+  font-family: var(--lg-font-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--brass-hi);
+  white-space: nowrap;
+}
+
+.ledger__rows {
+  display: grid;
+  gap: 6px;
+}
+
+.ledger__row {
+  width: 100%;
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: 26px 118px minmax(0, 1fr) 84px 72px;
+  grid-template-areas:
+    "idx time who value state"
+    "idx meta meta meta meta";
+  gap: 3px 10px;
+  align-items: center;
+  padding: 8px 10px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--lg-ink);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-left: 3px solid var(--concrete-5);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.17);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.ledger__row:hover,
+.ledger__row.is-active {
+  background: rgba(226, 192, 127, 0.12);
+  border-color: rgba(226, 192, 127, 0.5);
+}
+
+.ledger__row:focus-visible {
+  outline: 2px solid var(--brass-hi);
+  outline-offset: 1px;
+}
+
+.ledger__row.is-overdue {
+  border-left-color: var(--brass-hi);
+  background: linear-gradient(90deg, rgba(176, 141, 87, 0.24), rgba(0, 0, 0, 0.17) 60%);
+}
+
+.ledger__row.is-imminent {
+  border-left-color: var(--lg-ink);
+}
+
+.ledger__row.is-soon {
+  border-left-color: var(--brass);
+}
+
+.ledger__idx {
+  grid-area: idx;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
+.ledger__time {
+  grid-area: time;
+  font-family: var(--lg-font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.is-overdue .ledger__time {
+  color: var(--brass-hi);
+  text-shadow: 0 0 10px var(--brass-glow);
+}
+
+.is-imminent .ledger__time {
+  color: #fff;
+}
+
+.ledger__who {
+  grid-area: who;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ledger__who b {
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ledger__who .lg-addr {
+  font-size: 11px;
+  color: var(--ink-dim);
+}
+
+.ledger__value {
+  grid-area: value;
+  font-family: var(--lg-font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ledger__state {
+  grid-area: state;
+  justify-self: end;
+  padding: 3px 7px;
+  font-family: var(--lg-font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.is-overdue .ledger__state {
+  color: var(--brass-ink);
+  border-color: #5f4620;
+  background: linear-gradient(180deg, #dcbb7a, #a5824c);
+}
+
+.is-imminent .ledger__state {
+  color: var(--lg-ink);
+  border-color: var(--lg-ink);
+}
+
+.ledger__meta {
+  grid-area: meta;
+  font-family: var(--lg-font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ledger__foot {
+  margin: 10px 0 0;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
+/* Motion */
+@keyframes hand-vibrate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(0.55deg);
+  }
+  50% {
+    transform: rotate(-0.4deg);
+  }
+  75% {
+    transform: rotate(0.35deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes hand-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 3px var(--brass-glow));
+  }
+  50% {
+    filter: drop-shadow(0 0 9px var(--brass-glow)) drop-shadow(0 0 18px rgba(226, 192, 127, 0.35));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dial__hand,
+  .dial__sec,
+  .tab {
+    transition: none;
+  }
+  .dial__hand--overdue .dial__hand-body,
+  .dial__hand--active.dial__hand--overdue .dial__hand-body {
+    animation: none;
+    filter: drop-shadow(0 0 6px var(--brass-glow));
+  }
+}
+
+/* Narrow */
+@media (max-width: 900px) {
+  .clock {
+    grid-template-columns: 1fr;
+  }
+  .clock__dial {
+    position: static;
+  }
+  body {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stat__v {
+    font-size: 19px;
+  }
+  .panel {
+    padding: 12px 12px;
+  }
+  .tab {
+    flex-basis: 100%;
+    min-height: 56px;
+  }
+  .ledger__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "time state"
+      "who value"
+      "meta meta";
+    gap: 4px 10px;
+  }
+  .ledger__idx {
+    display: none;
+  }
+  .ledger__meta {
+    white-space: normal;
+  }
+  .dial__plate {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sym"
+      "time"
+      "meta"
+      "hint";
+  }
+  .dial__plate-meta.lg-addr {
+    align-self: auto;
+  }
 }

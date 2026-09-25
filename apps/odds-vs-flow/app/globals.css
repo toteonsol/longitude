@@ -5,6 +5,833 @@
   --lg-accent: #1c4f8c;
   --lg-accent2: #d7263d;
   --lg-font: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --lg-font-display: var(--font-display), var(--lg-font);
-  --lg-font-mono: var(--font-mono), ui-monospace, monospace;
+  --lg-font-display: var(--font-display), Impact, "Arial Narrow", sans-serif;
+  --lg-font-mono: var(--font-mono), "Courier New", ui-monospace, monospace;
+
+  --cream: #fbf6e3;
+  --paper: #fffcf2;
+  --ink: #1b1b1b;
+  --ink-soft: rgba(27, 27, 27, 0.62);
+  --line: rgba(27, 27, 27, 0.16);
+  --river: #1c4f8c;
+  --river-deep: #143a68;
+  --river-light: #9cc0e6;
+  --red: #d7263d;
+  --rope: #b08a58;
+  --rope-dark: #6f5230;
+  --rope-light: #e9d3a9;
+}
+
+/* Cream stock with a faint grain */
+body {
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(1100px 500px at 15% -10%, rgba(255, 255, 255, 0.7), transparent 60%),
+    radial-gradient(900px 500px at 100% 110%, rgba(28, 79, 140, 0.08), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(27, 27, 27, 0.025) 0 1px, transparent 1px 7px);
+  background-attachment: fixed;
+}
+
+.lg-frame__header {
+  background: rgba(251, 246, 227, 0.86);
+}
+
+/* ---------- Tonight's card ---------- */
+
+.arena {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "head tally"
+    "legend legend";
+  gap: 10px 28px;
+  align-items: end;
+  padding: 18px 22px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.card__head {
+  grid-area: head;
+  min-width: 0;
+}
+
+.card__kicker,
+.bout__num,
+.rope__ends,
+.slip__keep,
+.river__kicker,
+.river__label {
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.card__title {
+  margin: 4px 0 0;
+  font-family: var(--lg-font-display);
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.card__tally {
+  grid-area: tally;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.card__team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+
+.card__team b {
+  font-family: var(--lg-font-display);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.card__team span {
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.card__team--crowd b {
+  color: var(--red);
+}
+
+.card__team--smart b {
+  color: var(--river);
+}
+
+.card__vs {
+  font-family: var(--lg-font-display);
+  font-size: 20px;
+  letter-spacing: 0.06em;
+  opacity: 0.55;
+}
+
+.card__legend {
+  grid-area: legend;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.card__legend span:first-child {
+  color: var(--red);
+}
+
+.card__legend span:last-child {
+  color: var(--river);
+}
+
+/* ---------- Bouts ---------- */
+
+.bouts {
+  display: flex;
+  flex-direction: column;
+}
+
+.bout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr);
+  grid-template-areas: "slip ring river";
+  gap: 24px;
+  align-items: stretch;
+  padding: 28px 0 34px;
+  border-top: 2px dashed var(--line);
+}
+
+.bouts > :first-child .bout {
+  border-top: 0;
+  padding-top: 8px;
+}
+
+.bout__slip {
+  grid-area: slip;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.bout__ring {
+  grid-area: ring;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.bout__river {
+  grid-area: river;
+  display: flex;
+  min-width: 0;
+}
+
+.bout__tape {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.bout__asset {
+  margin: 0;
+  font-family: var(--lg-font-display);
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+
+.bout__verdict {
+  margin: 0;
+  max-width: 54ch;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+/* ---------- Rubber stamps ---------- */
+
+.stamp {
+  display: inline-block;
+  padding: 4px 10px 2px;
+  border: 3px double currentColor;
+  border-radius: 5px;
+  font-family: var(--lg-font-display);
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: rotate(-6deg);
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  white-space: nowrap;
+}
+
+.stamp--contested {
+  color: var(--red);
+}
+
+.stamp--aligned {
+  color: var(--river);
+}
+
+.stamp--unopposed {
+  color: #6b6b6b;
+}
+
+/* ---------- The rope ---------- */
+
+.rope {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rope__ends {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.rope__end small {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--ink-soft);
+}
+
+.rope__end--crowd {
+  color: var(--red);
+}
+
+.rope__end--smart {
+  color: var(--river);
+  text-align: right;
+}
+
+.rope__end--knot {
+  color: var(--ink);
+  text-align: center;
+  font-size: 14px;
+}
+
+.rope__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.rope__ground {
+  stroke: var(--ink);
+  stroke-width: 1;
+  stroke-dasharray: 2 6;
+  opacity: 0.35;
+}
+
+.rope__center {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 5;
+  opacity: 0.45;
+}
+
+.rope__even {
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  fill: var(--ink-soft);
+}
+
+.rope__shadow {
+  fill: none;
+  stroke: rgba(27, 27, 27, 0.16);
+  stroke-width: 9;
+  stroke-linecap: round;
+  transform: translateY(9px);
+  filter: blur(3px);
+}
+
+.rope__line {
+  fill: none;
+  stroke: var(--rope);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.rope__twist {
+  fill: none;
+  stroke: var(--rope-light);
+  stroke-width: 7;
+  stroke-dasharray: 5 9;
+  opacity: 0.9;
+}
+
+.rope--aligned .rope__line,
+.rope--aligned .rope__twist {
+  stroke-width: 6;
+}
+
+.rope__figure line {
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+
+.rope__figure--crowd line {
+  stroke: var(--ink);
+}
+
+.rope__figure--crowd circle {
+  fill: var(--ink);
+}
+
+.rope__figure--smart line {
+  stroke: var(--river);
+}
+
+.rope__figure--smart circle {
+  fill: var(--river);
+}
+
+.rope__cap {
+  stroke: var(--red);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.rope__tie {
+  fill: var(--cream);
+}
+
+.rope__knot {
+  fill: var(--rope-dark);
+}
+
+.rope__knothi {
+  fill: var(--rope);
+  opacity: 0.8;
+}
+
+.rope__pole {
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+
+.rope__flag {
+  fill: var(--red);
+}
+
+.rope__pull {
+  font-family: var(--lg-font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  text-anchor: middle;
+  fill: var(--ink);
+}
+
+/* ---------- The betting slip ---------- */
+
+.slip {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--lg-font-mono);
+  border-radius: 4px 4px 0 0;
+  box-shadow:
+    0 16px 34px rgba(27, 27, 27, 0.16),
+    0 1px 0 rgba(27, 27, 27, 0.25);
+  transform: rotate(-1deg);
+  transition: transform 0.35s ease;
+}
+
+.slip:hover {
+  transform: rotate(0deg);
+}
+
+/* Zigzag tear along the bottom edge */
+.slip::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 8px;
+  background:
+    linear-gradient(-45deg, var(--paper) 5.7px, transparent 0),
+    linear-gradient(45deg, var(--paper) 5.7px, transparent 0);
+  background-size: 12px 12px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+
+.slip__stub {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: center;
+  padding: 14px 18px 12px;
+}
+
+.slip__brand {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.slip__bout {
+  font-family: var(--lg-font-display);
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.slip__serial {
+  font-size: 12px;
+  text-align: right;
+}
+
+.slip__keep {
+  grid-column: 1 / -1;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+/* Perforation with punched notches on both edges */
+.slip__tear {
+  position: relative;
+  margin: 0 12px;
+  border-top: 2px dashed rgba(27, 27, 27, 0.4);
+}
+
+.slip__tear::before,
+.slip__tear::after {
+  content: "";
+  position: absolute;
+  top: -13px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: inset 0 1px 0 rgba(27, 27, 27, 0.25);
+}
+
+.slip__tear::before {
+  left: -24px;
+}
+
+.slip__tear::after {
+  right: -24px;
+}
+
+.slip__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px 22px;
+}
+
+.slip__question {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.slip__odds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.slip__odd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 6px 6px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+}
+
+.slip__odd small {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.slip__odd b {
+  font-family: var(--lg-font-display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.slip__odd--yes {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.slip__meter {
+  position: relative;
+  height: 8px;
+  border-radius: 2px;
+  background: rgba(27, 27, 27, 0.12);
+}
+
+.slip__meterfill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--red);
+}
+
+.slip__meterline {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 2px;
+  height: 14px;
+  background: var(--ink);
+}
+
+.slip__lines {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  font-size: 12px;
+}
+
+.slip__lines div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 3px;
+  border-bottom: 1px dotted rgba(27, 27, 27, 0.3);
+}
+
+.slip__lines dt {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.slip__lines dd {
+  margin: 0;
+  text-align: right;
+}
+
+.slip__foot {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  padding-top: 2px;
+}
+
+.stamp--slip {
+  color: var(--red);
+  justify-self: end;
+  font-size: 24px;
+  transform: rotate(-9deg) translateY(-2px);
+}
+
+.slip__barcode {
+  width: 100%;
+  height: 40px;
+  background-repeat: repeat-x;
+}
+
+.slip__fine {
+  font-size: 9.5px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+/* ---------- The river ---------- */
+
+.river {
+  position: relative;
+  width: 100%;
+  min-height: 330px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e7eef8 0%, #c6d8ee 45%, var(--river) 100%);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 2px rgba(20, 58, 104, 0.35);
+}
+
+/* The bank: cream fading into water so the numbers stay legible */
+.river::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 38% 0;
+  background: linear-gradient(180deg, rgba(251, 246, 227, 0.95) 0%, rgba(251, 246, 227, 0.75) 55%, rgba(251, 246, 227, 0) 100%);
+}
+
+.river__water {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 64%;
+  display: block;
+}
+
+@keyframes river-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-800px);
+  }
+}
+
+@keyframes river-bob {
+  from {
+    transform: translateY(-3px);
+  }
+  to {
+    transform: translateY(3px);
+  }
+}
+
+.river__drift {
+  animation: river-drift var(--river-dur, 8s) linear infinite;
+  animation-direction: var(--river-dir, normal);
+}
+
+.river__bob {
+  animation: river-bob 3s ease-in-out infinite alternate;
+}
+
+.river--still .river__drift,
+.river--still .river__bob {
+  animation: none;
+}
+
+.river__crest {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1.5;
+}
+
+.river__motes circle {
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+.river__readout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+}
+
+.river__kicker,
+.river__label {
+  color: var(--river-deep);
+}
+
+.river__flow {
+  font-family: var(--lg-font-display);
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--river-deep);
+}
+
+.river__flow--selling {
+  color: var(--red);
+}
+
+.river__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 14px;
+  margin: 10px 0 0;
+  font-size: 12px;
+}
+
+.river__stats dt {
+  font-family: var(--lg-font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(20, 58, 104, 0.8);
+}
+
+.river__stats dd {
+  margin: 0;
+  font-family: var(--lg-font-mono);
+  font-weight: 700;
+  color: var(--river-deep);
+}
+
+.river__current {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--river-deep);
+}
+
+.river__gauge {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(20, 58, 104, 0.2);
+}
+
+.river__gaugefill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--river-deep);
+}
+
+.river__dir {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  z-index: 1;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 900px) {
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "head"
+      "tally"
+      "legend";
+    align-items: start;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .card__tally {
+    justify-content: flex-start;
+  }
+
+  .bout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "slip"
+      "ring"
+      "river";
+    gap: 20px;
+    padding: 24px 0 28px;
+  }
+
+  .slip {
+    max-width: none;
+    transform: none;
+  }
+
+  .river {
+    min-height: 280px;
+  }
+
+  .bout__verdict {
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slip {
+    transition: none;
+  }
 }

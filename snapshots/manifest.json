@@ -1,7 +1,79 @@
 {
+  "as-the-chain-turns": {
+    "generatedAt": "2026-09-25T14:05:00.000Z",
+    "credits": 0,
+    "sample": true,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "dynasties": {
+    "generatedAt": "2026-09-25T10:51:04.335Z",
+    "credits": 0,
+    "sample": true,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "exit-clock": {
+    "generatedAt": "2026-09-25T10:57:10.931Z",
+    "credits": 26,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "last-ones-out": {
+    "generatedAt": "2026-09-25T10:55:37.812Z",
+    "credits": 32,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "menagerie": {
+    "generatedAt": "2026-09-25T10:30:00.000Z",
+    "credits": 0,
+    "sample": true,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "odds-vs-flow": {
+    "generatedAt": "2026-09-25T10:57:01.173Z",
+    "credits": 8,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "rewind": {
+    "generatedAt": "2026-09-25T10:57:31.018Z",
+    "credits": 45,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
   "rookie-scout": {
     "generatedAt": "2026-09-25T10:38:41.630Z",
-    "credits": 47,
+    "credits": 0,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "two-faced": {
+    "generatedAt": "2026-09-25T10:58:32.368Z",
+    "credits": 34,
+    "sample": false,
+    "snapshots": [
+      "main"
+    ]
+  },
+  "wallet-obituaries": {
+    "generatedAt": "2026-09-25T10:58:08.907Z",
+    "credits": 21,
     "sample": false,
     "snapshots": [
       "main"

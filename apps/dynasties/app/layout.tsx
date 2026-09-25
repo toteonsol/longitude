@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
 import "./globals.css";
 
-const body = Inter({ subsets: ["latin"], variable: "--font-body" });
-const display = Inter({ subsets: ["latin"], variable: "--font-display", weight: ["600", "700"] });
+const display = Cinzel({ subsets: ["latin"], variable: "--font-display", weight: ["400", "600", "700"] });
+const body = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-body", weight: ["400", "500", "600", "700"], style: ["normal", "italic"] });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500"] });
 
 export const metadata: Metadata = {
   title: "Dynasties · LONGITUDE",
-  description: "A Nansen-powered app from the LONGITUDE store.",
+  description: "Every wallet has a bloodline. The great houses of smart money, their founders and their kin, drawn as a roll of arms.",
 };
 
 export const viewport: Viewport = { themeColor: "#0d1b3d", width: "device-width", initialScale: 1 };

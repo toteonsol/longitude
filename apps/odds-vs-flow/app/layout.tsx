@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { Barlow, Bebas_Neue, Courier_Prime } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
 import "./globals.css";
 
-const body = Inter({ subsets: ["latin"], variable: "--font-body" });
-const display = Inter({ subsets: ["latin"], variable: "--font-display", weight: ["600", "700"] });
-const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500"] });
+const body = Barlow({ subsets: ["latin"], variable: "--font-body", weight: ["400", "500", "600", "700"] });
+const display = Bebas_Neue({ subsets: ["latin"], variable: "--font-display", weight: "400" });
+const mono = Courier_Prime({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "Odds vs Flow · LONGITUDE",
-  description: "A Nansen-powered app from the LONGITUDE store.",
+  description: "The crowd bets. Smart money moves. Who's pulling harder? Polymarket odds against Nansen smart money flow, one tug of war per asset.",
 };
 
 export const viewport: Viewport = { themeColor: "#fbf6e3", width: "device-width", initialScale: 1 };
