@@ -1,0 +1,17 @@
+# Never upload secrets, caches or build output. Vercel CLI does not read .gitignore.
+.env
+.env.*
+!.env.example
+.turbo
+.nansen-cache
+data
+deploy
+node_modules
+.next
+**/.next
+**/.turbo
+**/node_modules
+*.log
+.vercel
+.claude
+.github
