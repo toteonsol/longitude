@@ -51,7 +51,7 @@ export function WalletLens({ lens, scoutUrl }: { lens: Lens | { error: string };
         <>
           <Reveal className="lens__hero" spring="snappy">
             <p className="lens__kicker">
-              {lens.chain} · read live from Nansen · {lens.credits} credit{lens.credits === 1 ? "" : "s"}
+              {lens.chain} · {lens.credits > 0 ? `read live from Nansen · ${lens.credits} credit${lens.credits === 1 ? "" : "s"}` : "read from Nansen minutes ago · cached"}
             </p>
             <h1 className="lens__addr lg-addr" title={lens.address}>
               {shortAddress(lens.address, 6)}
