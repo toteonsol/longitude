@@ -22,6 +22,25 @@ you're in. Every app also lives at its own URL and works with no store around it
 Every app opens with one plain sentence and keeps a **"What am I looking at?"** toggle, so a newcomer gets it
 in five seconds and a pro can skip it.
 
+## Live
+
+**Store:** https://longitude-sigma.vercel.app
+
+| App | URL |
+| --- | --- |
+| Rookie Scout | https://longitude-rookie-scout.vercel.app |
+| Two-Faced | https://longitude-two-faced.vercel.app |
+| Exit Clock | https://longitude-exit-clock.vercel.app |
+| Odds vs Flow | https://longitude-odds-vs-flow.vercel.app |
+| Last Ones Out | https://longitude-last-ones-out.vercel.app |
+| Dynasties | https://longitude-dynasties.vercel.app |
+| MENAGERIE | https://longitude-menagerie.vercel.app |
+| Rewind | https://longitude-rewind.vercel.app |
+| Wallet Obituaries | https://longitude-wallet-obituaries.vercel.app |
+| As The Chain Turns | https://longitude-as-the-chain-turns.vercel.app |
+
+Nansen spend, live: https://longitude-sigma.vercel.app/api/totals
+
 ## How it's built
 
 ```
