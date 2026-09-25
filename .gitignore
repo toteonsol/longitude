@@ -25,3 +25,4 @@ data/nansen-calls.jsonl
 .vercel
 coverage/
 data/social.json
+deploy/
