@@ -54,6 +54,16 @@ const r1 = (n: number) => Math.round(n * 10) / 10;
 
 const DEFAULT_WORLD = { bg: "#07090f", surface: "#10141f", accent: "#7dd3fc", accent2: "#fbbf24", ink: "#eef1f7" };
 
+/** Relative luminance of a hex colour, 0 (black) to 1 (white). */
+function luminance(hex: string): number {
+  const n = Number.parseInt(hex.replace("#", ""), 16);
+  const ch = (v: number) => {
+    const c = v / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  };
+  return 0.2126 * ch((n >> 16) & 255) + 0.7152 * ch((n >> 8) & 255) + 0.0722 * ch(n & 255);
+}
+
 const tint = (app: AppMeta) => (app.palette.accent.toLowerCase() === app.palette.ink.toLowerCase() ? app.palette.accent2 : app.palette.accent);
 
 export interface GlobeProps {
@@ -64,10 +74,22 @@ export interface GlobeProps {
 
 export function Globe({ apps, credits, status }: GlobeProps) {
   const [rot, setRot] = useState(12);
-  const [hot, setHot] = useState<AppMeta | null>(null);
+  const [hot, setHotState] = useState<AppMeta | null>(null);
   const reduce = useReducedMotion();
   const hotRef = useRef<AppMeta | null>(null);
   hotRef.current = hot;
+  // Leaving the globe or the panel only clears the selection after a pause, so the pointer can
+  // travel from a meridian to its "Enter" button.
+  const clearTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const cancelClear = () => clearTimeout(clearTimer.current);
+  const scheduleClear = () => {
+    cancelClear();
+    clearTimer.current = setTimeout(() => setHotState(null), 900);
+  };
+  const setHot = (app: AppMeta | null) => {
+    cancelClear();
+    setHotState(app);
+  };
   const me = useIdentity();
   const presence = usePresence();
   const link = (id: AppMeta["id"]) => withIdentity(appUrl(id), me?.id);
@@ -90,11 +112,12 @@ export function Globe({ apps, credits, status }: GlobeProps) {
 
   const lines = useMemo(
     () =>
-      apps.map((app) => {
-        // Label anchored just above the equator on its own meridian, rotated along the parallel's
-        // tangent so it rides the sphere; the clip path below trims it at the limb.
-        const a = project(9, app.lon, rot);
-        const b = project(9, app.lon + 6, rot);
+      apps.map((app, i) => {
+        // Labels alternate above and below the equator so neighbours never collide, ride the
+        // parallel's tangent, and hide near the limb where meridians bunch up.
+        const lat = i % 2 === 0 ? 16 : -16;
+        const a = project(lat, app.lon, rot);
+        const b = project(lat, app.lon + 6, rot);
         let angle = (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI;
         if (angle > 90 || angle < -90) angle += 180;
         return { app, d: meridianPath(app.lon, rot), x: r1(a.x), y: r1(a.y), z: a.z, angle: r1(angle) };
@@ -103,18 +126,30 @@ export function Globe({ apps, credits, status }: GlobeProps) {
   );
 
   const world = hot?.palette ?? DEFAULT_WORLD;
+  // Light worlds (cream, pink) get dark labels with a pale halo; dark worlds the reverse.
+  const lightWorld = luminance(world.bg) > 0.4;
   const style = {
     "--world-bg": world.bg,
     "--world-surface": world.surface,
     "--world-accent": world.accent,
     "--world-accent2": world.accent2,
     "--world-ink": world.ink,
+    "--label-fill": lightWorld ? "#14171d" : "#eef1f7",
+    "--label-stroke": lightWorld ? "rgba(255, 252, 245, 0.85)" : "rgba(7, 9, 15, 0.75)",
   } as CSSProperties;
 
   return (
     <motion.div className="store" style={style} animate={{ backgroundColor: world.bg, color: world.ink }} transition={{ duration: 0.7 }}>
-      <div className="store__globe" onPointerLeave={() => setHot(null)}>
-        <svg viewBox={`${-VIEW / 2} ${-VIEW / 2} ${VIEW} ${VIEW}`} role="img" aria-label="A rotating globe. Each glowing meridian is an app; click one to enter it.">
+      <div className="store__globe" onPointerEnter={cancelClear} onPointerLeave={scheduleClear}>
+        <svg
+          viewBox={`${-VIEW / 2} ${-VIEW / 2} ${VIEW} ${VIEW}`}
+          role="img"
+          aria-label="A rotating globe. Each glowing meridian is an app; click one to enter it."
+          onClick={(e) => {
+            if ((e.target as Element).classList?.contains("hit")) return;
+            setHot(null);
+          }}
+        >
           <defs>
             <radialGradient id="sphere" cx="38%" cy="34%" r="70%">
               <stop offset="0%" stopColor={world.accent} stopOpacity="0.22" />
@@ -157,12 +192,12 @@ export function Globe({ apps, credits, status }: GlobeProps) {
               return (
                 <g key={app.id}>
                   <path className={`meridian${isHot ? " meridian--hot" : ""}${dim ? " meridian--dim" : ""}`} d={d} style={{ stroke: color }} />
-                  {z > 0.08 ? (
+                  {z > 0.3 ? (
                     <text
                       className="label"
                       transform={`translate(${x} ${y}) rotate(${angle})`}
                       textAnchor="middle"
-                      style={{ opacity: dim ? 0.25 : Math.min(1, Math.round(z * 140) / 100), fill: isHot ? color : undefined }}
+                      style={{ opacity: dim ? 0.5 : Math.min(1, Math.round(z * 140) / 100), fill: isHot ? color : undefined }}
                     >
                       {app.name}
                     </text>
@@ -183,7 +218,7 @@ export function Globe({ apps, credits, status }: GlobeProps) {
               aria-label={`Enter ${app.name}`}
               onPointerEnter={() => setHot(app)}
               onFocus={() => setHot(app)}
-              onBlur={() => setHot(null)}
+              onBlur={scheduleClear}
               onClick={() => enter(app.id)}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") enter(app.id);
@@ -196,7 +231,7 @@ export function Globe({ apps, credits, status }: GlobeProps) {
         </p>
       </div>
 
-      <div className="store__panel">
+      <div className="store__panel" onPointerEnter={cancelClear} onPointerLeave={scheduleClear}>
         <AnimatePresence mode="wait" initial={false}>
           {hot ? (
             <motion.div key={hot.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="store__panel">
@@ -312,9 +347,9 @@ export function Globe({ apps, credits, status }: GlobeProps) {
               data-hot={hot?.id === app.id}
               style={{ "--chip-accent": tint(app), "--chip-bg": app.palette.bg } as CSSProperties}
               onPointerEnter={() => setHot(app)}
-              onPointerLeave={() => setHot(null)}
+              onPointerLeave={scheduleClear}
               onFocus={() => setHot(app)}
-              onBlur={() => setHot(null)}
+              onBlur={scheduleClear}
             >
               <span className="store__card-media">
                 <img src={`${appUrl(app.id)}/og`} alt="" loading="lazy" width={1200} height={630} />

@@ -92,14 +92,21 @@ body {
   opacity: 0.12;
 }
 
+/* Labels keep a fixed light-on-dark or dark-on-light pairing chosen from the world's luminance
+   (see Globe.tsx), with a soft halo so they read over the sphere and the meridian lines. */
 .store__globe .label {
   font-family: var(--lg-font-mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  fill: var(--world-ink);
+  fill: var(--label-fill, #eef1f7);
+  paint-order: stroke;
+  stroke: var(--label-stroke, rgba(7, 9, 15, 0.75));
+  stroke-width: 4px;
+  stroke-linejoin: round;
   pointer-events: none;
-  transition: opacity 300ms ease;
+  transition: opacity 300ms ease, fill 400ms ease, stroke 400ms ease;
 }
 
 .store__panel {
@@ -419,15 +426,6 @@ body {
 
 .store__globe .hit:focus-visible {
   stroke: color-mix(in oklab, var(--world-accent) 30%, transparent);
-}
-
-.store__globe .label {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  paint-order: stroke;
-  stroke: var(--world-bg);
-  stroke-width: 4px;
-  stroke-linejoin: round;
 }
 
 /* How it works */
