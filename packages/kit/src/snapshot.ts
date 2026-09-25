@@ -1,4 +1,5 @@
 import { findRepoRoot } from "@longitude/nansen";
+import { pushSnapshot } from "@longitude/social";
 
 /** Every seed script writes one of these per data set; every page reads one first. */
 export interface Snapshot<T> {
@@ -78,7 +79,13 @@ export async function writeSnapshot<T>(
     data,
   };
   const file = path.join(dir, `${name}.json`);
-  await fs.writeFile(file, JSON.stringify(snap, null, 2) + "\n");
+  const json = JSON.stringify(snap, null, 2) + "\n";
+  await fs.writeFile(file, json);
+  try {
+    if (await pushSnapshot({ app, name, json, generatedAt: snap.generatedAt, credits: snap.credits, sample: snap.sample ?? false })) console.error(`[seed] ${app}/${name}: pushed to Convex`);
+  } catch (err) {
+    console.error(`[seed] ${app}/${name}: Convex push failed: ${err instanceof Error ? err.message : String(err)}`);
+  }
 
   const manifestFile = path.join(root, "snapshots", "manifest.json");
   let manifest: Manifest = {};
@@ -102,6 +109,18 @@ export async function writeSnapshot<T>(
 
 /** The root manifest: which apps are seeded, when, and what it cost. The store reads this. */
 export async function readManifest(): Promise<Manifest> {
+  const base = process.env.SNAPSHOT_BASE_URL;
+  if (base) {
+    try {
+      const res = await fetch(`${base.replace(/\/$/, "")}/manifest.json`, { next: { revalidate: 120 } } as RequestInit);
+      if (res.ok) {
+        const remote = (await res.json()) as Manifest;
+        if (Object.keys(remote).length) return remote;
+      }
+    } catch {
+      /* fall through to local */
+    }
+  }
   const fs = await import("node:fs/promises");
   const path = await import("node:path");
   const candidates = [path.join(process.cwd(), "snapshots", "manifest.json"), path.join(await findRepoRoot(), "snapshots", "manifest.json")];

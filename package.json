@@ -15,12 +15,16 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "nansen:account": "node --env-file-if-exists=.env --import tsx packages/nansen/scripts/account.ts",
     "seed:all": "node --env-file-if-exists=.env --import tsx scripts/seed-all.ts",
-    "manifest": "node scripts/manifest.mjs"
+    "manifest": "node scripts/manifest.mjs",
+    "snapshots:push": "node --env-file-if-exists=.env --import tsx scripts/push-snapshots.mts"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
     "tsx": "^4.23.15",
     "turbo": "^2.11.4",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@longitude/social": "workspace:^"
   }
 }

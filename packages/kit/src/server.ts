@@ -6,3 +6,5 @@ export { runSeed } from "./seed";
 export type { SeedSpec } from "./seed";
 export { getSocialStore, socialBackend } from "@longitude/social";
 export type { SocialStore } from "@longitude/social";
+export { readTotals, readRecentCalls, hasSharedStore, CommandsSink } from "./social/logsink";
+export { nansenFor } from "./nansen";

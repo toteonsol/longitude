@@ -1,4 +1,5 @@
-import { type NansenClient, createNansen, defaultCache } from "@longitude/nansen";
+import { type NansenClient, createNansen, defaultCache, defaultSinks } from "@longitude/nansen";
+import { sharedSink } from "../social/logsink";
 import { NextResponse, type NextRequest } from "next/server";
 
 export interface ProConfig {
@@ -31,7 +32,8 @@ export function createProRefreshRoute<T>(app: string, build: (nansen: NansenClie
   const cfg = proConfig();
 
   const handler = async (_req: NextRequest): Promise<NextResponse<unknown>> => {
-    const nansen = createNansen({ script: `pro:${app}`, fresh: true, cache: defaultCache(), creditCap: Number(process.env.NANSEN_CREDIT_CAP ?? 300) });
+    const shared = sharedSink();
+    const nansen = createNansen({ script: `pro:${app}`, fresh: true, cache: defaultCache(), creditCap: Number(process.env.NANSEN_CREDIT_CAP ?? 300), logger: shared ? [...defaultSinks(), shared] : undefined });
     const data = await build(nansen);
     await nansen.log.flush();
     return NextResponse.json({ ok: true, app, credits: nansen.credits.spent, generatedAt: new Date().toISOString(), data });

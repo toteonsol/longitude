@@ -1,4 +1,5 @@
-import { getNansen, looksLikeAddress } from "@longitude/nansen";
+import { looksLikeAddress } from "@longitude/nansen";
+import { nansenFor } from "@longitude/kit/server";
 
 export const dynamic = "force-dynamic";
 
@@ -8,7 +9,7 @@ export async function GET(req: Request): Promise<Response> {
   if (q.length < 2) return Response.json({ ok: true, query: q, tokens: [], entities: [], wallet: null });
   const wallet = looksLikeAddress(q, "ethereum") ? { address: q, chain: "ethereum" } : looksLikeAddress(q, "solana") ? { address: q, chain: "solana" } : null;
   try {
-    const nansen = getNansen("app:store");
+    const nansen = nansenFor("app:store");
     const res = await nansen.search.general({ search_query: q, result_type: "any", limit: 8 }, { tag: `search:${q.slice(0, 12)}`, ttlMs: 60_000 });
     return Response.json({ ok: true, query: q, wallet, tokens: (res.tokens ?? []).slice(0, 6), entities: (res.entities ?? []).slice(0, 4) });
   } catch (err) {

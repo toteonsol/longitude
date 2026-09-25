@@ -1,6 +1,5 @@
 import { APPS } from "@longitude/kit";
-import { readManifest } from "@longitude/kit/server";
-import { readTotals } from "@longitude/nansen";
+import { readManifest, readTotals } from "@longitude/kit/server";
 import { Globe } from "@/components/Globe";
 
 export const revalidate = 60;

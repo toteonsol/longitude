@@ -1,4 +1,5 @@
-import { getNansen, lastDays, looksLikeAddress } from "@longitude/nansen";
+import { lastDays, looksLikeAddress } from "@longitude/nansen";
+import { nansenFor } from "@longitude/kit/server";
 import { type CohortMedians, type Grade, type Prospect, type ProspectStats, grade, scoutingReport, similarity, verdict } from "./data";
 
 export type ScoutChain = "ethereum" | "base" | "solana";
@@ -30,7 +31,7 @@ function candidateChains(address: string, preferred?: string): ScoutChain[] {
 export async function scoutWallet(address: string, preferred: string | undefined, medians: CohortMedians): Promise<ScoutResult | { error: string }> {
   const chains = candidateChains(address, preferred);
   if (!chains.some((c) => looksLikeAddress(address, c))) return { error: "That does not look like an Ethereum, Base or Solana address." };
-  const nansen = getNansen("app:rookie-scout");
+  const nansen = nansenFor("app:rookie-scout");
   const before = nansen.credits.spent;
   const window90 = lastDays(90);
   let best: { chain: ScoutChain; stats: ProspectStats; topTokens: string[] } | undefined;

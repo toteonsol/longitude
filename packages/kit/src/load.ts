@@ -1,4 +1,5 @@
-import { type NansenClient, getNansen } from "@longitude/nansen";
+import type { NansenClient } from "@longitude/nansen";
+import { nansenFor } from "./nansen";
 import { readSnapshot } from "./snapshot";
 
 export type DataSource =
@@ -37,7 +38,7 @@ export async function loadAppData<T>(opts: LoadOptions<T>): Promise<LoadResult<T
   };
 
   if (opts.live && opts.fetchLive) {
-    const nansen = getNansen(`app:${opts.app}`);
+    const nansen = nansenFor(`app:${opts.app}`);
     const before = nansen.credits.spent;
     try {
       const data = await opts.fetchLive({ nansen, fresh: Boolean(opts.fresh) });

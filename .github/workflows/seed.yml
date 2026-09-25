@@ -1,0 +1,44 @@
+name: Refresh snapshots
+
+# Re-seeds every app from Nansen and pushes the JSON to Convex, so the deployed apps refresh without
+# a redeploy. Free on GitHub-hosted runners; no always-on server anywhere.
+on:
+  schedule:
+    - cron: "0 */6 * * *" # every six hours (UTC)
+  workflow_dispatch:
+    inputs:
+      deep:
+        description: "Deep mode (roughly twice the data and calls)"
+        type: boolean
+        default: false
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Seed all apps
+        env:
+          NANSEN_API_KEY: ${{ secrets.NANSEN_API_KEY }}
+          CONVEX_URL: ${{ secrets.CONVEX_URL }}
+          SEED_TOKEN: ${{ secrets.SEED_TOKEN }}
+          NANSEN_CREDIT_CAP: "600"
+          SEED_FRESH: "1"
+          DEEP: ${{ inputs.deep && '1' || '' }}
+        run: pnpm seed:all
+      - name: Upload the call log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nansen-calls-${{ github.run_id }}
+          path: data/nansen-calls.jsonl
+          if-no-files-found: ignore

@@ -1,7 +1,7 @@
 // Runs every app's seed in sequence, rebuilds the manifest, optionally commits + pushes snapshots.
 //   pnpm seed:all                    all apps
 //   pnpm seed:all --only=rewind,exit-clock
-//   pnpm seed:all --publish          then commit and push snapshot changes (Railway cron)
+//   pnpm seed:all --publish          also commit and push snapshot files with git (optional)
 import { spawnSync } from "node:child_process";
 import { existsSync, readdirSync } from "node:fs";
 import path from "node:path";

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@upstash/redis": "^1.39.0",
+    "convex": "^1.46.0",
     "ioredis": "^6.0.0"
   },
   "devDependencies": {

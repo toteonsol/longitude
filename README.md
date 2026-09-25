@@ -40,8 +40,8 @@ timestamp, endpoint and credits; the store shows the running total.
 
 **Snapshots first, live on demand.** Each app's seed script writes `snapshots/main.json`. Pages render the
 snapshot instantly; the **Refresh live** button re-runs the same builder against Nansen. If the live call
-fails, the snapshot stays up. A Railway cron re-seeds every six hours and pushes the JSON, which redeploys
-the apps.
+fails, the snapshot stays up. A GitHub Actions cron re-seeds every six hours and pushes the JSON to Convex,
+where the apps fetch it, so refreshed data never needs a redeploy.
 
 **Same engine, ten feels.** `packages/motion` holds springs, reveals, staggers, number tickers, flips,
 typewriters, marquees and a tilt. Each world picks a spring and a skin.
@@ -99,8 +99,12 @@ Until an app is seeded it shows a hand-written sample flagged **sample data** in
   (default `https://longitude-{id}.vercel.app`); apps need `NEXT_PUBLIC_STORE_URL` and `NANSEN_API_KEY`
   for refresh-live. Optional `UPSTASH_REDIS_REST_URL` / `_TOKEN` make the store's credit counter live
   across every deployment.
-- **Railway cron:** `railway.json` runs `pnpm seed:all --publish` every six hours. Give it
-  `NANSEN_API_KEY`, `GITHUB_TOKEN` and `GITHUB_REPO=owner/name` so it can push refreshed snapshots.
+- **Convex:** `cd packages/social && npx convex dev --once` creates the deployment; put its URL in
+  `CONVEX_URL`, set `SNAPSHOT_BASE_URL` to `<site url>/snapshots`, generate a `SEED_TOKEN` and set it both in
+  `.env` and on the deployment (`npx convex env set SEED_TOKEN …`). One Convex deployment holds the social store,
+  the snapshots and the call log for every app.
+- **Cron:** `.github/workflows/seed.yml` re-seeds every six hours on GitHub Actions and pushes the JSON to
+  Convex. Repository secrets: `NANSEN_API_KEY`, `CONVEX_URL`, `SEED_TOKEN`. No server runs between seeds.
 
 ## How this maps to the Meridian judging
 

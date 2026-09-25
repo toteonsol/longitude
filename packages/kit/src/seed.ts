@@ -1,4 +1,5 @@
-import { DiskCache, type NansenClient, createNansen } from "@longitude/nansen";
+import { DiskCache, type NansenClient, createNansen, defaultSinks } from "@longitude/nansen";
+import { sharedSink } from "./social/logsink";
 import { writeSnapshot } from "./snapshot";
 
 export interface SeedSpec<T> {
@@ -20,10 +21,13 @@ export async function runSeed<T>(spec: SeedSpec<T>): Promise<T> {
   const nansen = createNansen({
     script: `seed:${spec.app}${name === "main" ? "" : `:${name}`}`,
     creditCap: spec.cap ?? 150,
-    logToConsole: true,
     ttlMs: 6 * 60 * 60 * 1000,
     // Seeds keep their own cache directory so "Refresh live" in a dev server still makes real calls.
     cache: process.env.SEED_FRESH ? false : new DiskCache(process.env.NANSEN_CACHE_DIR ? `${process.env.NANSEN_CACHE_DIR}/seed` : ".nansen-cache/seed"),
+    logger: (() => {
+      const shared = sharedSink();
+      return shared ? [...defaultSinks({ console: true }), shared] : undefined;
+    })(),
   });
   const started = Date.now();
   console.error(`[seed] ${spec.app}/${name}: cap ${nansen.credits.cap} credits`);
