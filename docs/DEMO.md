@@ -16,7 +16,9 @@ Target: 3 to 4 minutes, 1440p, cursor visible, no audio required. Every app show
 ## Shot list
 1. **Store (20s).** Globe rotating. Hover three meridians: worlds bleed in. Show the counters: Nansen
    credits spent, API calls, explorers, on the globe now. Passport at 0/10. Click Rookie Scout.
-2. **Rookie Scout (30s).** Explainer sentence. Draft board. Flip a card: similarity score counts up. Press
+2. **Wallet lens (20s).** Paste a wallet into the globe's search. The lens page reads it through five worlds
+   live (five credits, badge says so). Click "Full scouting report" to land in Rookie Scout.
+3. **Rookie Scout (30s).** Explainer sentence. Draft board. Flip a card: similarity score counts up. Press
    **Draft**: roster appears, leaderboard updates. Press **Refresh live**: badge flips to live. Back to globe:
    passport 1/10, ticker shows the draft.
 3. **Rewind (30s).** Drag the tape wheel, pick a cassette, LOCK, PLAY: paths draw, winner stamped, score,

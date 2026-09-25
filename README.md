@@ -39,6 +39,11 @@ in five seconds and a pro can skip it.
 | Wallet Obituaries | https://longitude-wallet-obituaries.vercel.app |
 | As The Chain Turns | https://longitude-as-the-chain-turns.vercel.app |
 
+Wallet lens: paste any Ethereum, Base or Solana address into the globe's search (or open
+`https://longitude-sigma.vercel.app/wallet/<address>`) to read one wallet through five worlds at once: its
+similarity to smart money, its perp face, what it still holds, its kin and its biggest exits, each linking
+into the app that goes deeper.
+
 Nansen spend, live: https://longitude-sigma.vercel.app/api/totals
 
 ## How it's built
@@ -75,10 +80,11 @@ studio audience; the rope takes sides. State lives in Convex in production (Redi
 shared JSON file across the eleven local dev servers. Every social call is fail-safe: if the store is
 unreachable, pages render exactly as before.
 
-**Revenue on the same rail as the data.** Nansen sells API calls over x402. So does LONGITUDE: the free
-**Refresh live** button serves a five-minute cache, while **Pro refresh** charges a few cents of USDC on Base
-over x402 (public facilitators, no keys) and forces a fresh Nansen pull. Set `X402_PAY_TO` to turn it on;
-judges never need a wallet.
+**Users fund the calls.** Every visitor action that touches Nansen is a real API call that LONGITUDE pays for:
+a wallet lens is five credits, a scouting report one, a live refresh what that app's seed costs. The free paths
+serve a five-minute cache; **Pro refresh** charges a few cents of USDC on Base over x402 (public facilitators,
+no keys) and forces a fresh pull, so the people who want fresher data pay for it on the same rail Nansen
+sells on. Set `X402_PAY_TO` to turn it on; judges never need a wallet.
 
 ## Run it
 
