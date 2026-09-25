@@ -180,7 +180,7 @@ pre {
 }
 
 .lg-explainer__panel {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .lg-explainer__panel p {

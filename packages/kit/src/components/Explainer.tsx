@@ -61,9 +61,9 @@ export function Explainer({ app, autoHideAfter = 9 }: Props) {
             id="lg-explainer-panel"
             className="lg-explainer__panel"
             role="note"
-            initial={{ opacity: 0, y: -6, height: 0 }}
-            animate={{ opacity: 1, y: 0, height: "auto" }}
-            exit={{ opacity: 0, y: -6, height: 0 }}
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
             transition={{ type: "spring", stiffness: 260, damping: 26 }}
           >
             <p>{app.explainer}</p>
