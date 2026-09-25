@@ -1,4 +1,4 @@
-import { type NansenClient, createNansen } from "@longitude/nansen";
+import { DiskCache, type NansenClient, createNansen } from "@longitude/nansen";
 import { writeSnapshot } from "./snapshot";
 
 export interface SeedSpec<T> {
@@ -22,7 +22,8 @@ export async function runSeed<T>(spec: SeedSpec<T>): Promise<T> {
     creditCap: spec.cap ?? 150,
     logToConsole: true,
     ttlMs: 6 * 60 * 60 * 1000,
-    cache: process.env.SEED_FRESH ? false : undefined,
+    // Seeds keep their own cache directory so "Refresh live" in a dev server still makes real calls.
+    cache: process.env.SEED_FRESH ? false : new DiskCache(process.env.NANSEN_CACHE_DIR ? `${process.env.NANSEN_CACHE_DIR}/seed` : ".nansen-cache/seed"),
   });
   const started = Date.now();
   console.error(`[seed] ${spec.app}/${name}: cap ${nansen.credits.cap} credits`);
