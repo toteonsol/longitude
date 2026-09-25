@@ -37,10 +37,26 @@
         },
         "members": [
           {
+            "address": "0xebfbd89d19d997bb9b3faac5a680bfa883870983",
+            "label": "Proxy",
+            "relation": "Multisig Signer of",
+            "kind": "signer",
+            "at": "2024-08-13T19:16:23.000Z",
+            "txHash": "0xc745861a9acaed0e6ac0b0a216c54633d06ffb409fc2550fba4033faf5c5b396"
+          },
+          {
+            "address": "0xebfbcfbc4d9cdbee9efea860d117074fdc5a0983",
+            "label": "",
+            "relation": "Multisig Signer of",
+            "kind": "signer",
+            "at": "2026-01-29T03:28:11.000Z",
+            "txHash": "0x96d23905f271ad04819d29cdc1e9aac7b1be7850a88c25545a172fd6b6a8650c"
+          },
+          {
             "address": "0x0d85db17643aa3e031240cca8fc80c35e50c3ff6",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2023-06-08T21:10:47.000Z",
             "txHash": "0x95be7164a805f3c3530d179f8c5ab9ca0e733901e6b60430c5cf45f47d3a34bd"
           },
@@ -48,7 +64,7 @@
             "address": "0xe2fea36405f712c99e8e5eef9c15d1696735e169",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2023-06-08T21:18:47.000Z",
             "txHash": "0xd1b6d429843d6637c485118d31deb64522f829d83f7a136e2ac011783bbd7734"
           },
@@ -56,7 +72,7 @@
             "address": "0x5e4129756de21a2e8293b111d3cf0328d1a5a909",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-02-05T14:01:23.000Z",
             "txHash": "0xd10d306ecc1815bedc58212f72038b86c181b6584d0f14ea3457336faf164f12"
           },
@@ -64,7 +80,7 @@
             "address": "0x7f65e7326f22963e2039734ddff61958d5d284ca",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-04-17T19:01:23.000Z",
             "txHash": "0x6cd9d2af8ccde368a8eed62aaad64abf979d7be3233ca231d55873351bc10d15"
           },
@@ -72,7 +88,7 @@
             "address": "0xa74b0475b9e02475bdec368eb26994779166771c",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-06-06T17:07:11.000Z",
             "txHash": "0xf9b55331b9086017cf981d1c985179eb5b00e4529fbf085faa791c64f3655a58"
           },
@@ -80,7 +96,7 @@
             "address": "0x269033ff9e87ac569852369c732cbda1c6442988",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-06-15T14:23:23.000Z",
             "txHash": "0xefe05aad11aeb5352a10bae8495d3c31a98bf697edb162907bd1373c7d43666e"
           },
@@ -88,7 +104,7 @@
             "address": "0x83f7b82a8401188a68343db77d1c3dcb0642b490",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-08-22T12:49:35.000Z",
             "txHash": "0xdce1bd0291ce933c987667bbf29044bae7b52ce760afcfe92786301ff4e02892"
           },
@@ -96,7 +112,7 @@
             "address": "0xeb276a7f7f934df020505247ee10ee39c7deaf47",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-10-07T13:37:59.000Z",
             "txHash": "0x71f3aee71f69fcd4498a9f4c82bbd9638fc141c54d53bf42a18ecf9fdaeb5097"
           },
@@ -104,7 +120,7 @@
             "address": "0x8c2a6d51955916830dade84c679281663acadc2d",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-10-08T20:25:11.000Z",
             "txHash": "0xa8e88e06c4c6e452e78ff276214513eed9f9c342cd7bff49d999926cbd4531ab"
           },
@@ -112,7 +128,7 @@
             "address": "0x5bf6e918581e557786c91ea64851ae825981675f",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-10-25T14:33:11.000Z",
             "txHash": "0xf06c76abc7579904f1e26f21b1bd479028be4dc510b6e20c121fb6060fd96b01"
           },
@@ -120,7 +136,7 @@
             "address": "0x1c239193f51f2e3ddecc6f0fad2eb6297cd0fcfb",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-10-25T14:39:11.000Z",
             "txHash": "0xac95d68bc4e83ccb8b99775680c04ed45f1fcb5d04c433c4029d08148358c15f"
           },
@@ -128,7 +144,7 @@
             "address": "0xd20cd1cd2bb4d9ebfbeac7532cafbd681018a872",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2024-11-13T01:15:11.000Z",
             "txHash": "0x925343563465690dbafc176fa4e2431222593530e9c6f96d7389f48e4fb0c960"
           },
@@ -136,7 +152,7 @@
             "address": "0x66b15980fadd8aa6742ef5029fd06e02e96cf86a",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2025-02-02T16:03:23.000Z",
             "txHash": "0x0acef3f82f814e44ea61c02d7ec600be7cf5ff6c9f0e9616f7ad131752949f41"
           },
@@ -144,7 +160,7 @@
             "address": "0x0136ff48e91feef9afffd98e487f2cceb2075713",
             "label": "",
             "relation": "Deployed Contract",
-            "kind": "deployer",
+            "kind": "deployed",
             "at": "2025-02-02T20:27:35.000Z",
             "txHash": "0x7171bd0b5a12892096f8258e748a3f199a4505ad1137acd1d56f1a6984e61458"
           },
@@ -163,48 +179,32 @@
             "kind": "deployer",
             "at": "2023-06-08T21:18:47.000Z",
             "txHash": "0xd1b6d429843d6637c485118d31deb64522f829d83f7a136e2ac011783bbd7734"
-          },
-          {
-            "address": "0xebfbd89d19d997bb9b3faac5a680bfa883870983",
-            "label": "Proxy",
-            "relation": "Multisig Signer of",
-            "kind": "other",
-            "at": "2024-08-13T19:16:23.000Z",
-            "txHash": "0xc745861a9acaed0e6ac0b0a216c54633d06ffb409fc2550fba4033faf5c5b396"
-          },
-          {
-            "address": "0xebfbcfbc4d9cdbee9efea860d117074fdc5a0983",
-            "label": "",
-            "relation": "Multisig Signer of",
-            "kind": "other",
-            "at": "2026-01-29T03:28:11.000Z",
-            "txHash": "0x96d23905f271ad04819d29cdc1e9aac7b1be7850a88c25545a172fd6b6a8650c"
           }
         ],
         "branches": [
           {
+            "relation": "Multisig Signer of",
+            "kind": "signer",
+            "title": "The council",
+            "epithet": "Multisigs this house holds a seal on",
+            "count": 2
+          },
+          {
             "relation": "Deployed Contract",
-            "kind": "deployer",
-            "title": "Master builders",
-            "epithet": "Contracts and the hands that deployed them",
+            "kind": "deployed",
+            "title": "Keeps",
+            "epithet": "Contracts this house raised stone by stone",
             "count": 14
           },
           {
             "relation": "Deployed via",
             "kind": "deployer",
             "title": "Master builders",
-            "epithet": "Contracts and the hands that deployed them",
-            "count": 2
-          },
-          {
-            "relation": "Multisig Signer of",
-            "kind": "other",
-            "title": "Allies",
-            "epithet": "Kin by association",
+            "epithet": "The hands and factories that built this house",
             "count": 2
           }
         ],
-        "motto": "Ever forward, never idle",
+        "motto": "Stone by stone, block by block",
         "foundedAt": "2021-08-22T01:23:32.000Z"
       },
       {
@@ -246,7 +246,7 @@
             "count": 1
           }
         ],
-        "motto": "Patience is the sharpest blade",
+        "motto": "No rest for the ledger",
         "foundedAt": "2026-02-23T00:44:55.000Z"
       },
       {
@@ -271,7 +271,7 @@
         },
         "members": [],
         "branches": [],
-        "motto": "Few, but unbowed",
+        "motto": "Alone, and unbowed",
         "foundedAt": "2024-06-12T11:31:23.000Z"
       },
       {
@@ -321,7 +321,7 @@
         },
         "members": [],
         "branches": [],
-        "motto": "Few, but unbowed",
+        "motto": "Alone, and unbowed",
         "foundedAt": "2025-10-27T16:21:23.000Z"
       },
       {
@@ -346,7 +346,7 @@
         },
         "members": [],
         "branches": [],
-        "motto": "Patience is the sharpest blade",
+        "motto": "No rest for the ledger",
         "foundedAt": "2026-03-13T06:42:47.000Z"
       }
     ]

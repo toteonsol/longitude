@@ -1,13 +1,29 @@
 "use client";
 import { NumberTicker, Reveal, fmt } from "@longitude/motion";
+import { useCallback, useMemo, useState } from "react";
 import type { DynastiesData } from "@/lib/data";
 import { armsOf } from "@/lib/heraldry";
 import { Crest } from "./Crest";
 import { HouseTree } from "./HouseTree";
-import { Rule } from "./Ornaments";
+import { Laurel, Rule } from "./Ornaments";
 
 export function Realm({ data }: { data: DynastiesData }) {
   const { realm } = data;
+  const [followers, setFollowers] = useState<Record<string, number>>({});
+  const onFollowers = useCallback((address: string, count: number) => {
+    setFollowers((f) => (f[address] === count ? f : { ...f, [address]: count }));
+  }, []);
+
+  // The realm favourite: most banners sworn; ties go to the first house; nobody until someone swears.
+  const favourite = useMemo(() => {
+    let best: { address: string; count: number } | undefined;
+    for (const h of data.houses) {
+      const count = followers[h.patriarch.address] ?? 0;
+      if (count > 0 && (!best || count > best.count)) best = { address: h.patriarch.address, count };
+    }
+    return best;
+  }, [data.houses, followers]);
+
   return (
     <div className="realm">
       <Reveal className="realm__head" spring="slow" y={18}>
@@ -50,7 +66,7 @@ export function Realm({ data }: { data: DynastiesData }) {
 
       <div className="realm__houses">
         {data.houses.map((house) => (
-          <HouseTree key={house.patriarch.address} house={house} total={data.houses.length} />
+          <HouseTree key={house.patriarch.address} house={house} total={data.houses.length} onFollowers={onFollowers} />
         ))}
       </div>
 
@@ -59,12 +75,19 @@ export function Realm({ data }: { data: DynastiesData }) {
         <ol className="roll__list">
           {data.houses.map((house) => {
             const arms = armsOf(house.patriarch.address);
+            const isFavourite = favourite?.address === house.patriarch.address;
             return (
-              <li key={house.patriarch.address}>
+              <li key={house.patriarch.address} className={isFavourite ? "is-favourite" : undefined}>
                 <Crest address={house.patriarch.address} size={34} />
                 <div className="roll__text">
                   <b>House {house.name}</b>
                   <span>{arms.blazon}</span>
+                  {isFavourite ? (
+                    <span className="roll__fav">
+                      <Laurel />
+                      Realm favourite · {favourite.count} {favourite.count === 1 ? "banner" : "banners"}
+                    </span>
+                  ) : null}
                 </div>
                 <span className={`roll__pnl${house.patriarch.pnlUsd < 0 ? " is-neg" : ""}`}>{fmt.usdSigned(house.patriarch.pnlUsd)}</span>
               </li>

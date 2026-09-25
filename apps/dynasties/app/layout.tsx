@@ -10,8 +10,17 @@ const display = Cinzel({ subsets: ["latin"], variable: "--font-display", weight:
 const body = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-body", weight: "variable", style: ["normal", "italic"] });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500"] });
 
+/** A blank NEXT_PUBLIC_APP_URL_TEMPLATE in the environment yields an empty string; the build must not die on it. */
+const metadataBase = (() => {
+  try {
+    return new URL(appUrl("dynasties"));
+  } catch {
+    return undefined;
+  }
+})();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(appUrl("dynasties")),
+  ...(metadataBase ? { metadataBase } : {}),
   openGraph: { images: ["/og"] },
   twitter: { card: "summary_large_image", images: ["/og"] },
   title: "Dynasties · LONGITUDE",

@@ -6,10 +6,15 @@ import { houseName } from "./heraldry";
 const CHAIN = "ethereum" as const;
 const TIMEFRAME = 30 as const;
 const HOUSES = 6;
+/** DEEP=1 seed mode: twice the houses for 29 credits. */
+const DEEP_HOUSES = 12;
 const KIN_PER_HOUSE = 20;
 
-/** Nansen's `relation` is free text; we fold it into five bloodlines for grouping and copy. */
-export type RelationKind = "funded-by" | "common-funder" | "funded" | "deployer" | "other";
+/**
+ * Nansen's `relation` is free text ("First Funder", "Deployed Contract", "Deployed via", "Multisig
+ * Signer of"...); we fold it into a few bloodlines for grouping and copy.
+ */
+export type RelationKind = "funded-by" | "common-funder" | "funded" | "deployed" | "deployer" | "signer" | "other";
 
 export interface Patriarch {
   address: string;
@@ -99,17 +104,21 @@ export function relationKind(relation: string): RelationKind {
   if (/common|same funder|shared funder|sibling/.test(s)) return "common-funder";
   if (/funded by|funder of|received from|first fund/.test(s)) return "funded-by";
   if (/fund|sent to/.test(s)) return "funded";
+  if (/signer|multisig|owner of/.test(s)) return "signer";
+  if (/deployed contract|created contract|contract deployed/.test(s)) return "deployed";
   if (/deploy|creat|contract/.test(s)) return "deployer";
   return "other";
 }
 
-const KIND_ORDER: readonly RelationKind[] = ["funded-by", "common-funder", "funded", "deployer", "other"];
+const KIND_ORDER: readonly RelationKind[] = ["funded-by", "common-funder", "funded", "signer", "deployed", "deployer", "other"];
 
 const KIND_COPY: Record<RelationKind, { title: string; epithet: string; singular: string }> = {
   "funded-by": { title: "Liege lords", epithet: "Wallets that put coin in this house's purse", singular: "Liege lord" },
   "common-funder": { title: "Cousins", epithet: "Raised by the same hand as the patriarch", singular: "Cousin" },
   funded: { title: "Sworn bannermen", epithet: "Wallets this house raised", singular: "Bannerman" },
-  deployer: { title: "Master builders", epithet: "Contracts and the hands that deployed them", singular: "Master builder" },
+  signer: { title: "The council", epithet: "Multisigs this house holds a seal on", singular: "Councillor" },
+  deployed: { title: "Keeps", epithet: "Contracts this house raised stone by stone", singular: "Keep" },
+  deployer: { title: "Master builders", epithet: "The hands and factories that built this house", singular: "Master builder" },
   other: { title: "Allies", epithet: "Kin by association", singular: "Ally" },
 };
 
@@ -123,14 +132,20 @@ export function mottoFor(p: Patriarch, members: Member[], founder?: Founder): st
   const funded = count("funded");
   const fundedBy = count("funded-by");
   const cousins = count("common-funder");
+  const keeps = count("deployed");
+  const seals = count("signer");
   if (p.pnlUsd < 0) return "The tide always returns";
-  if (p.winRate >= 75 && p.trades >= 50) return "Patience is the sharpest blade";
+  if (keeps >= 5) return "Stone by stone, block by block";
   if (funded >= 6) return "Many hands, one purse";
+  if (p.trades >= 1000) return "No rest for the ledger";
+  if (seals >= 2) return "Many seals, one word";
+  if (p.winRate >= 75 && p.trades >= 50) return "Patience is the sharpest blade";
   if (funded >= 3 && founder) return "What was given, we give again";
   if (cousins >= 4) return "Blood is thicker than gas";
   if (fundedBy >= 2) return "We remember who fed us";
   if (p.tokens >= 40) return "A seat at every table";
   if (p.winRate >= 60 && p.trades >= 100) return "Slow to draw, quick to strike";
+  if (members.length === 0) return "Alone, and unbowed";
   if (members.length <= 3) return "Few, but unbowed";
   if (p.trades >= 200) return "No rest for the ledger";
   return "Ever forward, never idle";
@@ -233,16 +248,21 @@ function rethrowIfCap(err: unknown): void {
 
 /**
  * Builds the realm. Credits on a full run: 5 (leaderboard) + 6 houses x (1 related wallets + 1 first
- * funder) = 17, under the 30 budget. A house whose kin or funder call fails still gets drawn.
+ * funder) = 17, under the 30 budget. With DEEP=1 in the environment (seed only; read here, never in
+ * client code) it builds 12 houses: 5 + 12 x 2 = 29 credits, under the 45 cap set in seed.ts.
+ * A house whose kin or funder call fails still gets drawn.
  */
 export async function buildDynasties(nansen: NansenClient): Promise<DynastiesData> {
-  // 1) The patriarchs: the six best smart money wallets on Ethereum this month. 5 credits.
+  const deep = typeof process !== "undefined" && process.env?.DEEP === "1";
+  const houseCount = deep ? DEEP_HOUSES : HOUSES;
+
+  // 1) The patriarchs: the best smart money wallets on Ethereum this month. 5 credits.
   const board = await nansen.smartMoney.pnlLeaderboard({
     chains: [CHAIN],
     timeframe: TIMEFRAME,
-    pagination: { page: 1, per_page: HOUSES },
+    pagination: { page: 1, per_page: houseCount },
   });
-  const rows: LeaderRow[] = (board.data ?? []).slice(0, HOUSES);
+  const rows: LeaderRow[] = (board.data ?? []).slice(0, houseCount);
 
   const houses: House[] = [];
   for (const [i, row] of rows.entries()) {

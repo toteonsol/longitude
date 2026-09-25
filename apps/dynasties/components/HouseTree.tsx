@@ -3,12 +3,16 @@ import { NumberTicker, Stagger, StaggerItem, fmt, motion, useInView, useReducedM
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { House } from "@/lib/data";
 import { kindTitle } from "@/lib/data";
+import { armsOf } from "@/lib/heraldry";
 import { CrestNode, formatDate } from "./CrestNode";
+import { BannerRow, FealtyActions, useFealty } from "./Fealty";
 import { Coronet } from "./Ornaments";
 
 interface Props {
   house: House;
   total: number;
+  /** Reports the house's live follower count so the realm can crown a favourite. */
+  onFollowers?: (address: string, count: number) => void;
 }
 
 interface Pt {
@@ -75,8 +79,10 @@ function useStacked(): boolean {
  * One house: the tapestry unfurls as it scrolls into view, the founder and patriarch appear, then
  * each bloodline's ribbon and crests reveal in order while the connecting cords draw themselves.
  */
-export function HouseTree({ house, total }: Props) {
+export function HouseTree({ house, total, onFollowers }: Props) {
   const section = useRef<HTMLElement>(null);
+  const fealty = useFealty(house.patriarch.address, house.name, onFollowers);
+  const blazon = armsOf(house.patriarch.address).blazon;
   const tree = useRef<HTMLDivElement>(null);
   const inView = useInView(section, { once: true, amount: 0.12 });
   const reduce = useReducedMotion();
@@ -251,6 +257,7 @@ export function HouseTree({ house, total }: Props) {
               <StaggerItem className="house__patriarch" scale={0.9} y={0} spring="bouncy">
                 <Coronet />
                 <CrestNode address={p.address} size={stacked ? 88 : 108} role="Patriarch" label={p.label} facts={facts} caption={false} {...nodeProps(p.address)} />
+                <BannerRow count={fealty.count} sworn={fealty.sworn} />
               </StaggerItem>
 
               <StaggerItem className="house__titles">
@@ -294,8 +301,14 @@ export function HouseTree({ house, total }: Props) {
                   ·
                 </span>
                 <span>
-                  {house.members.length} kin across {house.branches.length} {house.branches.length === 1 ? "bloodline" : "bloodlines"}
+                  {house.members.length
+                    ? `${house.members.length} kin across ${house.branches.length} ${house.branches.length === 1 ? "bloodline" : "bloodlines"}`
+                    : "No kin on record"}
                 </span>
+              </StaggerItem>
+
+              <StaggerItem>
+                <FealtyActions fealty={fealty} name={house.name} blazon={blazon} />
               </StaggerItem>
             </div>
 
@@ -343,7 +356,7 @@ export function HouseTree({ house, total }: Props) {
                 ))}
               </div>
             ) : (
-              <StaggerItem className="tree__empty">The patriarch stands alone. No kin on record.</StaggerItem>
+              <StaggerItem className="tree__empty">The patriarch stands alone.</StaggerItem>
             )}
           </div>
         </Stagger>

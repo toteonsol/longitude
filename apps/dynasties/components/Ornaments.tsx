@@ -11,6 +11,37 @@ export function Rule({ label, className }: { label?: string; className?: string 
   );
 }
 
+/** A swallow-tailed pennant, one per sworn follower. Fills with currentColor. */
+export function Pennant({ className }: { className?: string }) {
+  return (
+    <svg className={`pennant${className ? ` ${className}` : ""}`} viewBox="0 0 10 16" width="10" height="16" aria-hidden="true">
+      <path d="M0 0 H10 V16 L5 12 L0 16 Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+/** A laurel wreath for the realm's favourite house. Strokes and leaves in currentColor. */
+export function Laurel({ className }: { className?: string }) {
+  const leaves = [
+    [4.2, 3.4, -55],
+    [3.2, 7.2, -78],
+    [4.6, 10.8, -100],
+    [7.6, 13.4, -125],
+  ] as const;
+  return (
+    <svg className={`laurel${className ? ` ${className}` : ""}`} viewBox="0 0 28 16" width="28" height="16" aria-hidden="true">
+      <path d="M5 1 C3 6 5 12 12 15" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M23 1 C25 6 23 12 16 15" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      {leaves.map(([x, y, r]) => (
+        <g key={`l${x}`}>
+          <ellipse cx={x} cy={y} rx="1.5" ry="2.6" transform={`rotate(${r} ${x} ${y})`} fill="currentColor" />
+          <ellipse cx={28 - x} cy={y} rx="1.5" ry="2.6" transform={`rotate(${-r} ${28 - x} ${y})`} fill="currentColor" />
+        </g>
+      ))}
+    </svg>
+  );
+}
+
 /** A small coronet set above a patriarch's crest. */
 export function Coronet({ className }: { className?: string }) {
   return (
