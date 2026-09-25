@@ -69,11 +69,13 @@ interface Props {
   now: number;
   active: string | null;
   reduce: boolean;
+  /** Addresses on this token the visitor is watching: they get a brass pin through the hand. */
+  watched: Set<string>;
   onSelect: (address: string) => void;
   onHover: (address: string | null) => void;
 }
 
-export function Dial({ token, holders, now, active, reduce, onSelect, onHover }: Props) {
+export function Dial({ token, holders, now, active, reduce, watched, onSelect, onHover }: Props) {
   const settled = useSettled(token.address, reduce);
   // Running seconds for the subdial: a monotonic count, so the needle never unwinds at :59 → :00.
   const [ticks, setTicks] = useState(0);
@@ -94,7 +96,7 @@ export function Dial({ token, holders, now, active, reduce, onSelect, onHover }:
   const secondsAngle = reduce ? 0 : ticks * 6;
 
   return (
-    <svg className="dial__svg" viewBox="0 0 400 400" role="img" aria-label={`${token.symbol}: ${holders.length} smart money hands, ${overdueCount} overdue`}>
+    <svg className="dial__svg" viewBox="0 0 400 400" role="img" aria-label={`${token.symbol}: ${holders.length} smart money hands, ${overdueCount} overdue, ${watched.size} watched`}>
       <defs>
         <radialGradient id="face" cx="50%" cy="42%" r="62%">
           <stop offset="0" stopColor="#5d5d57" />
@@ -208,7 +210,8 @@ export function Dial({ token, holders, now, active, reduce, onSelect, onHover }:
       {ordered.map(({ h, angle, len, w, overdue }) => {
         const isActive = active === h.address;
         const dim = active !== null && !isActive;
-        const cls = `dial__hand${overdue ? " dial__hand--overdue" : ""}${isActive ? " dial__hand--active" : ""}${dim ? " dial__hand--dim" : ""}`;
+        const isWatched = watched.has(h.address);
+        const cls = `dial__hand${overdue ? " dial__hand--overdue" : ""}${isActive ? " dial__hand--active" : ""}${dim ? " dial__hand--dim" : ""}${isWatched ? " dial__hand--watched" : ""}`;
         return (
           <g
             key={h.address}
@@ -219,8 +222,16 @@ export function Dial({ token, holders, now, active, reduce, onSelect, onHover }:
             onClick={() => onSelect(h.address)}
           >
             <g className="dial__hand-body">
+              {overdue ? <path className="dial__hand-glow" d={handPath(len, w + 1.6)} /> : null}
               <path className="dial__hand-fill" d={handPath(len, w)} />
               {overdue ? <circle cx={C} cy={f(C - len)} r="2.4" fill="#f3d99f" stroke="#4a3517" strokeWidth="0.5" /> : null}
+              {isWatched ? (
+                <g className="dial__pin">
+                  <circle cx={C} cy={f(C - len + 11)} r="6.5" fill="none" stroke="rgba(243,217,159,0.55)" strokeWidth="0.8" />
+                  <circle cx={C} cy={f(C - len + 11)} r="4" fill="#f3d99f" stroke="#4a3517" strokeWidth="0.7" />
+                  <circle cx={C} cy={f(C - len + 11)} r="1.4" fill="#2a2a28" />
+                </g>
+              ) : null}
               <path className="dial__hit" d={`M${C} ${f(C - len - 4)} L${C} ${C + 16}`} stroke="transparent" strokeWidth="14" fill="none" pointerEvents="all" />
             </g>
           </g>

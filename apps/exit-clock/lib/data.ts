@@ -67,6 +67,8 @@ export const HOUR_MS = 3_600_000;
 const DAY_MS = 24 * HOUR_MS;
 const WINDOW_DAYS = 30;
 const TOKENS = 3;
+/** DEEP=1 seed mode: twice the tokens on the dial, read only inside the builder (never in client code). */
+const TOKENS_DEEP = 6;
 const HOLDERS_PER_TOKEN = 30;
 const TRADES_PER_PAGE = 100;
 /** A second page of trades costs one more credit per token and only happens when the first page was full. */
@@ -289,10 +291,15 @@ export function assembleToken(token: TokenInput, holderRows: readonly HolderInpu
 }
 
 /**
- * Builds the clock. 5 credits for the netflow scan, then per token 5 (holders) + 1 (trades) and one
- * more only when the first page of trades was full: 23 credits typical, 26 worst case (cap 40).
+ * Builds the clock. 5 credits for the netflow scan, then per token 5 (holders) + 1 (trades), plus one
+ * more only when the first page of trades was full.
+ *   default (3 tokens): 5 + 3 × 6 = 23 credits typical, 26 worst case.
+ *   DEEP=1  (6 tokens): 5 + 6 × 6 = 41 credits typical, 47 worst case.
+ * The seed cap is 60. DEEP is read here, server-side only; the UI derives everything from `tokens`.
  */
 export async function buildExitClock(nansen: NansenClient): Promise<ExitClockData> {
+  const deep = process.env.DEEP === "1";
+  const tokenCount = deep ? TOKENS_DEEP : TOKENS;
   const nowMs = Date.now();
   const range = lastDays(WINDOW_DAYS, new Date(nowMs));
 
@@ -301,12 +308,12 @@ export async function buildExitClock(nansen: NansenClient): Promise<ExitClockDat
     chains: [...CHAINS],
     filters: { include_stablecoins: false, include_native_tokens: false },
     order_by: [{ field: "net_flow_7d_usd", direction: "DESC" }],
-    pagination: { page: 1, per_page: 8 },
+    pagination: { page: 1, per_page: deep ? 14 : 8 },
   });
   const seenTokens = new Set<string>();
   const picks: TokenInput[] = [];
   for (const t of (netflow.data ?? []) as NetflowRow[]) {
-    if (picks.length >= TOKENS) break;
+    if (picks.length >= tokenCount) break;
     if (!(CHAINS as readonly string[]).includes(t.chain)) continue;
     if (!t.token_address || num(t.net_flow_7d_usd) <= 0) continue;
     if (NOT_A_TOKEN.test(t.token_symbol ?? "")) continue;
