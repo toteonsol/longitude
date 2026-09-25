@@ -55,10 +55,10 @@ const DEFAULT_WORLD = { bg: "#07090f", surface: "#10141f", accent: "#7dd3fc", ac
 export interface GlobeProps {
   apps: readonly AppMeta[];
   credits: { seeded: number; live: number; calls: number; remaining?: number };
-  seededApps: string[];
+  status: Record<string, "seeded" | "sample">;
 }
 
-export function Globe({ apps, credits, seededApps }: GlobeProps) {
+export function Globe({ apps, credits, status }: GlobeProps) {
   const [rot, setRot] = useState(12);
   const [hot, setHot] = useState<AppMeta | null>(null);
   const reduce = useReducedMotion();
@@ -245,7 +245,7 @@ export function Globe({ apps, credits, seededApps }: GlobeProps) {
             <span>
               {String(i + 1).padStart(2, "0")} {app.name}
             </span>
-            <small>{seededApps.includes(app.id) ? "seeded" : "soon"}</small>
+            <small>{status[app.id] ?? "soon"}</small>
           </a>
         ))}
       </nav>
