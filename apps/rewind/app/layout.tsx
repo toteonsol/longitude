@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { IBM_Plex_Mono, Space_Grotesk, VT323 } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -9,6 +10,9 @@ const display = VT323({ subsets: ["latin"], variable: "--font-display", weight: 
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("rewind")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "Rewind · LONGITUDE",
   description: "Go back. Make the call. Press play. Scrub to a real past date, pick what smart money was right about, and watch the 30 days roll.",
 };

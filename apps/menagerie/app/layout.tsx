@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { Caveat, Courier_Prime, Crimson_Pro } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -10,6 +11,9 @@ const display = Caveat({ subsets: ["latin"], variable: "--font-display" });
 const mono = Courier_Prime({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "700"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("menagerie")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "MENAGERIE · LONGITUDE",
   description: "A field guide to the species of smart money. Nansen's smart money wallets sorted into species by how they behave.",
 };

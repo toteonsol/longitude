@@ -26,8 +26,10 @@ export function TitleCard({ episode }: { episode: Episode }) {
           <span />
         </div>
         <div className="title__content">
-          <Reveal delay={0.35} blur={12} y={16} scale={0.94} spring="slow" className="title__glow">
-            <h2 className="title__logo script gold">As The Chain Turns</h2>
+          <Reveal delay={0.35} blur={12} y={16} scale={0.94} spring="slow">
+            <div className="title__glow">
+              <h2 className="title__logo script gold">As The Chain Turns</h2>
+            </div>
           </Reveal>
           <Reveal delay={1.5} y={10} className="title__meta">
             <p className="title__ep">Episode {episode.number}</p>
@@ -156,8 +158,10 @@ export function EndCard({ data, onReplay }: { data: AsTheChainTurnsData; onRepla
   const total = data.scenes.reduce((s, x) => s + x.valueUsd, 0);
   return (
     <motion.div className="screen__layer end" {...fade}>
-      <Reveal delay={0.2} blur={8} y={12} spring="slow" className="title__glow">
-        <p className="end__title script gold">To be continued…</p>
+      <Reveal delay={0.2} blur={8} y={12} spring="slow">
+        <div className="title__glow">
+          <p className="end__title script gold">To be continued…</p>
+        </div>
       </Reveal>
       <Reveal delay={0.9} y={8}>
         <p className="end__meta">Same chain. Same time.</p>

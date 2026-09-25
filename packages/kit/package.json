@@ -8,6 +8,9 @@
   "exports": {
     ".": "./src/index.ts",
     "./server": "./src/server.ts",
+    "./social": "./src/social/client.tsx",
+    "./social-server": "./src/social/server.ts",
+    "./og": "./src/og.tsx",
     "./styles.css": "./src/styles/base.css"
   },
   "scripts": {
@@ -15,7 +18,8 @@
   },
   "dependencies": {
     "@longitude/motion": "workspace:*",
-    "@longitude/nansen": "workspace:*"
+    "@longitude/nansen": "workspace:*",
+    "@longitude/social": "workspace:*"
   },
   "peerDependencies": {
     "next": "^16.0.0",

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { Big_Shoulders, JetBrains_Mono, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -9,6 +10,9 @@ const display = Big_Shoulders({ subsets: ["latin"], variable: "--font-display", 
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("last-ones-out")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "Last Ones Out · LONGITUDE",
   description: "Smart money left. Someone's still home. A night skyline of the tokens retail still holds while Nansen's smart money walks out.",
 };

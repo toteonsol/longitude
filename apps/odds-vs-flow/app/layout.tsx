@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { Barlow, Bebas_Neue, Courier_Prime } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -9,6 +10,9 @@ const display = Bebas_Neue({ subsets: ["latin"], variable: "--font-display", wei
 const mono = Courier_Prime({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "700"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("odds-vs-flow")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "Odds vs Flow · LONGITUDE",
   description: "The crowd bets. Smart money moves. Who's pulling harder? Polymarket odds against Nansen smart money flow, one tug of war per asset.",
 };

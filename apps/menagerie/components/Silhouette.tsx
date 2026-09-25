@@ -2,7 +2,7 @@
 import { type Transition, motion, useReducedMotion } from "@longitude/motion";
 import { useId } from "react";
 import type { SpeciesId } from "@/lib/data";
-import { SILHOUETTES } from "@/lib/silhouettes";
+import { SILHOUETTES, type SilhouetteSpec } from "@/lib/silhouettes";
 
 interface Props {
   species: SpeciesId;

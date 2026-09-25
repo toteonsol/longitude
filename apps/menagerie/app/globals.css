@@ -303,6 +303,9 @@ body {
   width: calc(var(--w) * var(--depth) * var(--mult, 1) * 1%);
   min-width: 44px;
   min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
   border: 0;
@@ -527,7 +530,7 @@ body {
 
 .sil__wash {
   fill: var(--sp);
-  opacity: 0.3;
+  opacity: 0.24;
   filter: blur(5px);
   transform-box: fill-box;
   transform-origin: center;

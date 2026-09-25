@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { Bodoni_Moda, DM_Sans, JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -9,6 +10,9 @@ const body = DM_Sans({ subsets: ["latin"], variable: "--font-body" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("two-faced")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "Two-Faced · LONGITUDE",
   description: "Every wallet wears two masks. Drag the slider to morph a smart money wallet's spot face into its perp face.",
 };

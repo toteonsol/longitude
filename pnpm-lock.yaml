@@ -433,6 +433,9 @@ importers:
       '@longitude/nansen':
         specifier: workspace:*
         version: link:../nansen
+      '@longitude/social':
+        specifier: workspace:*
+        version: link:../social
     devDependencies:
       '@types/node':
         specifier: ^24.0.0

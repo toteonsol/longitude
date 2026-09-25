@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { Courier_Prime, Libre_Baskerville, Playfair_Display, UnifrakturCook } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -14,6 +15,9 @@ const mono = Courier_Prime({ subsets: ["latin"], variable: "--font-mono", weight
 const masthead = UnifrakturCook({ subsets: ["latin"], variable: "--font-masthead", weight: "700" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("wallet-obituaries")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "Wallet Obituaries · LONGITUDE",
   description: "In memoriam: the wallets that sold it all. A daily front page of smart money exits, typeset from Nansen data.",
 };

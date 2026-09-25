@@ -1,5 +1,5 @@
 "use client";
-import { type AppMeta, appUrl } from "@longitude/kit";
+import { type AppMeta, FeedTicker, Passport, appUrl, useIdentity, usePresence, withIdentity } from "@longitude/kit";
 import { AnimatePresence, NumberTicker, motion, useAnimationFrame, useReducedMotion } from "@longitude/motion";
 import { type CSSProperties, useMemo, useRef, useState } from "react";
 
@@ -61,6 +61,9 @@ export interface GlobeProps {
 export function Globe({ apps, credits, status }: GlobeProps) {
   const [rot, setRot] = useState(12);
   const [hot, setHot] = useState<AppMeta | null>(null);
+  const me = useIdentity();
+  const presence = usePresence();
+  const link = (id: AppMeta["id"]) => withIdentity(appUrl(id), me?.id);
   const reduce = useReducedMotion();
   const hotRef = useRef<AppMeta | null>(null);
   hotRef.current = hot;
@@ -139,7 +142,7 @@ export function Globe({ apps, credits, status }: GlobeProps) {
             const stroke = isHot ? tint : tint;
             const labelVisible = eq.z > 0.12;
             return (
-              <a key={app.id} href={appUrl(app.id)} aria-label={`${app.name}: ${app.tagline}`}>
+              <a key={app.id} href={link(app.id)} aria-label={`${app.name}: ${app.tagline}`}>
                 <path className={`meridian${isHot ? " meridian--hot" : ""}${dim ? " meridian--dim" : ""}`} d={d} style={{ stroke }} />
                 <path
                   className="hit"
@@ -182,7 +185,7 @@ export function Globe({ apps, credits, status }: GlobeProps) {
               <p className="store__sub" style={{ fontSize: 15, opacity: 0.75 }}>
                 {hot.signature}
               </p>
-              <a className="store__enter" href={appUrl(hot.id)}>
+              <a className="store__enter" href={link(hot.id)}>
                 Enter {hot.name} <span aria-hidden="true">→</span>
               </a>
             </motion.div>
@@ -229,18 +232,44 @@ export function Globe({ apps, credits, status }: GlobeProps) {
                     <span>credits left</span>
                   </div>
                 ) : null}
+                {presence ? (
+                  <div>
+                    <b>
+                      <NumberTicker value={presence.global.count} />
+                    </b>
+                    <span>on the globe now</span>
+                  </div>
+                ) : null}
+                {presence && presence.visitors > 0 ? (
+                  <div>
+                    <b>
+                      <NumberTicker value={presence.visitors} />
+                    </b>
+                    <span>explorers so far</span>
+                  </div>
+                ) : null}
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
 
+      <div className="store__social">
+        <Passport />
+        {me ? (
+          <span className="store__me">
+            you are <b>{me.handle}</b>
+          </span>
+        ) : null}
+      </div>
+      <FeedTicker className="store__ticker" />
+
       <nav className="store__index" aria-label="All apps">
         {apps.map((app, i) => (
           <a
             key={app.id}
             className="store__chip"
-            href={appUrl(app.id)}
+            href={link(app.id)}
             data-hot={hot?.id === app.id}
             style={{ "--chip-accent": app.palette.accent === app.palette.ink ? app.palette.accent2 : app.palette.accent } as CSSProperties}
             onPointerEnter={() => setHot(app)}
@@ -252,7 +281,7 @@ export function Globe({ apps, credits, status }: GlobeProps) {
             <span>
               {String(i + 1).padStart(2, "0")} {app.name}
             </span>
-            <small>{status[app.id] ?? "soon"}</small>
+            <small>{presence?.byApp[app.id] ? `${presence.byApp[app.id]} here` : (status[app.id] ?? "soon")}</small>
           </a>
         ))}
       </nav>

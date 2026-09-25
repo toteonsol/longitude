@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { Cinzel, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -9,6 +10,9 @@ const body = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-body", w
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("dynasties")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "Dynasties · LONGITUDE",
   description: "Every wallet has a bloodline. The great houses of smart money, their founders and their kin, drawn as a roll of arms.",
 };

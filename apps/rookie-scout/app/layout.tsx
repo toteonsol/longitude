@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { IBM_Plex_Mono, Inter, Oswald } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -9,6 +10,9 @@ const display = Oswald({ subsets: ["latin"], variable: "--font-display", weight:
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("rookie-scout")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "Rookie Scout · LONGITUDE",
   description: "Draft the next smart money before the label lands. Prospect wallets scored against Nansen's smart money cohort.",
 };

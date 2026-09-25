@@ -85,16 +85,14 @@ export const SILHOUETTES: Record<SpeciesId, SilhouetteSpec> = {
   elephant: {
     body: [
       "M22 56 C22 40 36 30 56 28 C72 26 88 26 100 32 C108 36 112 44 110 54 L110 62 L104 62 L104 76 L96 76 L96 62 L88 62 L88 76 L80 76 L80 62 L54 62 L54 76 L46 76 L46 62 L38 62 L38 76 L30 76 L30 60 C26 60 22 58 22 56 Z",
+      // ear: a flap standing proud of the head line
+      "M94 36 C94 24 82 17 70 21 C62 24 60 34 63 42 C67 50 76 53 83 51 C90 49 94 43 94 36 Z",
       // trunk
       "M104 46 C112 48 118 56 117 66 C116 72 113 76 109 79 L113 80 C119 76 122 68 121 60 C120 50 114 42 106 40 Z",
       // tail
       "M23 46 C17 50 14 58 16 68 L20 68 C18 60 21 52 27 48 Z",
     ],
-    marks: [
-      // ear: an ink lobe with a paper edge, standing proud of the head line
-      { d: "M90 34 C87 22 72 19 66 29 C61 40 67 54 79 56 C90 57 94 46 90 34 Z", tone: "ink", stroke: true },
-      { d: "M104 55 C109 56 113 59 115 63 C112 62 108 60 104 59 Z", tone: "paper" },
-    ],
+    marks: [{ d: "M104 55 C109 56 113 59 115 63 C112 62 108 60 104 59 Z", tone: "paper" }],
     eye: [97, 38, 1.6],
   },
   meerkat: {

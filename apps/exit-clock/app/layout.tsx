@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { Archivo, Archivo_Black, JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -9,6 +10,9 @@ const display = Archivo_Black({ subsets: ["latin"], variable: "--font-display", 
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500", "700"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("exit-clock")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "Exit Clock · LONGITUDE",
   description: "Every holder is a hand. Every hand is counting down. Smart money holders of the week's hottest tokens, timed to their usual exit.",
 };

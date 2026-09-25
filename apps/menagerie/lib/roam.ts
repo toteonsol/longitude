@@ -78,10 +78,19 @@ export function mulberry32(seed: number): () => number {
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 const round1 = (v: number) => Math.round(v * 10) / 10;
 
-function plan(address: string, species: SpeciesId, xr: readonly [number, number], yr: readonly [number, number], scale: number): RoamPlan {
+function plan(
+  address: string,
+  species: SpeciesId,
+  xr: readonly [number, number],
+  yr: readonly [number, number],
+  scale: number,
+  /** 0..1 start offset along the range, so a crowded zone begins spread out rather than piled up. */
+  spread?: number,
+): RoamPlan {
   const r = mulberry32(seedFrom(address));
   const span = xr[1] - xr[0];
-  const x0 = xr[0] + r() * 0.35 * span;
+  const start = spread === undefined ? r() * 0.35 : spread * 0.5 + r() * 0.08;
+  const x0 = xr[0] + start * span;
   const x2 = Math.min(xr[1], x0 + (0.35 + r() * 0.35) * span);
   const x1 = x0 + (x2 - x0) * (0.35 + r() * 0.3);
   const x3 = x0 + (x2 - x0) * (0.3 + r() * 0.35);
@@ -110,7 +119,8 @@ export function planHerd(animals: Animal[]): RoamPlan[] {
     if (zone === "water") return plan(a.address, a.species, WATER.x, WATER.y, 0.8);
     const band = GROUND_BANDS[ground % GROUND_BANDS.length] ?? GROUND_BANDS[0]!;
     const depth = (ground % GROUND_BANDS.length) / (GROUND_BANDS.length - 1);
+    const spread = (ground * 0.618) % 1;
     ground += 1;
-    return plan(a.address, a.species, GROUND_X, band, 0.72 + depth * 0.48);
+    return plan(a.address, a.species, GROUND_X, band, 0.72 + depth * 0.48, spread);
   });
 }

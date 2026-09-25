@@ -32,7 +32,12 @@ export function Legend({ species, counts, highlight, pinned, onPreview, onPin }:
                 onMouseLeave={() => onPreview(null)}
                 onFocus={() => onPreview(s.id)}
                 onBlur={() => onPreview(null)}
-                onClick={() => onPin(pinned === s.id ? null : s.id)}
+                onClick={() => {
+                  // A tap fires mouseenter before click, so unpinning must also drop the preview.
+                  const next = pinned === s.id ? null : s.id;
+                  onPin(next);
+                  if (!next) onPreview(null);
+                }}
               >
                 <span className="legend__sil">
                   <Silhouette species={s.id} />

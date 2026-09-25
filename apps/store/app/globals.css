@@ -257,3 +257,29 @@ body {
     max-width: none;
   }
 }
+
+.store__social {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.store__me {
+  font-family: var(--lg-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+}
+
+.store__me b {
+  font-weight: 500;
+  color: var(--world-accent);
+}
+
+.store__ticker {
+  grid-column: 1 / -1;
+  border-color: color-mix(in oklab, var(--world-ink) 14%, transparent);
+}

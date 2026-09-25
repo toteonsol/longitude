@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { appUrl } from "@longitude/kit";
 import { DM_Sans, Great_Vibes, IBM_Plex_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
@@ -9,6 +10,9 @@ const display = Great_Vibes({ subsets: ["latin"], variable: "--font-display", we
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl("as-the-chain-turns")),
+  openGraph: { images: ["/og"] },
+  twitter: { card: "summary_large_image", images: ["/og"] },
   title: "As The Chain Turns · LONGITUDE",
   description: "The last 24 hours of smart money trading, told as a daytime soap. Real wallets, real trades, dramatic zooms.",
 };
