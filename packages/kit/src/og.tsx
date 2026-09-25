@@ -58,7 +58,7 @@ export function shareCard(input: ShareCardInput): ImageResponse {
               </div>
             ))}
           </div>
-          <div style={{ fontSize: 20, opacity: 0.7 }}>{input.footer ?? app.tagline}</div>
+          <div style={{ fontSize: 20, opacity: 0.7, maxWidth: 520, textAlign: "right" }}>{input.footer ?? (input.subtitle === app.tagline ? app.world : app.tagline)}</div>
         </div>
       </div>
     ),
