@@ -4,9 +4,12 @@ Target: 3 to 4 minutes, 1440p, cursor visible, no audio required. Every app show
 **Refresh live** succeeding (the judges' "live data loads, end to end" criterion). Nothing may error.
 
 ## Before recording
-1. `SEED_FRESH=1 DEEP=1 pnpm seed:all` so every snapshot is minutes old and the call counter is high.
-2. `pnpm dev`, open the store at http://localhost:3000 (or the deployed store), clear localStorage once so
-   the explainer sentences show on first load.
+1. Record on production: store https://longitude-sigma.vercel.app, apps at https://longitude-<app>.vercel.app.
+   Make sure NANSEN_API_KEY is on the Vercel projects (`node scripts/vercel-projects.mjs env NANSEN_API_KEY …`
+   then `scripts/deploy-vercel.sh`), otherwise Refresh live falls back to the snapshot.
+2. Trigger a fresh seed first so every snapshot is minutes old: `curl -H "Authorization: Bearer $CRON_SECRET"
+   https://longitude-sigma.vercel.app/api/cron/seed` (about a minute), or locally `SEED_FRESH=1 DEEP=1 pnpm seed:all`.
+   Use a private window so the explainer sentences show on first load.
 3. Check `data/social.json` (or Redis) has a few feed events so the ticker is alive; open two browser
    windows so "2 on the globe now" reads true.
 
