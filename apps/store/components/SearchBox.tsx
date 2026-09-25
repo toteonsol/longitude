@@ -54,6 +54,7 @@ export function SearchBox() {
   }, [q]);
 
   const scoutUrl = (address: string) => withIdentity(`${appUrl("rookie-scout")}/scout/${encodeURIComponent(address)}`, me?.id);
+  const lensUrl = (address: string) => `/wallet/${encodeURIComponent(address)}`;
   const open = res && (res.wallet || res.tokens.length > 0 || res.entities.length > 0);
 
   return (
@@ -69,11 +70,17 @@ export function SearchBox() {
         {open ? (
           <motion.div className="search__results" initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.18 }}>
             {res?.wallet ? (
-              <a className="search__hit search__hit--wallet" href={scoutUrl(res.wallet.address)}>
-                <b>Scout this wallet</b>
+              <>
+              <a className="search__hit search__hit--wallet" href={lensUrl(res.wallet.address)}>
+                <b>Read this wallet across ten meridians</b>
                 <span className="lg-addr">{res.wallet.address.slice(0, 10)}…{res.wallet.address.slice(-6)}</span>
-                <small>live report in Rookie Scout · 1 credit</small>
+                <small>smart money score, perp face, holdings, kin, exits · about 5 credits</small>
               </a>
+              <a className="search__hit" href={scoutUrl(res.wallet.address)}>
+                <b>Scout it in Rookie Scout</b>
+                <small>live scouting report · 1 credit</small>
+              </a>
+              </>
             ) : null}
             {res?.tokens.map((t, i) => (
               <div key={`${t.chain}-${t.address}-${i}`} className="search__hit">
