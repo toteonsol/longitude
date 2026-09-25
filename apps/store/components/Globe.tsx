@@ -136,11 +136,12 @@ export function Globe({ apps, credits, seededApps }: GlobeProps) {
           {lines.map(({ app, d, eq }) => {
             const isHot = hot?.id === app.id;
             const dim = hot !== null && !isHot;
-            const stroke = isHot ? app.palette.accent : undefined;
+            const tint = app.palette.accent.toLowerCase() === app.palette.ink.toLowerCase() ? app.palette.accent2 : app.palette.accent;
+            const stroke = isHot ? tint : tint;
             const labelVisible = eq.z > 0.12;
             return (
               <a key={app.id} href={appUrl(app.id)} aria-label={`${app.name}: ${app.tagline}`}>
-                <path className={`meridian${isHot ? " meridian--hot" : ""}${dim ? " meridian--dim" : ""}`} d={d} style={stroke ? { stroke } : undefined} />
+                <path className={`meridian${isHot ? " meridian--hot" : ""}${dim ? " meridian--dim" : ""}`} d={d} style={{ stroke }} />
                 <path
                   className="hit"
                   d={d}
@@ -151,9 +152,9 @@ export function Globe({ apps, credits, seededApps }: GlobeProps) {
                 {labelVisible ? (
                   <text
                     className="label"
-                    x={eq.x + 12}
-                    y={eq.y - 8}
-                    style={{ opacity: dim ? 0.25 : Math.min(1, eq.z * 1.4) }}
+                    x={Math.round(eq.x + 12)}
+                    y={Math.round(eq.y - 8)}
+                    style={{ opacity: dim ? 0.25 : Math.min(1, Math.round(eq.z * 140) / 100) }}
                   >
                     {app.name}
                   </text>
