@@ -8,6 +8,8 @@ interface Props {
   medians: CohortMedians;
   flipped: boolean;
   onFlip: () => void;
+  drafted?: boolean;
+  onDraft?: () => void;
 }
 
 /** Deterministic jersey color from the address. */
@@ -33,8 +35,21 @@ function Bar({ label, value, median, format }: { label: string; value: number; m
   );
 }
 
-export function ProspectCard({ prospect: p, medians: m, flipped, onFlip }: Props) {
+export function ProspectCard({ prospect: p, medians: m, flipped, onFlip, drafted, onDraft }: Props) {
   const h = hue(p.address);
+  const draftBtn = onDraft ? (
+    <button
+      type="button"
+      className={`card__draft${drafted ? " is-drafted" : ""}`}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (!drafted) onDraft();
+      }}
+      disabled={drafted}
+    >
+      {drafted ? "On your roster" : "Draft"}
+    </button>
+  ) : null;
   const front = (
     <div className={`card card--front grade-${p.grade}`} style={{ "--jersey": `hsl(${h} 55% 42%)` } as React.CSSProperties}>
       <div className="card__top">
@@ -67,7 +82,10 @@ export function ProspectCard({ prospect: p, medians: m, flipped, onFlip }: Props
       <div className="card__grade" aria-label={`grade ${p.grade}`}>
         {p.grade}
       </div>
-      <div className="card__hint">tap to flip · scouting report</div>
+      <div className="card__actions">
+        {draftBtn}
+        <span className="card__hint">tap to flip · scouting report</span>
+      </div>
     </div>
   );
 
@@ -97,7 +115,10 @@ export function ProspectCard({ prospect: p, medians: m, flipped, onFlip }: Props
           ))}
         </div>
       ) : null}
-      <div className="card__hint">tap to flip back</div>
+      <div className="card__actions">
+        {draftBtn}
+        <span className="card__hint">tap to flip back</span>
+      </div>
     </div>
   );
 

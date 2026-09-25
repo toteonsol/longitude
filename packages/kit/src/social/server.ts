@@ -51,6 +51,8 @@ export function createSocialRoutes(app: string) {
           return json({ ok: true, stamps: uid ? await s.passport(uid) : [] });
         case "items":
           return json({ ok: true, items: uid ? await s.items(uid, q.get("list") ?? "default") : [] });
+        case "collection":
+          return json({ ok: true, members: await s.collection(q.get("name") ?? "default") });
         case "me":
           return json({ ok: true, profile: uid ? await s.profile(uid) : null, backend: socialBackend() });
         default:
@@ -106,6 +108,12 @@ export function createSocialRoutes(app: string) {
         }
         case "unitem":
           await s.removeItem(uid, str("list", 40) || "default", str("itemId", 120));
+          return json({ ok: true });
+        case "collect":
+          await s.collect(str("name", 40) || "default", str("member", 160));
+          return json({ ok: true });
+        case "uncollect":
+          await s.uncollect(str("name", 40) || "default", str("member", 160));
           return json({ ok: true });
         case "profile":
           return json({ ok: true, profile: await s.touch(uid, { displayName: str("displayName", 32) || undefined, wallet: str("wallet", 80) || undefined }) });

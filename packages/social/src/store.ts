@@ -16,6 +16,7 @@ const k = {
   passport: (id: string) => `passport:${id}`,
   list: (id: string, name: string) => `list:${id}:${name}`,
   counter: (name: string) => `counter:${name}`,
+  collection: (name: string) => `collection:${name}`,
 };
 
 // eslint-disable-next-line no-control-regex
@@ -251,6 +252,20 @@ export class SocialStore {
       }
     }
     return out.sort((a, b) => (a.addedAt < b.addedAt ? 1 : -1));
+  }
+
+  /* collections: global sets the seeds re-score (every drafted wallet, every watched token) */
+
+  async collect(name: string, member: string): Promise<void> {
+    await this.cmd.sadd(k.collection(clean(name, 40)), clean(member, 160));
+  }
+
+  async uncollect(name: string, member: string): Promise<void> {
+    await this.cmd.srem(k.collection(clean(name, 40)), clean(member, 160));
+  }
+
+  async collection(name: string): Promise<string[]> {
+    return (await this.cmd.smembers(k.collection(clean(name, 40)))).sort();
   }
 
   /* counters ------------------------------------------------------------- */

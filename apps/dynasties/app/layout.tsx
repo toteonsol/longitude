@@ -5,8 +5,9 @@ import type { ReactNode } from "react";
 import "@longitude/kit/styles.css";
 import "./globals.css";
 
-const display = Cinzel({ subsets: ["latin"], variable: "--font-display", weight: ["400", "600", "700"] });
-const body = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-body", weight: ["400", "500", "600", "700"], style: ["normal", "italic"] });
+// Both are variable fonts: one file each covers every weight (Turbopack rejects the same file listed per weight).
+const display = Cinzel({ subsets: ["latin"], variable: "--font-display", weight: "variable" });
+const body = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-body", weight: "variable", style: ["normal", "italic"] });
 const mono = IBM_Plex_Mono({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "500"] });
 
 export const metadata: Metadata = {

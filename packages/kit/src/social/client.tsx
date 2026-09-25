@@ -57,6 +57,9 @@ export const social = {
   addItem: (list: string, itemId: string, data: Record<string, unknown>) => call("item", { method: "POST", body: { list, itemId, data } }),
   removeItem: (list: string, itemId: string) => call("unitem", { method: "POST", body: { list, itemId } }),
   profile: (patch: { displayName?: string; wallet?: string }) => call("profile", { method: "POST", body: patch }),
+  collect: (name: string, member: string) => call("collect", { method: "POST", body: { name, member } }),
+  uncollect: (name: string, member: string) => call("uncollect", { method: "POST", body: { name, member } }),
+  collection: (name: string) => call<{ members: string[] }>("collection", { params: { name } }),
 };
 
 /* ------------------------------------------------------------------ hooks */

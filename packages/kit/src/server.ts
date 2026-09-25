@@ -4,3 +4,5 @@ export { loadAppData, liveFlags } from "./load";
 export type { DataSource, LoadResult, LoadOptions } from "./load";
 export { runSeed } from "./seed";
 export type { SeedSpec } from "./seed";
+export { getSocialStore, socialBackend } from "@longitude/social";
+export type { SocialStore } from "@longitude/social";

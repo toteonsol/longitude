@@ -128,6 +128,7 @@ const STABLE_RE = /^[A-Z]{0,3}USD[A-Z0-9.]{0,3}$/;
 const NATIVE_RE = /^W?(ETH|SOL|BTC|BNB)$/;
 
 export function isExcludedSymbol(symbol: string | null | undefined): boolean {
+  if (/USD/i.test(symbol ?? "")) return true;
   const s = (symbol ?? "").trim().toUpperCase();
   return !s || EXCLUDED_SYMBOLS.has(s) || STABLE_RE.test(s) || NATIVE_RE.test(s);
 }

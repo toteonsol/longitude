@@ -52,6 +52,8 @@ export interface RookieScoutData {
   cohort: { size: number; medians: CohortMedians; veterans: Veteran[] };
   tokensScouted: { symbol: string; address: string; chain: Chain; netFlow7dUsd: number }[];
   prospects: Prospect[];
+  /** Everyone's drafted wallets, re-scored on every seed (key = chain:address). */
+  drafted?: Record<string, import("./drafted").DraftedNow>;
 }
 
 type LeaderRow = RowOf<"/api/v1/smart-money/pnl-leaderboard">;
@@ -128,8 +130,11 @@ export function scoutingReport(p: Omit<Prospect, "report" | "number">, m: Cohort
   return lines;
 }
 
-/** Builds the draft board. About 45 credits on a full run (cap 100). */
+/** Builds the draft board. About 45 credits on a full run (cap 100); DEEP=1 scouts 8 tokens and 24 prospects (~90). */
 export async function buildRookieScout(nansen: NansenClient): Promise<RookieScoutData> {
+  const deep = process.env.DEEP === "1";
+  const tokenCount = deep ? 8 : 5;
+  const prospectCount = deep ? 24 : 12;
   const window30 = lastDays(30);
   const window90 = lastDays(90);
 
@@ -164,11 +169,11 @@ export async function buildRookieScout(nansen: NansenClient): Promise<RookieScou
     chains: [...CHAINS],
     filters: { include_stablecoins: false, include_native_tokens: false },
     order_by: [{ field: "net_flow_7d_usd", direction: "DESC" }],
-    pagination: { page: 1, per_page: 5 },
+    pagination: { page: 1, per_page: tokenCount + 3 },
   });
   const tokens = (netflow.data ?? [])
     .filter((t: NetflowRow) => (CHAINS as readonly string[]).includes(t.chain) && num(t.net_flow_7d_usd) > 0)
-    .slice(0, 5);
+    .slice(0, tokenCount);
   const tokensScouted = tokens.map((t) => ({
     symbol: t.token_symbol,
     address: t.token_address,
@@ -191,7 +196,7 @@ export async function buildRookieScout(nansen: NansenClient): Promise<RookieScou
       if (!candidates.has(addr)) candidates.set(addr, { row, token });
     }
   }
-  const shortlist = [...candidates.values()].sort((a, b) => num(b.row.pnl_usd_total) - num(a.row.pnl_usd_total)).slice(0, 12);
+  const shortlist = [...candidates.values()].sort((a, b) => num(b.row.pnl_usd_total) - num(a.row.pnl_usd_total)).slice(0, prospectCount);
 
   // 4) Scouting: 90-day profile per candidate. 1 credit each.
   const prospects: Prospect[] = [];
@@ -232,11 +237,16 @@ export async function buildRookieScout(nansen: NansenClient): Promise<RookieScou
     p.number = i + 1;
   });
 
+  // 5) The draft league: every wallet anyone drafted, re-scored today. 1 credit each, capped.
+  const { rescoreDrafted } = await import("./drafted");
+  const drafted = await rescoreDrafted(nansen, medians);
+
   return {
     generatedAt: new Date().toISOString(),
     window: window90,
     cohort: { size: rows.length, medians, veterans },
     tokensScouted,
     prospects,
+    drafted,
   };
 }

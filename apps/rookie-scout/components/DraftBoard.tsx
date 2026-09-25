@@ -4,6 +4,8 @@ import { shortAddress } from "@longitude/nansen";
 import { useState } from "react";
 import type { Grade, RookieScoutData } from "@/lib/data";
 import { ProspectCard } from "./ProspectCard";
+import { Roster, useRoster } from "./Roster";
+import { useIdentity } from "@longitude/kit";
 
 const GRADES: Array<Grade | "all"> = ["all", "A", "B", "C"];
 
@@ -12,6 +14,8 @@ export function DraftBoard({ data }: { data: RookieScoutData }) {
   const [flipped, setFlipped] = useState<string | null>(null);
   const shown = data.prospects.filter((p) => filter === "all" || p.grade === filter);
   const m = data.cohort.medians;
+  const roster = useRoster();
+  const me = useIdentity();
 
   return (
     <div className="draft">
@@ -66,6 +70,8 @@ export function DraftBoard({ data }: { data: RookieScoutData }) {
         </div>
       </Reveal>
 
+      <Roster items={roster.items} release={(id) => void roster.release(id)} drafted={data.drafted} />
+
       <div className="draft__bar">
         <h2 className="draft__title">
           Draft board <span>{shown.length} prospects</span>
@@ -82,7 +88,14 @@ export function DraftBoard({ data }: { data: RookieScoutData }) {
       <Stagger className="draft__grid" gap={0.05}>
         {shown.map((p) => (
           <StaggerItem key={p.address} y={20}>
-            <ProspectCard prospect={p} medians={m} flipped={flipped === p.address} onFlip={() => setFlipped(flipped === p.address ? null : p.address)} />
+            <ProspectCard
+              prospect={p}
+              medians={m}
+              flipped={flipped === p.address}
+              onFlip={() => setFlipped(flipped === p.address ? null : p.address)}
+              drafted={roster.has(p)}
+              onDraft={() => void roster.draft(p, me?.handle ?? "Someone")}
+            />
           </StaggerItem>
         ))}
       </Stagger>
