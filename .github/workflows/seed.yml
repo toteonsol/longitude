@@ -4,7 +4,7 @@ name: Refresh snapshots
 # a redeploy. Free on GitHub-hosted runners; no always-on server anywhere.
 on:
   schedule:
-    - cron: "0 */6 * * *" # every six hours (UTC)
+    - cron: "0 */12 * * *" # every twelve hours (UTC)
   workflow_dispatch:
     inputs:
       deep:
