@@ -16,7 +16,14 @@ export interface SeedSpec<T> {
  */
 export async function runSeed<T>(spec: SeedSpec<T>): Promise<T> {
   const name = spec.name ?? "main";
-  const nansen = createNansen({ script: `seed:${spec.app}${name === "main" ? "" : `:${name}`}`, creditCap: spec.cap ?? 150, logToConsole: true });
+  // Responses are reused for 6 hours so re-running a seed while tuning costs nothing; SEED_FRESH=1 forces live calls.
+  const nansen = createNansen({
+    script: `seed:${spec.app}${name === "main" ? "" : `:${name}`}`,
+    creditCap: spec.cap ?? 150,
+    logToConsole: true,
+    ttlMs: 6 * 60 * 60 * 1000,
+    cache: process.env.SEED_FRESH ? false : undefined,
+  });
   const started = Date.now();
   console.error(`[seed] ${spec.app}/${name}: cap ${nansen.credits.cap} credits`);
   try {

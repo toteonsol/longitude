@@ -58,6 +58,7 @@ Seed real data (about 300 credits for all ten; each app has its own cap):
 
 ```bash
 pnpm seed:all                         # or: pnpm --filter @longitude/rewind seed
+SEED_FRESH=1 pnpm seed:all            # bypass the 6-hour response cache
 pnpm nansen:account                   # plan + credits remaining, costs nothing
 ```
 

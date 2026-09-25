@@ -158,7 +158,11 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
   w("seed.ts", `import { runSeed } from "@longitude/kit/server";
 import { build${pascal(id)} } from "./lib/data";
 
-await runSeed({ app: "${id}", cap: 100, build: build${pascal(id)} });
+// No top-level await here: app packages are CommonJS to tsx.
+runSeed({ app: "${id}", cap: 100, build: build${pascal(id)} }).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
 `);
 
   w("snapshots/.gitkeep", "");

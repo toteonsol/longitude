@@ -31,7 +31,8 @@ How every app in `apps/*` is built. `apps/rookie-scout` is the reference: read i
    targets ≥ 40px. Hover-only interactions need a tap equivalent.
 9. **Copy.** The registry (`packages/kit/src/apps.ts`) already holds the name, tagline, explainer and
    signature. The page never repeats the explainer; it shows the thing.
-10. **Verify.** `pnpm --filter @longitude/<id> typecheck` and `pnpm --filter @longitude/<id> build`
+10. **seed.ts must not use top-level await** (apps are CommonJS to tsx): keep the `runSeed({...}).catch(...)` form.
+11. **Verify.** `pnpm --filter @longitude/<id> typecheck` and `pnpm --filter @longitude/<id> build`
     must pass. Do not start dev servers, do not run `pnpm install`, do not add dependencies, do not
     touch other apps or `packages/*`, do not commit.
 

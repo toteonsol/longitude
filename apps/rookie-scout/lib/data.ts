@@ -73,18 +73,26 @@ function median(values: number[]): number {
 
 const NOT_A_ROOKIE = /exchange|fund|smart|mev|bot|bridge|router|contract|deployer|market maker|treasury|protocol/i;
 
-/** 0..100: how closely a wallet's 90-day profile matches the smart money cohort's medians. */
+/**
+ * 0..100: how closely a wallet's 90-day profile matches the smart money cohort's medians.
+ * Each component is sqrt(value / median) capped at 1, so half the median scores 0.71 and a tenth
+ * scores 0.32. Win rate is shrunk toward the cohort median with a 20-exit prior so a 3-for-3 wallet
+ * does not read as a 100% trader. Negative realized PnL costs 15 points.
+ */
 export function similarity(p: ProspectStats, m: CohortMedians): number {
-  const logRatio = (a: number, b: number) => (a <= 0 ? 0 : Math.min(1, Math.log10(1 + a) / Math.log10(1 + Math.max(b, 1))));
-  const win = m.winRate <= 0 ? (p.winRate > 0 ? 1 : 0) : Math.min(1, p.winRate / m.winRate);
-  const pnl = logRatio(p.pnlUsd, m.pnlUsd);
-  const trades = logRatio(p.trades, m.trades);
-  const tokens = logRatio(p.tokens, m.tokens);
-  return Math.round(100 * (0.35 * win + 0.3 * pnl + 0.2 * trades + 0.15 * tokens));
+  const ratio = (a: number, b: number) => (a <= 0 ? 0 : Math.min(1, Math.sqrt(a / Math.max(b, 1e-9))));
+  const prior = 20;
+  const winAdj = (p.winRate * p.trades + m.winRate * prior) / (p.trades + prior);
+  const win = m.winRate <= 0 ? (winAdj > 0 ? 1 : 0) : Math.min(1, winAdj / m.winRate);
+  const pnl = ratio(p.pnlUsd, m.pnlUsd);
+  const trades = ratio(p.trades, m.trades);
+  const tokens = ratio(p.tokens, m.tokens);
+  const penalty = p.pnlUsd < 0 ? 15 : 0;
+  return Math.max(0, Math.round(100 * (0.35 * win + 0.3 * pnl + 0.2 * trades + 0.15 * tokens) - penalty));
 }
 
 export function grade(score: number): Grade {
-  return score >= 78 ? "A" : score >= 60 ? "B" : "C";
+  return score >= 75 ? "A" : score >= 55 ? "B" : "C";
 }
 
 export function verdict(g: Grade): Prospect["verdict"] {
@@ -97,10 +105,14 @@ const usd = (n: number) =>
 export function scoutingReport(p: Omit<Prospect, "report" | "number">, m: CohortMedians): string[] {
   const s = p.stats;
   const lines: string[] = [];
+  const w = Math.round(s.winRate);
+  const mw = Math.round(m.winRate);
   lines.push(
-    s.winRate >= m.winRate
-      ? `Wins ${s.winRate.toFixed(0)}% of exits, above the smart money median of ${m.winRate.toFixed(0)}%.`
-      : `Wins ${s.winRate.toFixed(0)}% of exits, below the smart money median of ${m.winRate.toFixed(0)}%.`,
+    w === mw
+      ? `Wins ${w}% of exits, right on the smart money median.`
+      : w > mw
+        ? `Wins ${w}% of exits, above the smart money median of ${mw}%.`
+        : `Wins ${w}% of exits, below the smart money median of ${mw}%.`,
   );
   lines.push(
     s.pnlUsd > 0
@@ -140,7 +152,7 @@ export async function buildRookieScout(nansen: NansenClient): Promise<RookieScou
     .slice(0, 5)
     .map((r) => ({
       address: r.address,
-      label: r.address_label ?? "Smart Money",
+      label: r.address_label || "Smart Money",
       pnlUsd: num(r.total_pnl_usd),
       winRate: pct(r.win_rate),
       trades: num(r.n_trades),
@@ -207,7 +219,7 @@ export async function buildRookieScout(nansen: NansenClient): Promise<RookieScou
         stillHoldingRatio: Math.max(0, Math.min(1, num(row.still_holding_balance_ratio))),
       },
       stats,
-      topTokens: (summary.top5_tokens ?? []).map((t) => t.token_symbol).filter(Boolean).slice(0, 5),
+      topTokens: [...new Set((summary.top5_tokens ?? []).map((t) => t.token_symbol).filter(Boolean))].slice(0, 5),
       similarity: score,
       grade: g,
       verdict: verdict(g),

@@ -1,4 +1,8 @@
 import { runSeed } from "@longitude/kit/server";
 import { buildAsTheChainTurns } from "./lib/data";
 
-await runSeed({ app: "as-the-chain-turns", cap: 100, build: buildAsTheChainTurns });
+// No top-level await here: app packages are CommonJS to tsx.
+runSeed({ app: "as-the-chain-turns", cap: 100, build: buildAsTheChainTurns }).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

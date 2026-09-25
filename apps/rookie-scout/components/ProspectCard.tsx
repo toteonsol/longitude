@@ -92,8 +92,8 @@ export function ProspectCard({ prospect: p, medians: m, flipped, onFlip }: Props
       </ul>
       {p.topTokens.length ? (
         <div className="card__tokens">
-          {p.topTokens.map((t) => (
-            <span key={t}>${t}</span>
+          {p.topTokens.map((t, i) => (
+            <span key={`${i}-${t}`}>${t}</span>
           ))}
         </div>
       ) : null}
