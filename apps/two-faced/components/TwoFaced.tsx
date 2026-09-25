@@ -103,7 +103,7 @@ export function TwoFaced({ data }: { data: TwoFacedData }) {
               <ShareButton text={shareTextFor(wallet)} label="Share this face" />
             </div>
             <p className="bill__feed">
-              In the feed this week: {a.trades7d} perp trades · {fmt.usd(a.volume7dUsd)} notional · mostly {a.favoriteCoin || "—"} ·{" "}
+              In the feed this week: {a.trades7d} perp trades · {fmt.usd(a.volume7dUsd)} notional · mostly {a.favoriteCoin || "nothing in particular"} ·{" "}
               {Math.round(a.longShare * 100)}% long
             </p>
           </motion.div>

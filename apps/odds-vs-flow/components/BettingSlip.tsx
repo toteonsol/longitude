@@ -55,7 +55,7 @@ export function BettingSlip({ bout: b }: { bout: Bout }) {
   const yes = m.yesPct;
   const no = 100 - yes;
   const bars = barcodeOf(m.id);
-  const spread = m.bidCents !== null && m.askCents !== null ? `${m.bidCents}¢ / ${m.askCents}¢` : "—";
+  const spread = m.bidCents !== null && m.askCents !== null ? `${m.bidCents}¢ / ${m.askCents}¢` : "···";
   const shareText = `${m.question}: crowd ${yes}% vs smart money ${fmt.usdSigned(b.token.netFlow7dUsd)} net flow this week. Who wins the rope? Odds vs Flow, LONGITUDE, built on @nansen_ai`;
 
   return (

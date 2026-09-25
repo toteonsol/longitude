@@ -50,8 +50,11 @@ const LATS = range(-90, 90, 3);
 const LONS = range(-180, 180, 3);
 const meridianPath = (lon: number, rot: number) => arc(LATS.map((lat) => project(lat, lon, rot)));
 const parallelPath = (lat: number, rot: number) => arc(LONS.map((lon) => project(lat, lon, rot)));
+const r1 = (n: number) => Math.round(n * 10) / 10;
 
 const DEFAULT_WORLD = { bg: "#07090f", surface: "#10141f", accent: "#7dd3fc", accent2: "#fbbf24", ink: "#eef1f7" };
+
+const tint = (app: AppMeta) => (app.palette.accent.toLowerCase() === app.palette.ink.toLowerCase() ? app.palette.accent2 : app.palette.accent);
 
 export interface GlobeProps {
   apps: readonly AppMeta[];
@@ -62,12 +65,15 @@ export interface GlobeProps {
 export function Globe({ apps, credits, status }: GlobeProps) {
   const [rot, setRot] = useState(12);
   const [hot, setHot] = useState<AppMeta | null>(null);
-  const me = useIdentity();
-  const presence = usePresence();
-  const link = (id: AppMeta["id"]) => withIdentity(appUrl(id), me?.id);
   const reduce = useReducedMotion();
   const hotRef = useRef<AppMeta | null>(null);
   hotRef.current = hot;
+  const me = useIdentity();
+  const presence = usePresence();
+  const link = (id: AppMeta["id"]) => withIdentity(appUrl(id), me?.id);
+  const enter = (id: AppMeta["id"]) => {
+    window.location.href = link(id);
+  };
 
   useAnimationFrame((_, delta) => {
     if (reduce || hotRef.current) return;
@@ -85,8 +91,13 @@ export function Globe({ apps, credits, status }: GlobeProps) {
   const lines = useMemo(
     () =>
       apps.map((app) => {
-        const eq = project(0, app.lon, rot);
-        return { app, d: meridianPath(app.lon, rot), eq };
+        // Label anchored just above the equator on its own meridian, rotated along the parallel's
+        // tangent so it rides the sphere; the clip path below trims it at the limb.
+        const a = project(9, app.lon, rot);
+        const b = project(9, app.lon + 6, rot);
+        let angle = (Math.atan2(b.y - a.y, b.x - a.x) * 180) / Math.PI;
+        if (angle > 90 || angle < -90) angle += 180;
+        return { app, d: meridianPath(app.lon, rot), x: r1(a.x), y: r1(a.y), z: a.z, angle: r1(angle) };
       }),
     [apps, rot],
   );
@@ -100,11 +111,10 @@ export function Globe({ apps, credits, status }: GlobeProps) {
     "--world-ink": world.ink,
   } as CSSProperties;
 
-
   return (
     <motion.div className="store" style={style} animate={{ backgroundColor: world.bg, color: world.ink }} transition={{ duration: 0.7 }}>
       <div className="store__globe" onPointerLeave={() => setHot(null)}>
-        <svg viewBox={`${-VIEW / 2} ${-VIEW / 2} ${VIEW} ${VIEW}`} role="img" aria-label="A rotating globe. Each glowing meridian is an app.">
+        <svg viewBox={`${-VIEW / 2} ${-VIEW / 2} ${VIEW} ${VIEW}`} role="img" aria-label="A rotating globe. Each glowing meridian is an app; click one to enter it.">
           <defs>
             <radialGradient id="sphere" cx="38%" cy="34%" r="70%">
               <stop offset="0%" stopColor={world.accent} stopOpacity="0.22" />
@@ -122,6 +132,9 @@ export function Globe({ apps, credits, status }: GlobeProps) {
             <filter id="halo" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation="28" />
             </filter>
+            <clipPath id="disk">
+              <circle r={R - 2} />
+            </clipPath>
           </defs>
 
           <circle r={R} fill={world.accent} opacity="0.16" filter="url(#halo)" />
@@ -136,49 +149,57 @@ export function Globe({ apps, credits, status }: GlobeProps) {
             ))}
           </g>
 
-          {lines.map(({ app, d, eq }) => {
-            const isHot = hot?.id === app.id;
-            const dim = hot !== null && !isHot;
-            const tint = app.palette.accent.toLowerCase() === app.palette.ink.toLowerCase() ? app.palette.accent2 : app.palette.accent;
-            const stroke = isHot ? tint : tint;
-            const labelVisible = eq.z > 0.12;
-            return (
-              <a key={app.id} href={link(app.id)} aria-label={`${app.name}: ${app.tagline}`}>
-                <path className={`meridian${isHot ? " meridian--hot" : ""}${dim ? " meridian--dim" : ""}`} d={d} style={{ stroke }} />
-                <path
-                  className="hit"
-                  d={d}
-                  onPointerEnter={() => setHot(app)}
-                  onFocus={() => setHot(app)}
-                  onBlur={() => setHot(null)}
-                />
-                {labelVisible ? (
-                  <text
-                    className="label"
-                    x={Math.round(eq.x + 12)}
-                    y={Math.round(eq.y - 8)}
-                    style={{ opacity: dim ? 0.25 : Math.min(1, Math.round(eq.z * 140) / 100) }}
-                  >
-                    {app.name}
-                  </text>
-                ) : null}
-              </a>
-            );
-          })}
+          <g clipPath="url(#disk)">
+            {lines.map(({ app, d, x, y, z, angle }) => {
+              const isHot = hot?.id === app.id;
+              const dim = hot !== null && !isHot;
+              const color = tint(app);
+              return (
+                <g key={app.id}>
+                  <path className={`meridian${isHot ? " meridian--hot" : ""}${dim ? " meridian--dim" : ""}`} d={d} style={{ stroke: color }} />
+                  {z > 0.08 ? (
+                    <text
+                      className="label"
+                      transform={`translate(${x} ${y}) rotate(${angle})`}
+                      textAnchor="middle"
+                      style={{ opacity: dim ? 0.25 : Math.min(1, Math.round(z * 140) / 100), fill: isHot ? color : undefined }}
+                    >
+                      {app.name}
+                    </text>
+                  ) : null}
+                </g>
+              );
+            })}
+          </g>
+
+          {/* Hit areas last so they sit on top of everything: click enters the world. */}
+          {lines.map(({ app, d }) => (
+            <path
+              key={`hit-${app.id}`}
+              className="hit"
+              d={d}
+              role="link"
+              tabIndex={0}
+              aria-label={`Enter ${app.name}`}
+              onPointerEnter={() => setHot(app)}
+              onFocus={() => setHot(app)}
+              onBlur={() => setHot(null)}
+              onClick={() => enter(app.id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") enter(app.id);
+              }}
+            />
+          ))}
         </svg>
+        <p className="store__hint" aria-hidden="true">
+          {hot ? `Click the line to enter ${hot.name}` : "Hover a meridian · click to enter"}
+        </p>
       </div>
 
       <div className="store__panel">
         <AnimatePresence mode="wait" initial={false}>
           {hot ? (
-            <motion.div
-              key={hot.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-              className="store__panel"
-            >
+            <motion.div key={hot.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="store__panel">
               <p className="store__kicker">meridian {String(apps.findIndex((a) => a.id === hot.id) + 1).padStart(2, "0")} / 10</p>
               <h2 className="store__title">{hot.name}</h2>
               <p className="store__sub">{hot.tagline}</p>
@@ -191,19 +212,30 @@ export function Globe({ apps, credits, status }: GlobeProps) {
               </a>
             </motion.div>
           ) : (
-            <motion.div
-              key="home"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-              className="store__panel"
-            >
-              <p className="store__kicker">a store of ten apps · powered by nansen</p>
+            <motion.div key="home" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="store__panel">
+              <p className="store__kicker">a store of ten apps · built on nansen</p>
               <h1 className="store__title">LONGITUDE</h1>
               <p className="store__sub">
-                Ten meridians. Ten ways to read smart money. Hover a line to let its world in, click to step through.
+                Ten small apps, each a different way to read what smart money is doing on-chain right now. The globe is the store: every glowing line is an app. Hover one to
+                let its world in, click to step inside. No login, and your passport follows you between them.
               </p>
+              <ol className="store__steps">
+                <li>
+                  <span>
+                    <b>Pick a meridian.</b> Ten worlds, one question each.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <b>Step in.</b> Real wallets, real trades, one plain sentence to start.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <b>Come back.</b> Your drafts, calls and stamps are waiting on the globe.
+                  </span>
+                </li>
+              </ol>
               <div className="store__credits">
                 <div>
                   <b>
@@ -269,27 +301,37 @@ export function Globe({ apps, credits, status }: GlobeProps) {
       </div>
       <FeedTicker className="store__ticker" />
 
-      <nav className="store__index" aria-label="All apps">
-        {apps.map((app, i) => (
-          <a
-            key={app.id}
-            className="store__chip"
-            href={link(app.id)}
-            data-hot={hot?.id === app.id}
-            style={{ "--chip-accent": app.palette.accent === app.palette.ink ? app.palette.accent2 : app.palette.accent } as CSSProperties}
-            onPointerEnter={() => setHot(app)}
-            onPointerLeave={() => setHot(null)}
-            onFocus={() => setHot(app)}
-            onBlur={() => setHot(null)}
-          >
-            <i aria-hidden="true" />
-            <span>
-              {String(i + 1).padStart(2, "0")} {app.name}
-            </span>
-            <small>{presence?.byApp[app.id] ? `${presence.byApp[app.id]} here` : (status[app.id] ?? "soon")}</small>
-          </a>
-        ))}
-      </nav>
+      <section className="store__worlds" aria-label="The ten worlds">
+        <h2 className="store__worlds-title">The ten worlds</h2>
+        <div className="store__grid">
+          {apps.map((app, i) => (
+            <a
+              key={app.id}
+              className="store__card"
+              href={link(app.id)}
+              data-hot={hot?.id === app.id}
+              style={{ "--chip-accent": tint(app), "--chip-bg": app.palette.bg } as CSSProperties}
+              onPointerEnter={() => setHot(app)}
+              onPointerLeave={() => setHot(null)}
+              onFocus={() => setHot(app)}
+              onBlur={() => setHot(null)}
+            >
+              <span className="store__card-media">
+                <img src={`${appUrl(app.id)}/og`} alt="" loading="lazy" width={1200} height={630} />
+              </span>
+              <span className="store__card-body">
+                <span className="store__card-n">
+                  {String(i + 1).padStart(2, "0")}
+                  {presence?.byApp[app.id] ? ` · ${presence.byApp[app.id]} here` : ""}
+                </span>
+                <span className="store__card-name">{app.name}</span>
+                <span className="store__card-tag">{app.tagline}</span>
+                <small className="store__card-status">{status[app.id] ?? "soon"}</small>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
 
       <div className="store__foot">
         <span>every app works on its own url · no login, ever</span>

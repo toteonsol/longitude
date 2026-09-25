@@ -7,7 +7,7 @@ const pctf = (n: number) => `${n.toFixed(0)}%`;
 function Cell({ label, value, format, empty }: { label: string; value: number; format: (n: number) => string; empty: boolean }) {
   return (
     <span className="vitals__cell">
-      <b>{empty ? "—" : <NumberTicker value={value} format={format} duration={0.9} />}</b>
+      <b>{empty ? "···" : <NumberTicker value={value} format={format} duration={0.9} />}</b>
       <small>{label}</small>
     </span>
   );

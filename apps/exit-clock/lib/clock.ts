@@ -87,7 +87,7 @@ export function formatCountdown(ms: number): string {
 
 /** Hours → "45m", "9.5h", "14h", "2d 6h", "21d". */
 export function formatHold(hours: number): string {
-  if (!Number.isFinite(hours) || hours < 0) return "—";
+  if (!Number.isFinite(hours) || hours < 0) return "···";
   const minutes = Math.round(hours * 60);
   if (minutes < 60) return `${minutes}m`;
   if (hours < 24) return hours >= 10 || Number.isInteger(hours) ? `${Math.round(hours)}h` : `${hours.toFixed(1)}h`;

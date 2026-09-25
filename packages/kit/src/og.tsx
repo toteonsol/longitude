@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { APP_BY_ID, type AppId } from "./apps";
+import { worldArt } from "./og-art";
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
@@ -39,9 +40,14 @@ export function shareCard(input: ShareCardInput): ImageResponse {
             POWERED BY NANSEN
           </span>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-          <div style={{ fontSize: input.title.length > 40 ? 56 : 72, fontWeight: 700, lineHeight: 1.05, letterSpacing: -1 }}>{input.title}</div>
-          {input.subtitle ? <div style={{ fontSize: 30, opacity: 0.85, lineHeight: 1.3 }}>{input.subtitle}</div> : null}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 40 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 18, width: 720 }}>
+            <div style={{ fontSize: input.title.length > 40 ? 52 : 68, fontWeight: 700, lineHeight: 1.05, letterSpacing: -1 }}>{input.title}</div>
+            {input.subtitle ? <div style={{ fontSize: 28, opacity: 0.85, lineHeight: 1.3 }}>{input.subtitle}</div> : null}
+          </div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 300, height: 300, borderRadius: 150, background: `radial-gradient(circle at 50% 50%, ${accent}33 0%, transparent 70%)` }}>
+            {worldArt(app.id, accent, p.ink, 260)}
+          </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
           <div style={{ display: "flex", gap: 40 }}>

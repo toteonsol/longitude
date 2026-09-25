@@ -127,7 +127,7 @@ export function ExitClock({ data }: { data: ExitClockData }) {
         </div>
         <div className="stat stat--next">
           <span className="stat__k">Next exit</span>
-          <b className="stat__v">{next ? formatCountdown(remainingMs(next.expectedExitAt, now)) : "—"}</b>
+          <b className="stat__v">{next ? formatCountdown(remainingMs(next.expectedExitAt, now)) : "···"}</b>
           <span className="stat__sub">{next ? `${next.label} · ${shortAddress(next.address)}` : "every hand is past its time"}</span>
         </div>
       </Reveal>

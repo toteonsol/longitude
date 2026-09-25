@@ -14,7 +14,7 @@ const GLYPHS: Record<string, string> = { candle: "Light a candle", rose: "Leave 
 export function Condolences({ o }: { o: Notice }) {
   const me = useIdentity();
   const target = `obit:${o.chain}:${o.address}`;
-  const shareText = `${o.headline} — Wallet Obituaries, LONGITUDE, built on @nansen_ai`;
+  const shareText = `${o.headline}. Wallet Obituaries, LONGITUDE, built on @nansen_ai`;
 
   // The kit's ReactionBar has no toggle callback. A capture-phase listener sees the candle button
   // before React flips it, so aria-pressed="false" means a candle is about to be lit, not put out.

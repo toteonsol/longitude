@@ -15,7 +15,7 @@ function Stat({ label, value, format, empty }: { label: string; value: number; f
   return (
     <div className="panel__stat">
       <dt>{label}</dt>
-      <dd>{empty ? "—" : <NumberTicker value={value} format={format} duration={1} />}</dd>
+      <dd>{empty ? "···" : <NumberTicker value={value} format={format} duration={1} />}</dd>
     </div>
   );
 }
