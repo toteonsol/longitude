@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@longitude/kit':
+        specifier: workspace:^
+        version: link:packages/kit
+      '@longitude/nansen':
+        specifier: workspace:^
+        version: link:packages/nansen
       '@longitude/social':
         specifier: workspace:^
         version: link:packages/social
