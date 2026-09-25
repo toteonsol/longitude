@@ -1,582 +1,353 @@
 {
   "app": "dynasties",
   "name": "main",
-  "generatedAt": "2026-09-25T10:51:04.335Z",
-  "credits": 0,
-  "sample": true,
-  "note": "Hand-written sample for development. Run `pnpm --filter @longitude/dynasties seed` with NANSEN_API_KEY set to replace with live data (about 17 credits).",
+  "generatedAt": "2026-09-25T11:10:57.816Z",
+  "credits": 17,
+  "sample": false,
   "data": {
-    "generatedAt": "2026-09-25T10:51:04.335Z",
+    "generatedAt": "2026-09-25T11:10:57.815Z",
     "chain": "ethereum",
     "timeframeDays": 30,
     "realm": {
       "houses": 6,
-      "members": 36,
-      "founders": 5,
-      "bloodlines": 17
+      "members": 19,
+      "founders": 6,
+      "bloodlines": 4
     },
     "houses": [
       {
         "rank": 1,
-        "name": "Veraridge",
+        "name": "Greyaward",
         "patriarch": {
-          "address": "0x171801870d6ecd3043b3dbb461cf97cca72e0623",
-          "label": "Smart Trader (sample)",
-          "pnlUsd": 2140000,
-          "realizedPnlUsd": 1610000,
-          "unrealizedPnlUsd": 530000,
-          "winRate": 71,
-          "trades": 212,
-          "tokens": 38
+          "address": "0x46a83dc1a264bff133db887023d2884167094837",
+          "label": "Token Millionaire",
+          "pnlUsd": 2828833.5937193767,
+          "realizedPnlUsd": 2829020.978994042,
+          "unrealizedPnlUsd": -187.38527466561447,
+          "winRate": 100,
+          "trades": 9,
+          "tokens": 2
         },
         "founder": {
-          "address": "0x2e79a9788736906b8216c379483bf9915941f27f",
-          "label": "Binance 14 (sample)",
-          "at": "2021-05-14T09:12:41.000Z",
-          "txHash": "0x4748e5dae36da041cc0ca5e3037e05460b9ff30749c8ac37241279a63eff0b8c",
+          "address": "0x997a83908c2a4500cc11fe7759193f404449161d",
+          "label": "",
+          "at": "2021-08-22T01:23:32.000Z",
+          "txHash": "0xe99dc163695d61ed27c42993267af0c4cfaa287e2abd365440e1756f5da75d1f",
           "chain": "ethereum"
         },
         "members": [
           {
-            "address": "0x35795c97356ab630e10e79bd75addbcfd1796245",
-            "label": "Kraken 4 (sample)",
-            "relation": "Funded by",
-            "kind": "funded-by",
-            "at": "2021-05-14T09:12:41.000Z",
-            "txHash": "0x32cb1b2d8aa6abea44199b633eeb22b217cab5b5cf838e60a952bf5e325ab87c"
-          },
-          {
-            "address": "0x96ddf67e6c37113399e630b13cc55ad5013d0e1e",
+            "address": "0x0d85db17643aa3e031240cca8fc80c35e50c3ff6",
             "label": "",
-            "relation": "Funded by",
-            "kind": "funded-by",
-            "at": "2022-01-30T18:03:07.000Z",
-            "txHash": "0xc81a56487050ef4e0405e7a9119e302baddbe33e10420ea54d36e664baac3f5f"
-          },
-          {
-            "address": "0xfe4e8a3ce781a4559ec2563ff6a7073f88119640",
-            "label": "Smart Trader (sample)",
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "at": "2023-06-21T11:58:19.000Z",
-            "txHash": "0x57656f7177e38a25d0bfd9f15571ded42fae159bb574680219af914ad6d03b66"
-          },
-          {
-            "address": "0x6db44ad046d1db72e68e1da927838fb24c7cfd94",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2024-11-03T14:22:10.000Z",
-            "txHash": "0xd053d295f12803d01bd944ed931d65cd7c2e522d6bf0a7d6a44cc3d7f83cb299"
-          },
-          {
-            "address": "0x6835b1edbebcece2bd56c5a06f7f84a8d7789dac",
-            "label": "Fresh wallet (sample)",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-02-18T07:45:52.000Z",
-            "txHash": "0x91e6a8330eca31246cecc86cc08343d38ccbbeb985037a560a97193b45bf670f"
-          },
-          {
-            "address": "0x96aefccaf0714da88762c9a8b0926bfc10e719da",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-08-09T21:10:33.000Z",
-            "txHash": "0x64ac9d770763bd6b5b59d550c2b5dcc34a3f0cf256f68bb078cb42f9b4d94a56"
-          },
-          {
-            "address": "0x8945ff92f9afa5dcb883ca06ae70a80acb4c37cf",
-            "label": "Uniswap V3: Router (sample)",
-            "relation": "Interacted",
-            "kind": "other",
-            "at": "2025-09-12T16:30:00.000Z",
-            "txHash": "0x74e6a5088fe8cb081f5db5a22b5d367497bb3f9f980df463805a0028a2573e47"
-          }
-        ],
-        "branches": [
-          {
-            "relation": "Funded by",
-            "kind": "funded-by",
-            "title": "Liege lords",
-            "epithet": "Wallets that put coin in this house's purse",
-            "count": 2
-          },
-          {
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "title": "Cousins",
-            "epithet": "Raised by the same hand as the patriarch",
-            "count": 1
-          },
-          {
-            "relation": "Funded",
-            "kind": "funded",
-            "title": "Sworn bannermen",
-            "epithet": "Wallets this house raised",
-            "count": 3
-          },
-          {
-            "relation": "Interacted",
-            "kind": "other",
-            "title": "Allies",
-            "epithet": "Kin by association",
-            "count": 1
-          }
-        ],
-        "motto": "What was given, we give again",
-        "foundedAt": "2021-05-14T09:12:41.000Z"
-      },
-      {
-        "rank": 2,
-        "name": "Galridge",
-        "patriarch": {
-          "address": "0x42384387a911ba87c1bf7f5ae5f3884976d90914",
-          "label": "30D Smart Trader (sample)",
-          "pnlUsd": 1480000,
-          "realizedPnlUsd": 1120000,
-          "unrealizedPnlUsd": 360000,
-          "winRate": 64,
-          "trades": 154,
-          "tokens": 22
-        },
-        "founder": {
-          "address": "0xf778884d88c2ad13f52307f80d626fd9234d54b8",
-          "label": "Coinbase 10 (sample)",
-          "at": "2022-11-08T02:40:13.000Z",
-          "txHash": "0xb123141b23e6db2086fa8e77fcfccec4e84dceddb99ffc40825fc44f7b6725e5",
-          "chain": "ethereum"
-        },
-        "members": [
-          {
-            "address": "0xb30f545eb9e1f80c7163e9d306d7f80887677de6",
-            "label": "",
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "at": "2023-12-08T15:33:27.000Z",
-            "txHash": "0xfd425fc48ab6d021e104770b9b1ed48ff9a6406dd73b0c2d3583f19408a7aede"
-          },
-          {
-            "address": "0x59777a9fa6204f56d41ac8cc6cb6a8602ca23844",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2024-03-02T04:11:09.000Z",
-            "txHash": "0x82d9071346695e74d8d7b18e4185e77a46e70ecf8683cbaa8b45e186c412d471"
-          },
-          {
-            "address": "0xb52f5b839f0763924de7038d86a72e69024b731e",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2024-03-02T04:14:51.000Z",
-            "txHash": "0xf19550cbc93196b6bf84b567348c33eca0befb959951b84daeb92fc3fc7f28c6"
-          },
-          {
-            "address": "0x24c43ead2da430741137399f03aed11a911416f6",
-            "label": "Fresh wallet (sample)",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2024-07-19T13:27:40.000Z",
-            "txHash": "0x9c61ff013afe79d32026a3f5e1e0c0a201c3bb9b780f1921afc3dca68663be92"
-          },
-          {
-            "address": "0x35fc3c5e02a07ab447903aada99b4576cb234935",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-01-11T22:05:18.000Z",
-            "txHash": "0x1c685b44167ecc38cdd1d823c79c6070c0da0986a8cd73000dc0698a834cd947"
-          },
-          {
-            "address": "0x21a13f9aaec43077e8508888b24165ae832ab99e",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-05-27T08:49:02.000Z",
-            "txHash": "0x13dd129391b1dae65b07d3d2498827353cdf6d3df7f60ece2d97b8d95864899f"
-          },
-          {
-            "address": "0x52be8483164cb229a9689bad2d4456fe508b37a0",
-            "label": "Token Millionaire (sample)",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-09-01T19:16:44.000Z",
-            "txHash": "0x3af24ddcb605c41391916d1ef4b0a2958ecb11773771b85a99beddbba91a6032"
-          },
-          {
-            "address": "0x15af4a4562b5d62afbb71ec2e863ea5f71bf35d3",
-            "label": "Contract deployer (sample)",
-            "relation": "Deployer",
+            "relation": "Deployed Contract",
             "kind": "deployer",
-            "at": "2024-09-30T10:02:55.000Z",
-            "txHash": "0x8b88b784287b11bf33501aba9be75e8811b41bc92ba693c47709960e8963217e"
+            "at": "2023-06-08T21:10:47.000Z",
+            "txHash": "0x95be7164a805f3c3530d179f8c5ab9ca0e733901e6b60430c5cf45f47d3a34bd"
+          },
+          {
+            "address": "0xe2fea36405f712c99e8e5eef9c15d1696735e169",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2023-06-08T21:18:47.000Z",
+            "txHash": "0xd1b6d429843d6637c485118d31deb64522f829d83f7a136e2ac011783bbd7734"
+          },
+          {
+            "address": "0x5e4129756de21a2e8293b111d3cf0328d1a5a909",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-02-05T14:01:23.000Z",
+            "txHash": "0xd10d306ecc1815bedc58212f72038b86c181b6584d0f14ea3457336faf164f12"
+          },
+          {
+            "address": "0x7f65e7326f22963e2039734ddff61958d5d284ca",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-04-17T19:01:23.000Z",
+            "txHash": "0x6cd9d2af8ccde368a8eed62aaad64abf979d7be3233ca231d55873351bc10d15"
+          },
+          {
+            "address": "0xa74b0475b9e02475bdec368eb26994779166771c",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-06-06T17:07:11.000Z",
+            "txHash": "0xf9b55331b9086017cf981d1c985179eb5b00e4529fbf085faa791c64f3655a58"
+          },
+          {
+            "address": "0x269033ff9e87ac569852369c732cbda1c6442988",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-06-15T14:23:23.000Z",
+            "txHash": "0xefe05aad11aeb5352a10bae8495d3c31a98bf697edb162907bd1373c7d43666e"
+          },
+          {
+            "address": "0x83f7b82a8401188a68343db77d1c3dcb0642b490",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-08-22T12:49:35.000Z",
+            "txHash": "0xdce1bd0291ce933c987667bbf29044bae7b52ce760afcfe92786301ff4e02892"
+          },
+          {
+            "address": "0xeb276a7f7f934df020505247ee10ee39c7deaf47",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-10-07T13:37:59.000Z",
+            "txHash": "0x71f3aee71f69fcd4498a9f4c82bbd9638fc141c54d53bf42a18ecf9fdaeb5097"
+          },
+          {
+            "address": "0x8c2a6d51955916830dade84c679281663acadc2d",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-10-08T20:25:11.000Z",
+            "txHash": "0xa8e88e06c4c6e452e78ff276214513eed9f9c342cd7bff49d999926cbd4531ab"
+          },
+          {
+            "address": "0x5bf6e918581e557786c91ea64851ae825981675f",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-10-25T14:33:11.000Z",
+            "txHash": "0xf06c76abc7579904f1e26f21b1bd479028be4dc510b6e20c121fb6060fd96b01"
+          },
+          {
+            "address": "0x1c239193f51f2e3ddecc6f0fad2eb6297cd0fcfb",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-10-25T14:39:11.000Z",
+            "txHash": "0xac95d68bc4e83ccb8b99775680c04ed45f1fcb5d04c433c4029d08148358c15f"
+          },
+          {
+            "address": "0xd20cd1cd2bb4d9ebfbeac7532cafbd681018a872",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2024-11-13T01:15:11.000Z",
+            "txHash": "0x925343563465690dbafc176fa4e2431222593530e9c6f96d7389f48e4fb0c960"
+          },
+          {
+            "address": "0x66b15980fadd8aa6742ef5029fd06e02e96cf86a",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2025-02-02T16:03:23.000Z",
+            "txHash": "0x0acef3f82f814e44ea61c02d7ec600be7cf5ff6c9f0e9616f7ad131752949f41"
+          },
+          {
+            "address": "0x0136ff48e91feef9afffd98e487f2cceb2075713",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployer",
+            "at": "2025-02-02T20:27:35.000Z",
+            "txHash": "0x7171bd0b5a12892096f8258e748a3f199a4505ad1137acd1d56f1a6984e61458"
+          },
+          {
+            "address": "0xa26e15c895efc0616177b7c1e7270a4c7d51c997",
+            "label": "High Activity",
+            "relation": "Deployed via",
+            "kind": "deployer",
+            "at": "2023-06-08T21:10:47.000Z",
+            "txHash": "0x95be7164a805f3c3530d179f8c5ab9ca0e733901e6b60430c5cf45f47d3a34bd"
+          },
+          {
+            "address": "0x5ef30b9986345249bc32d8928b7ee64de9435e39",
+            "label": "High Activity",
+            "relation": "Deployed via",
+            "kind": "deployer",
+            "at": "2023-06-08T21:18:47.000Z",
+            "txHash": "0xd1b6d429843d6637c485118d31deb64522f829d83f7a136e2ac011783bbd7734"
+          },
+          {
+            "address": "0xebfbd89d19d997bb9b3faac5a680bfa883870983",
+            "label": "Proxy",
+            "relation": "Multisig Signer of",
+            "kind": "other",
+            "at": "2024-08-13T19:16:23.000Z",
+            "txHash": "0xc745861a9acaed0e6ac0b0a216c54633d06ffb409fc2550fba4033faf5c5b396"
+          },
+          {
+            "address": "0xebfbcfbc4d9cdbee9efea860d117074fdc5a0983",
+            "label": "",
+            "relation": "Multisig Signer of",
+            "kind": "other",
+            "at": "2026-01-29T03:28:11.000Z",
+            "txHash": "0x96d23905f271ad04819d29cdc1e9aac7b1be7850a88c25545a172fd6b6a8650c"
           }
         ],
         "branches": [
           {
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "title": "Cousins",
-            "epithet": "Raised by the same hand as the patriarch",
-            "count": 1
-          },
-          {
-            "relation": "Funded",
-            "kind": "funded",
-            "title": "Sworn bannermen",
-            "epithet": "Wallets this house raised",
-            "count": 6
-          },
-          {
-            "relation": "Deployer",
+            "relation": "Deployed Contract",
             "kind": "deployer",
             "title": "Master builders",
             "epithet": "Contracts and the hands that deployed them",
-            "count": 1
-          }
-        ],
-        "motto": "Many hands, one purse",
-        "foundedAt": "2022-11-08T02:40:13.000Z"
-      },
-      {
-        "rank": 3,
-        "name": "Uliford",
-        "patriarch": {
-          "address": "0xe2680786bc9ed37a7180f5260ba4c52c40be846c",
-          "label": "Fund: Meridian Capital (sample)",
-          "pnlUsd": 930000,
-          "realizedPnlUsd": 640000,
-          "unrealizedPnlUsd": 290000,
-          "winRate": 59,
-          "trades": 88,
-          "tokens": 17
-        },
-        "founder": {
-          "address": "0xef7b486d612a0f953fcfec2c17608b57b544e4d7",
-          "label": "OKX 3 (sample)",
-          "at": "2023-02-14T12:00:05.000Z",
-          "txHash": "0xc5901216be7d490444481667d1942cfa89118208c883343552fda03d7161f38c",
-          "chain": "ethereum"
-        },
-        "members": [
-          {
-            "address": "0x5d6218a19a0f31e8828c76203144442b4b51262a",
-            "label": "Fund: Meridian Capital (sample)",
-            "relation": "Funded by",
-            "kind": "funded-by",
-            "at": "2023-02-14T12:00:05.000Z",
-            "txHash": "0x6bb2fc929bdd0d7f306cbe9c0bb53d473e0f54ad0a1850bf277cb92ab646f38d"
+            "count": 14
           },
           {
-            "address": "0x94b13174c5d624c2f277d246c9be95688b62fde0",
-            "label": "",
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "at": "2023-02-15T09:21:47.000Z",
-            "txHash": "0x05c1ab47178610fa6f701f738130a46a088d7d899a58a145b219c4a6b1f1ba76"
-          },
-          {
-            "address": "0x10d19dd2dbc9b54399081f253a9fc39ef0829e10",
-            "label": "Fund: Meridian Capital (sample)",
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "at": "2023-04-03T17:52:30.000Z",
-            "txHash": "0x4e359c49b8744ab36f38e5c8878aedeaf92216dfd7b2fa2a7002513d630460a9"
-          },
-          {
-            "address": "0xb5268a070eaa76f579f522751121c05cc71ae84c",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2024-10-22T06:37:12.000Z",
-            "txHash": "0xaacbba8d270ab6a974b88e48751541607855e5244db6270633ed22bfa8f58ac7"
-          },
-          {
-            "address": "0xeae9551934b71dbe6c42a365001adfe1d98e5391",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-06-14T20:15:58.000Z",
-            "txHash": "0xec809d5b6daebe7effae6ea0abff3041cacbc89cc439c923273dbc23abd8009e"
-          }
-        ],
-        "branches": [
-          {
-            "relation": "Funded by",
-            "kind": "funded-by",
-            "title": "Liege lords",
-            "epithet": "Wallets that put coin in this house's purse",
-            "count": 1
-          },
-          {
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "title": "Cousins",
-            "epithet": "Raised by the same hand as the patriarch",
+            "relation": "Deployed via",
+            "kind": "deployer",
+            "title": "Master builders",
+            "epithet": "Contracts and the hands that deployed them",
             "count": 2
           },
           {
-            "relation": "Funded",
-            "kind": "funded",
-            "title": "Sworn bannermen",
-            "epithet": "Wallets this house raised",
+            "relation": "Multisig Signer of",
+            "kind": "other",
+            "title": "Allies",
+            "epithet": "Kin by association",
             "count": 2
           }
         ],
         "motto": "Ever forward, never idle",
-        "foundedAt": "2023-02-14T12:00:05.000Z"
+        "foundedAt": "2021-08-22T01:23:32.000Z"
       },
       {
-        "rank": 4,
-        "name": "Ithfell",
+        "rank": 2,
+        "name": "Yorrick",
         "patriarch": {
-          "address": "0xc204eb049bf82eed08296a4e95b6640bb7688fc3",
-          "label": "First Mover (sample)",
-          "pnlUsd": 710000,
-          "realizedPnlUsd": 705000,
-          "unrealizedPnlUsd": 5000,
-          "winRate": 62,
-          "trades": 301,
-          "tokens": 55
-        },
-        "members": [
-          {
-            "address": "0xfc5a42d0481c451a40af3ec128978523976ecdbf",
-            "label": "",
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "at": "2024-01-09T03:44:21.000Z",
-            "txHash": "0x3abb40bbf0a87f06de86ca3c2d79ff7e8b01551ed9e1e6c103edb57afbe5d057"
-          },
-          {
-            "address": "0x3017295820d0f4293b6e52151389f8df91677e20",
-            "label": "First Mover (sample)",
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "at": "2024-01-09T03:51:08.000Z",
-            "txHash": "0xa0e98131aaa4205d1de034c5fdb4286ff223333730e0bca7a1f85fb467eb7ae0"
-          },
-          {
-            "address": "0xd07574568c53779292a70ab711a754b4a461ef01",
-            "label": "",
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "at": "2024-02-27T14:09:36.000Z",
-            "txHash": "0x252efe21e7330d127fa64ddc64e6415dea9233f58db121e17a67cbe27aa27bd9"
-          },
-          {
-            "address": "0xfa1d2cc4e6c0ddc0fad9d7ef28c323a6dd88b318",
-            "label": "",
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "at": "2024-05-16T23:58:44.000Z",
-            "txHash": "0xf2e37f970b5857a4bd1fee0f49b48dfc010a755fb0efa690882c6732d5013c55"
-          },
-          {
-            "address": "0xb487f05f06c0dc7ca1339bf7dd00b03c0ca9c516",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-03-05T11:20:17.000Z",
-            "txHash": "0x8b11621a1155b846a044d179377bf72e639e07198f0acf435781295fcc661303"
-          },
-          {
-            "address": "0xab9f56aef53ec7f718b698d10e4c5e3f91a86e7e",
-            "label": "Fresh wallet (sample)",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-08-28T05:03:29.000Z",
-            "txHash": "0x981bdb9e566e70a9f9e6458680161e40575a0af203ac3aa311f2094ea219b217"
-          }
-        ],
-        "branches": [
-          {
-            "relation": "Common funder",
-            "kind": "common-funder",
-            "title": "Cousins",
-            "epithet": "Raised by the same hand as the patriarch",
-            "count": 4
-          },
-          {
-            "relation": "Funded",
-            "kind": "funded",
-            "title": "Sworn bannermen",
-            "epithet": "Wallets this house raised",
-            "count": 2
-          }
-        ],
-        "motto": "Blood is thicker than gas",
-        "foundedAt": "2024-01-09T03:44:21.000Z"
-      },
-      {
-        "rank": 5,
-        "name": "Yorimont",
-        "patriarch": {
-          "address": "0x5d8d6d8f2b7418782a5053670d2a204f0a1f3557",
-          "label": "Smart Trader (sample)",
-          "pnlUsd": 505000,
-          "realizedPnlUsd": 380000,
-          "unrealizedPnlUsd": 125000,
-          "winRate": 78,
-          "trades": 67,
-          "tokens": 12
+          "address": "0x6fc072c0dcc630f23b29f7c42a5c7c739584ebf5",
+          "label": "HL Perps Whale",
+          "pnlUsd": 787462.9651393825,
+          "realizedPnlUsd": 787438.780321788,
+          "unrealizedPnlUsd": 24.184817594500757,
+          "winRate": 100,
+          "trades": 4701,
+          "tokens": 1
         },
         "founder": {
-          "address": "0xa454d114b90bacfd2317006c984e1dc75f96cd16",
-          "label": "Gemini 2 (sample)",
-          "at": "2020-09-03T08:30:00.000Z",
-          "txHash": "0x3ad6dadc66cd5b57b2ea5cca64dcab4c57a064f537af7bfc4be236c912cb6e4f",
-          "chain": "ethereum"
+          "address": "0x54276887d74ca9f324c9509e060f95bf73ceb331",
+          "label": "HL Perps Rekt",
+          "at": "2026-02-23T00:44:55.000Z",
+          "txHash": "0x874b2801a79d63a84030e5fb193bc6305df9298f27deba2d1d0e239755ff901b",
+          "chain": "arbitrum"
         },
         "members": [
           {
-            "address": "0x9fbde6c80de98ea9dfabfeab25456ef947bf731f",
-            "label": "Gemini 2 (sample)",
-            "relation": "Funded by",
+            "address": "0xb685760ebd368a891f27ae547391f4e2a289895b",
+            "label": "High Activity",
+            "relation": "First Funder",
             "kind": "funded-by",
-            "at": "2020-09-03T08:30:00.000Z",
-            "txHash": "0x814262843cb65f1a7acb9c5f3d995093f481da3eaaf14433fd6fe2437f6af321"
-          },
-          {
-            "address": "0xe85820f8c92aaa8e070b40d6bf9d95a76e08eb96",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2022-04-12T16:44:36.000Z",
-            "txHash": "0xf818ed14cdc638e72aee2ae7ee2f187b83cd9276beaf5d3f713ff8978a92d159"
-          },
-          {
-            "address": "0x75856b49af25a212d5ef96b6560a0a9b442cf7c2",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2023-10-30T09:12:12.000Z",
-            "txHash": "0x59130c1306bc854d1797f6adfaadf778b022442618283cdbe165b5871fb463db"
-          },
-          {
-            "address": "0xb40ed52e740e5aedd96b70e012f80553def87b93",
-            "label": "Smart Trader (sample)",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-07-07T07:07:07.000Z",
-            "txHash": "0xe9e34dbf2a20c184dc398dd6c9b1a1060fa8e1f656fb0d67d5fcbffe59781b99"
+            "at": "2026-05-04T03:42:47.000Z",
+            "txHash": "0x19c0f1085da7a28c95f24f8e4bb745cb6e4f59944830bc6eea7ec1e52568fa73"
           }
         ],
         "branches": [
           {
-            "relation": "Funded by",
+            "relation": "First Funder",
             "kind": "funded-by",
             "title": "Liege lords",
             "epithet": "Wallets that put coin in this house's purse",
             "count": 1
-          },
-          {
-            "relation": "Funded",
-            "kind": "funded",
-            "title": "Sworn bannermen",
-            "epithet": "Wallets this house raised",
-            "count": 3
           }
         ],
         "motto": "Patience is the sharpest blade",
-        "foundedAt": "2020-09-03T08:30:00.000Z"
+        "foundedAt": "2026-02-23T00:44:55.000Z"
+      },
+      {
+        "rank": 3,
+        "name": "Wynibrook",
+        "patriarch": {
+          "address": "0xfa2dca328d8cc3b47dd0f9bce6933ca4531e08fb",
+          "label": "Token Millionaire",
+          "pnlUsd": 784465.5315868808,
+          "realizedPnlUsd": 235700.1242368505,
+          "unrealizedPnlUsd": 548765.4073500303,
+          "winRate": 100,
+          "trades": 20,
+          "tokens": 1
+        },
+        "founder": {
+          "address": "0x68df4422e67fa373813ecea8b4869e93ce58202c",
+          "label": "",
+          "at": "2024-06-12T11:31:23.000Z",
+          "txHash": "0xcfcb55e0b42a98002da0d8d97e18f62a386d8a12077af09a3a2327778dc62faa",
+          "chain": "ethereum"
+        },
+        "members": [],
+        "branches": [],
+        "motto": "Few, but unbowed",
+        "foundedAt": "2024-06-12T11:31:23.000Z"
+      },
+      {
+        "rank": 4,
+        "name": "Feneley",
+        "patriarch": {
+          "address": "0x63a1eb0e380d990cf92057672956fc04a3366ff9",
+          "label": "Uses \"W98GNJSVN\" HL Referral Code",
+          "pnlUsd": 562483.7052866138,
+          "realizedPnlUsd": 85325.59593620579,
+          "unrealizedPnlUsd": 477158.10935040796,
+          "winRate": 100,
+          "trades": 312,
+          "tokens": 2
+        },
+        "founder": {
+          "address": "0x201eec84a2992685b689849844b3bcfba3e56e85",
+          "label": "",
+          "at": "2026-04-14T16:38:23.000Z",
+          "txHash": "0x00d90dc22a7dc4e8595d081dd509502500494b453bfb608ed929aad0520ba533",
+          "chain": "ethereum"
+        },
+        "members": [],
+        "branches": [],
+        "motto": "Patience is the sharpest blade",
+        "foundedAt": "2026-04-14T16:38:23.000Z"
+      },
+      {
+        "rank": 5,
+        "name": "Belbrook",
+        "patriarch": {
+          "address": "0xc996a6525fa23bc41a275159a14cb87d3c3c7c2f",
+          "label": "Token Millionaire",
+          "pnlUsd": 467732.95427681843,
+          "realizedPnlUsd": 21482.958322913,
+          "unrealizedPnlUsd": 446249.99595390545,
+          "winRate": 100,
+          "trades": 40,
+          "tokens": 2
+        },
+        "founder": {
+          "address": "0x8d591ae80f3073a3492a59089103075ad2d86287",
+          "label": "",
+          "at": "2025-10-27T16:21:23.000Z",
+          "txHash": "0x34e84905fc340d71bcf381a13b4cac61b78dac91703c9a1fb9742c9c0e19c085",
+          "chain": "ethereum"
+        },
+        "members": [],
+        "branches": [],
+        "motto": "Few, but unbowed",
+        "foundedAt": "2025-10-27T16:21:23.000Z"
       },
       {
         "rank": 6,
-        "name": "Valley",
+        "name": "Malwick",
         "patriarch": {
-          "address": "0xc5b4bfc2f676414cfa3d66b4cb66faf7a65cd879",
-          "label": "Smart Trader (sample)",
-          "pnlUsd": 318000,
-          "realizedPnlUsd": 190000,
-          "unrealizedPnlUsd": 128000,
-          "winRate": 48,
-          "trades": 410,
-          "tokens": 61
+          "address": "0x529e5adaa87bb61d7498b0d285e12f4cc27997f4",
+          "label": "Millionaire",
+          "pnlUsd": 380491.45335937926,
+          "realizedPnlUsd": 273199.4624360798,
+          "unrealizedPnlUsd": 107291.99092329945,
+          "winRate": 100,
+          "trades": 1001,
+          "tokens": 2
         },
         "founder": {
-          "address": "0xc883929145a2b0a71a7e7bfa185254442f28dadf",
-          "label": "Bybit 1 (sample)",
-          "at": "2023-08-19T13:13:13.000Z",
-          "txHash": "0xfcf19957434476bfa5f5f86d36a56985519078d97595f6ef0961bdd5ef0750e7",
+          "address": "0x88888d69e48ecf811554600e4ab927004e588888",
+          "label": "",
+          "at": "2026-03-13T06:42:47.000Z",
+          "txHash": "0x9252862aa36b18f0bf9ba84d7c85e05b98edb69f5309194d8bf23092b818eef2",
           "chain": "ethereum"
         },
-        "members": [
-          {
-            "address": "0x0b90ff1bde21e2d69818d50fd20a0d11dcb336b0",
-            "label": "Bybit 1 (sample)",
-            "relation": "Funded by",
-            "kind": "funded-by",
-            "at": "2023-08-19T13:13:13.000Z",
-            "txHash": "0x2db6caa8ada1a16cdb3df00343894e005f71d366cee1ccc79bb0e91cad49a658"
-          },
-          {
-            "address": "0x14237ecba08dd4e44e05e4eb042579b7665fb575",
-            "label": "",
-            "relation": "Funded by",
-            "kind": "funded-by",
-            "at": "2024-06-01T00:19:48.000Z",
-            "txHash": "0x2dafb483056b79f783fb8d1316042290576786dfc2fa887be73e1c9ca1a4ac10"
-          },
-          {
-            "address": "0x1bfb00a30571e52e8e58f9361232cdc37139018a",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2024-12-24T18:00:00.000Z",
-            "txHash": "0xb5887a5bccac6a9c6b81a766275266018c9ec462ebb6d57058e7bd3f41f89126"
-          },
-          {
-            "address": "0x5c10ff0733825c5deac6c71bd49fd601503c5871",
-            "label": "",
-            "relation": "Funded",
-            "kind": "funded",
-            "at": "2025-04-15T10:26:39.000Z",
-            "txHash": "0xf9c6ae2e89c84dd1c48ff0bb3b63ac47454b45e39f1f76604aea42c7fb7fb785"
-          },
-          {
-            "address": "0xbdb5aa481557f440de1187cca15ab825fe057ec5",
-            "label": "1inch: Aggregation Router (sample)",
-            "relation": "Interacted",
-            "kind": "other",
-            "at": "2025-09-20T12:41:05.000Z",
-            "txHash": "0x6cce8e245d53d26971b67cc2d93e8ed619fc4360e633a28445de4ada1e16bd77"
-          },
-          {
-            "address": "0x5a404b42b26e87ca63c786d4ffa380aa3a4d1559",
-            "label": "",
-            "relation": "Interacted",
-            "kind": "other",
-            "at": "2025-09-23T15:55:31.000Z",
-            "txHash": "0x34cb2b283cc5542597b00856ce042ee2eaf98dac3e32408b74d9eb0951fb162d"
-          }
-        ],
-        "branches": [
-          {
-            "relation": "Funded by",
-            "kind": "funded-by",
-            "title": "Liege lords",
-            "epithet": "Wallets that put coin in this house's purse",
-            "count": 2
-          },
-          {
-            "relation": "Funded",
-            "kind": "funded",
-            "title": "Sworn bannermen",
-            "epithet": "Wallets this house raised",
-            "count": 2
-          },
-          {
-            "relation": "Interacted",
-            "kind": "other",
-            "title": "Allies",
-            "epithet": "Kin by association",
-            "count": 2
-          }
-        ],
-        "motto": "We remember who fed us",
-        "foundedAt": "2023-08-19T13:13:13.000Z"
+        "members": [],
+        "branches": [],
+        "motto": "Patience is the sharpest blade",
+        "foundedAt": "2026-03-13T06:42:47.000Z"
       }
     ]
   }

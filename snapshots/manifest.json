@@ -8,9 +8,9 @@
     ]
   },
   "dynasties": {
-    "generatedAt": "2026-09-25T10:51:04.335Z",
-    "credits": 0,
-    "sample": true,
+    "generatedAt": "2026-09-25T11:10:57.816Z",
+    "credits": 17,
+    "sample": false,
     "snapshots": [
       "main"
     ]
@@ -73,7 +73,7 @@
   },
   "wallet-obituaries": {
     "generatedAt": "2026-09-25T11:09:02.589Z",
-    "credits": 23,
+    "credits": 2,
     "sample": false,
     "snapshots": [
       "main"
