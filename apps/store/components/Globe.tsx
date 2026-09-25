@@ -54,7 +54,7 @@ const DEFAULT_WORLD = { bg: "#07090f", surface: "#10141f", accent: "#7dd3fc", ac
 
 export interface GlobeProps {
   apps: readonly AppMeta[];
-  credits: { seeded: number; live: number; calls: number; remaining?: number };
+  credits: { spent: number; apiCalls: number; cacheHits: number; remaining?: number };
   status: Record<string, "seeded" | "sample">;
 }
 
@@ -96,7 +96,6 @@ export function Globe({ apps, credits, status }: GlobeProps) {
     "--world-ink": world.ink,
   } as CSSProperties;
 
-  const total = credits.seeded + credits.live;
 
   return (
     <motion.div className="store" style={style} animate={{ backgroundColor: world.bg, color: world.ink }} transition={{ duration: 0.7 }}>
@@ -204,16 +203,24 @@ export function Globe({ apps, credits, status }: GlobeProps) {
               <div className="store__credits">
                 <div>
                   <b>
-                    <NumberTicker value={total} />
+                    <NumberTicker value={credits.spent} />
                   </b>
                   <span>Nansen credits spent</span>
                 </div>
                 <div>
                   <b>
-                    <NumberTicker value={credits.calls} />
+                    <NumberTicker value={credits.apiCalls} />
                   </b>
-                  <span>calls logged</span>
+                  <span>API calls</span>
                 </div>
+                {credits.cacheHits > 0 ? (
+                  <div>
+                    <b>
+                      <NumberTicker value={credits.cacheHits} />
+                    </b>
+                    <span>served from cache</span>
+                  </div>
+                ) : null}
                 {credits.remaining !== undefined ? (
                   <div>
                     <b>
