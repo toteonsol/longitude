@@ -543,3 +543,32 @@ pre {
   color: #ff7b7b;
   opacity: 1;
 }
+
+/* Compact chrome on phones: one row of pills, presence text hidden */
+@media (max-width: 640px) {
+  .lg-frame__header {
+    gap: 8px;
+  }
+  .lg-frame__left,
+  .lg-frame__right {
+    gap: 6px;
+  }
+  .lg-frame__title {
+    font-size: 18px;
+  }
+  .lg-presence {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+  .lg-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+  .lg-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .lg-pro__note {
+    max-width: 200px;
+  }
+}
