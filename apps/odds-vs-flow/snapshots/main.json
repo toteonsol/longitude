@@ -1,11 +1,11 @@
 {
   "app": "odds-vs-flow",
   "name": "main",
-  "generatedAt": "2026-09-25T10:57:01.173Z",
-  "credits": 8,
+  "generatedAt": "2026-09-25T11:32:01.172Z",
+  "credits": 11,
   "sample": false,
   "data": {
-    "generatedAt": "2026-09-25T10:57:01.172Z",
+    "generatedAt": "2026-09-25T11:32:01.172Z",
     "bouts": [
       {
         "id": "btc-4689189",
@@ -23,7 +23,7 @@
           "askCents": 99,
           "volumeUsd": 249722.406825,
           "volume24hUsd": 181976.54583600003,
-          "liquidityUsd": 51005.37414,
+          "liquidityUsd": 50804.20659,
           "traders24h": 190,
           "endsAt": "2026-09-25T16:00:00",
           "direction": 1
@@ -35,9 +35,9 @@
           "netFlow1hUsd": 0,
           "netFlow24hUsd": 0,
           "netFlow7dUsd": -288204.48468929704,
-          "netFlow30dUsd": -148903.22204719647,
+          "netFlow30dUsd": -148903.22204719644,
           "traderCount": 9,
-          "marketCapUsd": 9835387449.86372
+          "marketCapUsd": 9877288881.18285
         },
         "crowd": {
           "conviction": 0.98,
@@ -62,12 +62,12 @@
           "id": "4761842",
           "question": "Will Ethereum dip to $2,600 in September?",
           "slug": "will-ethereum-dip-to-2600-in-september-2026-from-september-20",
-          "yesPct": 48,
-          "bidCents": 47,
-          "askCents": 48,
+          "yesPct": 46,
+          "bidCents": 45,
+          "askCents": 46,
           "volumeUsd": 137271.362081,
           "volume24hUsd": 82703.837384,
-          "liquidityUsd": 46651.5963,
+          "liquidityUsd": 46676.0695,
           "traders24h": 54,
           "endsAt": "2026-10-01T04:00:00",
           "direction": -1
@@ -77,23 +77,23 @@
           "chain": "ethereum",
           "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
           "netFlow1hUsd": 0,
-          "netFlow24hUsd": -124.5894898045469,
-          "netFlow7dUsd": -8075.034143261248,
-          "netFlow30dUsd": -46643.977925680854,
+          "netFlow24hUsd": -125.22892366704463,
+          "netFlow7dUsd": -8075.673577123746,
+          "netFlow30dUsd": -46644.61735954335,
           "traderCount": 25,
-          "marketCapUsd": 5644287097.42387
+          "marketCapUsd": 5680751804.54471
         },
         "crowd": {
-          "conviction": 0.04,
-          "stance": "split"
+          "conviction": 0.08,
+          "stance": "bullish"
         },
         "flow": {
           "strength": 0,
           "stance": "flat"
         },
         "relation": "unopposed",
-        "pull": -0.04,
-        "verdict": "The crowd is at a coin flip on Ethereum; smart money's $8K of sitting still goes unopposed."
+        "pull": -0.08,
+        "verdict": "Smart money is flat on Ethereum this week; the crowd's 46¢ call stands unopposed."
       },
       {
         "id": "sol-4052469",
@@ -111,8 +111,8 @@
           "askCents": 3,
           "volumeUsd": 60299.499356,
           "volume24hUsd": 14068.085674,
-          "liquidityUsd": 30323.10217,
-          "traders24h": 16,
+          "liquidityUsd": 30794.85017,
+          "traders24h": 18,
           "endsAt": "2026-10-01T04:00:00",
           "direction": 1
         },
@@ -120,28 +120,116 @@
           "symbol": "SOL",
           "chain": "solana",
           "address": "So11111111111111111111111111111111111111112",
-          "netFlow1hUsd": 4739.456317807704,
-          "netFlow24hUsd": -51354.547958635565,
-          "netFlow7dUsd": 547737.7264487142,
-          "netFlow30dUsd": 6605722.745254989,
+          "netFlow1hUsd": -10295.060719930607,
+          "netFlow24hUsd": -64685.685733138234,
+          "netFlow7dUsd": 519083.1367126768,
+          "netFlow30dUsd": 6578639.7903397875,
           "traderCount": 519,
-          "marketCapUsd": 1473503420.33401
+          "marketCapUsd": 1501724411.29183
         },
         "crowd": {
           "conviction": 0.96,
           "stance": "bearish"
         },
         "flow": {
-          "strength": 0.348,
+          "strength": 0.343,
           "stance": "buying"
         },
         "relation": "contested",
-        "pull": -0.612,
-        "verdict": "The crowd has the rope: YES trades at 2¢ (the crowd leans down on Solana) while smart money is buying $548K this week."
+        "pull": -0.617,
+        "verdict": "The crowd has the rope: YES trades at 2¢ (the crowd leans down on Solana) while smart money is buying $519K this week."
+      },
+      {
+        "id": "hype-3866005",
+        "number": 4,
+        "asset": {
+          "symbol": "HYPE",
+          "name": "Hyperliquid"
+        },
+        "market": {
+          "id": "3866005",
+          "question": "Will Hyperliquid reach $200 by December 31, 2026?",
+          "slug": "will-hyperliquid-reach-200-by-december-31-2026",
+          "yesPct": 7,
+          "bidCents": 6,
+          "askCents": 7,
+          "volumeUsd": 56134.695375999996,
+          "volume24hUsd": 3022.975605,
+          "liquidityUsd": 24710.3159,
+          "traders24h": 13,
+          "endsAt": "2027-01-01T05:00:00",
+          "direction": 1
+        },
+        "token": {
+          "symbol": "HYPE",
+          "chain": "hyperevm",
+          "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "netFlow1hUsd": 0,
+          "netFlow24hUsd": 81.00885622969986,
+          "netFlow7dUsd": -59190.61936351119,
+          "netFlow30dUsd": -352326.53382137587,
+          "traderCount": 87,
+          "marketCapUsd": 20916949327
+        },
+        "crowd": {
+          "conviction": 0.86,
+          "stance": "bearish"
+        },
+        "flow": {
+          "strength": 0.154,
+          "stance": "selling"
+        },
+        "relation": "aligned",
+        "pull": -0.706,
+        "verdict": "No fight here: the crowd leans down on Hyperliquid and smart money is selling $59K. The crowd leans harder."
+      },
+      {
+        "id": "eth-4883053",
+        "number": 5,
+        "asset": {
+          "symbol": "ETH",
+          "name": "Ethereum"
+        },
+        "market": {
+          "id": "4883053",
+          "question": "Ethereum Up or Down on September 25?",
+          "slug": "ethereum-up-or-down-on-september-25-2026",
+          "yesPct": 93,
+          "bidCents": 92,
+          "askCents": 93,
+          "volumeUsd": 61478.41466799997,
+          "volume24hUsd": 61478.41466800001,
+          "liquidityUsd": 34398.1125,
+          "traders24h": 94,
+          "endsAt": "2026-09-25T16:00:00",
+          "direction": 1
+        },
+        "token": {
+          "symbol": "WETH",
+          "chain": "ethereum",
+          "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "netFlow1hUsd": 0,
+          "netFlow24hUsd": -125.22892366704463,
+          "netFlow7dUsd": -8075.673577123746,
+          "netFlow30dUsd": -46644.61735954335,
+          "traderCount": 25,
+          "marketCapUsd": 5680751804.54471
+        },
+        "crowd": {
+          "conviction": 0.86,
+          "stance": "bullish"
+        },
+        "flow": {
+          "strength": 0,
+          "stance": "flat"
+        },
+        "relation": "unopposed",
+        "pull": -0.86,
+        "verdict": "Smart money is flat on Ethereum this week; the crowd's 93¢ call stands unopposed."
       },
       {
         "id": "btc-4052431",
-        "number": 4,
+        "number": 6,
         "asset": {
           "symbol": "BTC",
           "name": "Bitcoin"
@@ -155,8 +243,8 @@
           "askCents": 0,
           "volumeUsd": 750671.9300990001,
           "volume24hUsd": 60208.731760999995,
-          "liquidityUsd": 149621.16052,
-          "traders24h": 335,
+          "liquidityUsd": 146697.92548,
+          "traders24h": 338,
           "endsAt": "2026-10-01T04:00:00",
           "direction": -1
         },
@@ -167,9 +255,9 @@
           "netFlow1hUsd": 0,
           "netFlow24hUsd": 0,
           "netFlow7dUsd": -288204.48468929704,
-          "netFlow30dUsd": -148903.22204719647,
+          "netFlow30dUsd": -148903.22204719644,
           "traderCount": 9,
-          "marketCapUsd": 9835387449.86372
+          "marketCapUsd": 9877288881.18285
         },
         "crowd": {
           "conviction": 0.98,

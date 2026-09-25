@@ -387,11 +387,14 @@ export async function buildOddsVsFlow(nansen: NansenClient): Promise<OddsVsFlowD
   );
   const tokens = matchTokens(flows.data ?? [], assets, chains);
   const missing = assets.filter((a) => !tokens.has(a.symbol) && found.some((c) => c.asset === a));
-  if (missing.length) {
+  // The netflow filter takes token addresses only: symbols (a DEEP asset like DOGE) would be a 422.
+  const isAddress = (t: string) => /^0x[0-9a-fA-F]{40}$/.test(t) || /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(t);
+  const retryAddresses = missing.flatMap((a) => [...a.tokens]).filter(isAddress);
+  if (retryAddresses.length) {
     const retry = await nansen.smartMoney.netflow(
       {
         chains: [...chains],
-        filters: { include_native_tokens: true, include_stablecoins: false, token_address: missing.flatMap((a) => [...a.tokens]) },
+        filters: { include_native_tokens: true, include_stablecoins: false, token_address: retryAddresses },
         pagination: { page: 1, per_page: 20 },
       },
       { tag: "flow:retry" },
