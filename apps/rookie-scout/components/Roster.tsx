@@ -11,7 +11,8 @@ export interface RosterItem {
   data: { address: string; chain: string; symbol: string; similarity: number; grade: string; pnlUsd: number };
 }
 
-export const rosterKey = (p: Pick<Prospect, "chain" | "address">) => `${p.chain}:${p.address.toLowerCase()}`;
+/** EVM addresses are case-insensitive (lowercase them); Solana base58 addresses are not. */
+export const rosterKey = (p: Pick<Prospect, "chain" | "address">) => `${p.chain}:${p.address.startsWith("0x") ? p.address.toLowerCase() : p.address}`;
 
 export function useRoster() {
   const [items, setItems] = useState<RosterItem[]>([]);
