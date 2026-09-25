@@ -1,0 +1,27 @@
+{
+  "name": "@longitude/last-ones-out",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3005",
+    "build": "next build",
+    "start": "next start -p 3005",
+    "typecheck": "tsc --noEmit",
+    "seed": "node --env-file-if-exists=../../.env --import tsx seed.ts"
+  },
+  "dependencies": {
+    "@longitude/kit": "workspace:*",
+    "@longitude/motion": "workspace:*",
+    "@longitude/nansen": "workspace:*",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,10 @@
+:root {
+  --lg-bg: #0d1b3d;
+  --lg-surface: #132552;
+  --lg-ink: #f1e7c9;
+  --lg-accent: #c9a227;
+  --lg-accent2: #f1e7c9;
+  --lg-font: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --lg-font-display: var(--font-display), var(--lg-font);
+  --lg-font-mono: var(--font-mono), ui-monospace, monospace;
+}
