@@ -117,7 +117,7 @@ export function ExitClock({ data }: { data: ExitClockData }) {
             {holders.length} <em>· {overdueNow}</em>
           </b>
           <span className="stat__sub">
-            {token.tradersPaired} wallets with round trips in {token.tradesSampled} trades
+            {token.tradersPaired} wallets with round trips in {token.tradesSampled} {token.tradesScope === "holders" ? "holder trades" : "trades"}
           </span>
         </div>
         <div className="stat">

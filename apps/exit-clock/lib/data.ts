@@ -1,5 +1,5 @@
-import type { NansenClient, RowOf } from "@longitude/nansen";
-import { isEvmChain, lastDays } from "@longitude/nansen";
+import type { NansenClient, RequestBody, RowOf } from "@longitude/nansen";
+import { NansenApiError, isEvmChain, lastDays } from "@longitude/nansen";
 
 /** Chains with the deepest smart money + token god mode coverage. */
 export const CHAINS = ["ethereum", "solana", "base"] as const;
@@ -9,6 +9,8 @@ export type Chain = (typeof CHAINS)[number];
 export type AnchorSource = "trade" | "24h" | "7d" | "30d" | "window";
 /** Where a holder's hold-time estimate came from: its own round trips, the token median, or the default. */
 export type HoldSource = "trader" | "token" | "default";
+/** Which trades the pairing ran on: the holders' own history, or the most recent smart money trades of anyone. */
+export type TradeScope = "holders" | "all";
 
 export interface Holder {
   address: string;
@@ -45,6 +47,7 @@ export interface ExitToken {
   medianHoldHours: number;
   /** Smart money DEX trades sampled for the estimate. */
   tradesSampled: number;
+  tradesScope: TradeScope;
   /** Traders with at least one completed BUY→SELL pair. */
   tradersPaired: number;
   totalValueUsd: number;
@@ -71,8 +74,10 @@ const TOKENS = 3;
 const TOKENS_DEEP = 6;
 const HOLDERS_PER_TOKEN = 30;
 const TRADES_PER_PAGE = 100;
-/** A second page of trades costs one more credit per token and only happens when the first page was full. */
-const MAX_TRADE_PAGES = 2;
+/** Trade calls per token across every path: a second page or a fallback costs one more credit, never both. */
+const MAX_TRADE_CALLS = 2;
+/** Addresses per filtered trades call. The spec sets no maximum, so this only batches above the holder cap. */
+const ADDRESS_BATCH = 30;
 /** Used only when neither the wallet nor the token shows a single completed round trip in the window. */
 export const DEFAULT_HOLD_HOURS = 72;
 /** The API asks for these alongside label_type "smart_money". */
@@ -212,7 +217,13 @@ export interface TradeInput {
 }
 
 /** Turns one token's holders + trades into dial hands. Pure; `nowMs` is the build instant. */
-export function assembleToken(token: TokenInput, holderRows: readonly HolderInput[], tradeRows: readonly TradeInput[], nowMs: number): ExitToken {
+export function assembleToken(
+  token: TokenInput,
+  holderRows: readonly HolderInput[],
+  tradeRows: readonly TradeInput[],
+  nowMs: number,
+  tradesScope: TradeScope = "all",
+): ExitToken {
   const { chain } = token;
   const holds = pairHolds(
     tradeRows.map((t) => ({ trader: addressKey(chain, t.trader_address), action: t.action, at: t.block_timestamp, amount: num(t.token_amount) })),
@@ -283,6 +294,7 @@ export function assembleToken(token: TokenInput, holderRows: readonly HolderInpu
     ...token,
     medianHoldHours: round(medianHoldHours),
     tradesSampled: tradeRows.length,
+    tradesScope,
     tradersPaired: traderAverages.length,
     totalValueUsd: round(holders.reduce((s, h) => s + h.valueUsd, 0)),
     overdueCount: holders.filter((h) => h.overdue).length,
@@ -290,9 +302,82 @@ export function assembleToken(token: TokenInput, holderRows: readonly HolderInpu
   };
 }
 
+function chunk<T>(items: readonly T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < items.length; i += size) out.push(items.slice(i, i + size));
+  return out;
+}
+
+type TradesRequest = RequestBody<"/api/v1/tgm/dex-trades">;
+
 /**
- * Builds the clock. 5 credits for the netflow scan, then per token 5 (holders) + 1 (trades), plus one
- * more only when the first page of trades was full.
+ * The trades the FIFO pairing runs on, never more than MAX_TRADE_CALLS credits per token:
+ *   1. the holders' own BUY/SELL history, `filters.trader_address` set to their addresses (batched only
+ *      when the list exceeds ADDRESS_BATCH), plus a second page when the single batch came back full;
+ *   2. only if that returned nothing (or the API rejected the filter with 400/422): the unfiltered
+ *      most-recent smart money trades of anyone, within whatever calls are left.
+ */
+export async function fetchTrades(
+  nansen: NansenClient,
+  pick: TokenInput,
+  range: { from: string; to: string },
+  holderAddresses: readonly string[],
+  tag: string,
+): Promise<{ rows: TradeRow[]; scope: TradeScope }> {
+  const request = (page: number, addresses?: readonly string[]): TradesRequest => ({
+    chain: pick.chain,
+    token_address: pick.address,
+    only_smart_money: true,
+    date: range,
+    filters: addresses ? { trader_address: [...addresses] } : undefined,
+    order_by: [{ field: "block_timestamp", direction: "DESC" }],
+    pagination: { page, per_page: TRADES_PER_PAGE },
+  });
+  let calls = 0;
+  const rows: TradeRow[] = [];
+
+  if (holderAddresses.length) {
+    const batches = chunk(holderAddresses, ADDRESS_BATCH).slice(0, MAX_TRADE_CALLS);
+    for (const [i, batch] of batches.entries()) {
+      let res: Awaited<ReturnType<typeof nansen.tgm.dexTrades>>;
+      try {
+        res = await nansen.tgm.dexTrades(request(1, batch), { tag: `${tag}:holders:${i + 1}` });
+      } catch (err) {
+        // A rejected filter counts as "nothing" and falls through; credit caps, auth and outages propagate.
+        if (err instanceof NansenApiError && (err.status === 400 || err.status === 422)) {
+          calls += 1;
+          break;
+        }
+        throw err;
+      }
+      calls += 1;
+      const got = res.data ?? [];
+      rows.push(...got);
+      if (batches.length === 1 && calls < MAX_TRADE_CALLS && got.length >= TRADES_PER_PAGE && res.pagination?.is_last_page === false) {
+        const more = await nansen.tgm.dexTrades(request(2, batch), { tag: `${tag}:holders:p2` });
+        calls += 1;
+        rows.push(...(more.data ?? []));
+      }
+      if (calls >= MAX_TRADE_CALLS) break;
+    }
+    if (rows.length) return { rows, scope: "holders" };
+  }
+
+  for (let page = 1; calls < MAX_TRADE_CALLS; page++) {
+    const res = await nansen.tgm.dexTrades(request(page), { tag: `${tag}:trades:${page}` });
+    calls += 1;
+    const got = res.data ?? [];
+    rows.push(...got);
+    if (got.length < TRADES_PER_PAGE || res.pagination?.is_last_page !== false) break;
+  }
+  return { rows, scope: "all" };
+}
+
+/**
+ * Builds the clock. 5 credits for the netflow scan, then per token 5 (holders) + 1 to 2 (trades): one
+ * call for the holders' own trade history (filtered by trader_address), plus one more only when that
+ * page was full, or, when it came back empty, one unfiltered call for the most recent smart money
+ * trades of anyone. Never more than 2 trade credits per token.
  *   default (3 tokens): 5 + 3 × 6 = 23 credits typical, 26 worst case.
  *   DEEP=1  (6 tokens): 5 + 6 × 6 = 41 credits typical, 47 worst case.
  * The seed cap is 60. DEEP is read here, server-side only; the UI derives everything from `tokens`.
@@ -347,27 +432,12 @@ export async function buildExitClock(nansen: NansenClient): Promise<ExitClockDat
       { tag },
     );
     const holderRows: HolderRow[] = (holdersRes.data ?? []).slice(0, HOLDERS_PER_TOKEN);
+    const holderAddresses = [...new Set(holderRows.map((r) => r.address).filter((a): a is string => Boolean(a)).map((a) => addressKey(pick.chain, a)))];
 
-    // 3) How smart money trades it: the most recent trades of the last 30 days. 1 credit per page.
-    const tradeRows: TradeRow[] = [];
-    for (let page = 1; page <= MAX_TRADE_PAGES; page++) {
-      const res = await nansen.tgm.dexTrades(
-        {
-          chain: pick.chain,
-          token_address: pick.address,
-          only_smart_money: true,
-          date: range,
-          order_by: [{ field: "block_timestamp", direction: "DESC" }],
-          pagination: { page, per_page: TRADES_PER_PAGE },
-        },
-        { tag: `${tag}:trades:${page}` },
-      );
-      const rows = res.data ?? [];
-      tradeRows.push(...rows);
-      if (rows.length < TRADES_PER_PAGE || res.pagination?.is_last_page !== false) break;
-    }
+    // 3) How these holders trade it: their own BUY/SELL history over the window. 1 to 2 credits.
+    const { rows: tradeRows, scope } = await fetchTrades(nansen, pick, range, holderAddresses, tag);
 
-    tokens.push(assembleToken(pick, holderRows, tradeRows, nowMs));
+    tokens.push(assembleToken(pick, holderRows, tradeRows, nowMs, scope));
   }
 
   return { generatedAt: iso(nowMs), window: range, tokens };
