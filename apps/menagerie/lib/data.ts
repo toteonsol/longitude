@@ -4,6 +4,9 @@ import { lastDays } from "@longitude/nansen";
 /** The herd is drawn from the 30-day smart money PnL leaderboard on these chains. */
 const CHAINS = ["ethereum", "solana", "base"] as const;
 const HERD_SIZE = 40;
+/** DEEP=1: a bigger herd, and recent form for the first animals. */
+const DEEP_HERD_SIZE = 60;
+const DEEP_FORM_COUNT = 40;
 
 export type SpeciesId = "whale" | "fox" | "hummingbird" | "tortoise" | "hyena" | "elephant" | "meerkat";
 export type AnimalChain = "ethereum" | "solana" | "base" | "evm";
@@ -35,6 +38,15 @@ export interface AnimalStats {
   openTrades: number;
 }
 
+/** Thirty-day realized form from the profiler, only present on deep seeds. */
+export interface RecentForm {
+  realizedPnlUsd: number;
+  /** Percent, 0..100. */
+  winRate: number;
+  trades: number;
+  tokens: number;
+}
+
 export interface Animal {
   /** Specimen number, 1-based, in `animals[]` order. */
   number: number;
@@ -44,8 +56,9 @@ export interface Animal {
   species: SpeciesId;
   stats: AnimalStats;
   topTokens: string[];
-  /** Two or three field notes written from the numbers. */
+  /** Two or three field notes written from the numbers; deep seeds add a fourth on recent form. */
   notes: string[];
+  recentForm?: RecentForm;
 }
 
 export interface HerdStats {
@@ -306,6 +319,15 @@ export function fieldNotes(id: SpeciesId, s: AnimalStats, h: Herd): string[] {
   return notes;
 }
 
+/** The deep-seed line: what the profiler says the animal actually banked lately. */
+export function formNote(f: RecentForm): string {
+  if (f.realizedPnlUsd > 0) return `Fresh tracks: ${usd(f.realizedPnlUsd)} realized these last thirty days, ${pc(f.winRate)} of its exits in profit.`;
+  if (f.realizedPnlUsd < 0) return `Fresh tracks: ${usd(-f.realizedPnlUsd)} given back these last thirty days; ${pc(f.winRate)} of its exits in profit.`;
+  return f.trades > 0
+    ? `Fresh tracks: nothing realized these last thirty days across ${int(f.trades)} trades.`
+    : "Fresh tracks: none; it has not closed a trade these last thirty days.";
+}
+
 /* ---------- row → animal ---------- */
 
 function toStats(row: LeaderRow): AnimalStats {
@@ -346,12 +368,18 @@ function inferChain(row: LeaderRow): AnimalChain {
   return /^0x[0-9a-fA-F]{40}$/.test(row.address) ? "evm" : "solana";
 }
 
-/** Builds the menagerie. One leaderboard call: 5 credits on a full run (cap 20). */
+/**
+ * Builds the menagerie.
+ * Standard: one leaderboard call, 5 credits. Deep (`DEEP=1` in the seed's environment): a herd of 60
+ * from the same 5-credit call, plus `profiler.pnlSummary` for the first 40 animals at 1 credit each,
+ * about 45 credits in all (seed cap 60). Animals whose chain is unknown ("evm") are not looked up.
+ */
 export async function buildMenagerie(nansen: NansenClient): Promise<MenagerieData> {
   const window = lastDays(30);
+  const deep = process.env.DEEP === "1";
 
   const board = await nansen.smartMoney.pnlLeaderboard(
-    { chains: [...CHAINS], timeframe: 30, pagination: { page: 1, per_page: HERD_SIZE } },
+    { chains: [...CHAINS], timeframe: 30, pagination: { page: 1, per_page: deep ? DEEP_HERD_SIZE : HERD_SIZE } },
     { tag: "herd" },
   );
 
@@ -386,6 +414,30 @@ export async function buildMenagerie(nansen: NansenClient): Promise<MenagerieDat
   animals.forEach((a, i) => {
     a.number = i + 1;
   });
+
+  if (deep) {
+    // Recent form for the first animals, one credit each. A wallet that fails to resolve is simply left without it.
+    for (const animal of animals.slice(0, DEEP_FORM_COUNT)) {
+      const chain = animal.chain;
+      if (chain === "evm") continue;
+      try {
+        const summary = await nansen.profiler.pnlSummary(
+          { wallet_address: animal.address, chain, date: window },
+          { tag: `form:${animal.address.slice(0, 8)}` },
+        );
+        const form: RecentForm = {
+          realizedPnlUsd: num(summary.realized_pnl_usd),
+          winRate: pct(summary.win_rate),
+          trades: num(summary.traded_times),
+          tokens: num(summary.traded_token_count),
+        };
+        animal.recentForm = form;
+        animal.notes.push(formNote(form));
+      } catch (err) {
+        console.error(`[menagerie] no recent form for ${animal.address}: ${err instanceof Error ? err.message : String(err)}`);
+      }
+    }
+  }
 
   return { generatedAt: new Date().toISOString(), window, herd, species, animals };
 }

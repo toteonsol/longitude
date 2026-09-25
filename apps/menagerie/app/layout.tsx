@@ -10,8 +10,17 @@ const body = Crimson_Pro({ subsets: ["latin"], variable: "--font-body", style: [
 const display = Caveat({ subsets: ["latin"], variable: "--font-display" });
 const mono = Courier_Prime({ subsets: ["latin"], variable: "--font-mono", weight: ["400", "700"] });
 
+/** A blank NEXT_PUBLIC_APP_URL_TEMPLATE in the environment yields an empty string; the build must not die on it. */
+const metadataBase = (() => {
+  try {
+    return new URL(appUrl("menagerie"));
+  } catch {
+    return undefined;
+  }
+})();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(appUrl("menagerie")),
+  ...(metadataBase ? { metadataBase } : {}),
   openGraph: { images: ["/og"] },
   twitter: { card: "summary_large_image", images: ["/og"] },
   title: "MENAGERIE · LONGITUDE",

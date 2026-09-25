@@ -8,7 +8,8 @@ for (const file of [".env", ".env.local"]) {
   try {
     for (const line of readFileSync(resolve(process.cwd(), "../..", file), "utf8").split("\n")) {
       const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*?)\s*$/);
-      if (m && process.env[m[1] as string] === undefined) process.env[m[1] as string] = (m[2] as string).replace(/^["']|["']$/g, "");
+      const value = m ? (m[2] as string).replace(/^["']|["']$/g, "") : "";
+      if (m && value !== "" && process.env[m[1] as string] === undefined) process.env[m[1] as string] = value;
     }
   } catch {
     /* no root env file here */

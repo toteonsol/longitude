@@ -2,12 +2,18 @@
 import { AnimatePresence, NumberTicker, Stagger, StaggerItem, type Transition, type Variants, fmt, motion, useReducedMotion } from "@longitude/motion";
 import { useEffect, useState } from "react";
 import type { Animal, AnimalChain, Herd, Species } from "@/lib/data";
+import { type CollectedItem, shortDate } from "@/lib/journal";
 import { Silhouette } from "./Silhouette";
+import { Stamp } from "./Stamp";
 
 interface Props {
   animal: Animal | null;
   species: Species | null;
   herd: Herd;
+  /** The journal entry for this animal, if it has been logged. */
+  collected: CollectedItem | null;
+  /** Logs the animal; resolves false when the journal could not be reached. */
+  onCollect: (animal: Animal) => Promise<boolean>;
   onClose: () => void;
 }
 
@@ -41,11 +47,48 @@ function Stat({ label, value, format, herd }: { label: string; value: number; fo
   );
 }
 
+/** "Log this specimen": the seal lands only once the journal confirms, and a missing journal fails quietly. */
+function CollectButton({ animal, collected, onCollect }: { animal: Animal; collected: CollectedItem | null; onCollect: (animal: Animal) => Promise<boolean> }) {
+  const [status, setStatus] = useState<"idle" | "pending" | "failed">("idle");
+  useEffect(() => {
+    if (status !== "failed") return;
+    const t = setTimeout(() => setStatus("idle"), 2800);
+    return () => clearTimeout(t);
+  }, [status]);
+
+  if (collected) {
+    const when = shortDate(collected.addedAt);
+    return (
+      <p className="notes__logged">
+        <span className="notes__seal" aria-hidden="true">
+          <Stamp />
+        </span>
+        Logged in your journal{when ? ` · ${when}` : ""}
+      </p>
+    );
+  }
+  return (
+    <button
+      type="button"
+      className={`notes__collect${status === "failed" ? " is-failed" : ""}`}
+      disabled={status === "pending"}
+      aria-live="polite"
+      onClick={async () => {
+        setStatus("pending");
+        const ok = await onCollect(animal);
+        setStatus(ok ? "idle" : "failed");
+      }}
+    >
+      {status === "pending" ? "Logging…" : status === "failed" ? "The journal is out of reach. Try again?" : "Log this specimen"}
+    </button>
+  );
+}
+
 /**
  * The journal page. A side page laid on the desk on wide screens, a bottom sheet on phones.
  * Keyed by address so hopping between animals turns the page.
  */
-export function FieldNotes({ animal, species, herd, onClose }: Props) {
+export function FieldNotes({ animal, species, herd, collected, onCollect, onClose }: Props) {
   const reduce = useReducedMotion();
   const sheet = useMediaQuery(SHEET_QUERY);
 
@@ -117,6 +160,8 @@ export function FieldNotes({ animal, species, herd, onClose }: Props) {
               <code className="notes__addr">{animal.address}</code>
             </div>
 
+            <CollectButton key={animal.address} animal={animal} collected={collected} onCollect={onCollect} />
+
             <dl className="notes__stats">
               <Stat label="Win rate" value={animal.stats.winRate} format={(n) => `${n.toFixed(0)}%`} herd={`herd ${m.winRate.toFixed(0)}%`} />
               <Stat label="PnL · 30d" value={animal.stats.pnlUsd} format={fmt.usdSigned} herd={`herd ${fmt.usd(m.pnlUsd)}`} />
@@ -125,6 +170,16 @@ export function FieldNotes({ animal, species, herd, onClose }: Props) {
               <Stat label="Avg ROI" value={animal.stats.avgRoi} format={(n) => fmt.pctSigned(n, 0)} herd={`herd ${fmt.pctSigned(m.avgRoi, 0)}`} />
               <Stat label="Held" value={animal.stats.heldTokens} format={fmt.int} herd={`herd ${fmt.int(m.heldTokens)}`} />
             </dl>
+
+            {animal.recentForm ? (
+              <p className="notes__form">
+                <span className="notes__formlabel">Fresh tracks · 30d realized</span>
+                <b>{fmt.usdSigned(animal.recentForm.realizedPnlUsd)}</b>
+                <span>
+                  {animal.recentForm.winRate.toFixed(0)}% win · {fmt.int(animal.recentForm.trades)} trades · {fmt.int(animal.recentForm.tokens)} tokens
+                </span>
+              </p>
+            ) : null}
 
             <h3 className="notes__h">Field notes</h3>
             <Stagger className="notes__list" gap={0.2} delay={0.45}>

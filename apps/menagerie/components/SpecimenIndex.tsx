@@ -9,6 +9,8 @@ interface Props {
   speciesById: Record<SpeciesId, Species>;
   highlight: SpeciesId | null;
   selected: string | null;
+  /** Addresses logged in the visitor's journal. */
+  collected: ReadonlyMap<string, unknown>;
   onSelect: (address: string) => void;
 }
 
@@ -23,7 +25,7 @@ const PLURAL: Record<SpeciesId, string> = {
 };
 
 /** The catalogue under the plate: every specimen, filed in order, and a second way to reach the notes. */
-export function SpecimenIndex({ animals, speciesById, highlight, selected, onSelect }: Props) {
+export function SpecimenIndex({ animals, speciesById, highlight, selected, collected, onSelect }: Props) {
   const shown = highlight ? animals.filter((a) => a.species === highlight) : animals;
   const sub = highlight
     ? `${shown.length} ${shown.length === 1 ? speciesById[highlight].name.toLowerCase() : PLURAL[highlight]} on the plate · tap the legend again to see the whole herd`
@@ -41,10 +43,17 @@ export function SpecimenIndex({ animals, speciesById, highlight, selected, onSel
         {shown.map((a) => {
           const sp = speciesById[a.species];
           const open = selected === a.address;
+          const logged = collected.has(a.address);
           return (
             <StaggerItem key={a.address} y={10}>
-              <button type="button" className={`specimen specimen--${a.species}${open ? " is-open" : ""}`} onClick={() => onSelect(a.address)} aria-pressed={open}>
+              <button
+                type="button"
+                className={`specimen specimen--${a.species}${open ? " is-open" : ""}${logged ? " is-collected" : ""}`}
+                onClick={() => onSelect(a.address)}
+                aria-pressed={open}
+              >
                 <span className="specimen__no">No. {String(a.number).padStart(2, "0")}</span>
+                {logged ? <span className="specimen__logged">Logged</span> : null}
                 <span className="specimen__sil">
                   <Silhouette species={a.species} />
                 </span>
