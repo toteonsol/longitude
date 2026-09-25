@@ -2,7 +2,7 @@ import { APPS } from "@longitude/kit";
 import { readManifest, readTotals } from "@longitude/kit/server";
 import { Globe } from "@/components/Globe";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export default async function StorePage() {
   const [manifest, totals] = await Promise.all([readManifest(), readTotals().catch(() => undefined)]);
