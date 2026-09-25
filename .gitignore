@@ -1,0 +1,26 @@
+# deps
+node_modules/
+.pnpm-store/
+
+# builds
+.next/
+out/
+dist/
+.turbo/
+*.tsbuildinfo
+
+# env
+.env
+.env.*
+!.env.example
+
+# local caches & logs
+.cache/
+.nansen-cache/
+data/nansen-calls.jsonl
+
+# misc
+.DS_Store
+*.log
+.vercel
+coverage/

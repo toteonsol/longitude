@@ -1,0 +1,23 @@
+{
+  "name": "@longitude/nansen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "generate": "openapi-typescript ./openapi.json -o ./src/generated/openapi.d.ts --alphabetize --default-non-nullable=false && node scripts/gen-credits.mjs",
+    "sync-spec": "curl -sL https://api.nansen.ai/openapi.json -o openapi.json && pnpm generate"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "openapi-typescript": "^7.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.2"
+  }
+}

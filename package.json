@@ -1,0 +1,24 @@
+{
+  "name": "longitude",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "seed": "turbo run seed",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "nansen:account": "node --env-file-if-exists=.env --import tsx packages/nansen/scripts/account.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.23.15",
+    "turbo": "^2.11.4",
+    "typescript": "^5.9.3"
+  }
+}
