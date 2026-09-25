@@ -24,7 +24,7 @@ Deadline: **Sep 27, 23:59 UTC** (Sep 28, 07:59 Manila).
 - **Documentation & submission:** "Clean README. Followable recording. No narration needed. Another builder can run it in under 10 minutes."
 
 ## Our checklist
-- [ ] 1,000+ API calls (the store's counter and `data/nansen-calls.jsonl` are the proof). Plan: seeds for ten apps (~250 calls), deep seeds (`DEEP=1`) that fetch more prospects/holders/houses, `SEED_FRESH=1` re-runs before the demo, cron runs, refresh-live during the recording, zero-credit search calls from the wallet lookup features.
+- [ ] 1,000+ API calls (the store's counter and `data/nansen-calls.jsonl` are the proof). Status Thu 25 Sep 19:40 Manila: **502 calls, 755 credits spent, 2,245 left**. A full deep run (`SEED_FRESH=1 DEEP=1 pnpm seed:all`) is ~340 calls / ~450 credits; a standard run ~175 calls / ~230 credits. Plan: one deep run Saturday (~840), one standard run before the demo (~1,015), plus refresh-live, scout-any-wallet and cron runs on top.
 - [ ] Every app loads live data end to end in the recording: show the snapshot, press **Refresh live**, show the live badge.
 - [ ] README: clone → `pnpm install` → `.env` → `pnpm dev` → `pnpm seed:all` in under 10 minutes, no narration needed.
 - [ ] Demo recording with no crashes; post on X tagging @nansen_ai; public GitHub repo; submit the form.
