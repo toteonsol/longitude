@@ -24,7 +24,7 @@ in five seconds and a pro can skip it.
 
 ## Live
 
-**Store:** https://longitude-sigma.vercel.app
+**Store:** https://longitude.web3wikis.com
 
 | App | URL |
 | --- | --- |
