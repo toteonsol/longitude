@@ -156,12 +156,13 @@ body {
   min-height: 64px;
   padding: 10px 14px 12px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    "sym flow"
-    "meta meta";
-  gap: 4px 10px;
-  align-items: baseline;
+    "sym"
+    "flow"
+    "meta";
+  gap: 4px;
+  align-content: start;
   text-align: left;
   cursor: pointer;
   color: var(--lg-ink);
@@ -201,7 +202,7 @@ body {
   grid-area: sym;
   font-family: var(--lg-font-display);
   font-size: 20px;
-  line-height: 1;
+  line-height: 1.15;
   letter-spacing: 0.02em;
   white-space: nowrap;
   overflow: hidden;
@@ -264,7 +265,7 @@ body {
   font-family: var(--lg-font-mono);
   font-weight: 700;
   font-size: clamp(18px, 2.2vw, 26px);
-  line-height: 1;
+  line-height: 1.15;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.01em;
   white-space: nowrap;
@@ -287,10 +288,12 @@ body {
   margin-top: 7px;
   font-family: var(--lg-font-mono);
   font-size: 10.5px;
+  line-height: 1.4;
   color: var(--ink-dim);
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* Crowd poll: two engraved toggles under the stats */
@@ -850,6 +853,29 @@ body {
 .ledger__nansen:hover,
 .ledger__nansen:focus-visible {
   color: var(--brass-hi);
+}
+
+/* Beside the dial on a laptop the ledger column can be narrow; rows then use the phone layout so the
+   wallet name keeps its own line instead of being squeezed out. */
+.ledger {
+  container: ledger / inline-size;
+}
+
+@container ledger (max-width: 500px) {
+  .ledger__main {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "time state"
+      "who value"
+      "meta meta";
+    gap: 4px 10px;
+  }
+  .ledger__idx {
+    display: none;
+  }
+  .ledger__meta {
+    white-space: normal;
+  }
 }
 
 .ledger__foot {

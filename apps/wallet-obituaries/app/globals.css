@@ -705,12 +705,11 @@ body {
 }
 
 .rail__who {
-  overflow: hidden;
   font-family: var(--lg-font-mono);
   font-size: 11px;
+  line-height: 1.35;
   color: var(--ink-60);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .rail__val {
