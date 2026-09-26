@@ -1,12 +1,12 @@
 "use client";
-import { ShareButton, useIdentity } from "@longitude/kit";
+import { NansenLink, ShareButton, caption, useIdentity } from "@longitude/kit";
 import { Grow, NumberTicker, Reveal, fmt } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import Link from "next/link";
 import type { CohortMedians, Prospect } from "@/lib/data";
 import type { ScoutResult } from "@/lib/scout";
 import { ScoutSearch } from "./ScoutSearch";
-import { useRoster } from "./Roster";
+import { DRAFT_CAPTION, useRoster } from "./Roster";
 
 function Bar({ label, value, median, format }: { label: string; value: number; median: number; format: (n: number) => string }) {
   const max = Math.max(value, median, 1e-9);
@@ -59,9 +59,12 @@ export function ScoutReport({ result, medians: m, cohortSize }: { result: ScoutR
         <div className="scout__head">
           <div>
             <p className="draft__kicker">Scouting report · {result.chain} · last 90 days · vs {cohortSize || "the"} smart money wallets</p>
-            <h2 className="scout__addr lg-addr" title={result.address}>
-              {shortAddress(result.address, 8)}
-            </h2>
+            <div className="scout__id">
+              <h2 className="scout__addr lg-addr" title={result.address}>
+                {shortAddress(result.address, 8)}
+              </h2>
+              <NansenLink address={result.address} chain={result.chain} label="Open in Nansen Profiler" />
+            </div>
           </div>
           <div className="scout__score">
             <b>
@@ -91,7 +94,15 @@ export function ScoutReport({ result, medians: m, cohortSize }: { result: ScoutR
           </div>
         ) : null}
         <div className="scout__actions">
-          <button type="button" className={`card__draft${drafted ? " is-drafted" : ""}`} disabled={drafted} onClick={() => void roster.draft(prospect, me?.handle ?? "Someone")}>
+          <button
+            type="button"
+            className={`card__draft${drafted ? " is-drafted" : ""}`}
+            disabled={drafted}
+            onClick={() => {
+              caption(DRAFT_CAPTION);
+              void roster.draft(prospect, me?.handle ?? "Someone");
+            }}
+          >
             {drafted ? "On your roster" : "Draft this wallet"}
           </button>
           <ShareButton text={`I scouted ${shortAddress(result.address)} on Rookie Scout: ${result.similarity}/100 similarity to smart money, grade ${result.grade}. LONGITUDE, built on @nansen_ai`} />

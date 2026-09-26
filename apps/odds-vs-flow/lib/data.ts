@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, RowOf } from "@longitude/nansen";
 import { CreditCapExceededError } from "@longitude/nansen";
 
@@ -346,7 +347,7 @@ const volume24h = (c: Candidate): number => num(c.row.volume_24hr);
  * screener queries and one netflow), at most 22 with every fallback. Seed cap: 30.
  */
 export async function buildOddsVsFlow(nansen: NansenClient): Promise<OddsVsFlowData> {
-  const deep = process.env.DEEP === "1";
+  const deep = isDeep();
   const assets: readonly Asset[] = deep ? [...CORE_ASSETS, ...DEEP_ASSETS] : CORE_ASSETS;
   const chains: readonly Chain[] = deep ? DEEP_CHAINS : CORE_CHAINS;
   const maxBouts = deep ? 6 : 4;

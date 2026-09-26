@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { AnimatePresence, motion } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import { useEffect, useRef, useState } from "react";
@@ -121,7 +122,7 @@ export function CrestNode({ address, size, role, relation, at, label, txHash, ch
               <div>
                 <dt>Address</dt>
                 <dd className="lg-addr" title={address}>
-                  {shortAddress(address, 6)}
+                  {shortAddress(address, 6)} <NansenLink address={address} chain={chain} />
                 </dd>
               </div>
               {facts?.map((f) => (

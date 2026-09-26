@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { NumberTicker, type Variants, motion, useReducedMotion } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import type { Obituary as Notice } from "@/lib/data";
@@ -89,6 +90,7 @@ function ExitNotice({ o, live }: { o: Notice; live: boolean }) {
         <dt>Sold</dt>
         <dd>
           {qty(o.exit.amount)} {o.exit.symbol}
+          <NansenLink kind="token" address={o.exit.tokenAddress} chain={o.chain} className="obit-nansen" />
         </dd>
       </div>
       <div>
@@ -107,6 +109,7 @@ function ExitNotice({ o, live }: { o: Notice; live: boolean }) {
           <a className="lg-addr" href={ex.address(o.address)} target="_blank" rel="noreferrer" title={o.address}>
             {shortAddress(o.address, 5)}
           </a>
+          <NansenLink address={o.address} chain={o.chain} className="obit-nansen" />
         </dd>
       </div>
     </dl>

@@ -1,6 +1,6 @@
 "use client";
-import { ReactionBar, social, useIdentity } from "@longitude/kit";
-import { AnimatePresence, motion, useAnimationFrame, useMotionValue } from "@longitude/motion";
+import { ReactionBar, caption, social, useIdentity } from "@longitude/kit";
+import { AnimatePresence, fmt, motion, useAnimationFrame, useMotionValue } from "@longitude/motion";
 import { type KeyboardEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { AsTheChainTurnsData, CastMember, Scene } from "@/lib/data";
 import { hhmm, longDate } from "@/lib/format";
@@ -51,6 +51,29 @@ function cueLabel(c: Cue, total: number): string {
   if (c.kind === "previously") return "Previously on…";
   if (c.kind === "end") return "To be continued";
   return `Scene ${c.scene.index} of ${total} · ${c.scene.title}`;
+}
+
+/**
+ * Recording caption (?rec=1) for a dramatic zoom: why this real trade got the big camera move. The
+ * reasons are the ones annotate() in lib/data.ts marks: a reversal, a token two cast members share,
+ * or the cast's biggest buy or sell.
+ */
+function zoomCaption(s: Scene, coStar: string | undefined): string {
+  const token = s.symbol.length <= 12 ? `$${s.symbol}` : "this token";
+  switch (s.kind) {
+    case "big-buy":
+      return `Dramatic zoom: the biggest buy by anyone in tonight's cast, ${fmt.usd(s.valueUsd)} of ${token} at ${hhmm(s.at)} UTC.`;
+    case "big-sell":
+      return `Dramatic zoom: the biggest sell by anyone in tonight's cast, ${fmt.usd(s.valueUsd)} of ${token} at ${hhmm(s.at)} UTC.`;
+    case "reversal":
+      return s.action === "buy"
+        ? `Dramatic zoom: Nansen shows this wallet sold ${token} earlier and is now buying it back.`
+        : `Dramatic zoom: Nansen shows this wallet bought ${token} earlier and is now selling it.`;
+    case "shared":
+      return `Dramatic zoom: ${coStar ?? "another wallet in the cast"} traded ${token} too, so two real wallets share this scene.`;
+    default:
+      return `Dramatic zoom: a real ${fmt.usd(s.valueUsd)} smart money trade at ${hhmm(s.at)} UTC, from Nansen.`;
+  }
 }
 
 /**
@@ -175,6 +198,23 @@ export function EpisodePlayer({ data }: { data: AsTheChainTurnsData }) {
     announced.current = true;
     void social.event("custom", `${me.handle} is watching Ep. ${episode.number} "${episode.title}"`);
   }, [playing, me, episode.number, episode.title]);
+
+  // Recording captions (?rec=1). The episode start is announced a moment after the title card comes up,
+  // so the caption bar is already listening on first load; a replay from the top announces it again.
+  const opening = cue === 0 && playing;
+  useEffect(() => {
+    if (!opening) return;
+    const n = scenes.length;
+    const line = `Episode ${episode.number} starts: ${n === 1 ? "one scene, a real" : `${n} scenes, each a real`} smart money DEX trade from Nansen.`;
+    const timer = setTimeout(() => caption(line), 800);
+    return () => clearTimeout(timer);
+  }, [opening, episode.number, scenes.length]);
+  // A dramatic zoom explains itself once, as its scene comes on screen.
+  const zoomScene = activeScene?.zoom === "dramatic" ? activeScene : undefined;
+  useEffect(() => {
+    if (!zoomScene) return;
+    caption(zoomCaption(zoomScene, zoomScene.coStar ? castByAddress.get(zoomScene.coStar)?.character.name : undefined));
+  }, [zoomScene, castByAddress]);
   // The audience reacts to the scene on screen; between scenes, to the episode. Keyed so counts reset per target.
   const audienceTarget = activeScene ? `scene:${episode.number}:${activeScene.index}` : `episode:${episode.number}`;
 

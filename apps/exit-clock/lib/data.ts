@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, RequestBody, RowOf } from "@longitude/nansen";
 import { NansenApiError, isEvmChain, lastDays } from "@longitude/nansen";
 
@@ -383,7 +384,7 @@ export async function fetchTrades(
  * The seed cap is 60. DEEP is read here, server-side only; the UI derives everything from `tokens`.
  */
 export async function buildExitClock(nansen: NansenClient): Promise<ExitClockData> {
-  const deep = process.env.DEEP === "1";
+  const deep = isDeep();
   const tokenCount = deep ? TOKENS_DEEP : TOKENS;
   const nowMs = Date.now();
   const range = lastDays(WINDOW_DAYS, new Date(nowMs));

@@ -1,5 +1,5 @@
 "use client";
-import { ReactionBar, social, useIdentity } from "@longitude/kit";
+import { NansenLink, ReactionBar, caption, social, useIdentity } from "@longitude/kit";
 import { NumberTicker, Reveal, fmt, useClock, useMounted, useReducedMotion } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import { useMemo, useState } from "react";
@@ -10,6 +10,17 @@ import { Ledger } from "./Ledger";
 import { Pin } from "./Pin";
 import { TokenTabs } from "./TokenTabs";
 import { type WatchData, useWatchlist, watchId } from "./useWatchlist";
+
+/**
+ * Recording caption (?rec=1) for a hand the visitor picks or watches: where its countdown comes from.
+ * A hand with its own round trips always has an observed last buy, so "trader" implies a trade anchor.
+ */
+function handCaption(h: Holder, symbol: string): string {
+  const hold = formatHold(h.avgHoldHours);
+  if (h.holdSource === "trader") return `Countdown: its last $${symbol} buy plus its usual ${hold} hold, from this wallet's own trades on Nansen.`;
+  if (h.holdSource === "token") return `No round trip of its own on Nansen yet, so this hand uses the ${hold} median hold for $${symbol}.`;
+  return `No round trips on $${symbol} in the sampled Nansen trades, so this hand assumes a ${hold} hold.`;
+}
 
 export function ExitClock({ data }: { data: ExitClockData }) {
   const [index, setIndex] = useState(0);
@@ -54,7 +65,12 @@ export function ExitClock({ data }: { data: ExitClockData }) {
     setHovered(null);
     setLastHovered(null);
   };
-  const toggle = (address: string) => setSelected((cur) => (cur === address ? null : address));
+  const toggle = (address: string) => {
+    const picking = selected !== address;
+    setSelected((cur) => (cur === address ? null : address));
+    const h = picking ? holders.find((x) => x.address === address) : undefined;
+    if (h) caption(handCaption(h, token.symbol));
+  };
 
   const idOf = (h: Holder) => watchId(token.chain, token.address, h.address);
   const watchedHere = new Set(holders.filter((h) => watch.has(idOf(h))).map((h) => h.address));
@@ -77,6 +93,7 @@ export function ExitClock({ data }: { data: ExitClockData }) {
       valueUsd: h.valueUsd,
     };
     watch.add(id, item);
+    caption(handCaption(h, token.symbol));
     if (first) {
       const ms = remainingMs(h.expectedExitAt, now);
       const when = ms <= 0 ? `overdue by ${formatCountdown(-ms)}` : `exits in ${formatCountdown(ms)}`;
@@ -93,6 +110,9 @@ export function ExitClock({ data }: { data: ExitClockData }) {
     setSelected(w.address);
     setHovered(null);
     setLastHovered(w.address);
+    const picked = data.tokens[i];
+    const h = picked?.holders.find((x) => x.address === w.address);
+    if (picked && h) caption(handCaption(h, picked.symbol));
   };
 
   return (
@@ -181,6 +201,7 @@ function Plate({ token, holder, now, overdue, watched, onWatch }: PlateProps) {
     return (
       <div className="dial__plate">
         <span className="dial__plate-sym">${token.symbol}</span>
+        <NansenLink kind="token" address={token.address} chain={token.chain} className="plate__nansen" />
         <span className="dial__plate-meta">
           {token.chain} · {token.holders.length} hands · <em>{overdue} overdue</em> · median hold {formatHold(token.medianHoldHours)}
         </span>
@@ -193,7 +214,9 @@ function Plate({ token, holder, now, overdue, watched, onWatch }: PlateProps) {
   return (
     <div className={`dial__plate is-${exitState(ms)}`}>
       <span className="dial__plate-sym">{holder.label}</span>
-      <span className="dial__plate-meta lg-addr">{shortAddress(holder.address, 6)}</span>
+      <span className="dial__plate-meta lg-addr">
+        {shortAddress(holder.address, 6)} <NansenLink address={holder.address} chain={token.chain} />
+      </span>
       <span className="dial__plate-time">
         {ms <= 0 ? "overdue by" : "exits in"} <b>{formatCountdown(ms)}</b>
       </span>

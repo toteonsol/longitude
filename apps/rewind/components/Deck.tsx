@@ -1,5 +1,5 @@
 "use client";
-import { Leaderboard, social, useIdentity } from "@longitude/kit";
+import { Leaderboard, caption, social, useIdentity } from "@longitude/kit";
 import { Reveal, Stagger, StaggerItem, useMotionValue, useReducedMotion } from "@longitude/motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { RewindData } from "@/lib/data";
@@ -33,6 +33,10 @@ export function Deck({ data }: { data: RewindData }) {
   /** Bumped once the points have landed, so the board refetches after the write, not before. */
   const [boardTick, setBoardTick] = useState(0);
 
+  // Recording captions (?rec=1). A wheel drag crosses several tapes; only the one it settles on is narrated.
+  const tapeCaption = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useEffect(() => () => clearTimeout(tapeCaption.current), []);
+
   const goTo = useCallback(
     (i: number) => {
       const next = Math.max(0, Math.min(tapes.length - 1, i));
@@ -40,8 +44,16 @@ export function Deck({ data }: { data: RewindData }) {
       setIndex(next);
       setCall(null);
       setPhase("idle");
+      const label = tapes[next]?.label;
+      clearTimeout(tapeCaption.current);
+      if (label) {
+        tapeCaption.current = setTimeout(
+          () => caption(`These are the tokens Nansen's historical screener showed smart money buying in the week up to ${label}.`),
+          450,
+        );
+      }
     },
-    [index, phase, tapes.length],
+    [index, phase, tapes],
   );
 
   // PLAY: the paths draw (staggered per pick), then the verdict lands and the score is written.
@@ -72,11 +84,16 @@ export function Deck({ data }: { data: RewindData }) {
   if (!tape) return <p className="lg-muted">This snapshot holds no tapes yet.</p>;
 
   const lock = () => {
-    if (phase === "idle" && call) setPhase("locked");
+    if (phase !== "idle" || !call) return;
+    setPhase("locked");
+    clearTimeout(tapeCaption.current);
+    caption("Call locked. Each cassette now links to its token in Nansen. Press play to see the next 30 days.");
   };
   const play = () => {
     if (phase !== "locked") return;
     setPhase("playing");
+    // Held long enough to stay up through the verdict.
+    caption(`Each line is a pick's real daily price from Nansen over the 30 days after ${tape.label}.`, 7000);
     // Single-column layouts: bring the screen up so the reveal is on screen when it starts.
     if (window.matchMedia("(max-width: 960px)").matches) tvRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   };

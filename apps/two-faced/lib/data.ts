@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, ResponseOf, RowOf } from "@longitude/nansen";
 import { CreditCapExceededError, NansenConfigError, lastDays } from "@longitude/nansen";
 
@@ -343,7 +344,7 @@ const hasSpotActivity = (s: SpotSummary | undefined): boolean => Boolean(s) && (
  */
 export async function buildTwoFaced(nansen: NansenClient): Promise<TwoFacedData> {
   const window90 = lastDays(90);
-  const castSize = process.env.DEEP === "1" ? DEEP_CAST_SIZE : CAST_SIZE;
+  const castSize = isDeep() ? DEEP_CAST_SIZE : CAST_SIZE;
 
   // 1) The cast: a week of smart money perp trades on Hyperliquid, grouped by trader. 5 credits.
   const feed = await nansen.smartMoney.perpTrades({

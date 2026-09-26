@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, RowOf } from "@longitude/nansen";
 import { CreditCapExceededError } from "@longitude/nansen";
 import { houseName } from "./heraldry";
@@ -253,7 +254,7 @@ function rethrowIfCap(err: unknown): void {
  * A house whose kin or funder call fails still gets drawn.
  */
 export async function buildDynasties(nansen: NansenClient): Promise<DynastiesData> {
-  const deep = typeof process !== "undefined" && process.env?.DEEP === "1";
+  const deep = isDeep();
   const houseCount = deep ? DEEP_HOUSES : HOUSES;
 
   // 1) The patriarchs: the best smart money wallets on Ethereum this month. 5 credits.

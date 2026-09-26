@@ -1219,6 +1219,23 @@ body {
   color: var(--plum);
 }
 
+/* The Nansen pill for the scene's wallet sits beside the row's button (a link may not live inside a
+   button), laid over the row's right end; the row keeps room for it. */
+.rundown__list li {
+  position: relative;
+}
+
+.rundown__list .rundown__row {
+  padding-right: 92px;
+}
+
+.rundown__nansen {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  translate: 0 -50%;
+}
+
 /* ------------------------------------------------------------------ Phones */
 @media (max-width: 720px) {
   .player__controls {
@@ -1266,6 +1283,18 @@ body {
     grid-area: title;
     font-size: 13px;
     white-space: normal;
+  }
+  /* Three lines a row here: the pill drops to the title line, which keeps room for it. */
+  .rundown__list .rundown__row {
+    padding-right: 14px;
+  }
+  .rundown__list .rundown__title {
+    padding-right: 76px;
+  }
+  .rundown__nansen {
+    top: auto;
+    bottom: 9px;
+    translate: none;
   }
   .castcard__name {
     font-size: 24px;

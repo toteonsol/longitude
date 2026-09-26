@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, RowOf } from "@longitude/nansen";
 import { CreditCapExceededError, lastDays } from "@longitude/nansen";
 
@@ -203,7 +204,7 @@ function pctChange(candles: { close?: number }[]): number {
 export async function buildLastOnesOut(nansen: NansenClient): Promise<LastOnesOutData> {
   const range = lastDays(7);
   // Seed-time switch only. BUILDINGS itself never changes, so client code that reads it stays at 12.
-  const count = process.env.DEEP === "1" ? DEEP_BUILDINGS : BUILDINGS;
+  const count = isDeep() ? DEEP_BUILDINGS : BUILDINGS;
 
   // 1) The week's biggest smart money exits: netflow ascending by 7d flow, mid caps and up. 5 credits.
   //    A few spare rows (same 5 credits) cover the client-side guard below.

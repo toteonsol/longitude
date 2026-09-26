@@ -1,47 +1,76 @@
 # Demo recording plan (no narration needed)
 
-Target: 3 to 4 minutes, 1440p, cursor visible, no audio required. Every app shows a snapshot first, then
-**Refresh live** succeeding (the judges' "live data loads, end to end" criterion). Nothing may error.
+The judges ask for a recording that is followable with no narration. Recording mode does the narrating:
+open a page with `?rec=1` and a caption bar at the bottom explains what is on screen and which Nansen data
+drives it. Key moments add their own captions: a live refresh, a draft, a locked call. The flag follows you
+from the store into the apps and back.
+
+**Length.** Nansen's page sets no limit, but several entrants quote a 30 to 60 second demo, and X only takes
+videos up to 2:20 without Premium. So the main post is a **60-second cut**. The **full tour**, under two minutes,
+goes in a reply under it.
 
 ## Before recording
-1. Record on production: store https://longitude-sigma.vercel.app, apps at https://longitude-<app>.vercel.app.
-   Make sure NANSEN_API_KEY is on the Vercel projects (`node scripts/vercel-projects.mjs env NANSEN_API_KEY …`
-   then `scripts/deploy-vercel.sh`), otherwise Refresh live falls back to the snapshot.
-2. Trigger a fresh seed first so every snapshot is minutes old: `curl -H "Authorization: Bearer $CRON_SECRET"
-   https://longitude-sigma.vercel.app/api/cron/seed` (about a minute), or locally `SEED_FRESH=1 DEEP=1 pnpm seed:all`.
-   Use a private window so the explainer sentences show on first load.
-3. Check `data/social.json` (or Redis) has a few feed events so the ticker is alive; open two browser
-   windows so "2 on the globe now" reads true.
 
-## Shot list
-1. **Store (20s).** Globe rotating. Hover three meridians: worlds bleed in and the label on the line
-   lights up. Glide off the globe to the panel and click **Enter**, or click the line itself. Show the
-   counters: Nansen credits spent, API calls, explorers, on the globe now. Passport at 0/10. Enter Rookie Scout.
-2. **Wallet lens (20s).** Paste a wallet into the globe's search. The lens page reads it through five worlds
-   live (five credits, badge says so). Click "Full scouting report" to land in Rookie Scout.
-3. **Rookie Scout (30s).** Explainer sentence. Draft board. Flip a card: similarity score counts up. Press
-   **Draft**: roster appears, leaderboard updates. Press **Refresh live**: badge flips to live. Back to globe:
-   passport 1/10, ticker shows the draft.
-3. **Rewind (30s).** Drag the tape wheel, pick a cassette, LOCK, PLAY: paths draw, winner stamped, score,
-   leaderboard. Share button.
-4. **Exit Clock (20s).** Hands ticking, an overdue hand glowing. Watch a hand. Refresh live.
-5. **Two-Faced (20s).** Drag the dial: mask morphs, panels crossfade. Crowd verdict.
-6. **Odds vs Flow (15s).** Rope springs to the knot. Pick a side.
-7. **Last Ones Out (15s).** Windows going dark. Replay the blackout. Tap a building.
-8. **Dynasties (15s).** Tapestry unfurls, crests, connectors draw. Swear fealty.
-9. **MENAGERIE (15s).** Animals roaming, tap one, field notes. Collect.
-10. **Wallet Obituaries (15s).** Headlines typeset. Light a candle.
-11. **As The Chain Turns (20s).** Title card, episode plays, dramatic zoom, studio audience.
-12. **Store (10s).** Passport 10/10, counters higher, ticker full. End on the rotating globe.
+1. Record on production, after the automatic deep refresh at 00:00 UTC (08:00 Manila), so every badge says
+   the data is hours old at most.
+2. Use a fresh private window at 1920×1080 (1440×900 also works). Turn on Do Not Disturb. Hide the bookmarks bar.
+3. Open these tabs in this order. Each carries `?rec=1`, so each shows captions:
+   1. https://longitude-sigma.vercel.app/?rec=1
+   2. https://longitude-rewind.vercel.app/?rec=1
+   3. https://longitude-exit-clock.vercel.app/?rec=1
+   4. https://longitude-two-faced.vercel.app/?rec=1
+   5. https://longitude-last-ones-out.vercel.app/?rec=1
+   6. https://longitude-menagerie.vercel.app/?rec=1
+   7. https://longitude-as-the-chain-turns.vercel.app/?rec=1
+   8. For the full tour only: odds-vs-flow, dynasties and wallet-obituaries, the same way.
+4. Load every tab once so it is warm, then go back to tab 1.
+5. Keep this wallet on the clipboard: `0x46a83dc1a264bff133db887023d2884167094837`. It is the month's top
+   smart money trader, it fills all five wallet-lens cards, and it heads the house of Greyaward in Dynasties.
+6. Record the browser window with macOS Cmd+Shift+5 (or your own engine). Cursor visible, no audio needed.
+   Export MP4 (H.264).
 
-## X post (draft)
-LONGITUDE: ten meridians, ten ways to read smart money. A store of ten apps built on the @nansen_ai API in
-one weekend for the Meridian Buildathon. Draft rookie wallets before the label lands, rewind the tape and
-call it, watch exit clocks tick, read the obituaries of wallets that sold it all. No login, ever.
-[video] [store link] [repo link]
+## Main cut: 60 seconds
+
+| Time | Tab | Do this | The caption explains |
+| --- | --- | --- | --- |
+| 0:00 to 0:08 | 1 | Let the globe turn. Hover two meridians so their worlds bleed in. | Ten apps on the Nansen API, one per line |
+| 0:08 to 0:20 | 1 | Click the search, paste the wallet, pick the wallet result. Hover **Open in Nansen Profiler**. | One wallet read five ways by live Nansen calls |
+| 0:20 to 0:28 | 1 | Click **Full scouting report**. Rookie Scout scores the wallet live. | Any wallet scored against today's smart money |
+| 0:28 to 0:34 | 2 | Rewind: drag the tape wheel, lock a call, press PLAY. | A real past week from the historical screener |
+| 0:34 to 0:38 | 3 | Exit Clock: click a hand. | Each hand's countdown comes from its own trades |
+| 0:38 to 0:42 | 4 | Two-Faced: drag the slider across. | Spot record versus leveraged perp bets |
+| 0:42 to 0:46 | 5 | Last Ones Out: tap a building. | Where smart money left and retail still holds |
+| 0:46 to 0:50 | 6 | MENAGERIE: tap an animal. | Species from how each wallet trades |
+| 0:50 to 0:54 | 7 | As The Chain Turns: let the episode play. | The last 24 hours as a daytime soap |
+| 0:54 to 1:00 | 1 | Click the LONGITUDE wordmark. End on the globe: the API call counter is higher. | Back on the globe |
+
+## Full tour: under two minutes
+
+Same as the main cut, with these added in order:
+
+1. **After the scouting report:** go to the Rookie Scout draft board, flip a prospect card, press **Draft**,
+   then press **Refresh live**. The captions show the live call and how many credits it spent.
+2. **After MENAGERIE:** Odds vs Flow (pick a side), Dynasties (open the house of Greyaward: the same wallet
+   as the lens, with its founder and kin), Wallet Obituaries (light a candle).
+3. **End on the globe** as in the main cut.
+
+If anything shows an error, stop and re-record. Every page falls back to its snapshot, so a failure should
+only ever look like the badge saying "snapshot".
+
+## X post (draft, under 280 characters)
+
+> LONGITUDE: ten apps on the @nansen_ai API, one globe to pick from. Draft wallets before the smart money
+> label lands, rewind a real week and call it, read the obituaries of wallets that sold it all. No login.
+>
+> Try it: https://longitude-sigma.vercel.app
+> Code: https://github.com/toteonsol/longitude
+
+Attach the 60-second cut. Reply to your own post with the full tour.
 
 ## Submission checklist
-- [ ] 1,000+ API calls made in the window (store counter screenshot + data/nansen-calls.jsonl)
-- [ ] Recording posted on X, tagging @nansen_ai
-- [ ] Public GitHub repo with README (clone → run in under 10 minutes)
-- [ ] Form: email, X post link, repo link
+
+- [ ] 1,000+ API calls made in the window (https://longitude-sigma.vercel.app/api/totals shows `apiCalls`)
+- [ ] Repo made public: GitHub, Settings, General, Danger Zone, Change visibility
+- [ ] Recording posted on X, tagging @nansen_ai, with the store and repo links
+- [ ] Form on the campaign page: email, X post link, repo link
+- [ ] Submit early on Sunday, well before 23:59 UTC (Monday 07:59 Manila)

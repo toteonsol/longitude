@@ -1,11 +1,11 @@
 {
   "app": "dynasties",
   "name": "main",
-  "generatedAt": "2026-09-25T11:29:30.464Z",
+  "generatedAt": "2026-09-26T04:18:25.918Z",
   "credits": 29,
   "sample": false,
   "data": {
-    "generatedAt": "2026-09-25T11:29:30.463Z",
+    "generatedAt": "2026-09-26T04:18:25.917Z",
     "chain": "ethereum",
     "timeframeDays": 30,
     "realm": {
@@ -21,12 +21,12 @@
         "patriarch": {
           "address": "0x46a83dc1a264bff133db887023d2884167094837",
           "label": "Token Millionaire",
-          "pnlUsd": 2828988.960966489,
-          "realizedPnlUsd": 2829020.978994042,
-          "unrealizedPnlUsd": -32.018027553241595,
+          "pnlUsd": 2992636.613801549,
+          "realizedPnlUsd": 2993192.1122917454,
+          "unrealizedPnlUsd": -555.4984901964128,
           "winRate": 100,
-          "trades": 9,
-          "tokens": 2
+          "trades": 13,
+          "tokens": 3
         },
         "founder": {
           "address": "0x997a83908c2a4500cc11fe7759193f404449161d",
@@ -213,9 +213,9 @@
         "patriarch": {
           "address": "0xfa2dca328d8cc3b47dd0f9bce6933ca4531e08fb",
           "label": "Token Millionaire",
-          "pnlUsd": 873658.5861524352,
+          "pnlUsd": 1125462.400293627,
           "realizedPnlUsd": 235700.1242368505,
-          "unrealizedPnlUsd": 637958.4619155846,
+          "unrealizedPnlUsd": 889762.2760567765,
           "winRate": 100,
           "trades": 20,
           "tokens": 1
@@ -238,11 +238,11 @@
         "patriarch": {
           "address": "0x6fc072c0dcc630f23b29f7c42a5c7c739584ebf5",
           "label": "HL Perps Whale",
-          "pnlUsd": 787481.1359319411,
-          "realizedPnlUsd": 787438.7803217882,
-          "unrealizedPnlUsd": 42.355610152950376,
+          "pnlUsd": 754251.1930738573,
+          "realizedPnlUsd": 754248.7174183123,
+          "unrealizedPnlUsd": 2.4756555450716133,
           "winRate": 100,
-          "trades": 4701,
+          "trades": 4764,
           "tokens": 1
         },
         "founder": {
@@ -280,9 +280,9 @@
         "patriarch": {
           "address": "0x63a1eb0e380d990cf92057672956fc04a3366ff9",
           "label": "Uses \"W98GNJSVN\" HL Referral Code",
-          "pnlUsd": 583962.2194199917,
+          "pnlUsd": 537463.680486833,
           "realizedPnlUsd": 85325.59593620579,
-          "unrealizedPnlUsd": 498636.62348378595,
+          "unrealizedPnlUsd": 452138.08455062716,
           "winRate": 100,
           "trades": 312,
           "tokens": 2
@@ -305,9 +305,9 @@
         "patriarch": {
           "address": "0xc996a6525fa23bc41a275159a14cb87d3c3c7c2f",
           "label": "Token Millionaire",
-          "pnlUsd": 490182.89376323076,
+          "pnlUsd": 475423.48449970287,
           "realizedPnlUsd": 21482.958322913,
-          "unrealizedPnlUsd": 468699.9354403178,
+          "unrealizedPnlUsd": 453940.5261767899,
           "winRate": 100,
           "trades": 40,
           "tokens": 2
@@ -326,41 +326,16 @@
       },
       {
         "rank": 6,
-        "name": "Malwick",
-        "patriarch": {
-          "address": "0x529e5adaa87bb61d7498b0d285e12f4cc27997f4",
-          "label": "Millionaire",
-          "pnlUsd": 382917.7452798608,
-          "realizedPnlUsd": 273199.4624360798,
-          "unrealizedPnlUsd": 109718.282843781,
-          "winRate": 100,
-          "trades": 1001,
-          "tokens": 2
-        },
-        "founder": {
-          "address": "0x88888d69e48ecf811554600e4ab927004e588888",
-          "label": "",
-          "at": "2026-03-13T06:42:47.000Z",
-          "txHash": "0x9252862aa36b18f0bf9ba84d7c85e05b98edb69f5309194d8bf23092b818eef2",
-          "chain": "ethereum"
-        },
-        "members": [],
-        "branches": [],
-        "motto": "No rest for the ledger",
-        "foundedAt": "2026-03-13T06:42:47.000Z"
-      },
-      {
-        "rank": 7,
         "name": "Wynacrest",
         "patriarch": {
           "address": "0xcfaba3994c45aa03e479000300801ae35b39c388",
           "label": "Uses \"MMCSI\" HL Referral Code",
-          "pnlUsd": 369404.6052332932,
+          "pnlUsd": 424332.16078366915,
           "realizedPnlUsd": 62555.431930121915,
-          "unrealizedPnlUsd": 306849.1733031713,
-          "winRate": 85.71428571428571,
-          "trades": 34,
-          "tokens": 5
+          "unrealizedPnlUsd": 361776.72885354725,
+          "winRate": 100,
+          "trades": 32,
+          "tokens": 4
         },
         "founder": {
           "address": "0xa00a685c3e96f844aa7253903a4477b4daa061aa",
@@ -387,7 +362,7 @@
             "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
           },
           {
-            "address": "0x736989c82410c2501a591c0c35d1647edece9998",
+            "address": "0x4ec8d7529679bd610f6830c9cae3ac281e05d216",
             "label": "",
             "relation": "Deployed Contract",
             "kind": "deployed",
@@ -395,7 +370,7 @@
             "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
           },
           {
-            "address": "0x4ec8d7529679bd610f6830c9cae3ac281e05d216",
+            "address": "0x2b81abed53276d8b774d6c98dc088094fd16ba14",
             "label": "",
             "relation": "Deployed Contract",
             "kind": "deployed",
@@ -419,7 +394,7 @@
             "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
           },
           {
-            "address": "0x41a51d46be6b044f4b1931499b69ca6fce481344",
+            "address": "0xac5b8658120039df8bb9bc9dc62e9d3a96f9fa9f",
             "label": "",
             "relation": "Deployed Contract",
             "kind": "deployed",
@@ -427,23 +402,7 @@
             "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
           },
           {
-            "address": "0x9aba454fbb336cf505e3f30a9df055396a80121f",
-            "label": "",
-            "relation": "Deployed Contract",
-            "kind": "deployed",
-            "at": "2020-12-31T21:58:22.000Z",
-            "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
-          },
-          {
-            "address": "0xf45d5daf2e32144b5ff48c2c1bf9038d59bfa3ec",
-            "label": "",
-            "relation": "Deployed Contract",
-            "kind": "deployed",
-            "at": "2020-12-31T21:58:22.000Z",
-            "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
-          },
-          {
-            "address": "0x8503038b14098570441d727a23b23582d77d0216",
+            "address": "0x3de34f38bb93dd8e29a9580120334a2e13fb5f7e",
             "label": "",
             "relation": "Deployed Contract",
             "kind": "deployed",
@@ -459,23 +418,15 @@
             "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
           },
           {
-            "address": "0x9ee39ef4abdcca062a61f2d4ea1ad6e1758d5bce",
-            "label": "",
-            "relation": "Deployed Contract",
-            "kind": "deployed",
-            "at": "2020-12-31T21:58:22.000Z",
-            "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
-          },
-          {
-            "address": "0x2b81abed53276d8b774d6c98dc088094fd16ba14",
-            "label": "",
-            "relation": "Deployed Contract",
-            "kind": "deployed",
-            "at": "2020-12-31T21:58:22.000Z",
-            "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
-          },
-          {
             "address": "0xf73c075e56c1c9c482c1d91f631bb32d97d323e0",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployed",
+            "at": "2020-12-31T21:58:22.000Z",
+            "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
+          },
+          {
+            "address": "0x9ee39ef4abdcca062a61f2d4ea1ad6e1758d5bce",
             "label": "",
             "relation": "Deployed Contract",
             "kind": "deployed",
@@ -499,6 +450,14 @@
             "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
           },
           {
+            "address": "0x41a51d46be6b044f4b1931499b69ca6fce481344",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployed",
+            "at": "2020-12-31T21:58:22.000Z",
+            "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
+          },
+          {
             "address": "0xa62329a8aeaecef0011cbeaae50d3977c2be74e9",
             "label": "",
             "relation": "Deployed Contract",
@@ -507,7 +466,7 @@
             "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
           },
           {
-            "address": "0xac5b8658120039df8bb9bc9dc62e9d3a96f9fa9f",
+            "address": "0x736989c82410c2501a591c0c35d1647edece9998",
             "label": "",
             "relation": "Deployed Contract",
             "kind": "deployed",
@@ -515,7 +474,23 @@
             "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
           },
           {
-            "address": "0x3de34f38bb93dd8e29a9580120334a2e13fb5f7e",
+            "address": "0x8503038b14098570441d727a23b23582d77d0216",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployed",
+            "at": "2020-12-31T21:58:22.000Z",
+            "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
+          },
+          {
+            "address": "0x9aba454fbb336cf505e3f30a9df055396a80121f",
+            "label": "",
+            "relation": "Deployed Contract",
+            "kind": "deployed",
+            "at": "2020-12-31T21:58:22.000Z",
+            "txHash": "0xdac37ffbf097e0a3f0174832953cd343c11bd14987b7ada29ae940eb8d17817f"
+          },
+          {
+            "address": "0xf45d5daf2e32144b5ff48c2c1bf9038d59bfa3ec",
             "label": "",
             "relation": "Deployed Contract",
             "kind": "deployed",
@@ -536,14 +511,39 @@
         "foundedAt": "2020-08-04T00:25:22.000Z"
       },
       {
+        "rank": 7,
+        "name": "Malwick",
+        "patriarch": {
+          "address": "0x529e5adaa87bb61d7498b0d285e12f4cc27997f4",
+          "label": "Millionaire",
+          "pnlUsd": 375373.20918258204,
+          "realizedPnlUsd": 273199.4624360798,
+          "unrealizedPnlUsd": 102173.74674650225,
+          "winRate": 100,
+          "trades": 1001,
+          "tokens": 2
+        },
+        "founder": {
+          "address": "0x88888d69e48ecf811554600e4ab927004e588888",
+          "label": "",
+          "at": "2026-03-13T06:42:47.000Z",
+          "txHash": "0x9252862aa36b18f0bf9ba84d7c85e05b98edb69f5309194d8bf23092b818eef2",
+          "chain": "ethereum"
+        },
+        "members": [],
+        "branches": [],
+        "motto": "No rest for the ledger",
+        "foundedAt": "2026-03-13T06:42:47.000Z"
+      },
+      {
         "rank": 8,
         "name": "Lorford",
         "patriarch": {
           "address": "0xe9fc469890e3407dfeab03ace430e7af39ca8225",
           "label": "mujdatmet.eth",
-          "pnlUsd": 333905.16104262497,
-          "realizedPnlUsd": 1090.4509931150403,
-          "unrealizedPnlUsd": 332814.71004950994,
+          "pnlUsd": 319299.5367788523,
+          "realizedPnlUsd": 1090.45099311504,
+          "unrealizedPnlUsd": 318209.08578573726,
           "winRate": 50,
           "trades": 26,
           "tokens": 3
@@ -598,9 +598,9 @@
         "patriarch": {
           "address": "0x2888be6982957103ea88ac10f4179df0a294e877",
           "label": "hundo.eth",
-          "pnlUsd": 325103.23588195414,
-          "realizedPnlUsd": 69129.57449758753,
-          "unrealizedPnlUsd": 255973.6613843666,
+          "pnlUsd": 315305.72455463954,
+          "realizedPnlUsd": 69129.57449758751,
+          "unrealizedPnlUsd": 246176.15005705203,
           "winRate": 80,
           "trades": 16,
           "tokens": 5
@@ -655,9 +655,9 @@
         "patriarch": {
           "address": "0x4b5f38f61d9b3723021b2795fe5fd23495220dd8",
           "label": "High Balance",
-          "pnlUsd": 246518.31620610636,
+          "pnlUsd": 246466.65353673632,
           "realizedPnlUsd": 246216.15131074004,
-          "unrealizedPnlUsd": 302.1648953663141,
+          "unrealizedPnlUsd": 250.50222599629723,
           "winRate": 100,
           "trades": 12,
           "tokens": 5
@@ -693,38 +693,13 @@
       },
       {
         "rank": 11,
-        "name": "Pelafell",
-        "patriarch": {
-          "address": "0x5bcc44d6962ad2e35b54a8d0614f6307768d8eb1",
-          "label": "High Balance",
-          "pnlUsd": 223108.72832874247,
-          "realizedPnlUsd": 1936.0614084564772,
-          "unrealizedPnlUsd": 221172.666920286,
-          "winRate": 50,
-          "trades": 11,
-          "tokens": 2
-        },
-        "founder": {
-          "address": "0x1151314c646ce4e0efd76d1af4760ae66a9fe30f",
-          "label": "High Activity",
-          "at": "2017-10-02T21:17:21.000Z",
-          "txHash": "0xa85784d488aeadbfc611991d014f2e034cce0590835186257a95989d03a620d0",
-          "chain": "ethereum"
-        },
-        "members": [],
-        "branches": [],
-        "motto": "Alone, and unbowed",
-        "foundedAt": "2017-10-02T21:17:21.000Z"
-      },
-      {
-        "rank": 12,
         "name": "Pelenvane",
         "patriarch": {
           "address": "0xdcbf9960904c9b2fe0abcb868544af2cef1777e1",
           "label": "Uses \"THECLUB\" HL Referral Code",
-          "pnlUsd": 204225.65819701512,
+          "pnlUsd": 212181.28793344105,
           "realizedPnlUsd": 139582.72563143403,
-          "unrealizedPnlUsd": 64642.932565581075,
+          "unrealizedPnlUsd": 72598.56230200703,
           "winRate": 75,
           "trades": 7,
           "tokens": 4
@@ -740,6 +715,31 @@
         "branches": [],
         "motto": "Alone, and unbowed",
         "foundedAt": "2025-09-22T16:51:23.000Z"
+      },
+      {
+        "rank": 12,
+        "name": "Pelafell",
+        "patriarch": {
+          "address": "0x5bcc44d6962ad2e35b54a8d0614f6307768d8eb1",
+          "label": "High Balance",
+          "pnlUsd": 200992.0786252861,
+          "realizedPnlUsd": 1936.0614084564772,
+          "unrealizedPnlUsd": 199056.01721682964,
+          "winRate": 50,
+          "trades": 11,
+          "tokens": 2
+        },
+        "founder": {
+          "address": "0x1151314c646ce4e0efd76d1af4760ae66a9fe30f",
+          "label": "High Activity",
+          "at": "2017-10-02T21:17:21.000Z",
+          "txHash": "0xa85784d488aeadbfc611991d014f2e034cce0590835186257a95989d03a620d0",
+          "chain": "ethereum"
+        },
+        "members": [],
+        "branches": [],
+        "motto": "Alone, and unbowed",
+        "foundedAt": "2017-10-02T21:17:21.000Z"
       }
     ]
   }

@@ -4,6 +4,7 @@ import type { DataSource } from "../load";
 import { ProRefresh } from "../pro/client";
 import { Passport, PresenceBadge, ShareButton, SocialBoot } from "../social/client";
 import { storeUrl } from "../urls";
+import { Captions } from "./Captions";
 import { DataBadge } from "./DataBadge";
 import { Explainer } from "./Explainer";
 import { RefreshLive } from "./RefreshLive";
@@ -18,6 +19,8 @@ interface Props {
   controls?: ReactNode;
   /** Prefilled share text; defaults to the app's tagline. */
   share?: { text: string; url?: string };
+  /** Recording caption for this page (?rec=1); defaults to the app's own. */
+  caption?: string;
   children: ReactNode;
 }
 
@@ -25,7 +28,7 @@ interface Props {
  * Shared chrome: wordmark back to the store, app name, explainer, data badge, refresh-live,
  * presence, share, passport. Everything inside is the app's own world.
  */
-export function AppFrame({ app, source, error, noLive, controls, share, children }: Props) {
+export function AppFrame({ app, source, error, noLive, controls, share, caption, children }: Props) {
   const shareText = share?.text ?? `${app.name}: ${app.tagline} · LONGITUDE, built on @nansen_ai`;
   return (
     <div className="lg-frame" data-app={app.id}>
@@ -55,13 +58,16 @@ export function AppFrame({ app, source, error, noLive, controls, share, children
       <footer className="lg-frame__footer">
         <Passport />
         <span className="lg-frame__footline">
-          <span>Powered by Nansen</span>
+          <a href="https://www.nansen.ai/api" target="_blank" rel="noopener noreferrer">
+            Powered by the Nansen API
+          </a>
           <span className="lg-frame__sep" aria-hidden="true">
             ·
           </span>
           <a href={storeUrl()}>Back to the globe</a>
         </span>
       </footer>
+      <Captions kicker={app.name} base={caption ?? app.caption} />
     </div>
   );
 }

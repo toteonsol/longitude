@@ -4,9 +4,9 @@ import { shortAddress } from "@longitude/nansen";
 import { useState } from "react";
 import type { Grade, RookieScoutData } from "@/lib/data";
 import { ProspectCard } from "./ProspectCard";
-import { Roster, useRoster } from "./Roster";
+import { DRAFT_CAPTION, Roster, useRoster } from "./Roster";
 import { ScoutSearch } from "./ScoutSearch";
-import { useIdentity } from "@longitude/kit";
+import { NansenLink, caption, useIdentity } from "@longitude/kit";
 
 const GRADES: Array<Grade | "all"> = ["all", "A", "B", "C"];
 
@@ -53,7 +53,9 @@ export function DraftBoard({ data }: { data: RookieScoutData }) {
             {data.cohort.veterans.map((v) => (
               <li key={v.address} title={v.address}>
                 <span className="draft__vetlabel">{v.label}</span>
-                <span className="lg-addr">{shortAddress(v.address)}</span>
+                <span className="lg-addr">
+                  {shortAddress(v.address)} <NansenLink address={v.address} />
+                </span>
                 <span className="draft__vetpnl">{fmt.usdSigned(v.pnlUsd)}</span>
               </li>
             ))}
@@ -95,9 +97,17 @@ export function DraftBoard({ data }: { data: RookieScoutData }) {
               prospect={p}
               medians={m}
               flipped={flipped === p.address}
-              onFlip={() => setFlipped(flipped === p.address ? null : p.address)}
+              onFlip={() => {
+                const opening = flipped !== p.address;
+                setFlipped(opening ? p.address : null);
+                // Recording caption (?rec=1): where the number on the scouting report comes from.
+                if (opening) caption(`Similarity ${p.similarity}/100 comes from comparing this wallet's 90-day Nansen PnL record with labeled smart money.`);
+              }}
               drafted={roster.has(p)}
-              onDraft={() => void roster.draft(p, me?.handle ?? "Someone")}
+              onDraft={() => {
+                caption(DRAFT_CAPTION);
+                void roster.draft(p, me?.handle ?? "Someone");
+              }}
             />
           </StaggerItem>
         ))}

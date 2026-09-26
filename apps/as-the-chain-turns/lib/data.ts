@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, RowOf } from "@longitude/nansen";
 import { lastDays } from "@longitude/nansen";
 
@@ -780,7 +781,7 @@ const PREMIERE = Date.UTC(2026, 0, 5);
  * ---------------------------------------------------------------------------------------------- */
 
 export async function buildAsTheChainTurns(nansen: NansenClient): Promise<AsTheChainTurnsData> {
-  const deep = process.env.DEEP === "1";
+  const deep = isDeep();
   const castSize = deep ? 10 : 6;
   const limits: SceneLimits = deep ? { min: 8, target: 14, max: 16 } : { min: 8, target: 10, max: 12 };
 

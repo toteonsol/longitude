@@ -1,5 +1,5 @@
 "use client";
-import { APP_BY_ID, Passport, ShareButton, appUrl, storeUrl, useIdentity, withIdentity } from "@longitude/kit";
+import { APP_BY_ID, Captions, NansenLink, Passport, ShareButton, appUrl, storeUrl, useIdentity, withIdentity } from "@longitude/kit";
 import { NumberTicker, Reveal, Stagger, StaggerItem, fmt } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import type { CSSProperties } from "react";
@@ -58,6 +58,7 @@ export function WalletLens({ lens, scoutUrl }: { lens: Lens | { error: string };
             </h1>
             <p className="lens__sub">One wallet, ten meridians. Here is what five of them see. Step into any of them to go deeper.</p>
             <div className="lens__actions">
+              <NansenLink address={lens.address} chain={lens.chain} label="Open in Nansen Profiler" className="lens__nansen" />
               <ShareButton text={`${shortAddress(lens.address)} across ten meridians on LONGITUDE${lens.scout ? `: ${lens.scout.similarity}/100 similarity to smart money` : ""}. Built on @nansen_ai`} />
             </div>
           </Reveal>
@@ -104,7 +105,9 @@ export function WalletLens({ lens, scoutUrl }: { lens: Lens | { error: string };
                 <ul className="lens__list">
                   {lens.holdings.slice(0, 6).map((h) => (
                     <li key={h.symbol}>
-                      <span>${h.symbol}</span>
+                      <span>
+                        ${h.symbol} <NansenLink kind="token" address={h.token} chain={h.chain ?? lens.chain} />
+                      </span>
                       <b>{fmt.usd(h.valueUsd)}</b>
                     </li>
                   ))}
@@ -126,7 +129,9 @@ export function WalletLens({ lens, scoutUrl }: { lens: Lens | { error: string };
                   <ul className="lens__list">
                     {lens.kin.sample.map((k) => (
                       <li key={k.address}>
-                        <span className="lg-addr">{shortAddress(k.address)}</span>
+                        <span>
+                          <span className="lg-addr">{shortAddress(k.address)}</span> <NansenLink address={k.address} chain={lens.chain} />
+                        </span>
                         <b>{k.label || k.relation}</b>
                       </li>
                     ))}
@@ -144,7 +149,7 @@ export function WalletLens({ lens, scoutUrl }: { lens: Lens | { error: string };
                     <li key={`${e.symbol}-${i}`}>
                       <span>
                         ${e.symbol}
-                        {e.into ? ` → ${e.into}` : ""}
+                        {e.into ? ` → ${e.into}` : ""} <NansenLink kind="token" address={e.token} chain={lens.chain} />
                       </span>
                       <b>{fmt.usd(e.valueUsd)}</b>
                     </li>
@@ -165,6 +170,14 @@ export function WalletLens({ lens, scoutUrl }: { lens: Lens | { error: string };
         <Passport />
         <a href={storeUrl()}>Back to the globe</a>
       </footer>
+      <Captions
+        kicker="Wallet lens"
+        base={
+          "error" in lens
+            ? "Paste any Ethereum, Base or Solana wallet and five apps read it at once."
+            : "One wallet read five ways by live Nansen calls: smart money likeness, perps, holdings, family and exits."
+        }
+      />
     </div>
   );
 }

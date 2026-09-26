@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { Stagger, StaggerItem, fmt } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import type { Animal, Species, SpeciesId } from "@/lib/data";
@@ -45,7 +46,7 @@ export function SpecimenIndex({ animals, speciesById, highlight, selected, colle
           const open = selected === a.address;
           const logged = collected.has(a.address);
           return (
-            <StaggerItem key={a.address} y={10}>
+            <StaggerItem key={a.address} y={10} className="specimen__cell">
               <button
                 type="button"
                 className={`specimen specimen--${a.species}${open ? " is-open" : ""}${logged ? " is-collected" : ""}`}
@@ -68,6 +69,8 @@ export function SpecimenIndex({ animals, speciesById, highlight, selected, colle
                   </span>
                 </span>
               </button>
+              {/* Beside the card's button, never inside it; globals.css lays it over the card's top row. */}
+              <NansenLink address={a.address} chain={a.chain} className="specimen__nansen" />
             </StaggerItem>
           );
         })}

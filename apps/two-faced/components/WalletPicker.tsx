@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { type MotionValue, Stagger, StaggerItem, animate, motion, springs, useMotionValue, useMotionValueEvent } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import { useEffect } from "react";
@@ -50,6 +51,8 @@ export function WalletPicker({ wallets, selected, t, onSelect }: Props) {
       {wallets.map((w, i) => (
         <StaggerItem key={w.address} y={10} className="cast__item">
           <Seat wallet={w} selected={i === selected} t={t} onSelect={() => onSelect(i)} />
+          {/* Beside the seat, never inside it: the seat is a button. */}
+          <NansenLink address={w.address} className="cast__nansen" />
         </StaggerItem>
       ))}
     </Stagger>

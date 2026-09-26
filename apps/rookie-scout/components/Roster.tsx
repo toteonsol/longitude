@@ -1,5 +1,5 @@
 "use client";
-import { Leaderboard, ShareButton, social, useIdentity } from "@longitude/kit";
+import { Leaderboard, NansenLink, ShareButton, social, useIdentity } from "@longitude/kit";
 import { AnimatePresence, fmt, motion } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import { useCallback, useEffect, useState } from "react";
@@ -10,6 +10,9 @@ export interface RosterItem {
   addedAt: string;
   data: { address: string; chain: string; symbol: string; similarity: number; grade: string; pnlUsd: number };
 }
+
+/** Recording caption (?rec=1) for a Draft press. Call it from the click handler, never during render. */
+export const DRAFT_CAPTION = "Drafted: the wallet joins your roster and the pick counts on the shared Top scouts leaderboard.";
 
 /** EVM addresses are case-insensitive (lowercase them); Solana base58 addresses are not. */
 export const rosterKey = (p: Pick<Prospect, "chain" | "address">) => `${p.chain}:${p.address.startsWith("0x") ? p.address.toLowerCase() : p.address}`;
@@ -70,7 +73,9 @@ export function Roster({ items, release, drafted }: { items: RosterItem[]; relea
                 <motion.li key={i.id} layout initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, x: -12 }} className={`roster__item grade-${i.data.grade}`}>
                   <span className="roster__grade">{i.data.grade}</span>
                   <span className="roster__who">
-                    <b className="lg-addr">{shortAddress(i.data.address, 5)}</b>
+                    <b className="lg-addr">
+                      {shortAddress(i.data.address, 5)} <NansenLink address={i.data.address} chain={i.data.chain} />
+                    </b>
                     <small>
                       ${i.data.symbol} · {i.data.chain} · drafted at {i.data.similarity}/100
                     </small>

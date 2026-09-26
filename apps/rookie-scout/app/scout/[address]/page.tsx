@@ -43,7 +43,13 @@ export default async function ScoutPage({ params, searchParams }: { params: Prom
     ? { text: `I scouted ${shortAddress(result.address)} on Rookie Scout: ${result.similarity}/100 similarity to smart money, grade ${result.grade}. Built on @nansen_ai`, url: undefined }
     : undefined;
   return (
-    <AppFrame app={app} source={ok ? { kind: "live", fetchedAt: result.fetchedAt, credits: result.credits } : { kind: "missing" }} noLive share={share}>
+    <AppFrame
+      app={app}
+      source={ok ? { kind: "live", fetchedAt: result.fetchedAt, credits: result.credits } : { kind: "missing" }}
+      noLive
+      share={share}
+      caption="Any wallet, scored live against today's smart money from its 90-day Nansen PnL record."
+    >
       <ScoutReport result={result} medians={medians} cohortSize={snap?.data.cohort.size ?? 0} />
     </AppFrame>
   );

@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink, caption } from "@longitude/kit";
 import { NumberTicker, Stagger, StaggerItem, fmt, motion, useInView, useReducedMotion } from "@longitude/motion";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { House } from "@/lib/data";
@@ -94,6 +95,22 @@ export function HouseTree({ house, total, onFollowers }: Props) {
   const [hovered, setHovered] = useState<string | null>(null);
   const openId = hovered ?? pinned;
   const show = inView;
+
+  // Recording caption (?rec=1) as the tapestry unfurls: where this house's founder and kin come from.
+  const hasFounder = Boolean(house.founder);
+  const hasKin = house.members.length > 0;
+  useEffect(() => {
+    if (!inView) return;
+    const source =
+      hasFounder && hasKin
+        ? "its founder and kin come from Nansen's first-funder and related-wallet data"
+        : hasFounder
+          ? "its founder comes from Nansen's first-funder data"
+          : hasKin
+            ? "its kin come from Nansen's related-wallet data"
+            : "a top smart money wallet from Nansen's PnL leaderboard";
+    caption(`House ${house.name}: ${source}.`);
+  }, [inView, house.name, hasFounder, hasKin]);
 
   const measure = useCallback(() => {
     const root = tree.current;
@@ -262,7 +279,7 @@ export function HouseTree({ house, total, onFollowers }: Props) {
 
               <StaggerItem className="house__titles">
                 <p className="house__eyebrow">
-                  House {house.rank} of {total} · {p.label}
+                  House {house.rank} of {total} · {p.label} <NansenLink address={p.address} />
                 </p>
                 <h2 className="house__name">House {house.name}</h2>
                 <p className="house__motto">“{house.motto}”</p>

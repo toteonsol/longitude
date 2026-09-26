@@ -1,63 +1,63 @@
 {
   "app": "rookie-scout",
   "name": "main",
-  "generatedAt": "2026-09-25T11:32:05.936Z",
+  "generatedAt": "2026-09-26T04:30:29.569Z",
   "credits": 74,
   "sample": false,
   "data": {
-    "generatedAt": "2026-09-25T11:32:05.936Z",
+    "generatedAt": "2026-09-26T04:30:29.569Z",
     "window": {
-      "from": "2026-06-27",
-      "to": "2026-09-25"
+      "from": "2026-06-28",
+      "to": "2026-09-26"
     },
     "cohort": {
       "size": 50,
       "medians": {
-        "winRate": 48.00345721694036,
-        "pnlUsd": 1035726.175137074,
-        "trades": 1378.5,
-        "tokens": 23.5
+        "winRate": 45.60862865947612,
+        "pnlUsd": 913046.2341605807,
+        "trades": 1221,
+        "tokens": 24
       },
       "veterans": [
         {
           "address": "4ugDhHJ8XDXAeABmrNmGffFaLbJb9BkPyiFGVSV9ocwo",
           "label": "Smart Money",
-          "pnlUsd": 7005577.936632739,
-          "winRate": 64.44444444444444,
-          "trades": 3143,
-          "tokens": 38
+          "pnlUsd": 5847753.687131431,
+          "winRate": 61.224489795918366,
+          "trades": 3198,
+          "tokens": 42
         },
         {
           "address": "GZetT3iRmhuzuT1gkSk69MXMe8hRJZJGz1PPdKW1J2vq",
           "label": "Smart Money",
-          "pnlUsd": 4841441.5902437745,
-          "winRate": 39.02439024390244,
-          "trades": 8536,
-          "tokens": 105
-        },
-        {
-          "address": "zV18RQeme9fDZUbCGf7skSWNz6Vphs5j3PQUHjHdcgi",
-          "label": "Smart Money",
-          "pnlUsd": 4528083.654830963,
-          "winRate": 55.55555555555556,
-          "trades": 954,
-          "tokens": 14
-        },
-        {
-          "address": "4UrFSCrGxgoCtCUBAEZq7ZmPK3Pczkxx7PwYnkBMi1KR",
-          "label": "Smart Money",
-          "pnlUsd": 3728873.7526495075,
-          "winRate": 50,
-          "trades": 2572,
-          "tokens": 50
+          "pnlUsd": 4239936.044627315,
+          "winRate": 37.79527559055118,
+          "trades": 8769,
+          "tokens": 112
         },
         {
           "address": "EnaatNfHKJHifA6VsiZBm1dKKwY8z2aaqW8BhDYwvYJm",
           "label": "Smart Money",
-          "pnlUsd": 3677172.0873636156,
+          "pnlUsd": 3978059.9056037925,
           "winRate": 66.66666666666666,
           "trades": 18,
           "tokens": 3
+        },
+        {
+          "address": "zV18RQeme9fDZUbCGf7skSWNz6Vphs5j3PQUHjHdcgi",
+          "label": "Smart Money",
+          "pnlUsd": 3791185.1232384183,
+          "winRate": 52.94117647058824,
+          "trades": 978,
+          "tokens": 13
+        },
+        {
+          "address": "4UrFSCrGxgoCtCUBAEZq7ZmPK3Pczkxx7PwYnkBMi1KR",
+          "label": "Smart Money",
+          "pnlUsd": 3175339.584015333,
+          "winRate": 37.5,
+          "trades": 2746,
+          "tokens": 45
         }
       ]
     },
@@ -66,118 +66,248 @@
         "symbol": "BP",
         "address": "BPxxfRCXkUVhig4HS1Lh7kZqV6SPJhzfEk4x6fVBjPCy",
         "chain": "solana",
-        "netFlow7dUsd": 742159.1622327915
+        "netFlow7dUsd": 665300.3718974837
+      },
+      {
+        "symbol": "🌱 E/ACC",
+        "address": "CbcyNo7m1amFWqEQm2m4PLv1UNvpcL3C1Ujm6AkzpKoU",
+        "chain": "solana",
+        "netFlow7dUsd": 433298.35043166374
       },
       {
         "symbol": "NOCK",
         "address": "0x9b5e262cf9bb04869ab40b19af91d2dc85761722",
         "chain": "base",
-        "netFlow7dUsd": 379411.7780784837
+        "netFlow7dUsd": 371289.97755787
       },
       {
         "symbol": "ANSEM",
         "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
         "chain": "solana",
-        "netFlow7dUsd": 346134.84422162356
+        "netFlow7dUsd": 368109.07049980504
+      },
+      {
+        "symbol": "RAY",
+        "address": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+        "chain": "solana",
+        "netFlow7dUsd": 273646.08270648314
       },
       {
         "symbol": "CBBTC",
         "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
         "chain": "solana",
-        "netFlow7dUsd": 271339.93720099184
+        "netFlow7dUsd": 272111.820366523
       },
       {
         "symbol": "BNKR",
         "address": "0x22af33fe49fd1fa80c7149773dde5890d3c76f3b",
         "chain": "base",
-        "netFlow7dUsd": 254552.3271792953
+        "netFlow7dUsd": 254303.639712128
       },
       {
-        "symbol": "PEPE",
-        "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
-        "chain": "ethereum",
-        "netFlow7dUsd": 244921.3826839741
-      },
-      {
-        "symbol": "B3",
-        "address": "0xb3b32f9f8827d4634fe7d973fa1034ec9fddb3b3",
-        "chain": "base",
-        "netFlow7dUsd": 221027.49660127115
-      },
-      {
-        "symbol": "PENGU",
-        "address": "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv",
+        "symbol": "PUMP",
+        "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
         "chain": "solana",
-        "netFlow7dUsd": 207672.01296050282
+        "netFlow7dUsd": 232947.56924219604
       }
     ],
     "prospects": [
       {
         "number": 1,
-        "address": "J3XbCbEowjCJEs4dgAxa489RJyqTTFHfWpdrNFLt3mhQ",
+        "address": "BCvYeeeehuPQ7gxGhzBjGTNEtCiSyPSbsKuCqapbSvVm",
         "chain": "solana",
         "spottedOn": {
-          "symbol": "ANSEM",
-          "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 564472.9793704945,
-          "stillHoldingRatio": 0
+          "symbol": "PUMP",
+          "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+          "pnlUsd": 363860.823555754,
+          "stillHoldingRatio": 1
         },
         "stats": {
-          "winRate": 50,
-          "pnlUsd": 564472.9793704945,
-          "trades": 1509,
-          "tokens": 2,
-          "roiPct": 7.662024378569066
+          "winRate": 36.58536585365854,
+          "pnlUsd": 740740.4020329185,
+          "trades": 1208,
+          "tokens": 41,
+          "roiPct": 48.200243921007875
         },
         "topTokens": [
-          "ANSEM"
+          "PUMP",
+          "ANSEM",
+          "GP",
+          "PUMPCADE",
+          "JUP"
         ],
-        "similarity": 82,
+        "similarity": 90,
         "grade": "A",
         "verdict": "Draft",
         "report": [
-          "Wins 50% of exits, above the smart money median of 48%.",
-          "Booked $564K realized over 90 days (+8% ROI). Cohort median $1.04M.",
-          "1509 exits across 2 tokens. Active at smart money pace.",
-          "Spotted on $ANSEM with $564K PnL, 0% of its peak bag still held."
+          "Wins 37% of exits, below the smart money median of 46%.",
+          "Booked $741K realized over 90 days (+48% ROI). Cohort median $913K.",
+          "1208 exits across 41 tokens. Trades less often than the cohort.",
+          "Spotted on $PUMP with $364K PnL, 100% of its peak bag still held."
         ]
       },
       {
         "number": 2,
-        "address": "8MHU3NwzuwpkcrF8S2nzNXbkCWn3TdE9UVtB3bQWJP7b",
+        "address": "8k1BPp8pCxq7RJxxBz3BUxvBjsfjhkHKnhr2WSQABGM9",
         "chain": "solana",
         "spottedOn": {
-          "symbol": "ANSEM",
-          "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 252137.93763481412,
-          "stillHoldingRatio": 0
+          "symbol": "🌱 E/ACC",
+          "address": "CbcyNo7m1amFWqEQm2m4PLv1UNvpcL3C1Ujm6AkzpKoU",
+          "pnlUsd": 218111.23518592195,
+          "stillHoldingRatio": 0.49636829142199684
         },
         "stats": {
-          "winRate": 47.61904761904761,
-          "pnlUsd": 91854.3346487639,
-          "trades": 347,
-          "tokens": 21,
-          "roiPct": 6.841649177447014
+          "winRate": 46.42857142857143,
+          "pnlUsd": 95297.80224624688,
+          "trades": 1336,
+          "tokens": 28,
+          "roiPct": 23.08084105188122
         },
         "topTokens": [
-          "ANSEM",
-          "CARDS",
-          "USELESS",
-          "KINS",
-          "ZCAT"
+          "🌱 E/ACC",
+          "AGI",
+          "🌱 NPC",
+          "TRIPLET",
+          "KET"
         ],
-        "similarity": 68,
-        "grade": "B",
-        "verdict": "Watch",
+        "similarity": 80,
+        "grade": "A",
+        "verdict": "Draft",
         "report": [
-          "Wins 48% of exits, right on the smart money median.",
-          "Booked $92K realized over 90 days (+7% ROI). Cohort median $1.04M.",
-          "347 exits across 21 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $252K PnL, 0% of its peak bag still held."
+          "Wins 46% of exits, right on the smart money median.",
+          "Booked $95K realized over 90 days (+23% ROI). Cohort median $913K.",
+          "1336 exits across 28 tokens. Active at smart money pace.",
+          "Spotted on $🌱 E/ACC with $218K PnL, 50% of its peak bag still held."
         ]
       },
       {
         "number": 3,
+        "address": "Dr5oMBL2wpxPUCcEmCKdXPhioAWNRWYBv8Vyx6LRU1w7",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "PUMP",
+          "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+          "pnlUsd": 938233.5679204564,
+          "stillHoldingRatio": 0
+        },
+        "stats": {
+          "winRate": 71.42857142857143,
+          "pnlUsd": 992160.9345309737,
+          "trades": 83,
+          "tokens": 7,
+          "roiPct": 118.30712533711348
+        },
+        "topTokens": [
+          "PUMP",
+          "FARTCOIN",
+          "PAID"
+        ],
+        "similarity": 78,
+        "grade": "A",
+        "verdict": "Draft",
+        "report": [
+          "Wins 71% of exits, above the smart money median of 46%.",
+          "Booked $992K realized over 90 days (+118% ROI). Cohort median $913K.",
+          "83 exits across 7 tokens. Trades less often than the cohort.",
+          "Spotted on $PUMP with $938K PnL, 0% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 4,
+        "address": "987VwvJZ5FRjWCY9ZwC2tRUGL8FbMT1aF4pUrT7XjPjD",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "RAY",
+          "address": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+          "pnlUsd": 581472.4071911337,
+          "stillHoldingRatio": 0.6217464579273849
+        },
+        "stats": {
+          "winRate": 100,
+          "pnlUsd": 392899.8384389661,
+          "trades": 99828,
+          "tokens": 1,
+          "roiPct": 3.371109957681638
+        },
+        "topTokens": [
+          "RAY"
+        ],
+        "similarity": 78,
+        "grade": "A",
+        "verdict": "Draft",
+        "report": [
+          "Wins 100% of exits, above the smart money median of 46%.",
+          "Booked $393K realized over 90 days (+3% ROI). Cohort median $913K.",
+          "99828 exits across 1 tokens. Active at smart money pace.",
+          "Spotted on $RAY with $581K PnL, 62% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 5,
+        "address": "79F6D51MSKfjdK621TLnVgz35U3srZj1W8b9dxwBHAT1",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "PUMP",
+          "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+          "pnlUsd": 753933.4096881498,
+          "stillHoldingRatio": 0
+        },
+        "stats": {
+          "winRate": 66.66666666666666,
+          "pnlUsd": 786489.9132296686,
+          "trades": 42,
+          "tokens": 6,
+          "roiPct": 149.53910915882267
+        },
+        "topTokens": [
+          "PUMP",
+          "FARTCOIN"
+        ],
+        "similarity": 74,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 67% of exits, above the smart money median of 46%.",
+          "Booked $786K realized over 90 days (+150% ROI). Cohort median $913K.",
+          "42 exits across 6 tokens. Trades less often than the cohort.",
+          "Spotted on $PUMP with $754K PnL, 0% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 6,
+        "address": "6PvJFxcakbLMTWzGofBqiHGeJUpgq6gQy66DAMb3MpRN",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "PUMP",
+          "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+          "pnlUsd": 328980.9608809518,
+          "stillHoldingRatio": 0.50094665536672
+        },
+        "stats": {
+          "winRate": 50,
+          "pnlUsd": 660264.9837792296,
+          "trades": 100,
+          "tokens": 6,
+          "roiPct": 72.94732814423107
+        },
+        "topTokens": [
+          "PUMP",
+          "STONK",
+          "DEALER",
+          "JUP"
+        ],
+        "similarity": 74,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 50% of exits, above the smart money median of 46%.",
+          "Booked $660K realized over 90 days (+73% ROI). Cohort median $913K.",
+          "100 exits across 6 tokens. Trades less often than the cohort.",
+          "Spotted on $PUMP with $329K PnL, 50% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 7,
         "address": "7o64rkfZcfjCfh9Hx9UVhT5ixd6mtbK68Y3otMeVFJVK",
         "chain": "solana",
         "spottedOn": {
@@ -196,96 +326,161 @@
         "topTokens": [
           "BP"
         ],
-        "similarity": 67,
+        "similarity": 69,
         "grade": "B",
         "verdict": "Watch",
         "report": [
-          "Wins 50% of exits, above the smart money median of 48%.",
-          "Booked $778K realized over 90 days (+576% ROI). Cohort median $1.04M.",
+          "Wins 50% of exits, above the smart money median of 46%.",
+          "Booked $778K realized over 90 days (+576% ROI). Cohort median $913K.",
           "8 exits across 2 tokens. Trades less often than the cohort.",
           "Spotted on $BP with $778K PnL, 0% of its peak bag still held."
         ]
       },
       {
-        "number": 4,
-        "address": "5xL5DUapc7FFV2BKjb63JNamMJqVLRLBUSk7h9KPVj2f",
-        "chain": "solana",
-        "spottedOn": {
-          "symbol": "CBBTC",
-          "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
-          "pnlUsd": 159627.59810760297,
-          "stillHoldingRatio": 0
-        },
-        "stats": {
-          "winRate": 100,
-          "pnlUsd": 219499.91474381596,
-          "trades": 169,
-          "tokens": 11,
-          "roiPct": 14.625528184768397
-        },
-        "topTokens": [
-          "CBBTC",
-          "ZEC",
-          "RAY",
-          "HYPE",
-          "ETH"
-        ],
-        "similarity": 66,
-        "grade": "B",
-        "verdict": "Watch",
-        "report": [
-          "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $219K realized over 90 days (+15% ROI). Cohort median $1.04M.",
-          "169 exits across 11 tokens. Trades less often than the cohort.",
-          "Spotted on $CBBTC with $160K PnL, 0% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 5,
-        "address": "BVvLf9EXkGBWG4ffzzwiQPafkVPnQ9yydSHU7r12cYxA",
+        "number": 8,
+        "address": "8MHU3NwzuwpkcrF8S2nzNXbkCWn3TdE9UVtB3bQWJP7b",
         "chain": "solana",
         "spottedOn": {
           "symbol": "ANSEM",
           "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 135342.39767922877,
-          "stillHoldingRatio": 0.13417886333500592
+          "pnlUsd": 252137.93763481412,
+          "stillHoldingRatio": 0
         },
         "stats": {
-          "winRate": 61.53846153846154,
-          "pnlUsd": 132679.41335404516,
-          "trades": 250,
-          "tokens": 13,
-          "roiPct": 82.30788458005502
+          "winRate": 47.61904761904761,
+          "pnlUsd": 91854.33464876396,
+          "trades": 347,
+          "tokens": 21,
+          "roiPct": 6.841649177447019
         },
         "topTokens": [
-          "ANSEM"
+          "ANSEM",
+          "CARDS",
+          "USELESS",
+          "KINS",
+          "ZCAT"
         ],
-        "similarity": 65,
+        "similarity": 69,
         "grade": "B",
         "verdict": "Watch",
         "report": [
-          "Wins 62% of exits, above the smart money median of 48%.",
-          "Booked $133K realized over 90 days (+82% ROI). Cohort median $1.04M.",
-          "250 exits across 13 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $135K PnL, 13% of its peak bag still held."
+          "Wins 48% of exits, above the smart money median of 46%.",
+          "Booked $92K realized over 90 days (+7% ROI). Cohort median $913K.",
+          "347 exits across 21 tokens. Trades less often than the cohort.",
+          "Spotted on $ANSEM with $252K PnL, 0% of its peak bag still held."
         ]
       },
       {
-        "number": 6,
+        "number": 9,
+        "address": "CLM6E4zpTviEC77nWKogpVLQoXx9tgoQCYJ8NibxKg1Q",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "ANSEM",
+          "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
+          "pnlUsd": 1374592.578357454,
+          "stillHoldingRatio": 0.9574356075695117
+        },
+        "stats": {
+          "winRate": 25,
+          "pnlUsd": 157696.73302063197,
+          "trades": 1180,
+          "tokens": 116,
+          "roiPct": 10.510806044654467
+        },
+        "topTokens": [
+          "ANSEM",
+          "MANLET",
+          "FEBU",
+          "ONLYMARMS"
+        ],
+        "similarity": 67,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 25% of exits, below the smart money median of 46%.",
+          "Booked $158K realized over 90 days (+11% ROI). Cohort median $913K.",
+          "1180 exits across 116 tokens. Trades less often than the cohort.",
+          "Spotted on $ANSEM with $1.37M PnL, 96% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 10,
+        "address": "9Tv7siEtYvJCYTt1NEwt5NkZqgRCjBQBpnDKKVWPZtCT",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "PUMP",
+          "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+          "pnlUsd": 329792.4045745849,
+          "stillHoldingRatio": 0
+        },
+        "stats": {
+          "winRate": 66.66666666666666,
+          "pnlUsd": 508342.1108503303,
+          "trades": 57,
+          "tokens": 3,
+          "roiPct": 77.09118990448826
+        },
+        "topTokens": [
+          "PUMP",
+          "STONK"
+        ],
+        "similarity": 67,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 67% of exits, above the smart money median of 46%.",
+          "Booked $508K realized over 90 days (+77% ROI). Cohort median $913K.",
+          "57 exits across 3 tokens. Trades less often than the cohort.",
+          "Spotted on $PUMP with $330K PnL, 0% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 11,
+        "address": "8hH2SVbSDTrvqExVNLxQCp32VasEkqYAoaprWCioGZA1",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "BP",
+          "address": "BPxxfRCXkUVhig4HS1Lh7kZqV6SPJhzfEk4x6fVBjPCy",
+          "pnlUsd": 603433.5379284462,
+          "stillHoldingRatio": 0.5694445724390264
+        },
+        "stats": {
+          "winRate": 40,
+          "pnlUsd": 270668.7136933384,
+          "trades": 285,
+          "tokens": 5,
+          "roiPct": 164.23108059288296
+        },
+        "topTokens": [
+          "BP",
+          "PUMP"
+        ],
+        "similarity": 64,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 40% of exits, below the smart money median of 46%.",
+          "Booked $271K realized over 90 days (+164% ROI). Cohort median $913K.",
+          "285 exits across 5 tokens. Trades less often than the cohort.",
+          "Spotted on $BP with $603K PnL, 57% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 12,
         "address": "F5hkYsi8JxjyA2JHN5CA7MbnnhWubkXB2ZQB7Gkaxqs6",
         "chain": "solana",
         "spottedOn": {
           "symbol": "ANSEM",
           "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 470189.6146278721,
+          "pnlUsd": 472727.4734054444,
           "stillHoldingRatio": 0.8160381334354051
         },
         "stats": {
-          "winRate": 36.11111111111111,
-          "pnlUsd": 8765.904259886473,
-          "trades": 1155,
-          "tokens": 108,
-          "roiPct": 2.422410351659846
+          "winRate": 33.94495412844037,
+          "pnlUsd": 8743.739271724346,
+          "trades": 1174,
+          "tokens": 109,
+          "roiPct": 2.413657816616091
         },
         "topTokens": [
           "ANSEM",
@@ -294,51 +489,18 @@
           "MARKET",
           "MANLET"
         ],
-        "similarity": 63,
+        "similarity": 64,
         "grade": "B",
         "verdict": "Watch",
         "report": [
-          "Wins 36% of exits, below the smart money median of 48%.",
-          "Booked $9K realized over 90 days (+2% ROI). Cohort median $1.04M.",
-          "1155 exits across 108 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $470K PnL, 82% of its peak bag still held."
+          "Wins 34% of exits, below the smart money median of 46%.",
+          "Booked $9K realized over 90 days (+2% ROI). Cohort median $913K.",
+          "1174 exits across 109 tokens. Trades less often than the cohort.",
+          "Spotted on $ANSEM with $473K PnL, 82% of its peak bag still held."
         ]
       },
       {
-        "number": 7,
-        "address": "CLM6E4zpTviEC77nWKogpVLQoXx9tgoQCYJ8NibxKg1Q",
-        "chain": "solana",
-        "spottedOn": {
-          "symbol": "ANSEM",
-          "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 1365366.8200280697,
-          "stillHoldingRatio": 0.9649405118711509
-        },
-        "stats": {
-          "winRate": 25.217391304347824,
-          "pnlUsd": 109302.72123468842,
-          "trades": 1140,
-          "tokens": 115,
-          "roiPct": 7.123050081263367
-        },
-        "topTokens": [
-          "ANSEM",
-          "MANLET",
-          "NEST",
-          "ONLYMARMS"
-        ],
-        "similarity": 62,
-        "grade": "B",
-        "verdict": "Watch",
-        "report": [
-          "Wins 25% of exits, below the smart money median of 48%.",
-          "Booked $109K realized over 90 days (+7% ROI). Cohort median $1.04M.",
-          "1140 exits across 115 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $1.37M PnL, 96% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 8,
+        "number": 13,
         "address": "0x27a6084d2363c45212d9dcf6a433791c85438320",
         "chain": "base",
         "spottedOn": {
@@ -349,407 +511,279 @@
         },
         "stats": {
           "winRate": 100,
-          "pnlUsd": 237446.27894483108,
+          "pnlUsd": 237446.27894483105,
           "trades": 251,
           "tokens": 2,
-          "roiPct": 115.68754250805331
+          "roiPct": 115.68754250805324
         },
         "topTokens": [
           "NOCK",
           "ETH"
         ],
-        "similarity": 62,
+        "similarity": 64,
         "grade": "B",
         "verdict": "Watch",
         "report": [
-          "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $237K realized over 90 days (+116% ROI). Cohort median $1.04M.",
+          "Wins 100% of exits, above the smart money median of 46%.",
+          "Booked $237K realized over 90 days (+116% ROI). Cohort median $913K.",
           "251 exits across 2 tokens. Trades less often than the cohort.",
           "Spotted on $NOCK with $237K PnL, 0% of its peak bag still held."
         ]
       },
       {
-        "number": 9,
-        "address": "8hH2SVbSDTrvqExVNLxQCp32VasEkqYAoaprWCioGZA1",
+        "number": 14,
+        "address": "ECUa5EfrNgNPAp4SsjZyf6qhS1rvQE14wvLBurYBctfw",
         "chain": "solana",
         "spottedOn": {
-          "symbol": "BP",
-          "address": "BPxxfRCXkUVhig4HS1Lh7kZqV6SPJhzfEk4x6fVBjPCy",
-          "pnlUsd": 640897.6956106921,
-          "stillHoldingRatio": 0.6388889997110136
+          "symbol": "PUMP",
+          "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+          "pnlUsd": 578010.1872763883,
+          "stillHoldingRatio": 0.9541288712310771
         },
         "stats": {
-          "winRate": 40,
-          "pnlUsd": 222819.6846035967,
-          "trades": 275,
-          "tokens": 5,
-          "roiPct": 150.46488854742498
+          "winRate": 54.54545454545454,
+          "pnlUsd": 148477.25579154125,
+          "trades": 76,
+          "tokens": 11,
+          "roiPct": 66.11007036667696
         },
         "topTokens": [
-          "BP",
-          "PUMP"
+          "PUMP",
+          "CARDS",
+          "MNDE",
+          "BLOCK",
+          "TOAD"
         ],
-        "similarity": 59,
+        "similarity": 62,
         "grade": "B",
         "verdict": "Watch",
         "report": [
-          "Wins 40% of exits, below the smart money median of 48%.",
-          "Booked $223K realized over 90 days (+150% ROI). Cohort median $1.04M.",
-          "275 exits across 5 tokens. Trades less often than the cohort.",
-          "Spotted on $BP with $641K PnL, 64% of its peak bag still held."
+          "Wins 55% of exits, above the smart money median of 46%.",
+          "Booked $148K realized over 90 days (+66% ROI). Cohort median $913K.",
+          "76 exits across 11 tokens. Trades less often than the cohort.",
+          "Spotted on $PUMP with $578K PnL, 95% of its peak bag still held."
         ]
       },
       {
-        "number": 10,
+        "number": 15,
+        "address": "2ysGaM4dQcmVTVaW1RsxcRntVE4JK4XNwFX5LBEbUJfd",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "PUMP",
+          "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+          "pnlUsd": 641463.4598297058,
+          "stillHoldingRatio": 0.7592730697822029
+        },
+        "stats": {
+          "winRate": 33.33333333333333,
+          "pnlUsd": 329989.90240723727,
+          "trades": 129,
+          "tokens": 3,
+          "roiPct": 114.97367139443055
+        },
+        "topTokens": [
+          "PUMP"
+        ],
+        "similarity": 57,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 33% of exits, below the smart money median of 46%.",
+          "Booked $330K realized over 90 days (+115% ROI). Cohort median $913K.",
+          "129 exits across 3 tokens. Trades less often than the cohort.",
+          "Spotted on $PUMP with $641K PnL, 76% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 16,
+        "address": "GgG65z3MXpmGnV3ZapKv5ayDqox1x7CJnqP1LD8FaZdt",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "PUMP",
+          "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+          "pnlUsd": 218003.34204666593,
+          "stillHoldingRatio": 0
+        },
+        "stats": {
+          "winRate": 50,
+          "pnlUsd": 218003.34204666593,
+          "trades": 33,
+          "tokens": 2,
+          "roiPct": 47.64300816710613
+        },
+        "topTokens": [
+          "PUMP"
+        ],
+        "similarity": 57,
+        "grade": "B",
+        "verdict": "Watch",
+        "report": [
+          "Wins 50% of exits, above the smart money median of 46%.",
+          "Booked $218K realized over 90 days (+48% ROI). Cohort median $913K.",
+          "33 exits across 2 tokens. Trades less often than the cohort.",
+          "Spotted on $PUMP with $218K PnL, 0% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 17,
         "address": "GZXfDdPpc4XDd5gM2TCk5nbLAYiay3JxVwr3VXVoximC",
         "chain": "solana",
         "spottedOn": {
           "symbol": "CBBTC",
           "address": "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij",
-          "pnlUsd": 222079.80819093424,
-          "stillHoldingRatio": 0.9627667528678132
+          "pnlUsd": 216979.9814715998,
+          "stillHoldingRatio": 0.98687648221145
         },
         "stats": {
           "winRate": 50,
-          "pnlUsd": 28694.374277910898,
-          "trades": 110,
+          "pnlUsd": 33737.2355021323,
+          "trades": 112,
           "tokens": 10,
-          "roiPct": 10.47980777285688
+          "roiPct": 11.57235270213475
         },
         "topTokens": [
           "CBBTC",
           "BP",
-          "ZINC",
+          "PENGU",
           "BONK",
           "JTO"
         ],
-        "similarity": 55,
+        "similarity": 57,
         "grade": "B",
         "verdict": "Watch",
         "report": [
-          "Wins 50% of exits, above the smart money median of 48%.",
-          "Booked $29K realized over 90 days (+10% ROI). Cohort median $1.04M.",
-          "110 exits across 10 tokens. Trades less often than the cohort.",
-          "Spotted on $CBBTC with $222K PnL, 96% of its peak bag still held."
+          "Wins 50% of exits, above the smart money median of 46%.",
+          "Booked $34K realized over 90 days (+12% ROI). Cohort median $913K.",
+          "112 exits across 10 tokens. Trades less often than the cohort.",
+          "Spotted on $CBBTC with $217K PnL, 99% of its peak bag still held."
         ]
       },
       {
-        "number": 11,
-        "address": "FTtQP8MDpaP9taBjpWunrx8Z4epaSEWxgpEJMRwYUE7D",
+        "number": 18,
+        "address": "AoqwQGSKkquSvkDyhBXVaec9rmFGqThvLPvchFx8u6Fo",
         "chain": "solana",
         "spottedOn": {
-          "symbol": "ANSEM",
-          "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 122706.01776057566,
-          "stillHoldingRatio": 0
+          "symbol": "RAY",
+          "address": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+          "pnlUsd": 215789.51376519375,
+          "stillHoldingRatio": 1.4535247123868945e-12
         },
         "stats": {
-          "winRate": 60,
-          "pnlUsd": 49907.62885075068,
-          "trades": 143,
-          "tokens": 5,
-          "roiPct": 13.22008666775177
+          "winRate": 100,
+          "pnlUsd": 216916.7113518326,
+          "trades": 16,
+          "tokens": 2,
+          "roiPct": 22.988904361201353
         },
         "topTokens": [
-          "ANSEM",
-          "⚠️ PIGEONS",
-          "FONE"
+          "RAY",
+          "JUP"
         ],
-        "similarity": 55,
+        "similarity": 56,
         "grade": "B",
         "verdict": "Watch",
         "report": [
-          "Wins 60% of exits, above the smart money median of 48%.",
-          "Booked $50K realized over 90 days (+13% ROI). Cohort median $1.04M.",
-          "143 exits across 5 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $123K PnL, 0% of its peak bag still held."
+          "Wins 100% of exits, above the smart money median of 46%.",
+          "Booked $217K realized over 90 days (+23% ROI). Cohort median $913K.",
+          "16 exits across 2 tokens. Trades less often than the cohort.",
+          "Spotted on $RAY with $216K PnL, 0% of its peak bag still held."
         ]
       },
       {
-        "number": 12,
-        "address": "0x7e90590542e36df645696f161abdc526bfb6d247",
-        "chain": "base",
-        "spottedOn": {
-          "symbol": "BNKR",
-          "address": "0x22af33fe49fd1fa80c7149773dde5890d3c76f3b",
-          "pnlUsd": 207419.1755319602,
-          "stillHoldingRatio": 0.6428571831887571
-        },
-        "stats": {
-          "winRate": 100,
-          "pnlUsd": 94381.7484717413,
-          "trades": 45,
-          "tokens": 2,
-          "roiPct": 324.38600242516026
-        },
-        "topTokens": [
-          "BNKR",
-          "CLAWD"
-        ],
-        "similarity": 52,
-        "grade": "C",
-        "verdict": "Pass",
-        "report": [
-          "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $94K realized over 90 days (+324% ROI). Cohort median $1.04M.",
-          "45 exits across 2 tokens. Trades less often than the cohort.",
-          "Spotted on $BNKR with $207K PnL, 64% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 13,
-        "address": "0xd66fe04aa2c6d91a38c1b2963e1027b5b16d2f66",
-        "chain": "base",
-        "spottedOn": {
-          "symbol": "NOCK",
-          "address": "0x9b5e262cf9bb04869ab40b19af91d2dc85761722",
-          "pnlUsd": 178245.95795712003,
-          "stillHoldingRatio": 0.6941263580630145
-        },
-        "stats": {
-          "winRate": 100,
-          "pnlUsd": 79752.92084981204,
-          "trades": 69,
-          "tokens": 1,
-          "roiPct": 428.96525555372057
-        },
-        "topTokens": [
-          "NOCK"
-        ],
-        "similarity": 51,
-        "grade": "C",
-        "verdict": "Pass",
-        "report": [
-          "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $80K realized over 90 days (+429% ROI). Cohort median $1.04M.",
-          "69 exits across 1 tokens. Trades less often than the cohort.",
-          "Spotted on $NOCK with $178K PnL, 69% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 14,
-        "address": "0x48223298dc0b8718686da6aac367619b40b05987",
-        "chain": "base",
-        "spottedOn": {
-          "symbol": "NOCK",
-          "address": "0x9b5e262cf9bb04869ab40b19af91d2dc85761722",
-          "pnlUsd": 107770.0233180955,
-          "stillHoldingRatio": 0.8695976569114086
-        },
-        "stats": {
-          "winRate": 100,
-          "pnlUsd": 59534.62195549012,
-          "trades": 60,
-          "tokens": 2,
-          "roiPct": 115.01912797037662
-        },
-        "topTokens": [
-          "NOCK",
-          "ETH"
-        ],
-        "similarity": 51,
-        "grade": "C",
-        "verdict": "Pass",
-        "report": [
-          "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $60K realized over 90 days (+115% ROI). Cohort median $1.04M.",
-          "60 exits across 2 tokens. Trades less often than the cohort.",
-          "Spotted on $NOCK with $108K PnL, 87% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 15,
+        "number": 19,
         "address": "EALVBPVj4iAdivQ1hA7J1LRr2WaMTcZTwwLZFKA4zh2C",
         "chain": "solana",
         "spottedOn": {
           "symbol": "BP",
           "address": "BPxxfRCXkUVhig4HS1Lh7kZqV6SPJhzfEk4x6fVBjPCy",
-          "pnlUsd": 296352.5350378527,
-          "stillHoldingRatio": 0.6433488343067486
+          "pnlUsd": 281792.8558685483,
+          "stillHoldingRatio": 0.48251162573006146
         },
         "stats": {
           "winRate": 50,
-          "pnlUsd": 95459.21900204195,
-          "trades": 4,
+          "pnlUsd": 144130.73247134694,
+          "trades": 5,
           "tokens": 2,
-          "roiPct": 264.7982577083642
+          "roiPct": 275.5477635061363
         },
         "topTokens": [
           "BP"
         ],
-        "similarity": 50,
+        "similarity": 53,
         "grade": "C",
         "verdict": "Pass",
         "report": [
-          "Wins 50% of exits, above the smart money median of 48%.",
-          "Booked $95K realized over 90 days (+265% ROI). Cohort median $1.04M.",
-          "4 exits across 2 tokens. Trades less often than the cohort.",
-          "Spotted on $BP with $296K PnL, 64% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 16,
-        "address": "AXh6bf2gTx1QSnQeWrZLU42Qa9qyCEFYRtxp4wpx9tyc",
-        "chain": "solana",
-        "spottedOn": {
-          "symbol": "ANSEM",
-          "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 158419.22898314946,
-          "stillHoldingRatio": 0.000018423427777777776
-        },
-        "stats": {
-          "winRate": 28.57142857142857,
-          "pnlUsd": 158451.38856480946,
-          "trades": 23,
-          "tokens": 7,
-          "roiPct": 21.377754731721563
-        },
-        "topTokens": [
-          "ANSEM",
-          "CRIME",
-          "MEMEFI",
-          "PANTS",
-          "EYE"
-        ],
-        "similarity": 50,
-        "grade": "C",
-        "verdict": "Pass",
-        "report": [
-          "Wins 29% of exits, below the smart money median of 48%.",
-          "Booked $158K realized over 90 days (+21% ROI). Cohort median $1.04M.",
-          "23 exits across 7 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $158K PnL, 0% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 17,
-        "address": "7G3zbo83mF9hSghz2rcTfmUhFXydSXgqAWwoavwQFUCa",
-        "chain": "solana",
-        "spottedOn": {
-          "symbol": "ANSEM",
-          "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 114692.21073826356,
-          "stillHoldingRatio": 0.8376534972007059
-        },
-        "stats": {
-          "winRate": 42.857142857142854,
-          "pnlUsd": 38173.17115903421,
-          "trades": 63,
-          "tokens": 7,
-          "roiPct": 16.60426773598259
-        },
-        "topTokens": [
-          "ANSEM",
-          "MENSA",
-          "ETH",
-          "MOBY",
-          "COPPERINU"
-        ],
-        "similarity": 50,
-        "grade": "C",
-        "verdict": "Pass",
-        "report": [
-          "Wins 43% of exits, below the smart money median of 48%.",
-          "Booked $38K realized over 90 days (+17% ROI). Cohort median $1.04M.",
-          "63 exits across 7 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $115K PnL, 84% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 18,
-        "address": "0x779ee3584483e0d52720fa2065c97ffa70b6431f",
-        "chain": "ethereum",
-        "spottedOn": {
-          "symbol": "PEPE",
-          "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
-          "pnlUsd": 121349.12323499512,
-          "stillHoldingRatio": 0.6635222807345336
-        },
-        "stats": {
-          "winRate": 100,
-          "pnlUsd": 51479.378675068525,
-          "trades": 27,
-          "tokens": 2,
-          "roiPct": 64.57082343588482
-        },
-        "topTokens": [
-          "PEPE"
-        ],
-        "similarity": 49,
-        "grade": "C",
-        "verdict": "Pass",
-        "report": [
-          "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $51K realized over 90 days (+65% ROI). Cohort median $1.04M.",
-          "27 exits across 2 tokens. Trades less often than the cohort.",
-          "Spotted on $PEPE with $121K PnL, 66% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 19,
-        "address": "0xf6268a4490995eec09de097a7279e592992ab03d",
-        "chain": "base",
-        "spottedOn": {
-          "symbol": "BNKR",
-          "address": "0x22af33fe49fd1fa80c7149773dde5890d3c76f3b",
-          "pnlUsd": 186472.11175903477,
-          "stillHoldingRatio": 0.8
-        },
-        "stats": {
-          "winRate": 75,
-          "pnlUsd": 21008.463621839554,
-          "trades": 18,
-          "tokens": 4,
-          "roiPct": 56.14665030978278
-        },
-        "topTokens": [
-          "BNKR",
-          "VVV",
-          "ETH",
-          "BRIAN"
-        ],
-        "similarity": 48,
-        "grade": "C",
-        "verdict": "Pass",
-        "report": [
-          "Wins 75% of exits, above the smart money median of 48%.",
-          "Booked $21K realized over 90 days (+56% ROI). Cohort median $1.04M.",
-          "18 exits across 4 tokens. Trades less often than the cohort.",
-          "Spotted on $BNKR with $186K PnL, 80% of its peak bag still held."
+          "Wins 50% of exits, above the smart money median of 46%.",
+          "Booked $144K realized over 90 days (+276% ROI). Cohort median $913K.",
+          "5 exits across 2 tokens. Trades less often than the cohort.",
+          "Spotted on $BP with $282K PnL, 48% of its peak bag still held."
         ]
       },
       {
         "number": 20,
-        "address": "0xc09aadf8700408777e01ad7d32d19e7f89bc3e3c",
-        "chain": "ethereum",
+        "address": "0x7e90590542e36df645696f161abdc526bfb6d247",
+        "chain": "base",
         "spottedOn": {
-          "symbol": "PEPE",
-          "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
-          "pnlUsd": 381510.5955506144,
-          "stillHoldingRatio": 0.907823770636579
+          "symbol": "BNKR",
+          "address": "0x22af33fe49fd1fa80c7149773dde5890d3c76f3b",
+          "pnlUsd": 226055.41588629724,
+          "stillHoldingRatio": 0.6428571831887571
         },
         "stats": {
-          "winRate": 50,
-          "pnlUsd": 23765.281660276552,
-          "trades": 13,
+          "winRate": 100,
+          "pnlUsd": 94381.74847174133,
+          "trades": 45,
           "tokens": 2,
-          "roiPct": 154.88564947423706
+          "roiPct": 324.38600242516065
         },
         "topTokens": [
-          "PEPE"
+          "BNKR",
+          "CLAWD"
         ],
-        "similarity": 46,
+        "similarity": 53,
         "grade": "C",
         "verdict": "Pass",
         "report": [
-          "Wins 50% of exits, above the smart money median of 48%.",
-          "Booked $24K realized over 90 days (+155% ROI). Cohort median $1.04M.",
-          "13 exits across 2 tokens. Trades less often than the cohort.",
-          "Spotted on $PEPE with $382K PnL, 91% of its peak bag still held."
+          "Wins 100% of exits, above the smart money median of 46%.",
+          "Booked $94K realized over 90 days (+324% ROI). Cohort median $913K.",
+          "45 exits across 2 tokens. Trades less often than the cohort.",
+          "Spotted on $BNKR with $226K PnL, 64% of its peak bag still held."
         ]
       },
       {
         "number": 21,
+        "address": "7JSrnK6NuemhdV5ZS99frYTEYisT1jCsnf4zo21hixD1",
+        "chain": "solana",
+        "spottedOn": {
+          "symbol": "RAY",
+          "address": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+          "pnlUsd": 330004.6921450249,
+          "stillHoldingRatio": 0.6467980891439586
+        },
+        "stats": {
+          "winRate": 66.66666666666666,
+          "pnlUsd": 62696.22411200359,
+          "trades": 28,
+          "tokens": 3,
+          "roiPct": 5.461160367262564
+        },
+        "topTokens": [
+          "RAY",
+          "JUP",
+          "DUPE"
+        ],
+        "similarity": 51,
+        "grade": "C",
+        "verdict": "Pass",
+        "report": [
+          "Wins 67% of exits, above the smart money median of 46%.",
+          "Booked $63K realized over 90 days (+5% ROI). Cohort median $913K.",
+          "28 exits across 3 tokens. Trades less often than the cohort.",
+          "Spotted on $RAY with $330K PnL, 65% of its peak bag still held."
+        ]
+      },
+      {
+        "number": 22,
         "address": "ESVPiw89EPDawTyqXWmot6nJ8D92MMNHH5fmDmficY32",
         "chain": "solana",
         "spottedOn": {
@@ -759,11 +793,11 @@
           "stillHoldingRatio": 0
         },
         "stats": {
-          "winRate": 41.02564102564102,
-          "pnlUsd": -149646.15359526148,
-          "trades": 923,
+          "winRate": 38.46153846153847,
+          "pnlUsd": -144188.99821550996,
+          "trades": 1068,
           "tokens": 39,
-          "roiPct": -11.81892742528164
+          "roiPct": -11.394685506614104
         },
         "topTokens": [
           "ANSEM",
@@ -772,55 +806,54 @@
           "⚠️ GOLD",
           "SPX"
         ],
-        "similarity": 46,
+        "similarity": 48,
         "grade": "C",
         "verdict": "Pass",
         "report": [
-          "Wins 41% of exits, below the smart money median of 48%.",
-          "Sitting on $-150K realized over 90 days. Cohort median $1.04M.",
-          "923 exits across 39 tokens. Trades less often than the cohort.",
+          "Wins 38% of exits, below the smart money median of 46%.",
+          "Sitting on $-144K realized over 90 days. Cohort median $913K.",
+          "1068 exits across 39 tokens. Trades less often than the cohort.",
           "Spotted on $ANSEM with $268K PnL, 0% of its peak bag still held."
         ]
       },
       {
-        "number": 22,
-        "address": "0xe7d05a4f406aeaa8ae95d02624e01328bc328c55",
-        "chain": "ethereum",
+        "number": 23,
+        "address": "FPrNotK5neqrQMyMwTgWv8Xe8Yhucf721ykAapQFpoH4",
+        "chain": "solana",
         "spottedOn": {
-          "symbol": "PEPE",
-          "address": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
-          "pnlUsd": 1357269.5081713414,
-          "stillHoldingRatio": 0.8884561476424089
+          "symbol": "RAY",
+          "address": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+          "pnlUsd": 299778.7669168737,
+          "stillHoldingRatio": 0.8438125835964203
         },
         "stats": {
-          "winRate": 33.33333333333333,
-          "pnlUsd": 32594.90304167171,
-          "trades": 9,
-          "tokens": 3,
-          "roiPct": 7.963920344583532
+          "winRate": 100,
+          "pnlUsd": 27234.12140178154,
+          "trades": 30,
+          "tokens": 1,
+          "roiPct": 81.33597779822668
         },
         "topTokens": [
-          "PEPE",
-          "STETH"
+          "RAY"
         ],
-        "similarity": 44,
+        "similarity": 46,
         "grade": "C",
         "verdict": "Pass",
         "report": [
-          "Wins 33% of exits, below the smart money median of 48%.",
-          "Booked $33K realized over 90 days (+8% ROI). Cohort median $1.04M.",
-          "9 exits across 3 tokens. Trades less often than the cohort.",
-          "Spotted on $PEPE with $1.36M PnL, 89% of its peak bag still held."
+          "Wins 100% of exits, above the smart money median of 46%.",
+          "Booked $27K realized over 90 days (+81% ROI). Cohort median $913K.",
+          "30 exits across 1 tokens. Trades less often than the cohort.",
+          "Spotted on $RAY with $300K PnL, 84% of its peak bag still held."
         ]
       },
       {
-        "number": 23,
+        "number": 24,
         "address": "0x90a5e11ee69e32b1991965efc7b1b83e235c23bc",
         "chain": "base",
         "spottedOn": {
           "symbol": "BNKR",
           "address": "0x22af33fe49fd1fa80c7149773dde5890d3c76f3b",
-          "pnlUsd": 228962.27600881294,
+          "pnlUsd": 254224.73071804724,
           "stillHoldingRatio": 0.8714285714286326
         },
         "stats": {
@@ -837,44 +870,10 @@
         "grade": "C",
         "verdict": "Pass",
         "report": [
-          "Wins 100% of exits, above the smart money median of 48%.",
-          "Booked $29K realized over 90 days (+378% ROI). Cohort median $1.04M.",
+          "Wins 100% of exits, above the smart money median of 46%.",
+          "Booked $29K realized over 90 days (+378% ROI). Cohort median $913K.",
           "3 exits across 1 tokens. Trades less often than the cohort.",
-          "Spotted on $BNKR with $229K PnL, 87% of its peak bag still held."
-        ]
-      },
-      {
-        "number": 24,
-        "address": "3xRT22ed5V6gKkR16hcL2H5GEBMu15givEH14ZsTsv8j",
-        "chain": "solana",
-        "spottedOn": {
-          "symbol": "ANSEM",
-          "address": "9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump",
-          "pnlUsd": 139916.54661329632,
-          "stillHoldingRatio": 0
-        },
-        "stats": {
-          "winRate": 35,
-          "pnlUsd": -19415.1896560602,
-          "trades": 112,
-          "tokens": 20,
-          "roiPct": -5.933046307193269
-        },
-        "topTokens": [
-          "ANSEM",
-          "JOTCHUA",
-          "CTO",
-          "TAP",
-          "旺柴"
-        ],
-        "similarity": 31,
-        "grade": "C",
-        "verdict": "Pass",
-        "report": [
-          "Wins 35% of exits, below the smart money median of 48%.",
-          "Sitting on $-19K realized over 90 days. Cohort median $1.04M.",
-          "112 exits across 20 tokens. Trades less often than the cohort.",
-          "Spotted on $ANSEM with $140K PnL, 0% of its peak bag still held."
+          "Spotted on $BNKR with $254K PnL, 87% of its peak bag still held."
         ]
       }
     ],

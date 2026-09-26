@@ -1,5 +1,6 @@
 "use client";
-import { useCallback, useState } from "react";
+import { caption } from "@longitude/kit";
+import { useCallback, useEffect, useState } from "react";
 import type { WalletObituariesData } from "@/lib/data";
 import { longDate } from "@/lib/format";
 import { Masthead } from "./Masthead";
@@ -14,6 +15,11 @@ import { Obituary } from "./Obituary";
 export function FrontPage({ data }: { data: WalletObituariesData }) {
   const [stage, setStage] = useState(1);
   const reach = useCallback((s: number) => setStage((cur) => Math.max(cur, s)), []);
+  const leadSet = stage >= 3;
+  // Recording caption (?rec=1): once the lead notice is set, say what every notice is written from.
+  useEffect(() => {
+    if (leadSet) caption("Each notice is written from Nansen data: the wallet's sale, what it still holds and its six-month record.", 6000);
+  }, [leadSet]);
   const [lead, ...rest] = data.obituaries;
   const finalStage = 4 + rest.length;
   const done = stage >= finalStage;

@@ -7,6 +7,8 @@ export { Explainer } from "./components/Explainer";
 export { RefreshLive } from "./components/RefreshLive";
 export { DataBadge } from "./components/DataBadge";
 export { Missing } from "./components/Missing";
+export { NansenLink, nansenTokenUrl, nansenWalletUrl } from "./components/NansenLink";
+export { Captions, caption, withRecording } from "./components/Captions";
 export {
   SocialBoot,
   PresenceBadge,

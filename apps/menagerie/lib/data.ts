@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, RowOf } from "@longitude/nansen";
 import { lastDays } from "@longitude/nansen";
 
@@ -376,7 +377,7 @@ function inferChain(row: LeaderRow): AnimalChain {
  */
 export async function buildMenagerie(nansen: NansenClient): Promise<MenagerieData> {
   const window = lastDays(30);
-  const deep = process.env.DEEP === "1";
+  const deep = isDeep();
 
   const board = await nansen.smartMoney.pnlLeaderboard(
     { chains: [...CHAINS], timeframe: 30, pagination: { page: 1, per_page: deep ? DEEP_HERD_SIZE : HERD_SIZE } },

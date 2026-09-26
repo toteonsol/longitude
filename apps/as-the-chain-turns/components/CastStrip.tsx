@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { Stagger, StaggerItem, fmt } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import type { CastMember } from "@/lib/data";
@@ -35,7 +36,8 @@ export function CastStrip({ cast, activeAddress, sceneCounts, onPick }: Props) {
                 </div>
                 <p className="castcard__role">{m.character.role}</p>
                 <p className="castcard__actor" title={m.address}>
-                  played by <b>{m.label}</b> <span className="lg-addr">{shortAddress(m.address)}</span> · {m.chain}
+                  played by <b>{m.label}</b> <span className="lg-addr">{shortAddress(m.address)}</span> · {m.chain}{" "}
+                  <NansenLink address={m.address} chain={m.chain} />
                 </p>
                 <dl className="castcard__stats">
                   <div>

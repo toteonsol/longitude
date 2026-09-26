@@ -1,5 +1,5 @@
 "use client";
-import { social, useIdentity } from "@longitude/kit";
+import { caption, social, useIdentity } from "@longitude/kit";
 import { Reveal } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -12,6 +12,21 @@ import { SpecimenIndex } from "./SpecimenIndex";
 
 const longDate = (iso: string): string =>
   new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+
+/**
+ * Recording captions (?rec=1) for opening an animal's notes: why the wallet got its species. They follow
+ * the SPECIES rules in lib/data.ts, which measure each wallet's row on Nansen's 30-day smart money PnL
+ * leaderboard against the rest of the herd.
+ */
+const SPECIES_CAPTION: Record<SpeciesId, string> = {
+  whale: "A Whale: its 30-day PnL on Nansen's smart money leaderboard is in the top tenth of the herd.",
+  hyena: "A Hyena: wins less often than the herd yet earns more than the median wallet, in Nansen's 30-day data.",
+  fox: "A Fox: wins more often than the herd on no more than the median number of trades, in Nansen's 30-day data.",
+  tortoise: "A Tortoise: fewer trades than most of the herd but above-median returns per trade, in Nansen's 30-day data.",
+  hummingbird: "A Hummingbird: among the herd's busiest or widest-ranging traders, in Nansen's 30-day data.",
+  elephant: "An Elephant: holds more tokens than three quarters of the herd, in Nansen's smart money data.",
+  meerkat: "A Meerkat: its 30-day Nansen numbers fit none of the other six species rules.",
+};
 
 export function Menagerie({ data }: { data: MenagerieData }) {
   const [selected, setSelected] = useState<string | null>(null);
@@ -62,6 +77,8 @@ export function Menagerie({ data }: { data: MenagerieData }) {
       if (!r?.ok) return false;
       setCollected((m) => new Map(m).set(animal.address, { species: animal.species, label: animal.label, chain: animal.chain, addedAt: new Date().toISOString() }));
       const name = speciesById[animal.species].name;
+      // Recording caption (?rec=1), only once the journal has confirmed a new entry.
+      caption(`Logged ${article(name)} ${name} in your field journal; it counts toward your place on the Top naturalists board.`);
       void social.event("collect", `${me?.handle ?? "A naturalist"} logged ${article(name)} ${name} (${shortAddress(animal.address)})`);
       void social.score(NATURALIST_BOARD, 1, "sum").then(() => setBoardTick((t) => t + 1));
       return true;
@@ -77,7 +94,15 @@ export function Menagerie({ data }: { data: MenagerieData }) {
 
   const animal = data.animals.find((a) => a.address === selected) ?? null;
   const seen = data.species.filter((s) => counts[s.id] > 0).length;
-  const select = useCallback((address: string) => setSelected((cur) => (cur === address ? null : address)), []);
+  const select = useCallback(
+    (address: string) => {
+      setSelected((cur) => (cur === address ? null : address));
+      // Recording caption (?rec=1) when a tap opens an animal's notes, not when it closes them.
+      const picked = selected !== address ? data.animals.find((a) => a.address === address) : undefined;
+      if (picked) caption(SPECIES_CAPTION[picked.species]);
+    },
+    [selected, data.animals],
+  );
   const close = useCallback(() => setSelected(null), []);
 
   return (

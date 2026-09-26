@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, RowOf } from "@longitude/nansen";
 import { lastDays } from "@longitude/nansen";
 
@@ -132,7 +133,7 @@ export function scoutingReport(p: Omit<Prospect, "report" | "number">, m: Cohort
 
 /** Builds the draft board. About 45 credits on a full run (cap 100); DEEP=1 scouts 8 tokens and 24 prospects (~90). */
 export async function buildRookieScout(nansen: NansenClient): Promise<RookieScoutData> {
-  const deep = process.env.DEEP === "1";
+  const deep = isDeep();
   const tokenCount = deep ? 8 : 5;
   const prospectCount = deep ? 24 : 12;
   const window30 = lastDays(30);

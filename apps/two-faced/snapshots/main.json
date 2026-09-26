@@ -1,93 +1,109 @@
 {
   "app": "two-faced",
   "name": "main",
-  "generatedAt": "2026-09-25T11:32:35.143Z",
-  "credits": 42,
+  "generatedAt": "2026-09-26T04:31:19.369Z",
+  "credits": 26,
   "sample": false,
   "data": {
-    "generatedAt": "2026-09-25T11:32:35.142Z",
+    "generatedAt": "2026-09-26T04:31:19.362Z",
     "window": {
-      "from": "2026-06-27",
-      "to": "2026-09-25"
+      "from": "2026-06-28",
+      "to": "2026-09-26"
     },
     "feed": {
       "lookbackHours": 168,
       "trades": 100,
-      "traders": 10
+      "traders": 6
     },
     "wallets": [
       {
-        "address": "0xd21d931890d27b6e7e2e668f27931e17698e90f1",
-        "label": "HL Perps Whale",
+        "address": "0x649156ebf0a350deb18a1e4835873defd4dc5349",
+        "label": "donkstrategy.eth*",
         "activity": {
-          "trades7d": 4,
-          "volume7dUsd": 1500436.323869846,
-          "lastTradeAt": "2026-09-25T11:31:18.351000Z",
-          "favoriteCoin": "SOL",
-          "longShare": 1
+          "trades7d": 9,
+          "volume7dUsd": 113878.19099999999,
+          "lastTradeAt": "2026-09-26T04:28:54.254000Z",
+          "favoriteCoin": "ZEC",
+          "longShare": 0
         },
         "spot": {
           "chain": "ethereum",
-          "winRate": 0,
-          "pnlUsd": -744.9886072229159,
-          "roiPct": -1.4541326140469661,
-          "trades": 151,
-          "tokens": 1,
+          "winRate": 14.285714285714285,
+          "pnlUsd": -26532.054674468138,
+          "roiPct": -24.40607235346658,
+          "trades": 51,
+          "tokens": 7,
           "topTokens": [
             {
+              "symbol": "PENDLE",
+              "pnlUsd": -1.372156333091735
+            },
+            {
+              "symbol": "WLFI",
+              "pnlUsd": -6.0624150879145695
+            },
+            {
+              "symbol": "RE",
+              "pnlUsd": -24.506246420608196
+            },
+            {
               "symbol": "ETH",
-              "pnlUsd": -744.9886072229159
+              "pnlUsd": -106.92045956334455
+            },
+            {
+              "symbol": "SENA",
+              "pnlUsd": -26393.051612119318
             }
           ]
         },
         "perp": {
-          "winRate": 89.34770591487009,
-          "pnlUsd": 5510022.454694,
-          "roiPct": 8.087219707807039,
-          "trades": 1838,
-          "closedTrades": 18090,
-          "coins": 14,
-          "feesUsd": 37722.657748000005,
+          "winRate": 62.67250084146752,
+          "pnlUsd": 109623.89335799999,
+          "roiPct": 0.8465382986462541,
+          "trades": 3555,
+          "closedTrades": 5942,
+          "coins": 9,
+          "feesUsd": 2298.2193719999996,
           "unrealizedPnlUsd": 0,
-          "accountValueUsd": 7375370.745661,
+          "accountValueUsd": 0,
           "maxLeverage": 0,
           "topCoins": [
             {
-              "symbol": "HYPE",
-              "pnlUsd": 2203666.58935
+              "symbol": "xyz:SKHY",
+              "pnlUsd": 240269.034842
             },
             {
-              "symbol": "xyz:MU",
-              "pnlUsd": 1163905.106993
+              "symbol": "xyz:SKHX",
+              "pnlUsd": 80841.365127
             },
             {
               "symbol": "ZEC",
-              "pnlUsd": 660411.390554
+              "pnlUsd": 9092.29
             },
             {
-              "symbol": "VVV",
-              "pnlUsd": 506969.003108
+              "symbol": "ENA",
+              "pnlUsd": 1800
             },
             {
-              "symbol": "LIT",
-              "pnlUsd": 441179.2058
+              "symbol": "xyz:BRENTOIL",
+              "pnlUsd": 721
             }
           ],
           "openPositions": []
         },
         "faces": {
           "spot": {
-            "mouth": -0.8175760447057223,
-            "brow": -1,
-            "eyes": 0.7272811959815909,
+            "mouth": -0.908054256363079,
+            "brow": -0.9928571428571429,
+            "eyes": 0.572001114544933,
             "heat": 0.56,
             "tear": true
           },
           "perp": {
-            "mouth": 1,
-            "brow": 0.6523720038426101,
+            "mouth": 0.6734424488207648,
+            "brow": 0.20072605512385952,
             "eyes": 1,
-            "heat": 0.002053856843134858,
+            "heat": 0.006289375340359456,
             "tear": false
           }
         },
@@ -95,11 +111,11 @@
           "spot": "Tourist",
           "perp": "Berserker"
         },
-        "duality": 72,
+        "duality": 64,
         "verdict": "Tourist by day, berserker by night. Two people share this address.",
         "notes": {
-          "spot": "Wins 0% of 151 exits across 1 tokens on ethereum; -$745 realized (-1% ROI).",
-          "perp": "1838 perp trades on 14 coins, 89% win rate, +$5.51M realized, $38K burned in fees. Flat right now."
+          "spot": "Wins 14% of 51 exits across 7 tokens on ethereum; -$27K realized (-24% ROI).",
+          "perp": "3555 perp trades on 9 coins, 63% win rate, +$110K realized, $2K burned in fees. Flat right now."
         },
         "rank": 1
       },
@@ -107,10 +123,10 @@
         "address": "0x472c90153afff6b5d06e2cf0a0e6e4f91b2abf4b",
         "label": "Uses \"BOY\" HL Referral Code",
         "activity": {
-          "trades7d": 13,
-          "volume7dUsd": 2303.365965,
-          "lastTradeAt": "2026-09-25T11:31:55.224000Z",
-          "favoriteCoin": "JUP",
+          "trades7d": 1,
+          "volume7dUsd": 502.6824,
+          "lastTradeAt": "2026-09-26T04:28:22.880000Z",
+          "favoriteCoin": "PUMP",
           "longShare": 0
         },
         "spot": {
@@ -123,20 +139,20 @@
           "topTokens": []
         },
         "perp": {
-          "winRate": 36.967989253301006,
-          "pnlUsd": -85349.15136100001,
-          "roiPct": -2.618017832497145,
-          "trades": 59328,
-          "closedTrades": 30521,
+          "winRate": 34.04941886521856,
+          "pnlUsd": -121387.512774,
+          "roiPct": -3.3727301103081095,
+          "trades": 63154,
+          "closedTrades": 33469,
           "coins": 82,
-          "feesUsd": 3719.84036,
+          "feesUsd": 3989.616745,
           "unrealizedPnlUsd": 0,
-          "accountValueUsd": 674657.063712,
+          "accountValueUsd": 644748.963157,
           "maxLeverage": 0,
           "topCoins": [
             {
               "symbol": "XPL",
-              "pnlUsd": 11390.606496
+              "pnlUsd": 10988.027481
             },
             {
               "symbol": "TRUMP",
@@ -148,7 +164,7 @@
             },
             {
               "symbol": "PUMP",
-              "pnlUsd": 8104.793177
+              "pnlUsd": 8085.932477
             },
             {
               "symbol": "LDO",
@@ -166,10 +182,10 @@
             "tear": false
           },
           "perp": {
-            "mouth": -0.6715739062368606,
-            "brow": -0.2389920792107279,
+            "mouth": -0.7426930885764875,
+            "brow": -0.28227640919274694,
             "eyes": 1,
-            "heat": 0.3130751400594468,
+            "heat": 0.30986003416783375,
             "tear": true
           }
         },
@@ -177,186 +193,22 @@
           "spot": "Ghost",
           "perp": "Berserker"
         },
-        "duality": 40,
+        "duality": 42,
         "verdict": "Never seen in daylight. Berserker after dark.",
         "notes": {
           "spot": "No spot record on ethereum or base in the last 90 days.",
-          "perp": "59328 perp trades on 82 coins, 37% win rate, -$85K realized, $4K burned in fees. Flat right now."
+          "perp": "63154 perp trades on 82 coins, 34% win rate, -$121K realized, $4K burned in fees. Flat right now."
         },
         "rank": 2
       },
       {
-        "address": "0x2b0dcaf7df98a2db387567a17efcf61139b6733c",
-        "label": "HL Perps Whale",
+        "address": "0xbb97757984fa4408c13bd3b4a9189f520bf317d3",
+        "label": "Uses \"BTCTOTHEMOON\" HL Referral Code",
         "activity": {
-          "trades7d": 4,
-          "volume7dUsd": 2699.644655,
-          "lastTradeAt": "2026-09-25T11:29:28.531000Z",
-          "favoriteCoin": "TAO",
-          "longShare": 1
-        },
-        "spot": {
-          "chain": "ethereum",
-          "winRate": 0,
-          "pnlUsd": 0,
-          "roiPct": 0,
-          "trades": 0,
-          "tokens": 0,
-          "topTokens": []
-        },
-        "perp": {
-          "winRate": 99.82336613676507,
-          "pnlUsd": 106549.852493,
-          "roiPct": 11.550488114419363,
-          "trades": 21196,
-          "closedTrades": 7926,
-          "coins": 39,
-          "feesUsd": 739.684319,
-          "unrealizedPnlUsd": 0,
-          "accountValueUsd": 183208.669056,
-          "maxLeverage": 0,
-          "topCoins": [
-            {
-              "symbol": "UNI",
-              "pnlUsd": 13619.308937
-            },
-            {
-              "symbol": "NEAR",
-              "pnlUsd": 11621.051522
-            },
-            {
-              "symbol": "ZEC",
-              "pnlUsd": 11565.127966
-            },
-            {
-              "symbol": "USELESS",
-              "pnlUsd": 9175.089272
-            },
-            {
-              "symbol": "kBONK",
-              "pnlUsd": 7285.879784
-            }
-          ],
-          "openPositions": []
-        },
-        "faces": {
-          "spot": {
-            "mouth": 0.05,
-            "brow": 0.3,
-            "eyes": 0.18,
-            "heat": 0,
-            "tear": false
-          },
-          "perp": {
-            "mouth": 0.9189630773976034,
-            "brow": 0.8269183640828841,
-            "eyes": 1,
-            "heat": 0.0020826429179203083,
-            "tear": false
-          }
-        },
-        "temperament": {
-          "spot": "Ghost",
-          "perp": "Berserker"
-        },
-        "duality": 36,
-        "verdict": "Never seen in daylight. Berserker after dark.",
-        "notes": {
-          "spot": "No spot record on ethereum or base in the last 90 days.",
-          "perp": "21196 perp trades on 39 coins, 100% win rate, +$107K realized, $740 burned in fees. Flat right now."
-        },
-        "rank": 3
-      },
-      {
-        "address": "0x4d49a0d59711abf2d2d870f9dc88905239b0010c",
-        "label": "Uses \"MMREFCSI\" HL Referral Code",
-        "activity": {
-          "trades7d": 1,
-          "volume7dUsd": 1000.5722999999999,
-          "lastTradeAt": "2026-09-25T11:31:05.745000Z",
-          "favoriteCoin": "xyz:SKHX",
-          "longShare": 1
-        },
-        "spot": {
-          "chain": "ethereum",
-          "winRate": 0,
-          "pnlUsd": 0,
-          "roiPct": 0,
-          "trades": 0,
-          "tokens": 0,
-          "topTokens": []
-        },
-        "perp": {
-          "winRate": 95.90643274853801,
-          "pnlUsd": 53870.237351,
-          "roiPct": 7.849987710304575,
-          "trades": 848,
-          "closedTrades": 342,
-          "coins": 13,
-          "feesUsd": 47.87166100000001,
-          "unrealizedPnlUsd": 0,
-          "accountValueUsd": 0,
-          "maxLeverage": 0,
-          "topCoins": [
-            {
-              "symbol": "xyz:INTC",
-              "pnlUsd": 29002.61114
-            },
-            {
-              "symbol": "xyz:SKHX",
-              "pnlUsd": 8765.385886
-            },
-            {
-              "symbol": "xyz:GOOGL",
-              "pnlUsd": 8288.600899
-            },
-            {
-              "symbol": "xyz:SMSN",
-              "pnlUsd": 4215.028466
-            },
-            {
-              "symbol": "xyz:SNDK",
-              "pnlUsd": 2628.047964
-            }
-          ],
-          "openPositions": []
-        },
-        "faces": {
-          "spot": {
-            "mouth": 0.05,
-            "brow": 0.3,
-            "eyes": 0.18,
-            "heat": 0,
-            "tear": false
-          },
-          "perp": {
-            "mouth": 0.8942797459024823,
-            "brow": 0.7646628886397454,
-            "eyes": 1,
-            "heat": 0.0002665943015328743,
-            "tear": false
-          }
-        },
-        "temperament": {
-          "spot": "Ghost",
-          "perp": "Berserker"
-        },
-        "duality": 35,
-        "verdict": "Never seen in daylight. Berserker after dark.",
-        "notes": {
-          "spot": "No spot record on ethereum or base in the last 90 days.",
-          "perp": "848 perp trades on 13 coins, 96% win rate, +$54K realized, $48 burned in fees. Flat right now."
-        },
-        "rank": 4
-      },
-      {
-        "address": "0x5a19bfe9c095c3bd188eca00a690b95200797aba",
-        "label": "Uses \"188888\" HL Referral Code",
-        "activity": {
-          "trades7d": 1,
-          "volume7dUsd": 791.12,
-          "lastTradeAt": "2026-09-25T11:29:18.657000Z",
-          "favoriteCoin": "FARTCOIN",
+          "trades7d": 85,
+          "volume7dUsd": 10191.272866666664,
+          "lastTradeAt": "2026-09-26T04:30:44.277000Z",
+          "favoriteCoin": "GRASS",
           "longShare": 0
         },
         "spot": {
@@ -369,36 +221,36 @@
           "topTokens": []
         },
         "perp": {
-          "winRate": 57.458001018157134,
-          "pnlUsd": -211.41006800000014,
-          "roiPct": -0.025030826696058984,
-          "trades": 8832,
-          "closedTrades": 5893,
-          "coins": 10,
-          "feesUsd": 580.105373,
+          "winRate": 49.414519906323186,
+          "pnlUsd": -49882.03355000001,
+          "roiPct": -2.4623481377809617,
+          "trades": 19951,
+          "closedTrades": 9821,
+          "coins": 36,
+          "feesUsd": 1723.6771440000002,
           "unrealizedPnlUsd": 0,
-          "accountValueUsd": 17255.069725,
+          "accountValueUsd": 450118.279184,
           "maxLeverage": 0,
           "topCoins": [
             {
               "symbol": "CASHCAT",
-              "pnlUsd": 21608.096232
+              "pnlUsd": 44892.427423
             },
             {
-              "symbol": "PURR",
-              "pnlUsd": 6005.516471
+              "symbol": "kPEPE",
+              "pnlUsd": 14404.293497
             },
             {
               "symbol": "PUMP",
-              "pnlUsd": 2442.165668
+              "pnlUsd": 11240.091238
             },
             {
-              "symbol": "xyz:SKHY",
-              "pnlUsd": 822.885726
+              "symbol": "ASTER",
+              "pnlUsd": 9260.507113
             },
             {
-              "symbol": "xyz:SNDK",
-              "pnlUsd": -238.344791
+              "symbol": "ONDO",
+              "pnlUsd": 9179.436878
             }
           ],
           "openPositions": []
@@ -412,115 +264,33 @@
             "tear": false
           },
           "perp": {
-            "mouth": -0.04477123780108369,
-            "brow": -0.37569998303071445,
+            "mouth": -0.40320567324635426,
+            "brow": -0.02703553639025074,
             "eyes": 1,
-            "heat": 0.6,
+            "heat": 0.3103665208973823,
             "tear": true
           }
         },
         "temperament": {
           "spot": "Ghost",
-          "perp": "Degen"
-        },
-        "duality": 35,
-        "verdict": "Never seen in daylight. Degen after dark.",
-        "notes": {
-          "spot": "No spot record on ethereum or base in the last 90 days.",
-          "perp": "8832 perp trades on 10 coins, 57% win rate, -$211 realized, $580 burned in fees. Flat right now."
-        },
-        "rank": 5
-      },
-      {
-        "address": "0x2137c0f5db95fae5b1f29af50fa1a343e9ccee83",
-        "label": "Uses \"MMREFCSI\" HL Referral Code",
-        "activity": {
-          "trades7d": 53,
-          "volume7dUsd": 569281.52585,
-          "lastTradeAt": "2026-09-25T11:32:01.411000Z",
-          "favoriteCoin": "HYPE",
-          "longShare": 1
-        },
-        "spot": {
-          "chain": "ethereum",
-          "winRate": 0,
-          "pnlUsd": 0,
-          "roiPct": 0,
-          "trades": 0,
-          "tokens": 0,
-          "topTokens": []
-        },
-        "perp": {
-          "winRate": 73.45999527967902,
-          "pnlUsd": 590635.869531,
-          "roiPct": 2.169957764182089,
-          "trades": 14887,
-          "closedTrades": 8474,
-          "coins": 13,
-          "feesUsd": 7530.601415,
-          "unrealizedPnlUsd": 0,
-          "accountValueUsd": 239056.378641,
-          "maxLeverage": 0,
-          "topCoins": [
-            {
-              "symbol": "ZEC",
-              "pnlUsd": 282698.313559
-            },
-            {
-              "symbol": "NEAR",
-              "pnlUsd": 247899.865899
-            },
-            {
-              "symbol": "xyz:SNDK",
-              "pnlUsd": 129737.35772
-            },
-            {
-              "symbol": "PONS",
-              "pnlUsd": 62591.723784
-            },
-            {
-              "symbol": "HYPE",
-              "pnlUsd": 49050.35216
-            }
-          ],
-          "openPositions": []
-        },
-        "faces": {
-          "spot": {
-            "mouth": 0.05,
-            "brow": 0.3,
-            "eyes": 0.18,
-            "heat": 0,
-            "tear": false
-          },
-          "perp": {
-            "mouth": 0.9501432850594919,
-            "brow": 0.38462492634081863,
-            "eyes": 1,
-            "heat": 0.0038249969922990344,
-            "tear": false
-          }
-        },
-        "temperament": {
-          "spot": "Ghost",
           "perp": "Berserker"
         },
-        "duality": 31,
+        "duality": 32,
         "verdict": "Never seen in daylight. Berserker after dark.",
         "notes": {
           "spot": "No spot record on ethereum or base in the last 90 days.",
-          "perp": "14887 perp trades on 13 coins, 73% win rate, +$591K realized, $8K burned in fees. Flat right now."
+          "perp": "19951 perp trades on 36 coins, 49% win rate, -$50K realized, $2K burned in fees. Flat right now."
         },
-        "rank": 6
+        "rank": 3
       },
       {
-        "address": "0xe4c0f75521c93a8c8a14e3770ca891c9a10ed02d",
-        "label": "Uses \"TRAD\" HL Referral Code",
+        "address": "0x614eaa07ec9d95a891c9449530f66b178e6fbab9",
+        "label": "Uses \"MMREFCSI\" HL Referral Code",
         "activity": {
-          "trades7d": 4,
-          "volume7dUsd": 15539.992720000002,
-          "lastTradeAt": "2026-09-25T11:28:26.833000Z",
-          "favoriteCoin": "XPL",
+          "trades7d": 3,
+          "volume7dUsd": 8415.66,
+          "lastTradeAt": "2026-09-26T04:26:42.751000Z",
+          "favoriteCoin": "XRP",
           "longShare": 1
         },
         "spot": {
@@ -533,36 +303,28 @@
           "topTokens": []
         },
         "perp": {
-          "winRate": 71.09505280711507,
-          "pnlUsd": 171904.37656099998,
-          "roiPct": 3.3850349534585273,
-          "trades": 6488,
-          "closedTrades": 3598,
-          "coins": 26,
-          "feesUsd": 2799.3166039999996,
+          "winRate": 73.31144465290807,
+          "pnlUsd": 56261.285919999995,
+          "roiPct": 1.6602608864548833,
+          "trades": 3901,
+          "closedTrades": 2132,
+          "coins": 3,
+          "feesUsd": 1498.0167689999998,
           "unrealizedPnlUsd": 0,
-          "accountValueUsd": 168951.523984,
+          "accountValueUsd": 137757.998458,
           "maxLeverage": 0,
           "topCoins": [
             {
-              "symbol": "PUMP",
-              "pnlUsd": 66194.416312
+              "symbol": "XRP",
+              "pnlUsd": 35354.312844
+            },
+            {
+              "symbol": "AERO",
+              "pnlUsd": 13845.896506
             },
             {
               "symbol": "BTC",
-              "pnlUsd": 21415.646887
-            },
-            {
-              "symbol": "HYPE",
-              "pnlUsd": 20038.037212
-            },
-            {
-              "symbol": "VVV",
-              "pnlUsd": 15745.817113
-            },
-            {
-              "symbol": "ZEC",
-              "pnlUsd": 10921.429798
+              "pnlUsd": 7061.07657
             }
           ],
           "openPositions": []
@@ -576,10 +338,10 @@
             "tear": false
           },
           "perp": {
-            "mouth": 0.8581751778103073,
-            "brow": 0.34344213859611367,
+            "mouth": 0.8620803408451381,
+            "brow": 0.3752110440432428,
             "eyes": 1,
-            "heat": 0.004885244913482467,
+            "heat": 0.007987820103134962,
             "tear": false
           }
         },
@@ -587,164 +349,86 @@
           "spot": "Ghost",
           "perp": "Berserker"
         },
-        "duality": 29,
+        "duality": 30,
         "verdict": "Never seen in daylight. Berserker after dark.",
         "notes": {
           "spot": "No spot record on ethereum or base in the last 90 days.",
-          "perp": "6488 perp trades on 26 coins, 71% win rate, +$172K realized, $3K burned in fees. Flat right now."
+          "perp": "3901 perp trades on 3 coins, 73% win rate, +$56K realized, $1K burned in fees. Flat right now."
         },
-        "rank": 7
+        "rank": 4
       },
       {
-        "address": "0xb81219ef9f6d3fdc1ff893fa82d80840a651b5e0",
-        "label": "HL Perps Whale",
+        "address": "0x8af700ba841f30e0a3fcb0ee4c4a9d223e1efa05",
+        "label": "Uses \"TRADEXYZ1\" HL Referral Code",
         "activity": {
-          "trades7d": 5,
-          "volume7dUsd": 61.58638,
-          "lastTradeAt": "2026-09-25T11:30:43.629000Z",
-          "favoriteCoin": "PONS",
-          "longShare": 1
-        },
-        "spot": {
-          "chain": "ethereum",
-          "winRate": 0,
-          "pnlUsd": 0,
-          "roiPct": 0,
-          "trades": 0,
-          "tokens": 0,
-          "topTokens": []
-        },
-        "perp": {
-          "winRate": 67.9109081934847,
-          "pnlUsd": 104063.466575,
-          "roiPct": 4.374151584243665,
-          "trades": 24066,
-          "closedTrades": 16208,
-          "coins": 115,
-          "feesUsd": 1237.1622150000003,
-          "unrealizedPnlUsd": 0,
-          "accountValueUsd": 968288.846014,
-          "maxLeverage": 0,
-          "topCoins": [
-            {
-              "symbol": "PONS",
-              "pnlUsd": 58925.937492
-            },
-            {
-              "symbol": "ETH",
-              "pnlUsd": 15171.366936
-            },
-            {
-              "symbol": "HYPE",
-              "pnlUsd": 11334.012599
-            },
-            {
-              "symbol": "PUMP",
-              "pnlUsd": 9891.377164
-            },
-            {
-              "symbol": "STRK",
-              "pnlUsd": 5433.888546
-            }
-          ],
-          "openPositions": []
-        },
-        "faces": {
-          "spot": {
-            "mouth": 0.05,
-            "brow": 0.3,
-            "eyes": 0.18,
-            "heat": 0,
-            "tear": false
-          },
-          "perp": {
-            "mouth": 0.776326702404178,
-            "brow": 0.2925708688159099,
-            "eyes": 1,
-            "heat": 0.0035665606453010867,
-            "tear": false
-          }
-        },
-        "temperament": {
-          "spot": "Ghost",
-          "perp": "Berserker"
-        },
-        "duality": 27,
-        "verdict": "Never seen in daylight. Berserker after dark.",
-        "notes": {
-          "spot": "No spot record on ethereum or base in the last 90 days.",
-          "perp": "24066 perp trades on 115 coins, 68% win rate, +$104K realized, $1K burned in fees. Flat right now."
-        },
-        "rank": 8
-      },
-      {
-        "address": "0x46926d8fad4a36047a73ed7be1cec963c77fef87",
-        "label": "Uses \"ZERIONAPP\" HL Referral Code",
-        "activity": {
-          "trades7d": 12,
-          "volume7dUsd": 299864.29125512816,
-          "lastTradeAt": "2026-09-25T11:31:16.549000Z",
+          "trades7d": 1,
+          "volume7dUsd": 7293.6,
+          "lastTradeAt": "2026-09-26T04:24:33.156000Z",
           "favoriteCoin": "NEAR",
           "longShare": 0
         },
         "spot": {
           "chain": "ethereum",
           "winRate": 100,
-          "pnlUsd": 28.153405767737752,
-          "roiPct": 3.1616470561982997,
-          "trades": 6,
-          "tokens": 1,
+          "pnlUsd": 0.05828137264115251,
+          "roiPct": 0.5807668516080564,
+          "trades": 42,
+          "tokens": 2,
           "topTokens": [
             {
-              "symbol": "ETH",
-              "pnlUsd": 28.153405767737752
+              "symbol": "SUSDAT",
+              "pnlUsd": 0.05828137264115251
             }
           ]
         },
         "perp": {
-          "winRate": 92.35827962646323,
-          "pnlUsd": 449811.600913,
-          "roiPct": 2.9839291739339706,
-          "trades": 660,
-          "closedTrades": 7603,
-          "coins": 4,
-          "feesUsd": 19525.428236999996,
+          "winRate": 68.6396600981613,
+          "pnlUsd": 7524319.5876400005,
+          "roiPct": 16.21485114698962,
+          "trades": 18272,
+          "closedTrades": 13651,
+          "coins": 19,
+          "feesUsd": 8584.377039,
           "unrealizedPnlUsd": 0,
-          "accountValueUsd": 29499.455643,
+          "accountValueUsd": 5862278.086377,
           "maxLeverage": 0,
           "topCoins": [
             {
-              "symbol": "NIL",
-              "pnlUsd": 265573.125665
+              "symbol": "ZEC",
+              "pnlUsd": 6489328.555405
             },
             {
-              "symbol": "XPL",
-              "pnlUsd": 136333.315005
+              "symbol": "HYPE",
+              "pnlUsd": 1319771.343631
             },
             {
-              "symbol": "NEAR",
-              "pnlUsd": 90139.618843
+              "symbol": "xyz:SKHY",
+              "pnlUsd": 826414.729735
             },
             {
-              "symbol": "VVV",
-              "pnlUsd": -42234.4586
+              "symbol": "APT",
+              "pnlUsd": 341514.669821
+            },
+            {
+              "symbol": "PUMP",
+              "pnlUsd": 337140
             }
           ],
           "openPositions": []
         },
         "faces": {
           "spot": {
-            "mouth": 0.7354402090112893,
+            "mouth": 0.6514350671971768,
             "brow": 1,
-            "eyes": 0.28169934667141894,
+            "eyes": 0.5444894851931955,
             "heat": 0.06,
             "tear": false
           },
           "perp": {
-            "mouth": 0.9710859681219313,
-            "brow": 0.6842673201441735,
+            "mouth": 0.8727932019632261,
+            "brow": 0.3100905595555775,
             "eyes": 1,
-            "heat": 0.013022404178128229,
+            "heat": 0.0003422652482664876,
             "tear": false
           }
         },
@@ -752,100 +436,95 @@
           "spot": "Saint",
           "perp": "Berserker"
         },
-        "duality": 20,
+        "duality": 21,
         "verdict": "Saint by day, berserker by night. Same face in every light.",
         "notes": {
-          "spot": "Wins 100% of 6 exits across 1 tokens on ethereum; +$28 realized (+3% ROI).",
-          "perp": "660 perp trades on 4 coins, 92% win rate, +$450K realized, $20K burned in fees. Flat right now."
+          "spot": "Wins 100% of 42 exits across 2 tokens on ethereum; +$0 realized (+1% ROI).",
+          "perp": "18272 perp trades on 19 coins, 69% win rate, +$7.52M realized, $9K burned in fees. Flat right now."
         },
-        "rank": 9
+        "rank": 5
       },
       {
-        "address": "0xd142479997958a4fefd1f8d5373b31ce36987d73",
-        "label": "Uses \"TRUSTHL\" HL Referral Code",
+        "address": "0x3ee505ba316879d246a8fd2b3d7ee63b51b44fab",
+        "label": "Token Millionaire",
         "activity": {
-          "trades7d": 3,
-          "volume7dUsd": 578737.0331748977,
-          "lastTradeAt": "2026-09-25T11:28:27.363000Z",
-          "favoriteCoin": "UNI",
+          "trades7d": 1,
+          "volume7dUsd": 533.047592,
+          "lastTradeAt": "2026-09-26T04:24:57.204000Z",
+          "favoriteCoin": "SKY",
           "longShare": 1
         },
         "spot": {
           "chain": "ethereum",
-          "winRate": 100,
-          "pnlUsd": 4455.042890706709,
-          "roiPct": 9.255802110721573,
-          "trades": 15,
-          "tokens": 1,
-          "topTokens": [
-            {
-              "symbol": "ETH",
-              "pnlUsd": 4455.042890706709
-            }
-          ]
+          "winRate": 75,
+          "pnlUsd": 0,
+          "roiPct": 0,
+          "trades": 16,
+          "tokens": 4,
+          "topTokens": []
         },
         "perp": {
-          "winRate": 80.24578971324533,
-          "pnlUsd": 1412109.9146,
-          "roiPct": 5.129248181048464,
-          "trades": 473,
-          "closedTrades": 6591,
-          "coins": 14,
-          "feesUsd": 69176.49785799999,
+          "winRate": 100,
+          "pnlUsd": 2041486.0667690001,
+          "roiPct": 35.359127478896944,
+          "trades": 2373,
+          "closedTrades": 4713,
+          "coins": 6,
+          "feesUsd": 3106.346779,
           "unrealizedPnlUsd": 0,
-          "accountValueUsd": 707264.113274,
+          "accountValueUsd": 1537622.265987,
           "maxLeverage": 0,
           "topCoins": [
             {
-              "symbol": "SOL",
-              "pnlUsd": 393057.410916
-            },
-            {
               "symbol": "ETH",
-              "pnlUsd": 279793.448011
+              "pnlUsd": 715889.283566
             },
             {
-              "symbol": "XRP",
-              "pnlUsd": 217302.60953
+              "symbol": "LIT",
+              "pnlUsd": 668153.727409
             },
             {
-              "symbol": "UNI",
-              "pnlUsd": 171971.3577
+              "symbol": "AAVE",
+              "pnlUsd": 418427.8224
             },
             {
-              "symbol": "BTC",
-              "pnlUsd": 133385.512577
+              "symbol": "ZRO",
+              "pnlUsd": 175083.591524
+            },
+            {
+              "symbol": "SKY",
+              "pnlUsd": 45157.71917
             }
           ],
           "openPositions": []
         },
         "faces": {
           "spot": {
-            "mouth": 0.8628553794731165,
-            "brow": 1,
-            "eyes": 0.4013733275519749,
+            "mouth": 0.65,
+            "brow": 0.875,
+            "eyes": 0.41014964045942465,
             "heat": 0.06,
             "tear": false
           },
           "perp": {
             "mouth": 1,
-            "brow": 0.47960247491016406,
+            "brow": 0.8325725280480158,
             "eyes": 1,
-            "heat": 0.014696412186354884,
+            "heat": 0.00045648317119053233,
             "tear": false
           }
         },
         "temperament": {
-          "spot": "Saint",
-          "perp": "Sniper"
+          "spot": "Monk",
+          "perp": "Berserker"
         },
-        "duality": 19,
-        "verdict": "Saint by day, sniper by night. Same face in every light.",
+        "duality": 18,
+        "verdict": "Monk by day, berserker by night. Same face in every light.",
         "notes": {
-          "spot": "Wins 100% of 15 exits across 1 tokens on ethereum; +$4K realized (+9% ROI).",
-          "perp": "473 perp trades on 14 coins, 80% win rate, +$1.41M realized, $69K burned in fees. Flat right now."
+          "spot": "Wins 75% of 16 exits across 4 tokens on ethereum; +$0 realized (+0% ROI).",
+          "perp": "2373 perp trades on 6 coins, 100% win rate, +$2.04M realized, $3K burned in fees. Flat right now."
         },
-        "rank": 10
+        "rank": 6
       }
     ]
   }

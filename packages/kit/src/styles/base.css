@@ -572,3 +572,91 @@ pre {
     max-width: 200px;
   }
 }
+
+/* "Open in Nansen": a small pill beside a wallet or token. It takes the surrounding text colour, so
+   it sits naturally in every world. */
+.lg-nansen {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  border: 1px solid color-mix(in oklab, currentColor 38%, transparent);
+  border-radius: 999px;
+  font-family: var(--lg-font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  opacity: 0.82;
+  transition: opacity 150ms ease, border-color 150ms ease, background-color 150ms ease;
+}
+
+.lg-nansen:hover,
+.lg-nansen:focus-visible {
+  opacity: 1;
+  border-color: currentColor;
+  background: color-mix(in oklab, currentColor 12%, transparent);
+}
+
+.lg-nansen__arrow {
+  font-size: 0.95em;
+}
+
+/* Recording captions (?rec=1): dark glass, readable over every world and in a 1080p video. */
+.lg-caption {
+  position: fixed;
+  left: 50%;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 1000;
+  width: min(760px, calc(100vw - 32px));
+  transform: translateX(-50%);
+  padding: 12px 18px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  background: rgba(8, 10, 15, 0.84);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  color: #f4f6fa;
+  pointer-events: none;
+}
+
+.lg-caption__kicker {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9fd8f7;
+}
+
+.lg-caption__text {
+  margin: 0;
+  font-family: var(--lg-font);
+  font-size: clamp(15px, 1.5vw, 20px);
+  line-height: 1.4;
+  animation: lg-caption-in 320ms ease both;
+}
+
+@keyframes lg-caption-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-caption__text {
+    animation: none;
+  }
+}

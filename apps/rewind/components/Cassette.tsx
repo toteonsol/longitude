@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { NumberTicker, Tilt, fmt, motion, springs } from "@longitude/motion";
 import type { CSSProperties, ReactNode } from "react";
 import type { Pick } from "@/lib/data";
@@ -73,6 +74,12 @@ export function Cassette({ pick, color, phase, selected, isWinner, hit, onSelect
           </Stamp>
         ) : null}
       </button>
+      {/* Beside the button, never in it. Only once the call is locked: Nansen's chart would give the answer away. */}
+      {phase !== "idle" ? (
+        <span className="cassette__nansen" style={{ "--tape-color": color } as CSSProperties}>
+          <NansenLink address={pick.address} chain={pick.chain} kind="token" />
+        </span>
+      ) : null}
     </Tilt>
   );
 }

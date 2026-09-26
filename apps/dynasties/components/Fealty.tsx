@@ -1,5 +1,5 @@
 "use client";
-import { ShareButton, social, useIdentity, useReactions } from "@longitude/kit";
+import { ShareButton, caption, social, useIdentity, useReactions } from "@longitude/kit";
 import { AnimatePresence, motion, useReducedMotion } from "@longitude/motion";
 import { useCallback, useEffect } from "react";
 import { Pennant } from "./Ornaments";
@@ -94,7 +94,16 @@ export function BannerRow({ count, sworn }: { count: number; sworn: boolean }) {
 export function FealtyActions({ fealty, name, blazon }: { fealty: FealtyState; name: string; blazon: string }) {
   return (
     <div className="house__actions">
-      <button type="button" className={`fealty__btn${fealty.sworn ? " is-sworn" : ""}`} onClick={fealty.swear} aria-pressed={fealty.sworn}>
+      <button
+        type="button"
+        className={`fealty__btn${fealty.sworn ? " is-sworn" : ""}`}
+        onClick={() => {
+          // Recording caption (?rec=1) when swearing, not when taking the banner back.
+          if (!fealty.sworn) caption(`Your banner now flies for House ${name}, counted with every visitor who swore to it.`);
+          fealty.swear();
+        }}
+        aria-pressed={fealty.sworn}
+      >
         <Pennant />
         {fealty.sworn ? "Fealty sworn" : "Swear fealty"}
       </button>

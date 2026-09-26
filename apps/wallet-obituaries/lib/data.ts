@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, RowOf } from "@longitude/nansen";
 import { CreditCapExceededError, NansenConfigError, isoDate, lastDays, shortAddress } from "@longitude/nansen";
 import { article, chainName, listJoin, numWord, pctText, qty, usd, whenPhrase } from "./format";
@@ -412,7 +413,7 @@ function fatal(err: unknown): boolean {
  * a shortlist of 24 and 16 notices, about 5 + 5 + 24 + 16 = 50 credits. seed.ts caps the run at 70.
  */
 export async function buildWalletObituaries(nansen: NansenClient): Promise<WalletObituariesData> {
-  const deep = process.env.DEEP === "1";
+  const deep = isDeep();
   const notices = deep ? DEEP_OBITUARIES : OBITUARIES;
   const now = new Date();
   const window = lastDays(LIFETIME_DAYS, now);

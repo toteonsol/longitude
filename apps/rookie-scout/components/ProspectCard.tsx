@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { Flip, Grow, NumberTicker, Tilt, fmt } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import type { CohortMedians, Prospect } from "@/lib/data";
@@ -60,7 +61,7 @@ export function ProspectCard({ prospect: p, medians: m, flipped, onFlip, drafted
         <span>{p.number}</span>
       </div>
       <div className="card__name lg-addr" title={p.address}>
-        {shortAddress(p.address, 5)}
+        {shortAddress(p.address, 5)} <NansenLink address={p.address} chain={p.chain} />
       </div>
       <div className="card__pos">
         Spotted on <b>${p.spottedOn.symbol}</b>

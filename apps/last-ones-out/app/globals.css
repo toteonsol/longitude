@@ -628,6 +628,11 @@ button.bld__body:focus-visible {
   text-transform: uppercase;
 }
 
+/* The token's Nansen pill sits on its own line under the name. */
+.panel__nansen {
+  margin-top: 8px;
+}
+
 .panel__close {
   flex: none;
   width: 40px;

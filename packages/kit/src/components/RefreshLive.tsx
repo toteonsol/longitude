@@ -1,7 +1,8 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { useEffect, useTransition } from "react";
 import type { DataSource } from "../load";
+import { caption } from "./Captions";
 
 interface Props {
   source: DataSource;
@@ -17,9 +18,23 @@ export function RefreshLive({ source, disabled }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const [pending, start] = useTransition();
+  const liveCredits = source.kind === "live" ? source.credits : -1;
+  // Recording captions (?rec=1) narrate the live call; outside recording mode this shows nothing.
+  useEffect(() => {
+    if (liveCredits < 0) return;
+    caption(
+      liveCredits > 0
+        ? `Fresh from the Nansen API just now: ${liveCredits} credit${liveCredits === 1 ? "" : "s"} spent on this page.`
+        : "Live Nansen data from the last few minutes, served from the shared cache at no extra cost.",
+      7000,
+    );
+  }, [liveCredits]);
   if (disabled) return null;
   const isLive = source.kind === "live";
-  const go = () => start(() => router.push(`${pathname}?live=1`));
+  const go = () => {
+    caption("Calling the Nansen API live for this page...", 20000);
+    start(() => router.push(`${pathname}?live=1`));
+  };
   const back = () => start(() => router.push(pathname));
   return (
     <span className="lg-refresh">

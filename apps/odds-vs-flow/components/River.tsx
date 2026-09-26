@@ -1,7 +1,16 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { Grow, NumberTicker, fmt, useReducedMotion } from "@longitude/motion";
 import { type CSSProperties, useMemo } from "react";
 import type { Bout } from "@/lib/data";
+
+/**
+ * Native-coin stand-ins (0xeee…/0x000… on EVM chains, the all-ones addresses on Solana) are not contracts
+ * Token God Mode can open, so those rivers get no Nansen link. Real contracts (WBTC, WETH, the wrapped SOL
+ * mint) do.
+ */
+const NATIVE_PLACEHOLDER = /^(?:0x(?:e{40}|0{40})|1{32}|So1{41})$/i;
+const godModeReady = (t: Bout["token"]): boolean => Boolean(t.address && t.chain) && !NATIVE_PLACEHOLDER.test(t.address);
 
 /* The water is drawn twice as wide as its box and slid one width per loop, so it never seams. */
 const VW = 800;
@@ -86,9 +95,12 @@ export function River({ bout: b }: { bout: Bout }) {
         <span className="river__kicker">
           Smart money · {t.symbol} · {t.chain}
         </span>
-        <b className={`river__flow river__flow--${b.flow.stance}`}>
-          <NumberTicker value={t.netFlow7dUsd} format={fmt.usdSigned} duration={1.6} />
-        </b>
+        <div className="river__headline">
+          <b className={`river__flow river__flow--${b.flow.stance}`}>
+            <NumberTicker value={t.netFlow7dUsd} format={fmt.usdSigned} duration={1.6} />
+          </b>
+          {godModeReady(t) ? <NansenLink address={t.address} chain={t.chain} kind="token" /> : null}
+        </div>
         <span className="river__label">7-day net flow · {b.flow.stance}</span>
         <dl className="river__stats">
           <div>

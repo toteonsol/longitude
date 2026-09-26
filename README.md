@@ -64,8 +64,9 @@ timestamp, endpoint and credits; the store shows the running total.
 
 **Snapshots first, live on demand.** Each app's seed script writes `snapshots/main.json`. Pages render the
 snapshot instantly; the **Refresh live** button re-runs the same builder against Nansen. If the live call
-fails, the snapshot stays up. A Vercel cron re-seeds once a day (00:00 UTC) and pushes the JSON to Convex, where
-the apps fetch it, so refreshed data never needs a redeploy.
+fails, the snapshot stays up. A Vercel cron re-seeds once a day (00:00 UTC) in deep mode, the same bigger cut
+the seeds publish, and pushes the JSON to Convex, where the apps fetch it, so refreshed data never needs a
+redeploy and the live apps never thin out overnight.
 
 **Same engine, ten feels.** `packages/motion` holds springs, reveals, staggers, number tickers, flips,
 typewriters, marquees and a tilt. Each world picks a spring and a skin.
@@ -86,7 +87,18 @@ serve a five-minute cache; **Pro refresh** charges a few cents of USDC on Base o
 no keys) and forces a fresh pull, so the people who want fresher data pay for it on the same rail Nansen
 sells on. Set `X402_PAY_TO` to turn it on; judges never need a wallet.
 
+**Every wallet and token opens in Nansen.** A small **Nansen** pill sits beside the wallets and tokens in
+every app and in the wallet lens. It opens the wallet in Nansen Profiler or the token in Token God Mode, costs
+no credits, and makes each of the ten worlds a doorway into Nansen's own product.
+
+**Recording mode.** Add `?rec=1` to any page and a caption bar explains what is on screen and which Nansen
+data drives it, so a screen recording needs no voiceover. The flag follows you between the store and the apps;
+`?rec=0` turns it off. See `docs/DEMO.md`.
+
 ## Run it
+
+You need Node 22 or newer and pnpm 9 (`corepack enable` installs the pinned pnpm). No API key is needed to
+look around: every app renders from its committed snapshot. Add a key to refresh live or seed.
 
 ```bash
 pnpm install
@@ -99,6 +111,7 @@ Seed real data (about 300 credits for all ten; each app has its own cap):
 ```bash
 pnpm seed:all                         # or: pnpm --filter @longitude/rewind seed
 SEED_FRESH=1 pnpm seed:all            # bypass the 6-hour response cache
+SEED_FRESH=1 DEEP=1 pnpm seed:all     # the deep cut the live apps run: more wallets, tokens and weeks (~450 credits)
 pnpm nansen:account                   # plan + credits remaining, costs nothing
 ```
 
@@ -129,8 +142,9 @@ Until an app is seeded it shows a hand-written sample flagged **sample data** in
   `.env` and on the deployment (`npx convex env set SEED_TOKEN …`). One Convex deployment holds the social store,
   the snapshots and the call log for every app.
 - **Cron:** the store's `vercel.json` schedules `/api/cron/seed` once a day; it calls each app's own
-  `/api/cron/seed` (protected by `CRON_SECRET`), which re-runs the builder against Nansen and pushes the
-  snapshot to Convex. No server runs between seeds.
+  `/api/cron/seed` (protected by `CRON_SECRET`) a few seconds apart, which re-runs the builder against Nansen
+  in deep mode and pushes the snapshot to Convex. Deep mode is scoped to that one request, so a visitor's
+  Refresh live still gets the lighter build; add `?deep=0` for a light run. No server runs between seeds.
 
 ## How this maps to the Meridian judging
 

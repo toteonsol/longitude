@@ -14,7 +14,8 @@
     "./styles.css": "./src/styles/base.css",
     "./pro-server": "./src/pro/server.ts",
     "./pro": "./src/pro/client.tsx",
-    "./cron": "./src/cron.ts"
+    "./cron": "./src/cron.ts",
+    "./deep": "./src/deep.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

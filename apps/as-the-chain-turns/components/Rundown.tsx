@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { fmt } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import type { CastMember, Scene } from "@/lib/data";
@@ -38,6 +39,8 @@ export function Rundown({ scenes, cast, currentIndex, onPick }: Props) {
                 <span className="rundown__title">{s.title}</span>
                 <span className={`rundown__zoom rundown__zoom--${s.zoom}`}>{s.zoom} zoom</span>
               </button>
+              {/* The scene's wallet, beside the row's button (never inside it); globals.css lays it over the row's end. */}
+              <NansenLink address={s.wallet} chain={s.chain} className="rundown__nansen" />
             </li>
           );
         })}

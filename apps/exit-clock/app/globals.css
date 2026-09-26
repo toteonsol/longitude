@@ -483,12 +483,13 @@ body {
   letter-spacing: 0.3em;
 }
 
-/* Brass plate under the dial */
+/* Brass plate under the dial. A hand's address (with its Nansen pill) gets its own line under the label. */
 .dial__plate {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-areas:
     "sym time"
+    "addr addr"
     "meta meta"
     "hint act";
   gap: 4px 12px;
@@ -537,9 +538,15 @@ body {
 }
 
 .dial__plate-meta.lg-addr {
-  grid-area: sym;
-  align-self: end;
+  grid-area: addr;
   font-size: 11px;
+}
+
+/* The token's Token God Mode pill, top right of the plate while no hand is picked. */
+.plate__nansen {
+  grid-area: time;
+  justify-self: end;
+  align-self: center;
 }
 
 .dial__plate-meta em {
@@ -653,6 +660,7 @@ body {
 
 /* A row is a concrete bar: the hand (button) and its brass pin (button) side by side. */
 .ledger__row {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 40px;
   align-items: stretch;
@@ -820,6 +828,7 @@ body {
 
 .ledger__meta {
   grid-area: meta;
+  padding-right: 78px;
   font-family: var(--lg-font-mono);
   font-size: 10.5px;
   letter-spacing: 0.02em;
@@ -827,6 +836,20 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* The hand's Nansen pill: in the DOM between the row's two buttons, drawn on the free end of the meta line
+   (the meta's right padding keeps its text clear), just left of the pin. */
+.ledger__nansen {
+  position: absolute;
+  right: 50px;
+  bottom: 5px;
+  color: var(--ink-dim);
+}
+
+.ledger__nansen:hover,
+.ledger__nansen:focus-visible {
+  color: var(--brass-hi);
 }
 
 .ledger__foot {
@@ -1127,6 +1150,7 @@ body {
     grid-template-columns: 1fr;
     grid-template-areas:
       "sym"
+      "addr"
       "time"
       "meta"
       "hint"
@@ -1134,6 +1158,9 @@ body {
   }
   .dial__plate-meta.lg-addr {
     align-self: auto;
+  }
+  .plate__nansen {
+    justify-self: start;
   }
   .plate__watch {
     justify-self: stretch;

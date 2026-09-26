@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { AnimatePresence, Stagger, StaggerItem, fmt, motion } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import { STATE_LABEL, anchorText, exitState, formatCountdown, formatHold, remainingMs, utcClock } from "@/lib/clock";
@@ -73,6 +74,8 @@ export function Ledger({ token, holders, now, active, watched, watching, fresh, 
                     {h.holdSource === "trader" ? "" : "*"} · {anchorText(h, now)} · 7d {fmt.pctSigned(h.change7dPct, 0)}
                   </span>
                 </button>
+                {/* Between the two buttons, never inside one; CSS sets it on the free end of the meta line. */}
+                <NansenLink address={h.address} chain={token.chain} className="ledger__nansen" />
                 <button
                   type="button"
                   className={`ledger__watch${isWatched ? " is-on" : ""}`}

@@ -1,108 +1,1119 @@
 {
   "app": "wallet-obituaries",
   "name": "main",
-  "generatedAt": "2026-09-25T11:33:07.565Z",
+  "generatedAt": "2026-09-26T04:32:41.252Z",
   "credits": 50,
   "sample": false,
   "data": {
-    "generatedAt": "2026-09-25T11:32:35.586Z",
+    "generatedAt": "2026-09-26T04:32:09.151Z",
     "edition": {
-      "date": "2026-09-25",
-      "number": 6475,
+      "date": "2026-09-26",
+      "number": 6476,
       "volume": 18
     },
     "window": {
-      "from": "2026-03-29",
-      "to": "2026-09-25"
+      "from": "2026-03-30",
+      "to": "2026-09-26"
     },
     "obituaries": [
       {
-        "address": "AEtL29wgARtujVynpgoDtUMLvM7NmZ6WALcjD2NjU8Dk",
+        "address": "BduvYfxbZqpXcnJ8JH31FidP6RMvgj2REE4oQBQTEj6m",
         "label": "Smart Money",
         "chain": "solana",
         "exit": {
-          "symbol": "ZEC",
-          "tokenAddress": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
-          "amount": 48.77253637,
-          "valueUsd": 74038.2608925675,
+          "symbol": "STONK",
+          "tokenAddress": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
+          "amount": 171212.418519301,
+          "valueUsd": 55880.52041863594,
           "into": "USDC",
-          "at": "2026-09-24T16:54:33.000Z",
-          "txHash": "comjzP2EQnwuPRmVuGmXuMoigc3k2nniYCUE6G8FdWe2ncdhMfEJVmCgsdJ1iAgyDkGuwXRNBq1ULbZCLcRS9BS",
-          "exitsToday": 1,
-          "soldTodayUsd": 74038.2608925675,
-          "stillHoldsUsd": 0
+          "at": "2026-09-25T07:02:06.000Z",
+          "txHash": "5eVcjR9ctx5zvuv4hvYLiVNUibvAqSgJjxqWZC43rQufnvb51tM5bgRwReom1aPWM6b24BezNsqk85je362nNuHZ",
+          "exitsToday": 3,
+          "soldTodayUsd": 101333.4266858797,
+          "stillHoldsUsd": 22457.400607618867
         },
         "lifetime": {
-          "pnlUsd": 2996649.9237563484,
-          "roiPct": 66.81712471427204,
-          "winRate": 37.03703703703704,
-          "tokens": 54,
-          "trades": 1857,
+          "pnlUsd": 96822.2336566206,
+          "roiPct": 22.0875345517471,
+          "winRate": 43.91891891891892,
+          "tokens": 148,
+          "trades": 5310,
           "topTokens": [
             {
-              "symbol": "STONK",
-              "pnlUsd": 3090509.7108398555,
-              "roiPct": 209.40596859097096
+              "symbol": "PURR",
+              "pnlUsd": 30203.035273497968,
+              "roiPct": 117.40674328297543
             },
             {
-              "symbol": "HYPE",
-              "pnlUsd": 44746.68611817555,
-              "roiPct": 79.61454370730594
-            },
-            {
-              "symbol": "RAWR",
-              "pnlUsd": 40679.942480764454,
-              "roiPct": 74.01135689641745
-            },
-            {
-              "symbol": "UBER",
-              "pnlUsd": -30229.062442410468,
-              "roiPct": -95.8539395526631
+              "symbol": "BTC",
+              "pnlUsd": 20484.09472786243,
+              "roiPct": 219.96517901491416
             },
             {
               "symbol": "ZCAT",
-              "pnlUsd": -56697.57267496266,
-              "roiPct": -39.209169012546816
+              "pnlUsd": 20349.457442707113,
+              "roiPct": 684.6149880407944
+            },
+            {
+              "symbol": "KNOTS",
+              "pnlUsd": 18262.358519706537,
+              "roiPct": 139.16489353026546
+            },
+            {
+              "symbol": "LMEOW",
+              "pnlUsd": 3226.9224646619655,
+              "roiPct": 161.81368763108574
             }
           ],
           "known": true
         },
         "survivedBy": [
           {
-            "symbol": "SPYX",
-            "valueUsd": 1038756.9810463673,
-            "amount": 1344.95327181
+            "symbol": "ZCAT",
+            "valueUsd": 59895.27311298295,
+            "amount": 1012083.581816408
           },
           {
             "symbol": "USDC",
-            "valueUsd": 248353.8893628295,
-            "amount": 248966.301597
+            "valueUsd": 34864.2845350657,
+            "amount": 34795.897781
+          },
+          {
+            "symbol": "STONK",
+            "valueUsd": 22457.400607618867,
+            "amount": 80376.041004348
+          },
+          {
+            "symbol": "ZEC",
+            "valueUsd": 19405.489715994372,
+            "amount": 12.71118044
+          },
+          {
+            "symbol": "BTC",
+            "valueUsd": 12715.83983302964,
+            "amount": 6744082.769796539
+          }
+        ],
+        "headline": "BduvYf…Ej6m Closes the Book on $STONK After 5310 Trades",
+        "deck": "Sold 171K STONK on Solana for $55.9K on Friday morning, taking payment in USDC. Leaves $96.8K in realized profit over six months, a 44% win rate and a five-token estate worth $149K.",
+        "body": [
+          "On Friday morning, BduvYf…Ej6m, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $STONK. It sold 171K tokens in a single transaction for $55.9K, taking payment in USDC. The sale was the largest of three exits the wallet made that day, $101K in all. A remainder of $22.5K in $STONK stays on the books, which those who know the wallet describe as sentimental.",
+          "Over the past six months the wallet booked $96.8K in realized profit across 5310 sales of 148 tokens, winning 44% of the time and pressing on regardless. It will be remembered for $PURR, which returned $30.2K, and for a profitable spell in $BTC.",
+          "It is survived by five holdings: $ZCAT ($59.9K), $USDC ($34.9K), $STONK ($22.5K), $ZEC ($19.4K) and $BTC ($12.7K). The estate is valued at $149K.",
+          "The Smart Money desk notes that the address remains open; retirement, in this trade, is seldom permanent."
+        ],
+        "estateUsd": 149338.28780469153
+      },
+      {
+        "address": "9kGPGogkW5TbjVtRNBY6XbBNRguH93sjnvmURZR6qGiL",
+        "label": "Smart Money",
+        "chain": "solana",
+        "exit": {
+          "symbol": "ZCAT",
+          "tokenAddress": "HcRLc9VDgjLeK154xDawfb1dmVJ98DoSqcwTHGqiDeJR",
+          "amount": 600000,
+          "valueUsd": 35508.09885018841,
+          "into": "SOL",
+          "at": "2026-09-26T03:47:31.000Z",
+          "txHash": "isEdNokXboVUf8NzMvtZFHrHcTCoSUmCdW2hWhmHxfpP5E1au6VbXqkeP6bUXbcCEomAqCZNKybW4Umg2kyGUMx",
+          "exitsToday": 2,
+          "soldTodayUsd": 46134.278080006974,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 138366.61673807,
+          "roiPct": 15.848689916802506,
+          "winRate": 28.915662650602407,
+          "tokens": 83,
+          "trades": 5488,
+          "topTokens": [
+            {
+              "symbol": "CATE",
+              "pnlUsd": 258555.50994328744,
+              "roiPct": 2637.667261238116
+            },
+            {
+              "symbol": "ZCAT",
+              "pnlUsd": 157812.49142829364,
+              "roiPct": 161.07634128285417
+            },
+            {
+              "symbol": "WOJAK",
+              "pnlUsd": -28843.117009126763,
+              "roiPct": -87.61317031591147
+            },
+            {
+              "symbol": "LEVERHEDGE",
+              "pnlUsd": -58566.103950504985,
+              "roiPct": -97.77328628836318
+            },
+            {
+              "symbol": "⚠️ S3",
+              "pnlUsd": -95188.842814717,
+              "roiPct": -97.66544684792795
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "PAID",
+            "valueUsd": 86945.47633390517,
+            "amount": 2017034.679705
+          },
+          {
+            "symbol": "SI",
+            "valueUsd": 17208.953343078112,
+            "amount": 2215040.880781
           },
           {
             "symbol": "SOL",
-            "valueUsd": 169072.93634783593,
-            "amount": 1400.844744652
+            "valueUsd": 7294.278085403384,
+            "amount": 60.418127185
           },
           {
-            "symbol": "SOLO",
-            "valueUsd": 52102.421721141865,
-            "amount": 58381.391872
+            "symbol": "MUCHWOW",
+            "valueUsd": 3171.622604078459,
+            "amount": 11090981.00186
           },
           {
-            "symbol": "USDV",
-            "valueUsd": 9999.225170208249,
-            "amount": 9998.16812
+            "symbol": "NVDAX",
+            "valueUsd": 294.4429796689218,
+            "amount": 1.31201486
           }
         ],
-        "headline": "AEtL29…U8Dk Closes the Book on $ZEC After 1857 Trades",
-        "deck": "Sold 48.77 ZEC on Solana for $74K on Thursday afternoon, taking payment in USDC. Leaves $3M in realized profit over six months, a 37% win rate and a five-token estate worth $1.52M.",
+        "headline": "$ZCAT Loses a Patron as 9kGPGo…qGiL Retires a $35.5K Position",
+        "deck": "Sold 600K ZCAT on Solana for $35.5K in the small hours of Saturday, taking payment in SOL. Leaves $138K in realized profit over six months, a 29% win rate and a five-token estate worth $115K.",
         "body": [
-          "On Thursday afternoon, AEtL29…U8Dk, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $ZEC. It sold 48.77 tokens in a single transaction for $74K, taking payment in USDC. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $3M in realized profit across 1857 sales of 54 tokens, winning 37% of the time and pressing on regardless. It will be remembered for $STONK, which returned $3.09M, and for a profitable spell in $HYPE.",
-          "It is survived by five holdings: $SPYX ($1.04M), $USDC ($248K), $SOL ($169K), $SOLO ($52.1K) and $USDV ($9,999). The estate is valued at $1.52M.",
+          "In the small hours of Saturday, 9kGPGo…qGiL, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $ZCAT. It sold 600K tokens in a single transaction for $35.5K, taking payment in SOL. The sale was the largest of two exits the wallet made that day, $46.1K in all. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $138K in realized profit across 5488 sales of 83 tokens, winning 29% of the time and pressing on regardless. It will be remembered for $CATE, which returned $259K, and for a profitable spell in $ZCAT.",
+          "It is survived by five holdings: $PAID ($86.9K), $SI ($17.2K), $SOL ($7,294), $MUCHWOW ($3,172) and $NVDAX ($294). The estate is valued at $115K.",
+          "Remembrances may be left on the block explorer. The wallet's next position has not been announced."
+        ],
+        "estateUsd": 114914.77334613404
+      },
+      {
+        "address": "Gmywf4vuVYPvEtN1AjohuSrDsjcQGX4AbKDhdBHqASm1",
+        "label": "Smart Money",
+        "chain": "solana",
+        "exit": {
+          "symbol": "SI",
+          "tokenAddress": "DEW9dSN6QpWyNthphCpMmAbZP1Q4cEKR9xQXAri98WDP",
+          "amount": 5680729.024973,
+          "valueUsd": 33046.90290664437,
+          "into": "USDC",
+          "at": "2026-09-25T15:32:50.000Z",
+          "txHash": "5SEgWHtwTzPW2bJicuXYayukkwPdG2VL1B4Xs9pmnUmaTezgaFh3SteZQgqJjD5xP52gsqS82sVPnX6XXvfcQ6aS",
+          "exitsToday": 1,
+          "soldTodayUsd": 33046.90290664437,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 230889.48560970122,
+          "roiPct": 18.638302747175995,
+          "winRate": 36.36363636363637,
+          "tokens": 66,
+          "trades": 2535,
+          "topTokens": [
+            {
+              "symbol": "STONK",
+              "pnlUsd": 160962.14547701782,
+              "roiPct": 18.42005756451829
+            },
+            {
+              "symbol": "FONE",
+              "pnlUsd": 63105.66420918414,
+              "roiPct": 132.67884605589288
+            },
+            {
+              "symbol": "PAID",
+              "pnlUsd": 47491.51006664349,
+              "roiPct": 237.33310195459146
+            },
+            {
+              "symbol": "EMBER",
+              "pnlUsd": 29354.116023144335,
+              "roiPct": 73.40013337653937
+            },
+            {
+              "symbol": "SI",
+              "pnlUsd": 25159.45916995579,
+              "roiPct": 123.70422270504062
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "USDC",
+            "valueUsd": 307522.8809650359,
+            "amount": 306919.670777
+          },
+          {
+            "symbol": "PAID",
+            "valueUsd": 53566.93505367816,
+            "amount": 1242691.054723
+          },
+          {
+            "symbol": "JEANPHIL",
+            "valueUsd": 39061.05113995234,
+            "amount": 6715741.523289
+          },
+          {
+            "symbol": "ELON",
+            "valueUsd": 7949.501625136538,
+            "amount": 2175187.451994
+          },
+          {
+            "symbol": "🌱 AMERICA",
+            "valueUsd": 1832.3838757951696,
+            "amount": 4486524.710866
+          }
+        ],
+        "headline": "A Quiet Exit: Gmywf4…ASm1 Steps Away From $SI With $33K",
+        "deck": "Sold 5.7M SI on Solana for $33K on Friday afternoon, taking payment in USDC. Leaves $231K in realized profit over six months, a 36% win rate and a five-token estate worth $410K.",
+        "body": [
+          "On Friday afternoon, Gmywf4…ASm1, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $SI. It sold 5.7M tokens in a single transaction for $33K, taking payment in USDC. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $231K in realized profit across 2535 sales of 66 tokens, winning 36% of the time and pressing on regardless. It will be remembered for $STONK, which returned $161K, and for a profitable spell in $FONE.",
+          "It is survived by five holdings: $USDC ($308K), $PAID ($53.6K), $JEANPHIL ($39.1K), $ELON ($7,950) and $🌱 AMERICA ($1,832). The estate is valued at $410K.",
+          "Colleagues on Solana are reminded that the wallet still answers to its address, and may yet trade again."
+        ],
+        "estateUsd": 409932.7526595981
+      },
+      {
+        "address": "2E1g7f7AYSJkUkzMbkwP3QkuawHWDqWbU6Lx39agKsPs",
+        "label": "Smart Money",
+        "chain": "solana",
+        "exit": {
+          "symbol": "XSOL",
+          "tokenAddress": "4sWNB8zGWHkh6UnmwiEtzNxL4XrN7uK9tosbESbJFfVs",
+          "amount": 335495.870978,
+          "valueUsd": 31834.866542256936,
+          "into": "MINI",
+          "at": "2026-09-26T03:48:36.000Z",
+          "txHash": "5ztVrcD7tGc4wsL81UaQkQ9TrPNvhFLRn3Kx8eAchFuJ8XTgKiK9Qy6W4oYDRXF4hA59Kzg7mPJeJUfm2MeRXisZ",
+          "exitsToday": 2,
+          "soldTodayUsd": 49567.05286815972,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 139110.53251173778,
+          "roiPct": 27.000275020814847,
+          "winRate": 52.94117647058824,
+          "tokens": 68,
+          "trades": 3410,
+          "topTokens": [
+            {
+              "symbol": "KNOTS",
+              "pnlUsd": 121759.23205407397,
+              "roiPct": 239.01557135647673
+            },
+            {
+              "symbol": "BTC",
+              "pnlUsd": 37974.82548858822,
+              "roiPct": 134.29910896881725
+            },
+            {
+              "symbol": "MUCHWOW",
+              "pnlUsd": 27449.709269537347,
+              "roiPct": 296.8991771734035
+            },
+            {
+              "symbol": "⚠️ MINECAT",
+              "pnlUsd": -13032.331005486798,
+              "roiPct": -92.345439896833
+            },
+            {
+              "symbol": "LOOP",
+              "pnlUsd": -25374.706643073656,
+              "roiPct": -54.62248357684521
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "RAYCAT",
+            "valueUsd": 78741.29258519938,
+            "amount": 25000000
+          },
+          {
+            "symbol": "STONKCATS",
+            "valueUsd": 77290.34853656871,
+            "amount": 30000000
+          },
+          {
+            "symbol": "KET",
+            "valueUsd": 58741.678963933504,
+            "amount": 20000000
+          },
+          {
+            "symbol": "STNK",
+            "valueUsd": 44742.299529585005,
+            "amount": 5500
+          },
+          {
+            "symbol": "LEVERCAT",
+            "valueUsd": 37502.925641640635,
+            "amount": 30000000
+          }
+        ],
+        "headline": "2E1g7f…KsPs, Smart Money of Solana, Retires From $XSOL",
+        "deck": "Sold 335K XSOL on Solana for $31.8K in the small hours of Saturday, taking payment in MINI. Leaves $139K in realized profit over six months, a 53% win rate and a five-token estate worth $297K.",
+        "body": [
+          "In the small hours of Saturday, 2E1g7f…KsPs, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $XSOL. It sold 335K tokens in a single transaction for $31.8K, taking payment in MINI. The sale was the largest of two exits the wallet made that day, $49.6K in all. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $139K in realized profit across 3410 sales of 68 tokens, winning 53% of the time, which is to say about as often as anyone. It will be remembered for $KNOTS, which returned $122K, and for a profitable spell in $BTC.",
+          "It is survived by five holdings: $RAYCAT ($78.7K), $STONKCATS ($77.3K), $KET ($58.7K), $STNK ($44.7K) and $LEVERCAT ($37.5K). The estate is valued at $297K.",
+          "The position is at rest in MINI. The wallet is not."
+        ],
+        "estateUsd": 297018.5452569272
+      },
+      {
+        "address": "21rgbFW6sujQovCw3qt6R2EdE97Yzzvk8sSc37Bb72Cm",
+        "label": "Smart Money",
+        "chain": "solana",
+        "exit": {
+          "symbol": "🌱 E/ACC",
+          "tokenAddress": "CbcyNo7m1amFWqEQm2m4PLv1UNvpcL3C1Ujm6AkzpKoU",
+          "amount": 1767245.075852,
+          "valueUsd": 31507.36515330675,
+          "into": "USDC",
+          "at": "2026-09-26T01:28:40.000Z",
+          "txHash": "22J9zDaZH5kTeab4B61CJrfoxVx6bALW4CBDZvVcYSqjR5rFEAUE6DPMTWWDggQ9dKeaGjZYBsxKvVvLUYnXQKat",
+          "exitsToday": 4,
+          "soldTodayUsd": 108548.21087206037,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 70870.69575381157,
+          "roiPct": 12.577417250815929,
+          "winRate": 31.343283582089555,
+          "tokens": 67,
+          "trades": 1362,
+          "topTokens": [
+            {
+              "symbol": "FONE",
+              "pnlUsd": 194609.31235068297,
+              "roiPct": 1012.8455868892372
+            },
+            {
+              "symbol": "PAID",
+              "pnlUsd": 28566.0231735683,
+              "roiPct": 20.365555386928058
+            },
+            {
+              "symbol": "FAMILY",
+              "pnlUsd": -13737.189696404177,
+              "roiPct": -98.14956678540594
+            },
+            {
+              "symbol": "STAMP",
+              "pnlUsd": -27959.405611837647,
+              "roiPct": -93.28785850285868
+            },
+            {
+              "symbol": "CTO",
+              "pnlUsd": -43563.3138012288,
+              "roiPct": -57.91794174651036
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "USDC",
+            "valueUsd": 454955.5788639836,
+            "amount": 454063.177494
+          },
+          {
+            "symbol": "🌱 NPC",
+            "valueUsd": 5455.106229223996,
+            "amount": 4804016.996571
+          },
+          {
+            "symbol": "🌱 FAMILIARS",
+            "valueUsd": 3238.2800115129835,
+            "amount": 10868703.90421
+          },
+          {
+            "symbol": "🌱 JIRACHI",
+            "valueUsd": 3234.813651385564,
+            "amount": 9768136.072974
+          },
+          {
+            "symbol": "SOL",
+            "valueUsd": 1633.5475699349831,
+            "amount": 13.530589825
+          }
+        ],
+        "headline": "$31.5K Walks Out the Door as 21rgbF…72Cm Leaves $🌱 E/ACC",
+        "deck": "Sold 1.8M 🌱 E/ACC on Solana for $31.5K in the small hours of Saturday, taking payment in USDC. Leaves $70.9K in realized profit over six months, a 31% win rate and a five-token estate worth $469K.",
+        "body": [
+          "In the small hours of Saturday, 21rgbF…72Cm, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $🌱 E/ACC. It sold 1.8M tokens in a single transaction for $31.5K, taking payment in USDC. The sale was the largest of four exits the wallet made that day, $109K in all. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $70.9K in realized profit across 1362 sales of 67 tokens, winning 31% of the time and pressing on regardless. It will be remembered for $FONE, which returned $195K, and for a profitable spell in $PAID.",
+          "It is survived by five holdings: $USDC ($455K), $🌱 NPC ($5,455), $🌱 FAMILIARS ($3,238), $🌱 JIRACHI ($3,235) and $SOL ($1,634). The estate is valued at $469K.",
           "The Smart Money desk notes that the address remains open; retirement, in this trade, is seldom permanent."
         ],
-        "estateUsd": 1518285.4536483826
+        "estateUsd": 468517.32632604113
+      },
+      {
+        "address": "0x4b69d6081ff943afd0c6561c3da5ac563ce4cdfb",
+        "label": "wenlaunch.eth*",
+        "chain": "base",
+        "exit": {
+          "symbol": "VVV",
+          "tokenAddress": "0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
+          "amount": 906.4458538313081,
+          "valueUsd": 27924.818931045073,
+          "into": "ETH",
+          "at": "2026-09-25T22:45:01.000Z",
+          "txHash": "0xce8d748d1ec248f6e91c49572a87e186fb93f1b08f5a8337a61a2a5c100895d5",
+          "exitsToday": 1,
+          "soldTodayUsd": 27924.818931045073,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 5684.0290778297895,
+          "roiPct": 6.216072303117541,
+          "winRate": 50,
+          "tokens": 10,
+          "trades": 22,
+          "topTokens": [
+            {
+              "symbol": "VVV",
+              "pnlUsd": 3278.8011755289663,
+              "roiPct": 13.670284472259874
+            },
+            {
+              "symbol": "CBZEC",
+              "pnlUsd": 1396.5037114999966,
+              "roiPct": 13.82717958627428
+            },
+            {
+              "symbol": "DRV",
+              "pnlUsd": 870.8647992757033,
+              "roiPct": 3.8691190180847497
+            },
+            {
+              "symbol": "WBTC",
+              "pnlUsd": 489.79537384340074,
+              "roiPct": 1.6718841180641715
+            },
+            {
+              "symbol": "TRUE",
+              "pnlUsd": -278.29324374937323,
+              "roiPct": -5.091463991855459
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "ETH",
+            "valueUsd": 32399.368734753658,
+            "amount": 12.050736488736257
+          },
+          {
+            "symbol": "UNI",
+            "valueUsd": 7392.58107301681,
+            "amount": 782.6710785372732
+          },
+          {
+            "symbol": "DOG",
+            "valueUsd": 1.9413169572701472,
+            "amount": 4324.618197993377
+          }
+        ],
+        "headline": "0x4b69…cdfb Bids $VVV a Fond Farewell in a Single $27.9K Sale",
+        "deck": "Sold 906 VVV on Base for $27.9K late on Friday, taking payment in ETH. Leaves $5,684 in realized profit over six months, a 50% win rate and a three-token estate worth $39.8K.",
+        "body": [
+          "Late on Friday, 0x4b69…cdfb, a Base wallet carried on Nansen's books as “wenlaunch.eth*”, closed the book on $VVV. It sold 906 tokens in a single transaction for $27.9K, taking payment in ETH. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $5,684 in realized profit across 22 sales of 10 tokens, winning 50% of the time, which is to say about as often as anyone. It will be remembered, fittingly, for $VVV, which returned $3,279, and for a profitable spell in $CBZEC.",
+          "It is survived by three holdings: $ETH ($32.4K), $UNI ($7,393) and $DOG ($2). The estate is valued at $39.8K.",
+          "Remembrances may be left on the block explorer. The wallet's next position has not been announced."
+        ],
+        "estateUsd": 39793.89112472774
+      },
+      {
+        "address": "pBSCXHh9iJ9cjtFv91S7utYGMmx6cW9PMoY8nMy43Ht",
+        "label": "Smart Money",
+        "chain": "solana",
+        "exit": {
+          "symbol": "GIGA",
+          "tokenAddress": "63LfDmNb3MQ8mw9MtZ2To9bEA2M71kZUUGq5tiJxcqj9",
+          "amount": 10156967.59683,
+          "valueUsd": 24747.438789821215,
+          "into": "USDC",
+          "at": "2026-09-25T23:57:08.000Z",
+          "txHash": "K5KYogTAW6mAkxaDEpKeNQS22quZNYQE5mCLE9VyrQFpHUqaFwCMn1myBnSfdaBSDNwmBxgm3S6ALtVJYMuKW64",
+          "exitsToday": 1,
+          "soldTodayUsd": 24747.438789821215,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 223625.02552068722,
+          "roiPct": 12.28944008642069,
+          "winRate": 44.927536231884055,
+          "tokens": 69,
+          "trades": 582,
+          "topTokens": [
+            {
+              "symbol": "TRIPLET",
+              "pnlUsd": 77894.81735505746,
+              "roiPct": 33.20312123080651
+            },
+            {
+              "symbol": "GIGA",
+              "pnlUsd": 68407.11167593361,
+              "roiPct": 53.01864784387579
+            },
+            {
+              "symbol": "ZCAT",
+              "pnlUsd": 58637.592958312685,
+              "roiPct": 191.97789876523416
+            },
+            {
+              "symbol": "TROLL",
+              "pnlUsd": 27541.581338236512,
+              "roiPct": 9.371346864616637
+            },
+            {
+              "symbol": "CHILLHOUSE",
+              "pnlUsd": 18726.095002660568,
+              "roiPct": 25.10814031265875
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "USDC",
+            "valueUsd": 148290.8745066854,
+            "amount": 148000
+          },
+          {
+            "symbol": "ZCAT",
+            "valueUsd": 36251.63734637102,
+            "amount": 612563.981518464
+          },
+          {
+            "symbol": "PUMPCAT",
+            "valueUsd": 1349.3021851938904,
+            "amount": 4298018.820592
+          },
+          {
+            "symbol": "ZEC",
+            "valueUsd": 718.7760667155377,
+            "amount": 0.47081998
+          },
+          {
+            "symbol": "SOL",
+            "valueUsd": 53.417362018943614,
+            "amount": 0.44245324
+          }
+        ],
+        "headline": "Ledger Closed: pBSCXH…43Ht Converts Its $GIGA to USDC",
+        "deck": "Sold 10.2M GIGA on Solana for $24.7K late on Friday, taking payment in USDC. Leaves $224K in realized profit over six months, a 45% win rate and a five-token estate worth $187K.",
+        "body": [
+          "Late on Friday, pBSCXH…43Ht, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $GIGA. It sold 10.2M tokens in a single transaction for $24.7K, taking payment in USDC. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $224K in realized profit across 582 sales of 69 tokens, winning 45% of the time and pressing on regardless. It will be remembered for $TRIPLET, which returned $77.9K, and for a profitable spell in $GIGA.",
+          "It is survived by five holdings: $USDC ($148K), $ZCAT ($36.3K), $PUMPCAT ($1,349), $ZEC ($719) and $SOL ($53). The estate is valued at $187K.",
+          "Colleagues on Solana are reminded that the wallet still answers to its address, and may yet trade again."
+        ],
+        "estateUsd": 186664.0074669848
+      },
+      {
+        "address": "0x2f25b929f03fe2869e752f1910e5445f8b5778da",
+        "label": "Smart Money",
+        "chain": "base",
+        "exit": {
+          "symbol": "STONX",
+          "tokenAddress": "0x89d8cb38067b55f820f29a9e12d0ce18682a2bfc",
+          "amount": 6750989.230077169,
+          "valueUsd": 23371.094728910826,
+          "into": "ETH",
+          "at": "2026-09-26T01:26:25.000Z",
+          "txHash": "0xe2001c4b20142f3e2ac6a43b0bf00b2a5f786a073ba7c2f76cfeff43f8591eb2",
+          "exitsToday": 1,
+          "soldTodayUsd": 23371.094728910826,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 93309.82288421478,
+          "roiPct": 7.87694580506835,
+          "winRate": 58.9041095890411,
+          "tokens": 292,
+          "trades": 1769,
+          "topTokens": [
+            {
+              "symbol": "LFI",
+              "pnlUsd": 14874.152218524632,
+              "roiPct": 323.9433698077281
+            },
+            {
+              "symbol": "BRIAN",
+              "pnlUsd": 10813.120717696767,
+              "roiPct": 1228.5440073310099
+            },
+            {
+              "symbol": "⚠️ LIQ",
+              "pnlUsd": 8246.204970708783,
+              "roiPct": 74.68415739687352
+            },
+            {
+              "symbol": "ORBIT",
+              "pnlUsd": 7675.2821546372525,
+              "roiPct": 150.44027204861405
+            },
+            {
+              "symbol": "BRIAN",
+              "pnlUsd": -10949.216095228805,
+              "roiPct": -49.94225855909741
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "ETH",
+            "valueUsd": 36874.69993526406,
+            "amount": 13.715307099314872
+          },
+          {
+            "symbol": "VAPI",
+            "valueUsd": 30156.265230314842,
+            "amount": 386716.02026523004
+          },
+          {
+            "symbol": "REGENT",
+            "valueUsd": 6161.055197351278,
+            "amount": 375877635.48975676
+          },
+          {
+            "symbol": "EVE",
+            "valueUsd": 2745.5950478130594,
+            "amount": 1907099198.4300559
+          },
+          {
+            "symbol": "ROBOTMONEY",
+            "valueUsd": 470.9194152247905,
+            "amount": 106242309.51990645
+          }
+        ],
+        "headline": "0x2f25…78da Retires From $STONX; Base Loses a Smart Money",
+        "deck": "Sold 6.8M STONX on Base for $23.4K in the small hours of Saturday, taking payment in ETH. Leaves $93.3K in realized profit over six months, a 59% win rate and a five-token estate worth $76.4K.",
+        "body": [
+          "In the small hours of Saturday, 0x2f25…78da, a Base wallet carried on Nansen's books as “Smart Money”, closed the book on $STONX. It sold 6.8M tokens in a single transaction for $23.4K, taking payment in ETH. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $93.3K in realized profit across 1769 sales of 292 tokens, winning 59% of the time, which is to say about as often as anyone. It will be remembered for $LFI, which returned $14.9K, and for a profitable spell in $BRIAN.",
+          "It is survived by five holdings: $ETH ($36.9K), $VAPI ($30.2K), $REGENT ($6,161), $EVE ($2,746) and $ROBOTMONEY ($471). The estate is valued at $76.4K.",
+          "The position is at rest in ETH. The wallet is not."
+        ],
+        "estateUsd": 76408.53482596803
+      },
+      {
+        "address": "9E9xEwxxmfBy4edHySzy5kyaUjrafiWa9mKsYnA8Yaq1",
+        "label": "Smart Money",
+        "chain": "solana",
+        "exit": {
+          "symbol": "🌱 CREAM",
+          "tokenAddress": "CMuvWQ6qQbSt7NUQdPGcVKCoDgETieuqS68qu6BaeVgR",
+          "amount": 16665376.738797,
+          "valueUsd": 20532.841739084008,
+          "into": "SOL",
+          "at": "2026-09-26T00:54:56.000Z",
+          "txHash": "5x9fynnCf3pVL5u5eEMdQrVLNnbo7YmfdLDCn62pAfsFVykPsfu6SxKyYRn8EN69DVgrHtVB6BcQo2Emyv9163S7",
+          "exitsToday": 1,
+          "soldTodayUsd": 20532.841739084008,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 226453.07698667896,
+          "roiPct": 252.10330938068154,
+          "winRate": 45.67901234567901,
+          "tokens": 81,
+          "trades": 1699,
+          "topTokens": [
+            {
+              "symbol": "ZCAT",
+              "pnlUsd": 226575.90846488433,
+              "roiPct": 122727.30829614784
+            },
+            {
+              "symbol": "⚠️ DFC",
+              "pnlUsd": 3149.335350924059,
+              "roiPct": 157.88594072941405
+            },
+            {
+              "symbol": "STONKCATS",
+              "pnlUsd": 2708.517580772504,
+              "roiPct": 269.12723824703147
+            },
+            {
+              "symbol": "MARKET",
+              "pnlUsd": -2761.4922778983046,
+              "roiPct": -82.9103420432943
+            },
+            {
+              "symbol": "SI",
+              "pnlUsd": -3133.331794848752,
+              "roiPct": -48.92632736072038
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "ZCAT",
+            "valueUsd": 111100.84353631365,
+            "amount": 1877332.447536387
+          },
+          {
+            "symbol": "ZEC",
+            "valueUsd": 29936.727944954386,
+            "amount": 19.60945878
+          },
+          {
+            "symbol": "USDC",
+            "valueUsd": 4810.325277492446,
+            "amount": 4800.889761
+          },
+          {
+            "symbol": "SOL",
+            "valueUsd": 4684.739347950981,
+            "amount": 38.803453123
+          }
+        ],
+        "headline": "9E9xEw…Yaq1 Closes the Book on $🌱 CREAM After 1699 Trades",
+        "deck": "Sold 16.7M 🌱 CREAM on Solana for $20.5K in the small hours of Saturday, taking payment in SOL. Leaves $226K in realized profit over six months, a 46% win rate and a four-token estate worth $151K.",
+        "body": [
+          "In the small hours of Saturday, 9E9xEw…Yaq1, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $🌱 CREAM. It sold 16.7M tokens in a single transaction for $20.5K, taking payment in SOL. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $226K in realized profit across 1699 sales of 81 tokens, winning 46% of the time, which is to say about as often as anyone. It will be remembered for $ZCAT, which returned $227K, and for a profitable spell in $⚠️ DFC.",
+          "It is survived by four holdings: $ZCAT ($111K), $ZEC ($29.9K), $USDC ($4,810) and $SOL ($4,685). The estate is valued at $151K.",
+          "The Smart Money desk notes that the address remains open; retirement, in this trade, is seldom permanent."
+        ],
+        "estateUsd": 150532.63610671146
+      },
+      {
+        "address": "0x4b69d6081ff943afd0c6561c3da5ac563ce4cdfb",
+        "label": "wenlaunch.eth*",
+        "chain": "ethereum",
+        "exit": {
+          "symbol": "ZRO",
+          "tokenAddress": "0x6985884c4392d348587b19cb9eaaf157f13271cd",
+          "amount": 12349.323652565556,
+          "valueUsd": 18935.35084351965,
+          "into": "ETH",
+          "at": "2026-09-25T23:59:23.000Z",
+          "txHash": "0x885d53746cb6d07104bef63072f5365aba7e208f787aed73fd96b8a8259054d9",
+          "exitsToday": 1,
+          "soldTodayUsd": 18935.35084351965,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 8191.5021720242285,
+          "roiPct": 1.4863951316796264,
+          "winRate": 60,
+          "tokens": 10,
+          "trades": 231,
+          "topTokens": [
+            {
+              "symbol": "UNI",
+              "pnlUsd": 6871.578045913451,
+              "roiPct": 6.717695565100238
+            },
+            {
+              "symbol": "ETH",
+              "pnlUsd": 4735.397743070453,
+              "roiPct": 1.331890825842468
+            },
+            {
+              "symbol": "ETHFI",
+              "pnlUsd": -647.8959091562449,
+              "roiPct": -1.843332034759671
+            },
+            {
+              "symbol": "RAIL",
+              "pnlUsd": -874.4548080262492,
+              "roiPct": -5.018328829026282
+            },
+            {
+              "symbol": "LINK",
+              "pnlUsd": -1400.9154983168119,
+              "roiPct": -14.015133016618343
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "UNI",
+            "valueUsd": 67867.23495274043,
+            "amount": 7076.754788868574
+          },
+          {
+            "symbol": "ENA",
+            "valueUsd": 30641.138740194216,
+            "amount": 113381.12168523253
+          },
+          {
+            "symbol": "ETHFI",
+            "valueUsd": 29873.207412108783,
+            "amount": 41639.16172506155
+          },
+          {
+            "symbol": "ETH",
+            "valueUsd": 26751.302172159,
+            "amount": 9.958684399850535
+          },
+          {
+            "symbol": "USDC",
+            "valueUsd": 10015.196038651979,
+            "amount": 10010.001259
+          }
+        ],
+        "headline": "$ZRO Loses a Patron as 0x4b69…cdfb Retires a $18.9K Position",
+        "deck": "Sold 12.3K ZRO on Ethereum for $18.9K late on Friday, taking payment in ETH. Leaves $8,192 in realized profit over six months, a 60% win rate and a five-token estate worth $165K.",
+        "body": [
+          "Late on Friday, 0x4b69…cdfb, an Ethereum wallet carried on Nansen's books as “wenlaunch.eth*”, closed the book on $ZRO. It sold 12.3K tokens in a single transaction for $18.9K, taking payment in ETH. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $8,192 in realized profit across 231 sales of 10 tokens, winning 60% of the time, a record its peers would envy. It will be remembered for $UNI, which returned $6,872, and for a profitable spell in $ETH.",
+          "It is survived by five holdings: $UNI ($67.9K), $ENA ($30.6K), $ETHFI ($29.9K), $ETH ($26.8K) and $USDC ($10K). The estate is valued at $165K.",
+          "Remembrances may be left on the block explorer. The wallet's next position has not been announced."
+        ],
+        "estateUsd": 165148.0793158544
+      },
+      {
+        "address": "HCJGNnycM1UbMQMTDp9r3YHY5VbcFcsDRgmMJPookmwZ",
+        "label": "STONK Whale",
+        "chain": "solana",
+        "exit": {
+          "symbol": "AVICI",
+          "tokenAddress": "BANKJmvhT8tiJRsBSS1n2HryMBPvT5Ze4HU95DUAmeta",
+          "amount": 57884.800507,
+          "valueUsd": 16275.620654047483,
+          "into": "USDC",
+          "at": "2026-09-25T17:27:33.000Z",
+          "txHash": "2PY1SBgpsmZpCkgxCRuk8LK9whnE5w3wC6hkeR3TWxN1X5PBgE4muVBEic7hA2MGH9fYMSgr7Sh4hkw34BKNAPNy",
+          "exitsToday": 1,
+          "soldTodayUsd": 16275.620654047483,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 169924.2039938743,
+          "roiPct": 14.550289622632857,
+          "winRate": 33.75,
+          "tokens": 80,
+          "trades": 1457,
+          "topTokens": [
+            {
+              "symbol": "USELESS",
+              "pnlUsd": 241281.4707852402,
+              "roiPct": 161.47131690393059
+            },
+            {
+              "symbol": "STONK",
+              "pnlUsd": 74006.14968347226,
+              "roiPct": 413.5148525714039
+            },
+            {
+              "symbol": "NOBODY",
+              "pnlUsd": -54511.99404883141,
+              "roiPct": -78.85082955451361
+            },
+            {
+              "symbol": "BELIEVE",
+              "pnlUsd": -59437.62874101266,
+              "roiPct": -99.08048620584503
+            },
+            {
+              "symbol": "PMX",
+              "pnlUsd": -68212.7499545057,
+              "roiPct": -97.79402359162678
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "STONK",
+            "valueUsd": 502928.0740579476,
+            "amount": 1800002.066535046
+          },
+          {
+            "symbol": "USDC",
+            "valueUsd": 373697.10094453493,
+            "amount": 372964.089151
+          },
+          {
+            "symbol": "BP",
+            "valueUsd": 185470.31030008648,
+            "amount": 150000
+          },
+          {
+            "symbol": "CATE",
+            "valueUsd": 123459.79371831316,
+            "amount": 1203528.132186
+          },
+          {
+            "symbol": "PENGU",
+            "valueUsd": 48463.47006569937,
+            "amount": 4804462.032541
+          }
+        ],
+        "headline": "A Quiet Exit: HCJGNn…kmwZ Steps Away From $AVICI With $16.3K",
+        "deck": "Sold 57.9K AVICI on Solana for $16.3K on Friday evening, taking payment in USDC. Leaves $170K in realized profit over six months, a 34% win rate and a five-token estate worth $1.23M.",
+        "body": [
+          "On Friday evening, HCJGNn…kmwZ, a Solana wallet carried on Nansen's books as “STONK Whale”, closed the book on $AVICI. It sold 57.9K tokens in a single transaction for $16.3K, taking payment in USDC. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $170K in realized profit across 1457 sales of 80 tokens, winning 34% of the time and pressing on regardless. It will be remembered for $USELESS, which returned $241K, and for a profitable spell in $STONK.",
+          "It is survived by five holdings: $STONK ($503K), $USDC ($374K), $BP ($185K), $CATE ($123K) and $PENGU ($48.5K). The estate is valued at $1.23M.",
+          "Colleagues on Solana are reminded that the wallet still answers to its address, and may yet trade again."
+        ],
+        "estateUsd": 1234018.7490865814
+      },
+      {
+        "address": "DyXg3Xp6BoMq5K6Nmdb7hEzPMpkRWH2aXHHZhUgN1gd6",
+        "label": "Smart Money",
+        "chain": "solana",
+        "exit": {
+          "symbol": "ROUTER",
+          "tokenAddress": "6SjVTj1VGwFSXn7wEjwFm77LvACeTqB7sQUebYKX8Ds5",
+          "amount": 4373638.451057912,
+          "valueUsd": 15548.30650643872,
+          "into": "USDC",
+          "at": "2026-09-26T02:37:32.000Z",
+          "txHash": "5aVx8D1n4n51HXN7QQhZzNVkm3UE6TeFvFsPHhTSHqpKYfRUhLwPcwPM43wwKUuDevgmGeaYcA9ptUeNkw1HKvkB",
+          "exitsToday": 3,
+          "soldTodayUsd": 43374.42078885184,
+          "stillHoldsUsd": 0
+        },
+        "lifetime": {
+          "pnlUsd": 231896.3031623791,
+          "roiPct": 18.60948163961956,
+          "winRate": 41.02564102564102,
+          "tokens": 156,
+          "trades": 3554,
+          "topTokens": [
+            {
+              "symbol": "EMBER",
+              "pnlUsd": 392608.2633324755,
+              "roiPct": 631.8023657448929
+            },
+            {
+              "symbol": "MINI",
+              "pnlUsd": 22112.79718339232,
+              "roiPct": 39.21206906382248
+            },
+            {
+              "symbol": "AMBA",
+              "pnlUsd": -19049.02697528208,
+              "roiPct": -28.048059730745994
+            },
+            {
+              "symbol": "NOIZ",
+              "pnlUsd": -21244.72100050946,
+              "roiPct": -69.3048324058694
+            },
+            {
+              "symbol": "STAR",
+              "pnlUsd": -46033.47370267066,
+              "roiPct": -30.567692022888437
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "🌱 E/ACC",
+            "valueUsd": 239301.13751569056,
+            "amount": 13422377.747636
+          },
+          {
+            "symbol": "🌱 PARAFACTUAL",
+            "valueUsd": 53010.38415023313,
+            "amount": 20003382.764208
+          },
+          {
+            "symbol": "OP",
+            "valueUsd": 52969.361402151524,
+            "amount": 29764993.770159
+          },
+          {
+            "symbol": "MINI",
+            "valueUsd": 36833.42332792614,
+            "amount": 12694426.829455
+          },
+          {
+            "symbol": "BATON",
+            "valueUsd": 35217.67293673331,
+            "amount": 18152244.250344
+          }
+        ],
+        "headline": "DyXg3X…1gd6, Smart Money of Solana, Retires From $ROUTER",
+        "deck": "Sold 4.4M ROUTER on Solana for $15.5K in the small hours of Saturday, taking payment in USDC. Leaves $232K in realized profit over six months, a 41% win rate and a five-token estate worth $417K.",
+        "body": [
+          "In the small hours of Saturday, DyXg3X…1gd6, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $ROUTER. It sold 4.4M tokens in a single transaction for $15.5K, taking payment in USDC. The sale was the largest of three exits the wallet made that day, $43.4K in all. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $232K in realized profit across 3554 sales of 156 tokens, winning 41% of the time and pressing on regardless. It will be remembered for $EMBER, which returned $393K, and for a profitable spell in $MINI.",
+          "It is survived by five holdings: $🌱 E/ACC ($239K), $🌱 PARAFACTUAL ($53K), $OP ($53K), $MINI ($36.8K) and $BATON ($35.2K). The estate is valued at $417K.",
+          "The position is at rest in USDC. The wallet is not."
+        ],
+        "estateUsd": 417331.97933273466
+      },
+      {
+        "address": "0x9d0023652c12955515307406146b8029ac52435b",
+        "label": "Smart Money",
+        "chain": "base",
+        "exit": {
+          "symbol": "NOCK",
+          "tokenAddress": "0x9b5e262cf9bb04869ab40b19af91d2dc85761722",
+          "amount": 495767.22948469187,
+          "valueUsd": 15508.551669618035,
+          "into": "ETH",
+          "at": "2026-09-25T12:55:55.000Z",
+          "txHash": "0x20f7401e2b70b0e895a13f4d8857e0b1df8b1a273efb1a8bd5a5518cfded3d44",
+          "exitsToday": 1,
+          "soldTodayUsd": 15508.551669618035,
+          "stillHoldsUsd": 311.22339097755184
+        },
+        "lifetime": {
+          "pnlUsd": -35000.45000128552,
+          "roiPct": -12.869381852562958,
+          "winRate": 0,
+          "tokens": 2,
+          "trades": 53,
+          "topTokens": [
+            {
+              "symbol": "ETH",
+              "pnlUsd": -0.9877897108652167,
+              "roiPct": -0.0006240382487591366
+            },
+            {
+              "symbol": "NOCK",
+              "pnlUsd": -34999.46221157465,
+              "roiPct": -30.788543731962047
+            }
+          ],
+          "known": true
+        },
+        "survivedBy": [
+          {
+            "symbol": "ETH",
+            "valueUsd": 605.4515161775232,
+            "amount": 0.2251937912091127
+          },
+          {
+            "symbol": "NOCK",
+            "valueUsd": 311.22339097755184,
+            "amount": 9915.344589693828
+          }
+        ],
+        "headline": "$15.5K Walks Out the Door as 0x9d00…435b Leaves $NOCK",
+        "deck": "Sold 496K NOCK on Base for $15.5K on Friday afternoon, taking payment in ETH. Leaves a six-month record of $35K in realized losses, a 0% win rate and a two-token estate worth $917.",
+        "body": [
+          "On Friday afternoon, 0x9d00…435b, a Base wallet carried on Nansen's books as “Smart Money”, closed the book on $NOCK. It sold 496K tokens in a single transaction for $15.5K, taking payment in ETH. A remainder of $311 in $NOCK stays on the books, which those who know the wallet describe as sentimental.",
+          "Over the past six months the wallet booked $35K in realized losses across 53 sales of 2 tokens, winning 0% of the time and pressing on regardless. It will be remembered for $ETH, which returned -$0.99, and for a less fortunate spell in $NOCK.",
+          "It is survived by two holdings: $ETH ($605) and $NOCK ($311). The estate is valued at $917.",
+          "The Smart Money desk notes that the address remains open; retirement, in this trade, is seldom permanent."
+        ],
+        "estateUsd": 916.6749071550751
       },
       {
         "address": "9qrMdRWbLctLWCm18sK5N7f78qWnMkG6SaZKeDaDKtqh",
@@ -111,41 +1122,41 @@
         "exit": {
           "symbol": "GLDX",
           "tokenAddress": "Xsv9hRk1z5ystj9MhnA7Lq4vjSsLwzL2nxrwmwtD3re",
-          "amount": 87.91106187,
-          "valueUsd": 34798.773609436794,
+          "amount": 38.12867136,
+          "valueUsd": 14984.74862577282,
           "into": "USDC",
-          "at": "2026-09-25T01:37:54.000Z",
-          "txHash": "4nGN7C1RD8bsx9dAzyZPcXizs2dQYaAaKL31dwADveueEvrBXPGmeAd6qfAUSfsyrB4c2dqAhyUWDAD6LDUMDSa",
-          "exitsToday": 2,
-          "soldTodayUsd": 44817.46391832332,
+          "at": "2026-09-25T16:52:14.000Z",
+          "txHash": "4TJmVRxecJq27eAkd1B8sGjicjSUi6U11SJ2akGWN39GSnyWqsv5jm9epE88Wzasoe9XmKs3UXG79m4T4gcwEXnP",
+          "exitsToday": 1,
+          "soldTodayUsd": 14984.74862577282,
           "stillHoldsUsd": 0
         },
         "lifetime": {
-          "pnlUsd": 536302.0855631962,
-          "roiPct": 139.4677251402423,
-          "winRate": 60,
-          "tokens": 40,
-          "trades": 3367,
+          "pnlUsd": 535612.4706933153,
+          "roiPct": 137.82597085938704,
+          "winRate": 44.11764705882353,
+          "tokens": 34,
+          "trades": 3610,
           "topTokens": [
             {
               "symbol": "GP",
-              "pnlUsd": 409424.0280874121,
-              "roiPct": 170.92802192840674
+              "pnlUsd": 410306.6997443164,
+              "roiPct": 170.2025026096417
             },
             {
               "symbol": "CRACKER",
-              "pnlUsd": 118163.44841054181,
-              "roiPct": 568.5195587708439
+              "pnlUsd": 118557.51442841708,
+              "roiPct": 563.9714596904021
             },
             {
               "symbol": "KNOTS",
-              "pnlUsd": 9991.137416533737,
-              "roiPct": 241.19036684652727
+              "pnlUsd": 9991.137416533735,
+              "roiPct": 241.19036684652713
             },
             {
-              "symbol": "🌱 GREEN",
-              "pnlUsd": 3256.271558041497,
-              "roiPct": 25.20885328459519
+              "symbol": "⚠️ 🕯️",
+              "pnlUsd": 1831.1023812645465,
+              "roiPct": 49.84383722499898
             },
             {
               "symbol": "LOOP",
@@ -158,1171 +1169,200 @@
         "survivedBy": [
           {
             "symbol": "GP",
-            "valueUsd": 564880.416498956,
-            "amount": 29470781.313014
+            "valueUsd": 320367.6883853089,
+            "amount": 31973062.554481
           },
           {
             "symbol": "CRACKER",
-            "valueUsd": 331661.57144505135,
-            "amount": 52693188.936213
+            "valueUsd": 150544.14183401153,
+            "amount": 53083873.93847
           },
           {
             "symbol": "USDC",
-            "valueUsd": 47366.46583162512,
-            "amount": 47483.266109
+            "valueUsd": 12393.128839716557,
+            "amount": 12368.819554
           },
           {
             "symbol": "GNOME",
-            "valueUsd": 29224.498961399826,
-            "amount": 38824043.999893
-          },
-          {
-            "symbol": "🌱 GREEN",
-            "valueUsd": 24670.45094986651,
-            "amount": 78252154.316123
-          }
-        ],
-        "headline": "$GLDX Loses a Patron as 9qrMdR…Ktqh Retires a $34.8K Position",
-        "deck": "Sold 87.91 GLDX on Solana for $34.8K in the small hours of Friday, taking payment in USDC. Leaves $536K in realized profit over six months, a 60% win rate and a five-token estate worth $998K.",
-        "body": [
-          "In the small hours of Friday, 9qrMdR…Ktqh, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $GLDX. It sold 87.91 tokens in a single transaction for $34.8K, taking payment in USDC. The sale was the largest of two exits the wallet made that day, $44.8K in all. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $536K in realized profit across 3367 sales of 40 tokens, winning 60% of the time, a record its peers would envy. It will be remembered for $GP, which returned $409K, and for a profitable spell in $CRACKER.",
-          "It is survived by five holdings: $GP ($565K), $CRACKER ($332K), $USDC ($47.4K), $GNOME ($29.2K) and $🌱 GREEN ($24.7K). The estate is valued at $998K.",
-          "Remembrances may be left on the block explorer. The wallet's next position has not been announced."
-        ],
-        "estateUsd": 997803.4036868989
-      },
-      {
-        "address": "0x840514b8c7bcab1ada9d7f01db24ddc915cfa8cc",
-        "label": "Smart Money",
-        "chain": "base",
-        "exit": {
-          "symbol": "VVV",
-          "tokenAddress": "0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf",
-          "amount": 621.9336738297816,
-          "valueUsd": 19901.63503948232,
-          "into": "USDC",
-          "at": "2026-09-25T04:04:25.000Z",
-          "txHash": "0xdc9970426decf413c5d57dac1ad07af2907bb1ca330a447f391c9cb972a2fb11",
-          "exitsToday": 1,
-          "soldTodayUsd": 19901.63503948232,
-          "stillHoldsUsd": 0
-        },
-        "lifetime": {
-          "pnlUsd": -1449.6633575649316,
-          "roiPct": -2.1223337142580214,
-          "winRate": 44.44444444444444,
-          "tokens": 9,
-          "trades": 21,
-          "topTokens": [
-            {
-              "symbol": "TIBBIR",
-              "pnlUsd": 5491.272202023374,
-              "roiPct": 37.66547266647818
-            },
-            {
-              "symbol": "VVV",
-              "pnlUsd": 2953.46304602755,
-              "roiPct": 18.436972103487197
-            },
-            {
-              "symbol": "VIRGEN",
-              "pnlUsd": -1554.9115569496262,
-              "roiPct": -88.96329187417602
-            },
-            {
-              "symbol": "BASECAT",
-              "pnlUsd": -3183.0742414419838,
-              "roiPct": -31.86525569833089
-            },
-            {
-              "symbol": "VIRTUAL",
-              "pnlUsd": -3287.2910289120723,
-              "roiPct": -41.188447180295654
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "USDC",
-            "valueUsd": 19082.8219368782,
-            "amount": 19052.095338
-          },
-          {
-            "symbol": "ETH",
-            "valueUsd": 255.94624049345796,
-            "amount": 0.09389683493701487
-          }
-        ],
-        "headline": "A Quiet Exit: 0x8405…a8cc Steps Away From $VVV With $19.9K",
-        "deck": "Sold 622 VVV on Base for $19.9K in the small hours of Friday, taking payment in USDC. Leaves a six-month record of $1,450 in realized losses, a 44% win rate and a two-token estate worth $19.3K.",
-        "body": [
-          "In the small hours of Friday, 0x8405…a8cc, a Base wallet carried on Nansen's books as “Smart Money”, closed the book on $VVV. It sold 622 tokens in a single transaction for $19.9K, taking payment in USDC. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $1,450 in realized losses across 21 sales of 9 tokens, winning 44% of the time and pressing on regardless. It will be remembered for $TIBBIR, which returned $5,491, and for a profitable spell in $VVV.",
-          "It is survived by two holdings: $USDC ($19.1K) and $ETH ($256). The estate is valued at $19.3K.",
-          "Colleagues on Base are reminded that the wallet still answers to its address, and may yet trade again."
-        ],
-        "estateUsd": 19338.768177371658
-      },
-      {
-        "address": "0x83a7a0f0d724e22cfe8463b41c1d959baca13c88",
-        "label": "HL Perps Scalper",
-        "chain": "ethereum",
-        "exit": {
-          "symbol": "FWA",
-          "tokenAddress": "0xa0df17b5ac76ababa36e1450e2cbcd18a620c845",
-          "amount": 1000000,
-          "valueUsd": 16616.4732462501,
-          "into": "USDC",
-          "at": "2026-09-24T19:59:11.000Z",
-          "txHash": "0x47f8b4bfbadaa77fd9dc2362fd8c42851f14f952d42255ac85d2a6d6a4036a04",
-          "exitsToday": 2,
-          "soldTodayUsd": 28033.980372291713,
-          "stillHoldsUsd": 0
-        },
-        "lifetime": {
-          "pnlUsd": -17490.85324519649,
-          "roiPct": -1.8677275054672167,
-          "winRate": 36.36363636363637,
-          "tokens": 22,
-          "trades": 1163,
-          "topTokens": [
-            {
-              "symbol": "SERV",
-              "pnlUsd": 2271.086171560496,
-              "roiPct": 6.490214520679784
-            },
-            {
-              "symbol": "UPEGSTR",
-              "pnlUsd": 1029.2579461594994,
-              "roiPct": 45.05565928978309
-            },
-            {
-              "symbol": "LO0P",
-              "pnlUsd": -1793.758547402005,
-              "roiPct": -77.06277570488056
-            },
-            {
-              "symbol": "ASTEROID",
-              "pnlUsd": -5158.90064867664,
-              "roiPct": -6.1630198899977096
-            },
-            {
-              "symbol": "FWA",
-              "pnlUsd": -14410.017782391295,
-              "roiPct": -18.854560388130743
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "FP",
-            "valueUsd": 48527.63493850987,
-            "amount": 5726.818464329751
-          },
-          {
-            "symbol": "WETH",
-            "valueUsd": 5521.392872,
-            "amount": 2.0264
-          },
-          {
-            "symbol": "ETH",
-            "valueUsd": 658.1418432876984,
-            "amount": 0.2414469378615752
-          },
-          {
-            "symbol": "UNICURVE",
-            "valueUsd": 14.317491145849345,
-            "amount": 1930406.6418783641
-          }
-        ],
-        "headline": "0x83a7…3c88, HL Perps Scalper of Ethereum, Retires From $FWA",
-        "deck": "Sold 1M FWA on Ethereum for $16.6K on Thursday evening, taking payment in USDC. Leaves a six-month record of $17.5K in realized losses, a 36% win rate and a four-token estate worth $54.7K.",
-        "body": [
-          "On Thursday evening, 0x83a7…3c88, an Ethereum wallet carried on Nansen's books as “HL Perps Scalper”, closed the book on $FWA. It sold 1M tokens in a single transaction for $16.6K, taking payment in USDC. The sale was the largest of two exits the wallet made that day, $28K in all. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $17.5K in realized losses across 1163 sales of 22 tokens, winning 36% of the time and pressing on regardless. It will be remembered for $SERV, which returned $2,271, and for a profitable spell in $UPEGSTR.",
-          "It is survived by four holdings: $FP ($48.5K), $WETH ($5,521), $ETH ($658) and $UNICURVE ($14). The estate is valued at $54.7K.",
-          "The position is at rest in USDC. The wallet is not."
-        ],
-        "estateUsd": 54721.487144943414
-      },
-      {
-        "address": "4jMPGAxs1ziGUdNkKDYTxtjMwNQ6bCNkgCfaKeJynGVX",
-        "label": "High Balance",
-        "chain": "solana",
-        "exit": {
-          "symbol": "ZCAT",
-          "tokenAddress": "HcRLc9VDgjLeK154xDawfb1dmVJ98DoSqcwTHGqiDeJR",
-          "amount": 215334.842053913,
-          "valueUsd": 16241.93074240635,
-          "into": "USDC",
-          "at": "2026-09-25T06:14:50.000Z",
-          "txHash": "bn9KwF3ascq6GcWSeh5uxHbxZk9aETWAo72N8ybhars4Rj4jtiitjcC3CEjyB5nNxLhCmr12xiuvijag5L2XRem",
-          "exitsToday": 2,
-          "soldTodayUsd": 32483.861484812624,
-          "stillHoldsUsd": 0
-        },
-        "lifetime": {
-          "pnlUsd": 55501.86840323794,
-          "roiPct": 33.228967180370105,
-          "winRate": 47.82608695652174,
-          "tokens": 23,
-          "trades": 438,
-          "topTokens": [
-            {
-              "symbol": "ZCAT",
-              "pnlUsd": 62631.38300205973,
-              "roiPct": 170.20227837838712
-            },
-            {
-              "symbol": "KNOTS",
-              "pnlUsd": 9116.847091047279,
-              "roiPct": 132.94024256198014
-            },
-            {
-              "symbol": "PUMP",
-              "pnlUsd": 8302.45575250285,
-              "roiPct": 79.19526012701922
-            },
-            {
-              "symbol": "MANLET",
-              "pnlUsd": -6587.781673089035,
-              "roiPct": -82.36775121050309
-            },
-            {
-              "symbol": "PAID",
-              "pnlUsd": -10964.971679275015,
-              "roiPct": -53.733900978784824
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "BP",
-            "valueUsd": 49658.92128270817,
-            "amount": 37488.251558054
-          },
-          {
-            "symbol": "USDC",
-            "valueUsd": 1349.8331800452074,
-            "amount": 1353.161714
-          },
-          {
-            "symbol": "ZEC",
-            "valueUsd": 496.43984175665076,
-            "amount": 0.30867495
-          },
-          {
-            "symbol": "XSOL",
-            "valueUsd": 39.96799732194919,
-            "amount": 418.329639
-          },
-          {
-            "symbol": "SOL",
-            "valueUsd": 20.63375075028181,
-            "amount": 0.170959835
-          }
-        ],
-        "headline": "$16.2K Walks Out the Door as 4jMPGA…nGVX Leaves $ZCAT",
-        "deck": "Sold 215K ZCAT on Solana for $16.2K on Friday morning, taking payment in USDC. Leaves $55.5K in realized profit over six months, a 48% win rate and a five-token estate worth $51.6K.",
-        "body": [
-          "On Friday morning, 4jMPGA…nGVX, a Solana wallet carried on Nansen's books as “High Balance”, closed the book on $ZCAT. It sold 215K tokens in a single transaction for $16.2K, taking payment in USDC. The sale was the largest of two exits the wallet made that day, $32.5K in all. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $55.5K in realized profit across 438 sales of 23 tokens, winning 48% of the time, which is to say about as often as anyone. It will be remembered, fittingly, for $ZCAT, which returned $62.6K, and for a profitable spell in $KNOTS.",
-          "It is survived by five holdings: $BP ($49.7K), $USDC ($1,350), $ZEC ($496), $XSOL ($40) and $SOL ($21). The estate is valued at $51.6K.",
-          "The Smart Money desk notes that the address remains open; retirement, in this trade, is seldom permanent."
-        ],
-        "estateUsd": 51565.79605258226
-      },
-      {
-        "address": "CTqTnVXfvaf11i9rKL1aLF4qxCMiadcUvqqjh5SsPHG8",
-        "label": "Smart Money",
-        "chain": "solana",
-        "exit": {
-          "symbol": "EMBER",
-          "tokenAddress": "5dvXTZ5qwgafnHtwu3Ls3QrWx1U4LQsFeCuJgkk4QEC6",
-          "amount": 846613.518348,
-          "valueUsd": 14270.430017162807,
-          "into": "USDC",
-          "at": "2026-09-24T19:21:25.000Z",
-          "txHash": "5MJ9gq7Svk5dKt2rAawpuns2rqKdr4VdD5Frbkx8euZ9JUwbWJRAB1q2WMMU6TnomxZqa9LJzXQncsVya8Svsv7t",
-          "exitsToday": 1,
-          "soldTodayUsd": 14270.430017162807,
-          "stillHoldsUsd": 0
-        },
-        "lifetime": {
-          "pnlUsd": 128131.23570029448,
-          "roiPct": 46.84649511250879,
-          "winRate": 39.325842696629216,
-          "tokens": 89,
-          "trades": 2126,
-          "topTokens": [
-            {
-              "symbol": "RAYCAT",
-              "pnlUsd": 64671.18602041758,
-              "roiPct": 102.50428134186545
-            },
-            {
-              "symbol": "EMBER",
-              "pnlUsd": 46085.601735347685,
-              "roiPct": 184.60278857997784
-            },
-            {
-              "symbol": "OTC",
-              "pnlUsd": 41783.6272610169,
-              "roiPct": 119.52028574224047
-            },
-            {
-              "symbol": "OMO",
-              "pnlUsd": 9300.001190791549,
-              "roiPct": 133.13921487777966
-            },
-            {
-              "symbol": "⚠️ BUTTPLUG",
-              "pnlUsd": -7498.22595150025,
-              "roiPct": -66.42955914684605
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "TOAD",
-            "valueUsd": 38138.322008145195,
-            "amount": 16332666.75163
-          },
-          {
-            "symbol": "BUTTHOLE",
-            "valueUsd": 34454.2524631619,
-            "amount": 20398649.53194032
-          },
-          {
-            "symbol": "KINS",
-            "valueUsd": 13079.088561780785,
-            "amount": 10098237.145101
-          },
-          {
-            "symbol": "USDC",
-            "valueUsd": 11127.624388288996,
-            "amount": 11155.063835
-          },
-          {
-            "symbol": "RAYCAT",
-            "valueUsd": 5083.8466218655,
-            "amount": 1157507.814038614
-          }
-        ],
-        "headline": "CTqTnV…PHG8 Bids $EMBER a Fond Farewell in a Single $14.3K Sale",
-        "deck": "Sold 847K EMBER on Solana for $14.3K on Thursday evening, taking payment in USDC. Leaves $128K in realized profit over six months, a 39% win rate and a five-token estate worth $102K.",
-        "body": [
-          "On Thursday evening, CTqTnV…PHG8, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $EMBER. It sold 847K tokens in a single transaction for $14.3K, taking payment in USDC. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $128K in realized profit across 2126 sales of 89 tokens, winning 39% of the time and pressing on regardless. It will be remembered for $RAYCAT, which returned $64.7K, and for a profitable spell in $EMBER.",
-          "It is survived by five holdings: $TOAD ($38.1K), $BUTTHOLE ($34.5K), $KINS ($13.1K), $USDC ($11.1K) and $RAYCAT ($5,084). The estate is valued at $102K.",
-          "Remembrances may be left on the block explorer. The wallet's next position has not been announced."
-        ],
-        "estateUsd": 101883.13404324237
-      },
-      {
-        "address": "5rDWbozeistmSCyif87sz4V5gPjtDVA2g7umPPRhM5Qy",
-        "label": "Smart Money",
-        "chain": "solana",
-        "exit": {
-          "symbol": "🌱 GO",
-          "tokenAddress": "D1YZZg9dBZ7AbfknZVbaeVLto36eySwoFYEVhZrD4F4n",
-          "amount": 1319420.075928,
-          "valueUsd": 14078.415515856816,
-          "into": "SOL",
-          "at": "2026-09-25T01:31:52.000Z",
-          "txHash": "2sDYKa6474BjPMPn9BXng4MqHjahZnoyhDJF5FSXXnoJqK76Qfdq1wVpYW67shgszqLynnh53NttHuQ1ifTca6pM",
-          "exitsToday": 1,
-          "soldTodayUsd": 14078.415515856816,
-          "stillHoldsUsd": 0
-        },
-        "lifetime": {
-          "pnlUsd": 4851.206279084031,
-          "roiPct": 97.80288970453547,
-          "winRate": 75,
-          "tokens": 4,
-          "trades": 42,
-          "topTokens": [
-            {
-              "symbol": "🌱 GO",
-              "pnlUsd": 5470.198457081468,
-              "roiPct": 156.18634602338574
-            },
-            {
-              "symbol": "ZCAT",
-              "pnlUsd": -618.9921779974378,
-              "roiPct": -42.45973828727098
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "SOL",
-            "valueUsd": 9248.619740759257,
-            "amount": 76.628942745
+            "valueUsd": 8172.484159104229,
+            "amount": 38825116.064287
           },
           {
             "symbol": "STONK",
-            "valueUsd": 5762.175538076098,
-            "amount": 17364.055260804
-          },
-          {
-            "symbol": "ZEC",
-            "valueUsd": 18.698017446063638,
-            "amount": 0.011626
+            "valueUsd": 4387.850592622606,
+            "amount": 15704.313482921
           }
         ],
-        "headline": "Ledger Closed: 5rDWbo…M5Qy Converts Its $🌱 GO to SOL",
-        "deck": "Sold 1.3M 🌱 GO on Solana for $14.1K in the small hours of Friday, taking payment in SOL. Leaves $4,851 in realized profit over six months, a 75% win rate and a three-token estate worth $15K.",
+        "headline": "9qrMdR…Ktqh Bids $GLDX a Fond Farewell in a Single $15K Sale",
+        "deck": "Sold 38.13 GLDX on Solana for $15K on Friday afternoon, taking payment in USDC. Leaves $536K in realized profit over six months, a 44% win rate and a five-token estate worth $496K.",
         "body": [
-          "In the small hours of Friday, 5rDWbo…M5Qy, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $🌱 GO. It sold 1.3M tokens in a single transaction for $14.1K, taking payment in SOL. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $4,851 in realized profit across 42 sales of 4 tokens, winning 75% of the time, a record its peers would envy. It will be remembered, fittingly, for $🌱 GO, which returned $5,470, and for a less fortunate spell in $ZCAT.",
-          "It is survived by three holdings: $SOL ($9,249), $STONK ($5,762) and $ZEC ($19). The estate is valued at $15K.",
-          "Colleagues on Solana are reminded that the wallet still answers to its address, and may yet trade again."
+          "On Friday afternoon, 9qrMdR…Ktqh, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $GLDX. It sold 38.13 tokens in a single transaction for $15K, taking payment in USDC. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $536K in realized profit across 3610 sales of 34 tokens, winning 44% of the time and pressing on regardless. It will be remembered for $GP, which returned $410K, and for a profitable spell in $CRACKER.",
+          "It is survived by five holdings: $GP ($320K), $CRACKER ($151K), $USDC ($12.4K), $GNOME ($8,172) and $STONK ($4,388). The estate is valued at $496K.",
+          "Remembrances may be left on the block explorer. The wallet's next position has not been announced."
         ],
-        "estateUsd": 15029.493296281418
+        "estateUsd": 495865.2938107638
       },
       {
-        "address": "0x1c4e90fc8bdade442aed58f8011db5a17a2e7199",
-        "label": "nostupid.eth*",
+        "address": "0x9eb42f017e793512e4734f8785de605c4cb3a24e",
+        "label": "upon.eth*",
         "chain": "base",
         "exit": {
-          "symbol": "REI",
-          "tokenAddress": "0x6b2504a03ca4d43d0d73776f6ad46dab2f2a4cfd",
-          "amount": 664085.4061910877,
-          "valueUsd": 12527.940277736892,
-          "into": "USDC",
-          "at": "2026-09-24T18:52:15.000Z",
-          "txHash": "0xd7fbaa64d4e76134852a2ab5a32115507b34ba1ea4460f8e5582daf34bc2a9f2",
+          "symbol": "VCAT",
+          "tokenAddress": "0xfdcc845c048ad96b5c80b6a55d65c20a98d37777",
+          "amount": 4244299.465153412,
+          "valueUsd": 12406.211776295115,
+          "into": "ETH",
+          "at": "2026-09-25T10:10:53.000Z",
+          "txHash": "0x9e482fb57652b85f135bf1e18271eff928bc1864bc62c4f4b0a613f2d0c5d153",
           "exitsToday": 1,
-          "soldTodayUsd": 12527.940277736892,
+          "soldTodayUsd": 12406.211776295115,
           "stillHoldsUsd": 0
         },
         "lifetime": {
-          "pnlUsd": -70345.48762938796,
-          "roiPct": -18.513793951674902,
-          "winRate": 18.181818181818183,
-          "tokens": 33,
-          "trades": 137,
+          "pnlUsd": -14190.629452780011,
+          "roiPct": -4.485684890699653,
+          "winRate": 27.27272727272727,
+          "tokens": 11,
+          "trades": 155,
           "topTokens": [
             {
-              "symbol": "LITCOIN",
-              "pnlUsd": 7739.477678942881,
-              "roiPct": 33.29503350167001
+              "symbol": "ETH",
+              "pnlUsd": 5348.010249882087,
+              "roiPct": 2.2153298830616954
+            },
+            {
+              "symbol": "VCAT",
+              "pnlUsd": -2358.963755049037,
+              "roiPct": -22.758991417999155
+            },
+            {
+              "symbol": "BASECAT",
+              "pnlUsd": -2377.8968115373646,
+              "roiPct": -7.585336896429632
             },
             {
               "symbol": "RATSPEAK",
-              "pnlUsd": -6651.137846137815,
-              "roiPct": -81.7531505158339
+              "pnlUsd": -3697.630496273498,
+              "roiPct": -40.30862072981243
             },
             {
-              "symbol": "TIBBIR",
-              "pnlUsd": -10341.892473662705,
-              "roiPct": -21.644198558028442
-            },
-            {
-              "symbol": "CLAWD",
-              "pnlUsd": -16539.3508277889,
-              "roiPct": -59.72590127764818
-            },
-            {
-              "symbol": "REI",
-              "pnlUsd": -20684.131367296042,
-              "roiPct": -21.11483274647904
+              "symbol": "MOLT",
+              "pnlUsd": -9780.26620806701,
+              "roiPct": -96.62485734683388
             }
           ],
           "known": true
         },
         "survivedBy": [
           {
-            "symbol": "NOCK",
-            "valueUsd": 66914.71740262283,
-            "amount": 2000080.7612925232
+            "symbol": "ETH",
+            "valueUsd": 9119.039541411743,
+            "amount": 3.3917680138638904
+          },
+          {
+            "symbol": "VVVEITY",
+            "valueUsd": 466.61177194469184,
+            "amount": 415513182.9192504
           },
           {
             "symbol": "USDC",
-            "valueUsd": 26069.436026489973,
-            "amount": 26027.459787
+            "valueUsd": 89.07382424962783,
+            "amount": 89.384153
           },
           {
-            "symbol": "INSTACLAW",
-            "valueUsd": 10623.794020141466,
-            "amount": 22216103.23940486
+            "symbol": "WETH",
+            "valueUsd": 25.456338159237703,
+            "amount": 0.009475440027111884
           },
           {
-            "symbol": "CLAWD",
-            "valueUsd": 2960.763749487525,
-            "amount": 423632970.83622396
-          },
-          {
-            "symbol": "ETH",
-            "valueUsd": 2181.5442486913157,
-            "amount": 0.8003247081583852
+            "symbol": "COCORO",
+            "valueUsd": 11.843098235938434,
+            "amount": 6193.576518
           }
         ],
-        "headline": "0x1c4e…7199 Retires From $REI; Base Loses a nostupid.eth*",
-        "deck": "Sold 664K REI on Base for $12.5K on Thursday evening, taking payment in USDC. Leaves a six-month record of $70.3K in realized losses, a 18% win rate and a five-token estate worth $109K.",
+        "headline": "Ledger Closed: 0x9eb4…a24e Converts Its $VCAT to ETH",
+        "deck": "Sold 4.2M VCAT on Base for $12.4K on Friday morning, taking payment in ETH. Leaves a six-month record of $14.2K in realized losses, a 27% win rate and a five-token estate worth $9,712.",
         "body": [
-          "On Thursday evening, 0x1c4e…7199, a Base wallet carried on Nansen's books as “nostupid.eth*”, closed the book on $REI. It sold 664K tokens in a single transaction for $12.5K, taking payment in USDC. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $70.3K in realized losses across 137 sales of 33 tokens, winning 18% of the time and pressing on regardless. It will be remembered for $LITCOIN, which returned $7,739, and for a less fortunate spell in $RATSPEAK.",
-          "It is survived by five holdings: $NOCK ($66.9K), $USDC ($26.1K), $INSTACLAW ($10.6K), $CLAWD ($2,961) and $ETH ($2,182). The estate is valued at $109K.",
-          "The position is at rest in USDC. The wallet is not."
+          "On Friday morning, 0x9eb4…a24e, a Base wallet carried on Nansen's books as “upon.eth*”, closed the book on $VCAT. It sold 4.2M tokens in a single transaction for $12.4K, taking payment in ETH. Nothing of the position remains among its principal holdings.",
+          "Over the past six months the wallet booked $14.2K in realized losses across 155 sales of 11 tokens, winning 27% of the time and pressing on regardless. It will be remembered for $ETH, which returned $5,348, and for a less fortunate spell in $VCAT.",
+          "It is survived by five holdings: $ETH ($9,119), $VVVEITY ($467), $USDC ($89), $WETH ($25) and $COCORO ($12). The estate is valued at $9,712.",
+          "Colleagues on Base are reminded that the wallet still answers to its address, and may yet trade again."
         ],
-        "estateUsd": 108750.2554474331
+        "estateUsd": 9712.02457400124
       },
       {
-        "address": "0xa9c58107a1dd555776432366abedfa81a8ebf057",
-        "label": "Uses \"ALPHA\" HL Referral Code",
-        "chain": "ethereum",
-        "exit": {
-          "symbol": "FP",
-          "tokenAddress": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
-          "amount": 1252.580592404827,
-          "valueUsd": 10614.056320780886,
-          "into": "USDC",
-          "at": "2026-09-25T02:44:59.000Z",
-          "txHash": "0x6016314c5128b204055454ae633511e9a915c75ff9597dfcda8bce578048b950",
-          "exitsToday": 1,
-          "soldTodayUsd": 10614.056320780886,
-          "stillHoldsUsd": 0
-        },
-        "lifetime": {
-          "pnlUsd": 40005.28266315185,
-          "roiPct": 21.877459909478468,
-          "winRate": 55.55555555555556,
-          "tokens": 9,
-          "trades": 50,
-          "topTokens": [
-            {
-              "symbol": "ASTEROID",
-              "pnlUsd": 36348.553778537025,
-              "roiPct": 108.52712990215907
-            },
-            {
-              "symbol": "FWA",
-              "pnlUsd": 6696.697187154902,
-              "roiPct": 23.884712182593788
-            },
-            {
-              "symbol": "AI",
-              "pnlUsd": 4509.0983708145895,
-              "roiPct": 25.061982816871026
-            },
-            {
-              "symbol": "FLOOD",
-              "pnlUsd": -2872.197959123967,
-              "roiPct": -57.45524721955457
-            },
-            {
-              "symbol": "SATO",
-              "pnlUsd": -3762.5116878762783,
-              "roiPct": -37.642508592540594
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "ETH",
-            "valueUsd": 14106.913291905737,
-            "amount": 5.175284099844831
-          },
-          {
-            "symbol": "USDC",
-            "valueUsd": 11123.60780798842,
-            "amount": 11121.652322
-          }
-        ],
-        "headline": "0xa9c5…f057 Closes the Book on $FP After 50 Trades",
-        "deck": "Sold 1,253 FP on Ethereum for $10.6K in the small hours of Friday, taking payment in USDC. Leaves $40K in realized profit over six months, a 56% win rate and a two-token estate worth $25.2K.",
-        "body": [
-          "In the small hours of Friday, 0xa9c5…f057, an Ethereum wallet carried on Nansen's books as “Uses \"ALPHA\" HL Referral Code”, closed the book on $FP. It sold 1,253 tokens in a single transaction for $10.6K, taking payment in USDC. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $40K in realized profit across 50 sales of 9 tokens, winning 56% of the time, which is to say about as often as anyone. It will be remembered for $ASTEROID, which returned $36.3K, and for a profitable spell in $FWA.",
-          "It is survived by two holdings: $ETH ($14.1K) and $USDC ($11.1K). The estate is valued at $25.2K.",
-          "The Smart Money desk notes that the address remains open; retirement, in this trade, is seldom permanent."
-        ],
-        "estateUsd": 25230.521099894155
-      },
-      {
-        "address": "0x9f0be71beb11892f3b566eab723fb5d7e980026a",
-        "label": "Smart Money",
-        "chain": "base",
-        "exit": {
-          "symbol": "BLUECHIP",
-          "tokenAddress": "0xb200000000000000000000cfbdf64a8706a94a01",
-          "amount": 883951.2291118281,
-          "valueUsd": 9305.525463173512,
-          "into": "USDC",
-          "at": "2026-09-24T14:52:57.000Z",
-          "txHash": "0x748e705c39c7f9022eea7aa62979bbb1fe5886c440cc57a853dbf7858794e841",
-          "exitsToday": 1,
-          "soldTodayUsd": 9305.525463173512,
-          "stillHoldsUsd": 0
-        },
-        "lifetime": {
-          "pnlUsd": 105107.35438580351,
-          "roiPct": 22.888064073871757,
-          "winRate": 75,
-          "tokens": 4,
-          "trades": 227,
-          "topTokens": [
-            {
-              "symbol": "BASECAT",
-              "pnlUsd": 119759.24766093415,
-              "roiPct": 116.7448074637971
-            },
-            {
-              "symbol": "ETH",
-              "pnlUsd": 825.6792862920666,
-              "roiPct": 0.2670263093862322
-            },
-            {
-              "symbol": "BLUECHIP",
-              "pnlUsd": -15477.572561422709,
-              "roiPct": -32.63338169139119
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "ETH",
-            "valueUsd": 11.65770339924439,
-            "amount": 0.004276763158205117
-          }
-        ],
-        "headline": "$BLUECHIP Loses a Patron as 0x9f0b…026a Retires a $9,306 Position",
-        "deck": "Sold 884K BLUECHIP on Base for $9,306 on Thursday afternoon, taking payment in USDC. Leaves $105K in realized profit over six months, a 75% win rate and a single holding worth $12.",
-        "body": [
-          "On Thursday afternoon, 0x9f0b…026a, a Base wallet carried on Nansen's books as “Smart Money”, closed the book on $BLUECHIP. It sold 884K tokens in a single transaction for $9,306, taking payment in USDC. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $105K in realized profit across 227 sales of 4 tokens, winning 75% of the time, a record its peers would envy. It will be remembered for $BASECAT, which returned $120K, and for a profitable spell in $ETH.",
-          "It is survived by one holding: $ETH ($12). The estate is valued at $12.",
-          "Remembrances may be left on the block explorer. The wallet's next position has not been announced."
-        ],
-        "estateUsd": 11.65770339924439
-      },
-      {
-        "address": "0x90d585b73af2706dc03993ec7551d22521d8777a",
-        "label": "High Balance",
-        "chain": "ethereum",
-        "exit": {
-          "symbol": "LINK",
-          "tokenAddress": "0x514910771af9ca656af840dff83e8264ecf986ca",
-          "amount": 731.4756610439339,
-          "valueUsd": 9099.349322143009,
-          "into": "WTAO",
-          "at": "2026-09-24T18:23:59.000Z",
-          "txHash": "0x527a764a8527d22de3575c6b956179c5bc7cf7309cb644334e9f3c5d9aaf968f",
-          "exitsToday": 1,
-          "soldTodayUsd": 9099.349322143009,
-          "stillHoldsUsd": 0
-        },
-        "lifetime": {
-          "pnlUsd": -39532.101997193044,
-          "roiPct": -25.924419677835097,
-          "winRate": 41.66666666666667,
-          "tokens": 12,
-          "trades": 30,
-          "topTokens": [
-            {
-              "symbol": "SOLW",
-              "pnlUsd": 13398.625126288302,
-              "roiPct": 79.76611949907667
-            },
-            {
-              "symbol": "AAVE",
-              "pnlUsd": -4974.122584564444,
-              "roiPct": -53.79929154250215
-            },
-            {
-              "symbol": "STORJ",
-              "pnlUsd": -8035.202937822896,
-              "roiPct": -88.12693370061145
-            },
-            {
-              "symbol": "RSR",
-              "pnlUsd": -16069.53434727967,
-              "roiPct": -84.23826953783218
-            },
-            {
-              "symbol": "LINK",
-              "pnlUsd": -26814.083502296904,
-              "roiPct": -38.86290403199642
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "WTAO",
-            "valueUsd": 72472.82569433983,
-            "amount": 234.172664642
-          },
-          {
-            "symbol": "VIRTUAL",
-            "valueUsd": 10429.809961911827,
-            "amount": 13062.677765415807
-          },
-          {
-            "symbol": "ETH",
-            "valueUsd": 9876.568570287467,
-            "amount": 3.623333271082352
-          },
-          {
-            "symbol": "MORPHO",
-            "valueUsd": 8580.991327532614,
-            "amount": 2929.4208301660055
-          },
-          {
-            "symbol": "SOLW",
-            "valueUsd": 7121.6154494170005,
-            "amount": 59.180675607
-          }
-        ],
-        "headline": "A Quiet Exit: 0x90d5…777a Steps Away From $LINK With $9,099",
-        "deck": "Sold 731 LINK on Ethereum for $9,099 on Thursday evening, taking payment in WTAO. Leaves a six-month record of $39.5K in realized losses, a 42% win rate and a five-token estate worth $108K.",
-        "body": [
-          "On Thursday evening, 0x90d5…777a, an Ethereum wallet carried on Nansen's books as “High Balance”, closed the book on $LINK. It sold 731 tokens in a single transaction for $9,099, taking payment in WTAO. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $39.5K in realized losses across 30 sales of 12 tokens, winning 42% of the time and pressing on regardless. It will be remembered for $SOLW, which returned $13.4K, and for a less fortunate spell in $AAVE.",
-          "It is survived by five holdings: $WTAO ($72.5K), $VIRTUAL ($10.4K), $ETH ($9,877), $MORPHO ($8,581) and $SOLW ($7,122). The estate is valued at $108K.",
-          "Colleagues on Ethereum are reminded that the wallet still answers to its address, and may yet trade again."
-        ],
-        "estateUsd": 108481.81100348874
-      },
-      {
-        "address": "7fTREYp5bxYYemWMvdnSrdG2FeqppNUi8QUpSZsNe514",
+        "address": "meyfnYG11jbzSYowujSVU7f8AS5dHBKakWqnqqgqPE1",
         "label": "Smart Money",
         "chain": "solana",
         "exit": {
-          "symbol": "🌱 LESGOH",
-          "tokenAddress": "8Lj2cdk5VgqFEpcaXHoaxYSbQrpgceaK7p4B25WqBkyT",
-          "amount": 17747789.659692,
-          "valueUsd": 9067.82153286376,
+          "symbol": "ZEC",
+          "tokenAddress": "A7bdiYdS5GjqGFtxf17ppRHtDKPkkRqbKtR27dxvQXaS",
+          "amount": 32,
+          "valueUsd": 49672.52470932552,
           "into": "USDC",
-          "at": "2026-09-24T20:36:32.000Z",
-          "txHash": "4FbsV37CzNANtkNjF5jWecrdnXVkgJrTVUcVhsLcJZYDC23HNcEyiATuM7F1cmnowrkPwrk1GRWdtyRxD9krXcoA",
+          "at": "2026-09-25T17:35:24.000Z",
+          "txHash": "4D2ij18YdnHz7YdJQawPA9aYVX3WYP2g7PTdjwsP5sPDsFhkmUprWKuHZ9zhTGRAtc785RwatQDJkvrkSLwogFzr",
           "exitsToday": 1,
-          "soldTodayUsd": 9067.82153286376,
-          "stillHoldsUsd": 0
+          "soldTodayUsd": 49672.52470932552,
+          "stillHoldsUsd": 917420.3556683316
         },
         "lifetime": {
-          "pnlUsd": 141258.98455492925,
-          "roiPct": 32.41098243908066,
-          "winRate": 42.00913242009132,
-          "tokens": 438,
-          "trades": 5373,
+          "pnlUsd": 185023.92567782366,
+          "roiPct": 25.58302343095305,
+          "winRate": 80,
+          "tokens": 5,
+          "trades": 140,
           "topTokens": [
             {
-              "symbol": "CTO",
-              "pnlUsd": 83297.07209914127,
-              "roiPct": 164.06445444222422
-            },
-            {
-              "symbol": "🌱 GO",
-              "pnlUsd": 14167.88597664432,
-              "roiPct": 284.14896781139487
-            },
-            {
-              "symbol": "⚠️ REDACTED",
-              "pnlUsd": 13307.493529804506,
-              "roiPct": 3195.7389637467563
-            },
-            {
-              "symbol": "ASTROID",
-              "pnlUsd": 6703.774378446409,
-              "roiPct": 3733.73099368171
-            },
-            {
-              "symbol": "⚠️ OS",
-              "pnlUsd": -6249.275769867313,
-              "roiPct": -70.44513785819849
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "USDC",
-            "valueUsd": 14618.87359858272,
-            "amount": 14623.677205
-          },
-          {
-            "symbol": "🌱 MUSEIFY",
-            "valueUsd": 2756.307420905719,
-            "amount": 23281421.777978
-          },
-          {
-            "symbol": "TOKENS",
-            "valueUsd": 1766.555679409206,
-            "amount": 25214275.510297
-          },
-          {
-            "symbol": "METAX",
-            "valueUsd": 134.33178639099913,
-            "amount": 0.17339005
-          },
-          {
-            "symbol": "PTN",
-            "valueUsd": 102.33959110929078,
-            "amount": 10.610612
-          }
-        ],
-        "headline": "7fTREY…e514, Smart Money of Solana, Retires From $🌱 LESGOH",
-        "deck": "Sold 17.7M 🌱 LESGOH on Solana for $9,068 on Thursday evening, taking payment in USDC. Leaves $141K in realized profit over six months, a 42% win rate and a five-token estate worth $19.4K.",
-        "body": [
-          "On Thursday evening, 7fTREY…e514, a Solana wallet carried on Nansen's books as “Smart Money”, closed the book on $🌱 LESGOH. It sold 17.7M tokens in a single transaction for $9,068, taking payment in USDC. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $141K in realized profit across 5373 sales of 438 tokens, winning 42% of the time and pressing on regardless. It will be remembered for $CTO, which returned $83.3K, and for a profitable spell in $🌱 GO.",
-          "It is survived by five holdings: $USDC ($14.6K), $🌱 MUSEIFY ($2,756), $TOKENS ($1,767), $METAX ($134) and $PTN ($102). The estate is valued at $19.4K.",
-          "The position is at rest in USDC. The wallet is not."
-        ],
-        "estateUsd": 19378.408076397933
-      },
-      {
-        "address": "0x490ecf141f8995f55f2a14eda27966dba6e4dd9d",
-        "label": "Smart Money",
-        "chain": "base",
-        "exit": {
-          "symbol": "TRUE",
-          "tokenAddress": "0x21cfcfc3d8f98fc728f48341d10ad8283f6eb7ab",
-          "amount": 93775.65764450986,
-          "valueUsd": 8734.166000328913,
-          "into": "ETH",
-          "at": "2026-09-24T15:44:33.000Z",
-          "txHash": "0x41b83560a77c883e5325feb5f762b7f53c42ef9a4867d649fc9ac3459628fe4d",
-          "exitsToday": 1,
-          "soldTodayUsd": 8734.166000328913,
-          "stillHoldsUsd": 0
-        },
-        "lifetime": {
-          "pnlUsd": 2919.3113367804103,
-          "roiPct": 1.4016069060781342,
-          "winRate": 55.55555555555556,
-          "tokens": 18,
-          "trades": 132,
-          "topTokens": [
-            {
-              "symbol": "BRIAN",
-              "pnlUsd": 7393.579034831997,
-              "roiPct": 387.9821281902205
-            },
-            {
-              "symbol": "ETH",
-              "pnlUsd": 1776.4512202131357,
-              "roiPct": 0.9786359585347286
-            },
-            {
-              "symbol": "BASEHAT",
-              "pnlUsd": -851.3438702099318,
-              "roiPct": -44.737847168687914
-            },
-            {
-              "symbol": "⚠️ MEME",
-              "pnlUsd": -1278.75153894735,
-              "roiPct": -67.38233933210164
-            },
-            {
-              "symbol": "TRUE",
-              "pnlUsd": -2360.0386746324857,
-              "roiPct": -21.82646467305903
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "USDC",
-            "valueUsd": 35.347857080300024,
-            "amount": 35.290941
-          },
-          {
-            "symbol": "ETH",
-            "valueUsd": 28.240326949994593,
-            "amount": 0.01036029016514799
-          },
-          {
-            "symbol": "WTCOIN",
-            "valueUsd": 8.628398729652716,
-            "amount": 0.04312725408929927
-          }
-        ],
-        "headline": "$8,734 Walks Out the Door as 0x490e…dd9d Leaves $TRUE",
-        "deck": "Sold 93.8K TRUE on Base for $8,734 on Thursday afternoon, taking payment in ETH. Leaves $2,919 in realized profit over six months, a 56% win rate and a three-token estate worth $72.",
-        "body": [
-          "On Thursday afternoon, 0x490e…dd9d, a Base wallet carried on Nansen's books as “Smart Money”, closed the book on $TRUE. It sold 93.8K tokens in a single transaction for $8,734, taking payment in ETH. Nothing of the position remains among its principal holdings.",
-          "Over the past six months the wallet booked $2,919 in realized profit across 132 sales of 18 tokens, winning 56% of the time, which is to say about as often as anyone. It will be remembered for $BRIAN, which returned $7,394, and for a profitable spell in $ETH.",
-          "It is survived by three holdings: $USDC ($35), $ETH ($28) and $WTCOIN ($9). The estate is valued at $72.",
-          "The Smart Money desk notes that the address remains open; retirement, in this trade, is seldom permanent."
-        ],
-        "estateUsd": 72.21658275994733
-      },
-      {
-        "address": "Ev1AaPu4c6L1QEXZiLv9DkNBa3ZigddiXYFTk9tN2DoK",
-        "label": "obu.eth* on Ethereum",
-        "chain": "solana",
-        "exit": {
-          "symbol": "STONK",
-          "tokenAddress": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
-          "amount": 333333,
-          "valueUsd": 110614.90128801775,
-          "into": "USDC",
-          "at": "2026-09-25T01:40:17.000Z",
-          "txHash": "5oGju12r2eAKP4UFZaz8tisPb8FpjMBUJ9CAgV6M5u5Q9qerwo7DA8PeM9pkfRKHJzhTdzWqcQNcNCCUvXUF2h3E",
-          "exitsToday": 1,
-          "soldTodayUsd": 110614.90128801775,
-          "stillHoldsUsd": 175323.87048639366
-        },
-        "lifetime": {
-          "pnlUsd": 1276493.1758575123,
-          "roiPct": 15.329164411144781,
-          "winRate": 34.61538461538461,
-          "tokens": 104,
-          "trades": 6634,
-          "topTokens": [
-            {
-              "symbol": "PUMP",
-              "pnlUsd": 638971.3126562219,
-              "roiPct": 16.45942631014803
+              "symbol": "ZEC",
+              "pnlUsd": 98527.13987560764,
+              "roiPct": 21.687140714891044
             },
             {
               "symbol": "ZCAT",
-              "pnlUsd": 433562.3041941791,
-              "roiPct": 311.8000066848567
+              "pnlUsd": 83794.33115243827,
+              "roiPct": 44.42673012643121
             },
             {
-              "symbol": "STONK",
-              "pnlUsd": 166423.62814554534,
-              "roiPct": 24.855659692120792
-            },
-            {
-              "symbol": "CUPSEY",
-              "pnlUsd": 84294.1221038617,
-              "roiPct": 154.26846512110083
-            },
-            {
-              "symbol": "MSTRX",
-              "pnlUsd": 74978.84918378985,
-              "roiPct": 21.330103720618236
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "PUMP",
-            "valueUsd": 737165.5951695562,
-            "amount": 175567021.213309
-          },
-          {
-            "symbol": "USDC",
-            "valueUsd": 254742.47406098354,
-            "amount": 255370.639813
-          },
-          {
-            "symbol": "STONK",
-            "valueUsd": 175323.87048639366,
-            "amount": 528330.55076976
-          },
-          {
-            "symbol": "BUTTCOIN",
-            "valueUsd": 82516.29573836797,
-            "amount": 5398641.347981
-          },
-          {
-            "symbol": "CATE",
-            "valueUsd": 58680.60453103233,
-            "amount": 544089.098805
-          }
-        ],
-        "headline": "Ev1AaP…2DoK Trims $STONK by $111K and Keeps $175K on the Books",
-        "deck": "Sold 333K STONK on Solana for $111K in the small hours of Friday, taking payment in USDC, and kept $175K of the position. Leaves $1.28M in realized profit over six months, a 35% win rate and a five-token estate worth $1.31M.",
-        "body": [
-          "In the small hours of Friday, Ev1AaP…2DoK, a Solana wallet carried on Nansen's books as “obu.eth* on Ethereum”, stepped back from $STONK. It sold 333K tokens in a single transaction for $111K, taking payment in USDC, and holds $175K of $STONK still, with no plan for it announced.",
-          "Over the past six months the wallet booked $1.28M in realized profit across 6634 sales of 104 tokens, winning 35% of the time and pressing on regardless. It will be remembered for $PUMP, which returned $639K, and for a profitable spell in $ZCAT.",
-          "It is survived by five holdings: $PUMP ($737K), $USDC ($255K), $STONK ($175K), $BUTTCOIN ($82.5K) and $CATE ($58.7K). The estate is valued at $1.31M.",
-          "Remembrances may be left on the block explorer. The wallet's next position has not been announced."
-        ],
-        "estateUsd": 1308428.8399863336
-      },
-      {
-        "address": "E15R2UndrhJDcoYZbRULdUYNh8FbkUYQfyPLH9pZTKTx",
-        "label": "Smart Money",
-        "chain": "solana",
-        "exit": {
-          "symbol": "STONK",
-          "tokenAddress": "6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx",
-          "amount": 305682.721861917,
-          "valueUsd": 109414.62291814938,
-          "into": "USDC",
-          "at": "2026-09-24T20:49:52.000Z",
-          "txHash": "5ZEFM35mc1v6uBZyj3D79vzK7jhDpGM8rvniCG9jKh2MLn1iuU2dkrwXji8sPvHCsCJvEGie5rsVJX8R2W37StMA",
-          "exitsToday": 5,
-          "soldTodayUsd": 315063.1722078478,
-          "stillHoldsUsd": 101069.53048602403
-        },
-        "lifetime": {
-          "pnlUsd": 213462.56766430518,
-          "roiPct": 25.285877103260855,
-          "winRate": 42.10526315789473,
-          "tokens": 19,
-          "trades": 955,
-          "topTokens": [
-            {
-              "symbol": "STONK",
-              "pnlUsd": 137061.6456789594,
-              "roiPct": 38.68146717076017
-            },
-            {
-              "symbol": "GP",
-              "pnlUsd": 61889.29661017753,
-              "roiPct": 172.97397961485942
-            },
-            {
-              "symbol": "ZCAT",
-              "pnlUsd": 23333.076095279117,
-              "roiPct": 16.320556022842013
-            },
-            {
-              "symbol": "USELESS",
-              "pnlUsd": 12128.069181733545,
-              "roiPct": 30.60326954989028
+              "symbol": "TRUMP",
+              "pnlUsd": 3193.2617887026026,
+              "roiPct": 21.385648852747757
             },
             {
               "symbol": "BP",
-              "pnlUsd": -16591.103461036844,
-              "roiPct": -7.652080076000514
+              "pnlUsd": -490.8071389248488,
+              "roiPct": -0.7507708858037572
             }
           ],
           "known": true
         },
         "survivedBy": [
           {
-            "symbol": "USDC",
-            "valueUsd": 571724.6912387927,
-            "amount": 571912.553893
+            "symbol": "ZEC",
+            "valueUsd": 917420.3556683316,
+            "amount": 600.9379743
           },
           {
-            "symbol": "STONK",
-            "valueUsd": 101069.53048602403,
-            "amount": 305682.721861917
+            "symbol": "SOL",
+            "valueUsd": 21.553489498153,
+            "amount": 0.178526436
           },
           {
-            "symbol": "GP",
-            "valueUsd": 99901.67694722637,
-            "amount": 5002782.60557
-          },
-          {
-            "symbol": "ZCAT",
-            "valueUsd": 55832.63978230156,
-            "amount": 768212.397511642
-          },
-          {
-            "symbol": "CRED",
-            "valueUsd": 36339.518033445056,
-            "amount": 60227.337141
+            "symbol": "DOGE",
+            "valueUsd": 8.159100527120028,
+            "amount": 83.44049839
           }
         ],
-        "headline": "A Partial Retirement: E15R2U…TKTx Sells $109K of Its $STONK",
-        "deck": "Sold 306K STONK on Solana for $109K on Thursday evening, taking payment in USDC, and kept $101K of the position. Leaves $213K in realized profit over six months, a 42% win rate and a five-token estate worth $865K.",
+        "headline": "$ZEC Loses $49.7K of meyfnY…qPE1's Affection; $917K Remains",
+        "deck": "Sold 32 ZEC on Solana for $49.7K on Friday evening, taking payment in USDC, and kept $917K of the position. Leaves $185K in realized profit over six months, a 80% win rate and a three-token estate worth $917K.",
         "body": [
-          "On Thursday evening, E15R2U…TKTx, a Solana wallet carried on Nansen's books as “Smart Money”, stepped back from $STONK. It sold 306K tokens in a single transaction for $109K, taking payment in USDC, and holds $101K of $STONK still, with no plan for it announced. The sale was the largest of five exits the wallet made that day, $315K in all.",
-          "Over the past six months the wallet booked $213K in realized profit across 955 sales of 19 tokens, winning 42% of the time and pressing on regardless. It will be remembered, fittingly, for $STONK, which returned $137K, and for a profitable spell in $GP.",
-          "It is survived by five holdings: $USDC ($572K), $STONK ($101K), $GP ($99.9K), $ZCAT ($55.8K) and $CRED ($36.3K). The estate is valued at $865K.",
-          "Colleagues on Solana are reminded that the wallet still answers to its address, and may yet trade again."
-        ],
-        "estateUsd": 864868.0564877898
-      },
-      {
-        "address": "Dw3LY8NnG3BB1EEXCNJwAKtVoEE7faEYiygYNHfFPNb1",
-        "label": "Smart Money",
-        "chain": "solana",
-        "exit": {
-          "symbol": "GP",
-          "tokenAddress": "HTmQz7My6MehV7bjhJ6jde8nDND1yvsz68d24LP7YgUQ",
-          "amount": 1245884.542226,
-          "valueUsd": 23880.458805869996,
-          "into": "USDC",
-          "at": "2026-09-25T10:54:41.000Z",
-          "txHash": "z3Xtz2UaeCBXar3P1LDmyYHjeXAtPi1NjpEsr9g2LTS76hex8hfMUsxqpDfD2q4wNjsB89QmkbrDwadL6DXQvDX",
-          "exitsToday": 3,
-          "soldTodayUsd": 53598.32598666456,
-          "stillHoldsUsd": 167829.0271213491
-        },
-        "lifetime": {
-          "pnlUsd": 569338.4334660923,
-          "roiPct": 193.83400794110614,
-          "winRate": 46.666666666666664,
-          "tokens": 30,
-          "trades": 2238,
-          "topTokens": [
-            {
-              "symbol": "ZCAT",
-              "pnlUsd": 291294.11951249326,
-              "roiPct": 3650.925257863576
-            },
-            {
-              "symbol": "KNOTS",
-              "pnlUsd": 139552.66227997118,
-              "roiPct": 1426.164834752326
-            },
-            {
-              "symbol": "STONK",
-              "pnlUsd": 66545.0418217522,
-              "roiPct": 688.9067105353699
-            },
-            {
-              "symbol": "BTC",
-              "pnlUsd": 52329.45004268999,
-              "roiPct": 656.4378310817232
-            },
-            {
-              "symbol": "PURR",
-              "pnlUsd": 48780.41655188716,
-              "roiPct": 398.84209750722135
-            }
-          ],
-          "known": true
-        },
-        "survivedBy": [
-          {
-            "symbol": "STONK",
-            "valueUsd": 218769.46448102364,
-            "amount": 659251.882474467
-          },
-          {
-            "symbol": "GP",
-            "valueUsd": 167829.0271213491,
-            "amount": 8755928.532492
-          },
-          {
-            "symbol": "ZCAT",
-            "valueUsd": 111913.6952853488,
-            "amount": 1483747.116038368
-          },
-          {
-            "symbol": "KNOTS",
-            "valueUsd": 61233.36695559297,
-            "amount": 4609232.202414
-          },
-          {
-            "symbol": "PURR",
-            "valueUsd": 48763.89116306037,
-            "amount": 7078649.98515663
-          }
-        ],
-        "headline": "$GP Loses $23.9K of Dw3LY8…PNb1's Affection; $168K Remains",
-        "deck": "Sold 1.2M GP on Solana for $23.9K on Friday morning, taking payment in USDC, and kept $168K of the position. Leaves $569K in realized profit over six months, a 47% win rate and a five-token estate worth $609K.",
-        "body": [
-          "On Friday morning, Dw3LY8…PNb1, a Solana wallet carried on Nansen's books as “Smart Money”, stepped back from $GP. It sold 1.2M tokens in a single transaction for $23.9K, taking payment in USDC, and holds $168K of $GP still, with no plan for it announced. The sale was the largest of three exits the wallet made that day, $53.6K in all.",
-          "Over the past six months the wallet booked $569K in realized profit across 2238 sales of 30 tokens, winning 47% of the time, which is to say about as often as anyone. It will be remembered for $ZCAT, which returned $291K, and for a profitable spell in $KNOTS.",
-          "It is survived by five holdings: $STONK ($219K), $GP ($168K), $ZCAT ($112K), $KNOTS ($61.2K) and $PURR ($48.8K). The estate is valued at $609K.",
+          "On Friday evening, meyfnY…qPE1, a Solana wallet carried on Nansen's books as “Smart Money”, stepped back from $ZEC. It sold 32 tokens in a single transaction for $49.7K, taking payment in USDC, and holds $917K of $ZEC still, with no plan for it announced.",
+          "Over the past six months the wallet booked $185K in realized profit across 140 sales of 5 tokens, winning 80% of the time, a record its peers would envy. It will be remembered, fittingly, for $ZEC, which returned $98.5K, and for a profitable spell in $ZCAT.",
+          "It is survived by three holdings: $ZEC ($917K), $SOL ($22) and $DOGE ($8). The estate is valued at $917K.",
           "Part of the position is at rest in USDC. The wallet is not."
         ],
-        "estateUsd": 608509.4450063749
+        "estateUsd": 917450.0682583569
       }
     ]
   }

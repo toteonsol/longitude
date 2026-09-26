@@ -1,5 +1,5 @@
 "use client";
-import { ShareButton } from "@longitude/kit";
+import { NansenLink, ShareButton } from "@longitude/kit";
 import { AnimatePresence, NumberTicker, animate, fmt, motion, springs, useMotionValue, useReducedMotion, useTransform } from "@longitude/motion";
 import { type CSSProperties, useEffect, useMemo } from "react";
 import { HOLD_DAYS, type Tape, dayOffset, pctFrom } from "@/lib/data";
@@ -210,6 +210,7 @@ export function Playback({ tape, phase, call, shareText }: Props) {
             ) : (
               <span className="legend__ret is-idle">--.-%</span>
             )}
+            {revealed ? <NansenLink address={p.address} chain={p.chain} kind="token" className="legend__nansen" /> : null}
           </li>
         ))}
       </ul>

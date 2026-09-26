@@ -1,3 +1,4 @@
+import { isDeep } from "@longitude/kit/deep";
 import type { NansenClient, NansenSchemas, RowOf } from "@longitude/nansen";
 import { CreditCapExceededError, isoDate } from "@longitude/nansen";
 
@@ -125,7 +126,7 @@ async function pricePath(
  * at most 96 with spares. seed.ts caps the run at 100.
  */
 export async function buildRewind(nansen: NansenClient): Promise<RewindData> {
-  const deep = process.env.DEEP === "1";
+  const deep = isDeep();
   const offsets: readonly number[] = deep ? DEEP_TAPE_OFFSETS : TAPE_OFFSETS;
   const picksPerTape = deep ? DEEP_PICKS_PER_TAPE : PICKS_PER_TAPE;
   const today = new Date();

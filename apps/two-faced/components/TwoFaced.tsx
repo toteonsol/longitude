@@ -1,5 +1,5 @@
 "use client";
-import { ReactionBar, ShareButton, social, useIdentity } from "@longitude/kit";
+import { NansenLink, ReactionBar, ShareButton, caption, social, useIdentity } from "@longitude/kit";
 import { AnimatePresence, Typewriter, fmt, motion, springs, useMotionValue, useMotionValueEvent, useReducedMotion, useSpring, useTransform } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import { useEffect, useRef, useState } from "react";
@@ -11,6 +11,9 @@ import { Vitals } from "./Vitals";
 import { WalletPicker } from "./WalletPicker";
 
 const UNMASKED_KEY = "two-faced:unmasked";
+
+/** The house's two verdicts, as the vote buttons read them. */
+const VERDICTS: Record<string, string> = { saint: "Saint by day", degen: "Degen by night" };
 
 function shareTextFor(w: Wallet): string {
   const s = w.spot.winRate.toFixed(0);
@@ -81,6 +84,14 @@ export function TwoFaced({ data }: { data: TwoFacedData }) {
     interacted.current = true;
     setTouched(true);
   };
+  // Recording caption (?rec=1) when a vote is cast, not when it is taken back. The kit's ReactionBar
+  // takes no callback, so this listens in the capture phase and reads the button before it toggles.
+  const onVerdict = (e: { target: EventTarget }) => {
+    const vote = e.target instanceof Element ? e.target.closest(".lg-reaction") : null;
+    if (!vote || vote.getAttribute("aria-pressed") === "true") return;
+    const verdict = VERDICTS[vote.getAttribute("title") ?? ""];
+    if (verdict) caption(`${verdict}: your vote is added to the tally every visitor sees for this wallet.`);
+  };
   const a = wallet.activity;
 
   return (
@@ -92,7 +103,9 @@ export function TwoFaced({ data }: { data: TwoFacedData }) {
           <motion.div key={wallet.address} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={springs.snappy}>
             <p className="bill__who">
               <span className="bill__rank">№ {wallet.rank}</span>
-              <span className="lg-addr">{shortAddress(wallet.address, 5)}</span>
+              <span className="lg-addr">
+                {shortAddress(wallet.address, 5)} <NansenLink address={wallet.address} />
+              </span>
               <span className="bill__label">{wallet.label}</span>
               <span className="bill__duality">{wallet.duality}% two-faced</span>
             </p>
@@ -149,10 +162,10 @@ export function TwoFaced({ data }: { data: TwoFacedData }) {
         <StatPanel side="perp" wallet={wallet} t={t} />
 
         {/* The house votes. Keyed by wallet so a failed fetch never shows the previous wallet's count. */}
-        <section className="crowd" aria-label="Crowd verdict">
+        <section className="crowd" aria-label="Crowd verdict" onClickCapture={onVerdict}>
           <p className="crowd__kicker">The house votes</p>
           <h3 className="crowd__title">Which face is real?</h3>
-          <ReactionBar key={wallet.address} target={`face:${wallet.address}`} kinds={["saint", "degen"]} glyphs={{ saint: "Saint by day", degen: "Degen by night" }} />
+          <ReactionBar key={wallet.address} target={`face:${wallet.address}`} kinds={["saint", "degen"]} glyphs={VERDICTS} />
           <p className="crowd__note">One vote per visitor per face. Tap again to take it back.</p>
         </section>
       </div>

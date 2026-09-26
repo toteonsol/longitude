@@ -1,5 +1,5 @@
 "use client";
-import { ReactionBar, ShareButton, social, useIdentity } from "@longitude/kit";
+import { ReactionBar, ShareButton, caption, social, useIdentity } from "@longitude/kit";
 import { shortAddress } from "@longitude/nansen";
 import type { MouseEvent } from "react";
 import type { Obituary as Notice } from "@/lib/data";
@@ -22,6 +22,7 @@ export function Condolences({ o }: { o: Notice }) {
     const button = (e.target as Element | null)?.closest("button.lg-reaction");
     if (!button || button.getAttribute("title") !== "candle" || button.getAttribute("aria-pressed") === "true") return;
     void social.event("react", `${me?.handle ?? "Someone"} lit a candle for ${shortAddress(o.address, 4)}`);
+    caption("Each candle is counted per wallet and shared, so every reader of this notice sees the same tally.", 6000);
   };
 
   return (

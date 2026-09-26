@@ -1,5 +1,5 @@
 "use client";
-import { social, useIdentity, useReactions } from "@longitude/kit";
+import { caption, social, useIdentity, useReactions } from "@longitude/kit";
 import { NumberTicker } from "@longitude/motion";
 import { useCallback, useState } from "react";
 
@@ -46,6 +46,8 @@ export function PickSide({ marketId, question }: Props) {
   const pick = useCallback(
     async (next: Side) => {
       if (busy) return;
+      // Recording caption (?rec=1), once per new pick; tapping the held side to un-pick stays quiet.
+      if (side !== next) caption(`You sided with ${SIDE_TEXT[next]}. The rope pits Polymarket odds against Nansen's 7-day smart money net flow.`);
       setBusy(true);
       try {
         const firstCall = side === null && !alreadyCalled(marketId);

@@ -670,8 +670,17 @@ body {
   padding: 0;
 }
 
+/* A row is the jump to its notice, then the wallet's Nansen pill beside it (never inside it). */
 .rail__list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   border-top: 1px dotted var(--ink-40);
+}
+
+.rail__jump {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .rail__list a {
@@ -715,6 +724,44 @@ body {
   font-size: 12px;
   line-height: 1.5;
   color: var(--ink-60);
+}
+
+/* The kit's Nansen pill, set for newsprint: small italic type in a hairline box, quieter than the copy.
+   It also undoes the page's own link rules (.notice dd a, .rail__list a), which would otherwise reach it. */
+.lg-nansen.obit-nansen {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 0;
+  padding: 0 5px 1px;
+  border: 1px solid var(--ink-40);
+  border-radius: 2px;
+  background: transparent;
+  font-family: var(--lg-font);
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  text-transform: none;
+  color: var(--ink-60);
+  opacity: 1;
+  vertical-align: baseline;
+}
+
+.lg-nansen.obit-nansen:hover,
+.lg-nansen.obit-nansen:focus-visible {
+  border-color: currentColor;
+  background: transparent;
+  color: var(--red);
+}
+
+.notice .obit-nansen {
+  margin-left: 6px;
+}
+
+.rail__list .obit-nansen {
+  flex: none;
 }
 
 /* Narrower sheets */

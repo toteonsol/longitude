@@ -17,9 +17,9 @@ export interface WalletLens {
   credits: number;
   scout?: { winRate: number; pnlUsd: number; trades: number; tokens: number; roiPct: number; topTokens: string[]; similarity: number; grade: "A" | "B" | "C"; verdict: string };
   perp?: { winRate: number; pnlUsd: number; trades: number; coins: number; topCoins: string[] } | null;
-  holdings?: { symbol: string; valueUsd: number; amount: number }[];
+  holdings?: { symbol: string; valueUsd: number; amount: number; token?: string; chain?: string }[];
   kin?: { count: number; relations: Record<string, number>; sample: { address: string; label: string; relation: string }[] };
-  exits?: { symbol: string; valueUsd: number; at: string; into: string }[];
+  exits?: { symbol: string; valueUsd: number; at: string; into: string; token?: string }[];
   errors: Record<string, string>;
 }
 
@@ -90,10 +90,14 @@ export async function readWallet(raw: string, preferred?: string): Promise<Walle
     // 3) Exit Clock / Last Ones Out lens: what it still holds.
     nansen.profiler
       .currentBalance({ address, chain, order_by: [{ field: "value_usd", direction: "DESC" }], pagination: { page: 1, per_page: 8 } }, { tag })
-      .then((r) => (r.data ?? []).map((h) => ({ symbol: h.token_symbol ?? "?", valueUsd: num(h.value_usd), amount: num(h.token_amount) })).filter((h) => h.valueUsd > 1))
+      .then((r) =>
+        (r.data ?? [])
+          .map((h) => ({ symbol: h.token_symbol ?? "?", valueUsd: num(h.value_usd), amount: num(h.token_amount), token: h.token_address || undefined, chain: h.chain || undefined }))
+          .filter((h) => h.valueUsd > 1),
+      )
       .catch((err: unknown) => {
         errors.holdings = err instanceof Error ? err.message : String(err);
-        return [] as { symbol: string; valueUsd: number; amount: number }[];
+        return [] as { symbol: string; valueUsd: number; amount: number; token?: string; chain?: string }[];
       }),
     // 4) Dynasties lens: kin.
     nansen.profiler
@@ -114,13 +118,19 @@ export async function readWallet(raw: string, preferred?: string): Promise<Walle
       .then((r) =>
         (r.data ?? [])
           .filter((t) => t.token_sold_symbol && !STABLE.test(t.token_sold_symbol))
-          .map((t) => ({ symbol: t.token_sold_symbol as string, valueUsd: num(t.trade_value_usd), at: String(t.block_timestamp ?? ""), into: t.token_bought_symbol ?? "" }))
+          .map((t) => ({
+            symbol: t.token_sold_symbol as string,
+            valueUsd: num(t.trade_value_usd),
+            at: String(t.block_timestamp ?? ""),
+            into: t.token_bought_symbol ?? "",
+            token: t.token_sold_address || undefined,
+          }))
           .sort((a, b) => b.valueUsd - a.valueUsd)
           .slice(0, 5),
       )
       .catch((err: unknown) => {
         errors.exits = err instanceof Error ? err.message : String(err);
-        return [] as { symbol: string; valueUsd: number; at: string; into: string }[];
+        return [] as { symbol: string; valueUsd: number; at: string; into: string; token?: string }[];
       }),
   ]);
 

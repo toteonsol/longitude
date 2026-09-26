@@ -1,5 +1,5 @@
 "use client";
-import { type AppMeta, FeedTicker, Passport, appUrl, useIdentity, usePresence, withIdentity } from "@longitude/kit";
+import { type AppMeta, Captions, FeedTicker, Passport, appUrl, useIdentity, usePresence, withIdentity, withRecording } from "@longitude/kit";
 import { AnimatePresence, NumberTicker, motion, useAnimationFrame, useReducedMotion } from "@longitude/motion";
 import { type CSSProperties, useMemo, useRef, useState } from "react";
 import { SearchBox } from "./SearchBox";
@@ -94,7 +94,7 @@ export function Globe({ apps, credits, status }: GlobeProps) {
   const presence = usePresence();
   const link = (id: AppMeta["id"]) => withIdentity(appUrl(id), me?.id);
   const enter = (id: AppMeta["id"]) => {
-    window.location.href = link(id);
+    window.location.href = withRecording(link(id));
   };
 
   useAnimationFrame((_, delta) => {
@@ -370,8 +370,14 @@ export function Globe({ apps, credits, status }: GlobeProps) {
 
       <div className="store__foot">
         <span>every app works on its own url · no login, ever</span>
-        <span>built on the nansen api</span>
+        <a href="https://www.nansen.ai/api" target="_blank" rel="noopener noreferrer">
+          built on the nansen api
+        </a>
       </div>
+      <Captions
+        kicker="LONGITUDE"
+        base="Ten apps built on the Nansen API. Each glowing line on the globe is one app: hover to preview it, click to step inside."
+      />
     </motion.div>
   );
 }

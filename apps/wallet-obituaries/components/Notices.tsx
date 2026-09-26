@@ -1,10 +1,18 @@
 "use client";
+import { NansenLink, caption } from "@longitude/kit";
 import { NumberTicker, type Variants, motion, useReducedMotion } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
-import type { WalletObituariesData } from "@/lib/data";
+import type { Obituary as Notice, WalletObituariesData } from "@/lib/data";
 import { chainName, usd } from "@/lib/format";
 
 const list: Variants = { hidden: {}, shown: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } } };
+
+/** Recording caption (?rec=1) for a jump from the rail: whose sale the notice is, and where it was found. */
+function jumpCaption(o: Notice, i: number): string {
+  const which = i === 0 ? "Lead notice" : `Notice ${i + 1}`;
+  const full = `${which}: ${shortAddress(o.address, 4)} sold ${usd(o.exit.valueUsd)} of $${o.exit.symbol} on ${chainName(o.chain)}, found in Nansen's smart money trades.`;
+  return full.length < 110 ? full : `${which}: a smart money sale found in Nansen's trade data.`;
+}
 
 /** The right-hand rail: the day's ledger and an index of every notice on the page. */
 export function Notices({ data, visible }: { data: WalletObituariesData; visible: boolean }) {
@@ -41,13 +49,14 @@ export function Notices({ data, visible }: { data: WalletObituariesData; visible
       <ol className="rail__list">
         {data.obituaries.map((o, i) => (
           <motion.li key={`${o.address}-${o.exit.txHash}`} variants={item}>
-            <a href={`#obit-${i}`}>
+            <a className="rail__jump" href={`#obit-${i}`} onClick={() => caption(jumpCaption(o, i), 6000)}>
               <span className="rail__sym">${o.exit.symbol}</span>
               <span className="rail__who">
                 {shortAddress(o.address, 4)} · {chainName(o.chain)}
               </span>
               <span className="rail__val">{usd(o.exit.valueUsd)}</span>
             </a>
+            <NansenLink address={o.address} chain={o.chain} className="obit-nansen" />
           </motion.li>
         ))}
       </ol>

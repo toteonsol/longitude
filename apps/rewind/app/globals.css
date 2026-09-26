@@ -640,6 +640,36 @@ body {
   opacity: 0.55;
 }
 
+/* The Nansen pill (from LOCK on) sits on the cassette's tape window. It is the button's sibling, laid over
+   it, so the rack never reflows; the 1px lift keeps it in front inside the tilt's 3D context. */
+.cassette__tilt {
+  position: relative;
+}
+
+.cassette__nansen {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  right: 9px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tape-color);
+  pointer-events: none;
+  transform: translateZ(1px);
+}
+
+.cassette__nansen .lg-nansen {
+  pointer-events: auto;
+  background: #0a0a0a;
+}
+
+.cassette__nansen .lg-nansen:hover,
+.cassette__nansen .lg-nansen:focus-visible {
+  background: color-mix(in oklab, currentColor 18%, #0a0a0a);
+}
+
 /* Rubber stamps */
 .stamp {
   position: absolute;
@@ -1028,6 +1058,13 @@ body {
   color: #444;
 }
 
+/* After the reveal: the pick's Nansen pill under its return, in the tape's colour */
+.legend .legend__nansen {
+  align-self: flex-start;
+  margin-top: 4px;
+  color: var(--tape-color);
+}
+
 /* Smaller sets */
 @media (max-width: 960px) {
   .rewind {
@@ -1058,6 +1095,11 @@ body {
   .cassette {
     min-height: 150px;
     padding: 6px;
+  }
+  .cassette__nansen {
+    top: 7px;
+    left: 7px;
+    right: 7px;
   }
   .cassette__sym {
     font-size: 24px;

@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { AnimatePresence, Grow, fmt, motion } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import type { Building } from "@/lib/data";
@@ -37,6 +38,7 @@ export function BuildingPanel({ building: b, plan, pinned, onClose, onHold, onRe
                 <span className="panel__name">
                   {b.name} · <em>{b.chain}</em>
                 </span>
+                <NansenLink kind="token" address={b.address} chain={b.chain} className="panel__nansen" />
               </div>
               {pinned ? (
                 <button type="button" className="panel__close" onClick={onClose} aria-label="Unpin this building">

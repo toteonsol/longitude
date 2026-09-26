@@ -1,4 +1,5 @@
 "use client";
+import { caption } from "@longitude/kit";
 import { type MouseEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { LastOnesOutData } from "@/lib/data";
 import { buildingKey, planBuilding } from "@/lib/windows";
@@ -49,6 +50,15 @@ export function CityNight({ data }: { data: LastOnesOutData }) {
   );
   useEffect(() => hold, [hold]);
 
+  // Recording captions (?rec=1): a building pinned by a tap or from the register gets a line on what it shows.
+  useEffect(() => {
+    if (pinned) caption("Height shows this week's smart money exit and lit windows show retail still in, both from Nansen flow data.", 6000);
+  }, [pinned]);
+  const replay = () => {
+    setTake((t) => t + 1);
+    caption("The more smart money has left, the more windows switch off; the lights still on are retail that stayed.", 6000);
+  };
+
   const onTap = useCallback((key: string) => setPinned((p) => (p === key ? null : key)), []);
   const onSelect = useCallback((key: string) => {
     setPinned(key);
@@ -67,7 +77,7 @@ export function CityNight({ data }: { data: LastOnesOutData }) {
         <div className="skyline__bar">
           <span className="skyline__kicker">Tonight · tallest = biggest smart money exit</span>
           <span className="skyline__hint">swipe to pan</span>
-          <button type="button" className="lg-btn lg-btn--ghost skyline__replay" onClick={() => setTake((t) => t + 1)}>
+          <button type="button" className="lg-btn lg-btn--ghost skyline__replay" onClick={replay}>
             Replay the blackout
           </button>
         </div>

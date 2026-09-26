@@ -732,6 +732,19 @@ body {
   color: var(--red);
 }
 
+/* The flow figure with the token's Nansen pill pinned right, so the pill holds still while the number ticks */
+.river__headline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.river__headline .lg-nansen {
+  color: var(--river-deep);
+}
+
 .river__stats {
   display: grid;
   grid-template-columns: 1fr 1fr;

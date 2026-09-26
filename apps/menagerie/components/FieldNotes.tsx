@@ -1,4 +1,5 @@
 "use client";
+import { NansenLink } from "@longitude/kit";
 import { AnimatePresence, NumberTicker, Stagger, StaggerItem, type Transition, type Variants, fmt, motion, useReducedMotion } from "@longitude/motion";
 import { useEffect, useState } from "react";
 import type { Animal, AnimalChain, Herd, Species } from "@/lib/data";
@@ -157,6 +158,7 @@ export function FieldNotes({ animal, species, herd, collected, onCollect, onClos
             <div className="notes__subject">
               <span className="notes__stamp">{animal.label}</span>
               <span className="notes__chain">{CHAIN[animal.chain]}</span>
+              <NansenLink address={animal.address} chain={animal.chain} label="Nansen Profiler" className="notes__nansen" />
               <code className="notes__addr">{animal.address}</code>
             </div>
 
