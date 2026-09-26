@@ -218,7 +218,7 @@ function Plate({ token, holder, now, overdue, watched, onWatch }: PlateProps) {
         {shortAddress(holder.address, 6)} <NansenLink address={holder.address} chain={token.chain} />
       </span>
       <span className="dial__plate-time">
-        {ms <= 0 ? "overdue by" : "exits in"} <b>{formatCountdown(ms)}</b>
+        {ms <= 0 ? "overdue by" : "exits in"} <b>{formatCountdown(ms <= 0 ? -ms : ms)}</b>
       </span>
       <span className="dial__plate-meta">
         {fmt.usd(holder.valueUsd)} held · {fmt.pct(holder.ownershipPct, 2)} of supply · hold {formatHold(holder.avgHoldHours)} ({trips}) ·{" "}
