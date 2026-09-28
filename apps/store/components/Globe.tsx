@@ -2,6 +2,7 @@
 import { type AppMeta, Captions, FeedTicker, Passport, appUrl, useIdentity, usePresence, withIdentity, withRecording } from "@longitude/kit";
 import { AnimatePresence, NumberTicker, motion, useAnimationFrame, useReducedMotion } from "@longitude/motion";
 import { type CSSProperties, useMemo, useRef, useState } from "react";
+import type { WalletSuggestion } from "@/lib/suggestions";
 import { SearchBox } from "./SearchBox";
 
 const R = 300;
@@ -70,9 +71,11 @@ export interface GlobeProps {
   apps: readonly AppMeta[];
   credits: { spent: number; apiCalls: number; cacheHits: number; remaining?: number };
   status: Record<string, "seeded" | "sample">;
+  /** Real wallets to try in the lens, from the apps' current data. */
+  suggestions?: WalletSuggestion[];
 }
 
-export function Globe({ apps, credits, status }: GlobeProps) {
+export function Globe({ apps, credits, status, suggestions = [] }: GlobeProps) {
   const [rot, setRot] = useState(12);
   const [hot, setHotState] = useState<AppMeta | null>(null);
   const reduce = useReducedMotion();
@@ -323,7 +326,7 @@ export function Globe({ apps, credits, status }: GlobeProps) {
       </div>
 
       <div className="store__search">
-        <SearchBox />
+        <SearchBox suggestions={suggestions} />
       </div>
 
       <div className="store__social">

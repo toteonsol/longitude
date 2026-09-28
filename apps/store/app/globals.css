@@ -754,3 +754,67 @@ body {
   text-decoration: none;
   opacity: 0.7;
 }
+
+/* "No wallet handy?": real wallets from the apps' current data, one tap into the lens. */
+.search__try {
+  margin-top: 12px;
+}
+
+.search__try-label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.search__try-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: 8px;
+}
+
+.search__try-item {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, var(--world-ink) 16%, transparent);
+  background: color-mix(in oklab, var(--world-surface) 55%, transparent);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
+}
+
+.search__try-item:hover,
+.search__try-item:focus-visible {
+  border-color: var(--world-accent);
+  background: color-mix(in oklab, var(--world-accent) 12%, transparent);
+  transform: translateY(-1px);
+}
+
+.search__try-item b {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.search__try-item small {
+  font-size: 12px;
+  opacity: 0.7;
+  overflow-wrap: anywhere;
+}
+
+.search__try-item .lg-addr {
+  font-family: var(--lg-font-mono);
+  font-size: 11px;
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search__try-item {
+    transition: none;
+  }
+}

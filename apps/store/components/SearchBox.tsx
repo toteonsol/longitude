@@ -2,6 +2,7 @@
 import { appUrl, useIdentity, withIdentity } from "@longitude/kit";
 import { AnimatePresence, fmt, motion } from "@longitude/motion";
 import { useEffect, useRef, useState } from "react";
+import type { WalletSuggestion } from "@/lib/suggestions";
 
 interface Token {
   name?: string;
@@ -24,8 +25,11 @@ interface Result {
   error?: string;
 }
 
-/** Find a token, an entity or a wallet across the globe. Zero Nansen credits per search. */
-export function SearchBox() {
+/**
+ * Find a token, an entity or a wallet across the globe. Zero Nansen credits per search. With nothing typed
+ * it offers a few real wallets from the apps' current data, for anyone without an address to hand.
+ */
+export function SearchBox({ suggestions = [] }: { suggestions?: WalletSuggestion[] }) {
   const [q, setQ] = useState("");
   const [res, setRes] = useState<Result | null>(null);
   const [busy, setBusy] = useState(false);
@@ -54,8 +58,9 @@ export function SearchBox() {
   }, [q]);
 
   const scoutUrl = (address: string) => withIdentity(`${appUrl("rookie-scout")}/scout/${encodeURIComponent(address)}`, me?.id);
-  const lensUrl = (address: string) => `/wallet/${encodeURIComponent(address)}`;
+  const lensUrl = (address: string, chain?: string) => `/wallet/${encodeURIComponent(address)}${chain ? `?chain=${chain}` : ""}`;
   const open = res && (res.wallet || res.tokens.length > 0 || res.entities.length > 0);
+  const showSuggestions = !open && q.trim().length < 2 && suggestions.length > 0;
 
   return (
     <div className="search">
@@ -66,6 +71,22 @@ export function SearchBox() {
         <input id="globe-search" className="search__input" value={q} onChange={(e) => setQ(e.target.value)} placeholder="PEPE, Jump Trading, 0x… or a Solana address" spellCheck={false} autoComplete="off" />
         <span className={`search__spin${busy ? " is-on" : ""}`} aria-hidden="true" />
       </div>
+      {showSuggestions ? (
+        <div className="search__try">
+          <span className="search__try-label">No wallet handy? Try one of these</span>
+          <div className="search__try-list">
+            {suggestions.map((s) => (
+              <a key={s.address} className="search__try-item" href={lensUrl(s.address, s.chain)}>
+                <b>{s.title}</b>
+                <small>{s.source}</small>
+                <span className="lg-addr">
+                  {s.address.slice(0, 6)}…{s.address.slice(-4)}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : null}
       <AnimatePresence>
         {open ? (
           <motion.div className="search__results" initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.18 }}>

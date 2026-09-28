@@ -3,6 +3,7 @@ import { APP_BY_ID, Captions, NansenLink, Passport, ShareButton, appUrl, storeUr
 import { NumberTicker, Reveal, Stagger, StaggerItem, fmt } from "@longitude/motion";
 import { shortAddress } from "@longitude/nansen";
 import type { CSSProperties } from "react";
+import type { WalletSuggestion } from "@/lib/suggestions";
 import type { WalletLens as Lens } from "@/lib/wallet";
 import { SearchBox } from "./SearchBox";
 
@@ -24,7 +25,7 @@ function Card({ app, title, children, cta, href }: { app: keyof typeof APP_BY_ID
   );
 }
 
-export function WalletLens({ lens, scoutUrl }: { lens: Lens | { error: string }; scoutUrl: string }) {
+export function WalletLens({ lens, scoutUrl, suggestions = [] }: { lens: Lens | { error: string }; scoutUrl: string; suggestions?: WalletSuggestion[] }) {
   const me = useIdentity();
   const l = (id: keyof typeof APP_BY_ID) => withIdentity(appUrl(id), me?.id);
   return (
@@ -40,7 +41,7 @@ export function WalletLens({ lens, scoutUrl }: { lens: Lens | { error: string };
         <span className="lens__kicker">wallet lens</span>
       </header>
       <div className="lens__search">
-        <SearchBox />
+        <SearchBox suggestions={suggestions} />
       </div>
       {"error" in lens ? (
         <Reveal className="lens__error">

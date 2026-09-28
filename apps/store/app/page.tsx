@@ -1,11 +1,12 @@
 import { APPS } from "@longitude/kit";
 import { readManifest, readTotals } from "@longitude/kit/server";
 import { Globe } from "@/components/Globe";
+import { walletSuggestions } from "@/lib/suggestions";
 
 export const dynamic = "force-dynamic";
 
 export default async function StorePage() {
-  const [manifest, totals] = await Promise.all([readManifest(), readTotals().catch(() => undefined)]);
+  const [manifest, totals, suggestions] = await Promise.all([readManifest(), readTotals().catch(() => undefined), walletSuggestions().catch(() => [])]);
   // The call log already contains the seed runs, so it is the source of truth; the manifest's seed
   // credits are the floor for deployments that have no shared log (no Upstash configured).
   const seeded = Object.values(manifest).reduce((sum, m) => sum + (m.sample ? 0 : m.credits), 0);
@@ -17,6 +18,7 @@ export default async function StorePage() {
       apps={APPS}
       credits={{ spent, apiCalls: totals?.apiCalls ?? 0, cacheHits: totals?.cachedCalls ?? 0, remaining: totals?.creditsRemaining }}
       status={status}
+      suggestions={suggestions}
     />
   );
 }

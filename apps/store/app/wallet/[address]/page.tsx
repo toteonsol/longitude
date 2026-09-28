@@ -2,6 +2,7 @@ import { appUrl, storeUrl } from "@longitude/kit";
 import { shortAddress } from "@longitude/nansen";
 import type { Metadata } from "next";
 import { WalletLens } from "@/components/WalletLens";
+import { walletSuggestions } from "@/lib/suggestions";
 import { readWallet } from "@/lib/wallet";
 
 export const dynamic = "force-dynamic";
@@ -19,6 +20,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function WalletPage({ params, searchParams }: Props) {
   const { address } = await params;
   const q = await searchParams;
-  const lens = await readWallet(decodeURIComponent(address), typeof q.chain === "string" ? q.chain : undefined);
-  return <WalletLens lens={lens} scoutUrl={`${appUrl("rookie-scout")}/scout/${encodeURIComponent(decodeURIComponent(address))}`} />;
+  const [lens, suggestions] = await Promise.all([
+    readWallet(decodeURIComponent(address), typeof q.chain === "string" ? q.chain : undefined),
+    walletSuggestions().catch(() => []),
+  ]);
+  const current = decodeURIComponent(address).toLowerCase();
+  return (
+    <WalletLens
+      lens={lens}
+      scoutUrl={`${appUrl("rookie-scout")}/scout/${encodeURIComponent(decodeURIComponent(address))}`}
+      suggestions={suggestions.filter((s) => s.address.toLowerCase() !== current)}
+    />
+  );
 }
